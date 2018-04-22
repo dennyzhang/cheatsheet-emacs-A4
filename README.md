@@ -33,6 +33,7 @@ Table of Contents
 | Excels in Emacs             | [org-mode-table.org](org-mode-table.org)              |
 | Emacs elpa packages' folder | `~/.emacs.d/elpa/`                                    |
 | Regrexp In Emacs            | [regexp-string-match.el](regexp-string-match.el)      |
+| Set default value           | `(setq-default indent-tabs-mode nil)`                 | 
   
 ## Org-mode In Emacs
 
@@ -71,12 +72,13 @@ Table of Contents
 
 ## Array
 
-| Name                | Comment                           |
-| :------------------ | --------------------------------- |
-| Create a list       | `(setq field-list '())`           |
-| Add item to list    | `(add-to-list 'my-list new-item)` |
-| Head of a list      | `(car '(a b c))`                  |
-| Tail of a list      | `(cdr '(a b c))`                  |
+| Name                | Comment                                  |
+| :------------------ | ---------------------------------------- |
+| Create a list       | `(defvar my-list (list "item1, item2"))  |
+| Add item to list    | `(add-to-list 'my-list "item3")`         |
+| Head of a list      | `(car '(a b c))`                         |
+| Tail of a list      | `(cdr '(a b c))`                         |
+| Loop a list         | `(dolist (item my-list) (message item))` |
   
 ## Files
 
