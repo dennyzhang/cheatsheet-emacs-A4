@@ -24,6 +24,14 @@ Table of Contents
 
 **Emacs Elisp CheatSheet**: https://github.com/DennyZhang/cheatsheet-elisp-A4
   
+## Frequently Used
+
+| Name                                 | Comment                                                                |
+| :----------------------------------  | ---------------------------------------------------------------------- |
+| Debug a function                     | `edebug-defun`                                                         |
+| Change function via advice           | `defadvice` ;; You can't hardly find the equivalent in other languages |
+| Create org-mode tables with formulas | [org-mode-table.org](org-mode-table.org)                               |
+  
 ## Array
 
 | Name                           | Comment                                      |
