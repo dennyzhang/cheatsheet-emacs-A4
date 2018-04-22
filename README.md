@@ -31,7 +31,27 @@ Table of Contents
 | Debug a function                     | `edebug-defun`                                                         |
 | Change function via advice           | `defadvice` ;; You can't hardly find the equivalent in other languages |
 | Create org-mode tables with formulas | [org-mode-table.org](org-mode-table.org)                               |
+| Emacs elpa packages' folder          | `~/.emacs.d/elpa/`                                                     | 
   
+## Org-mode In Emacs
+
+| Name                        | Comment                                    |
+| :-------------------------- | ------------------------------------------ |
+| Export org-mode to markdown | `org-md-export-to-markdown` `C-c C-e m m`  |
+
+## GNUS - Mail In Emacs
+
+| Name                      | Comment                                      |
+| :------------------------ | -------------------------------------------- |
+| Create delayed email      | `gnus-delay-article` `C-c C-j`               | 
+
+## View In Emacs
+
+| Name                                         | Comment                                      |
+| :------------------------------------------- | -------------------------------------------- |
+| Move forward across one balanced expression  | `forward-sexp` `C-M-f`                       |
+| Move backward across one balanced expression | `backward-sexp` `C-M-b`                      |
+
 ## Array
 
 | Name                           | Comment                                      |
@@ -39,29 +59,29 @@ Table of Contents
   
 ## String
 
-| Name                        | Comment                                              |
-| :------------------------   | ---------------------------------------------------- |
+| Name                | Comment                   |
+| :------------------ | ------------------------- |
 
 ## Integer
 
-| Name             | Comment                                          |
-| :------------    | ------------------------------------------------ |
+| Name          | Comment                      |
+| :------------ | ---------------------------- |
   
 ## Dict/Hashmap/Map
 
-| Name                 | Comment                                        |
-| :------------------- | ---------------------------------------------- |
+| Name          | Comment                      |
+| :------------ | ---------------------------- |
   
 ## Files
 
-| Name                            | Comment                                   |
-| :------------------------------ | ----------------------------------------- |
+| Name          | Comment                      |
+| :------------ | ---------------------------- |
   
 ## Math
 
 | Name          | Comment                  |
 | :------------ | ------------------------ |
-
+  
 # Code snippets
 
 # More links
