@@ -52,10 +52,16 @@ Table of Contents
 | Move forward across one balanced expression  | `forward-sexp` `C-M-f`                       |
 | Move backward across one balanced expression | `backward-sexp` `C-M-b`                      |
 
+## Buffer Operations
+
+| Name                     | Comment                                |
+| :----------------------- | -------------------------------------- |
+| Replace string by regexp | [buffer-replace.el](buffer-replace.el) |
+
 ## Array
 
-| Name                           | Comment                                      |
-| :----------------------------- | -------------------------------------------- |
+| Name                | Comment                   |
+| :------------------ | ------------------------- |
   
 ## String
 
