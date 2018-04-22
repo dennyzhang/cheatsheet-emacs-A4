@@ -32,7 +32,7 @@ Table of Contents
 | Change function via advice  | `defadvice` ;; Super inspiring feature!               |
 | Excels in Emacs             | [org-mode-table.org](org-mode-table.org)              |
 | Emacs elpa packages' folder | `~/.emacs.d/elpa/`                                    |
-| Regrexp In Emacs            | `(string-match "\\(^[^.-]*\\)-\\([^.-]*\\)" string1)` |
+| Regrexp In Emacs            | [regexp-string-match.el](regexp-string-match.el)      |
   
 ## Org-mode In Emacs
 
