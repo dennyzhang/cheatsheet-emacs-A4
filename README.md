@@ -14,11 +14,14 @@ See more CheatSheets from Denny: [#denny-cheatsheets](https://github.com/topics/
 Table of Contents
 =================
 
-   * [cheatsheet-elisp-A4](#cheatsheet-elisp-A4)
-      * [Array](#array)
+   * [cheatsheet-elisp-A4](#cheatsheet-elisp-a4)
+      * [Frequently Used](#frequently-used)
+      * [Org-mode In Emacs](#org-mode-in-emacs)
+      * [GNUS - Mail In Emacs](#gnus---mail-in-emacs)
+      * [View In Emacs](#view-in-emacs)
+      * [Buffer Operations](#buffer-operations)
       * [String](#string)
-      * [Integer](#integer)
-      * [Dict/Hashmap/Map](#dicthashmapmap)
+      * [Array](#array)
       * [Files](#files)
       * [Math](#math)
    * [Code snippets](#code-snippets)
