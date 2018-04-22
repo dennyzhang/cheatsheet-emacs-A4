@@ -55,11 +55,12 @@ Table of Contents
 
 ## Buffer Operations
 
-| Name                     | Comment                                |
-| :----------------------- | -------------------------------------- |
-| Move to top              | `(goto-char (point-min))`              |
-| Replace string by regexp | [buffer-replace.el](buffer-replace.el) |
-| Delete region            | `(delete-region start-pos end-pos)`    |
+| Name                          | Comment                                              |
+| :-----------------------      | ---------------------------------------------------- |
+| Move to top                   | `(goto-char (point-min))`                            |
+| Replace string by regexp      | [buffer-replace.el](buffer-replace.el)               |
+| Delete region                 | `(delete-region start-pos end-pos)`                  |
+| Buffer string with plain text | `(buffer-substring-no-properties start-pos end-pos)` |
 
 ## String
 
@@ -73,7 +74,9 @@ Table of Contents
 | Name                | Comment                                                            |
 | :------------------ | ------------------------------------------------------------------ |
 | Create a list       | `(setq field-list '())`                                            |
-| Add item to list    | `(add-to-list 'field-list (list (make-symbol "post_id") post-id))` | 
+| Add item to list    | `(add-to-list 'field-list (list (make-symbol "post_id") post-id))` |
+| Head of a list      | `(car '(a b c))`                                                   |
+| Tail of a list      | `(cdr '(a b c))`                                                   |
   
 ## Integer
 
