@@ -26,12 +26,13 @@ Table of Contents
   
 ## Frequently Used
 
-| Name                        | Comment                                   |
-| :-------------------------- | ----------------------------------------- |
-| Debug a function            | `edebug-defun`                            |
-| Change function via advice  | `defadvice` ;; Super inspiring feature !  |
-| Excels in Emacs             | [org-mode-table.org](org-mode-table.org)  |
-| Emacs elpa packages' folder | `~/.emacs.d/elpa/`                        |
+| Name                        | Comment                                               |
+| :-------------------------- | ----------------------------------------------------- |
+| Debug a function            | `edebug-defun`                                        |
+| Change function via advice  | `defadvice` ;; Super inspiring feature!               |
+| Excels in Emacs             | [org-mode-table.org](org-mode-table.org)              |
+| Emacs elpa packages' folder | `~/.emacs.d/elpa/`                                    |
+| Regrexp In Emacs            | `(string-match "\\(^[^.-]*\\)-\\([^.-]*\\)" string1)` |
   
 ## Org-mode In Emacs
 
@@ -56,18 +57,24 @@ Table of Contents
 
 | Name                     | Comment                                |
 | :----------------------- | -------------------------------------- |
+| Move to top              | `(goto-char (point-min))`              |
 | Replace string by regexp | [buffer-replace.el](buffer-replace.el) |
+| Delete region            | `(delete-region start-pos end-pos)`    |
+
+## String
+
+| Name                | Comment                                                |
+| :------------------ | ------------------------------------------------------ |
+| Replace by regexp   | `(setq ret (replace-regexp-in-string "<hr/>" "" ret))` |
+| Format string       | `(format "%s/%s" mywordpress-server-url blog-uri)`     |
 
 ## Array
 
-| Name                | Comment                   |
-| :------------------ | ------------------------- |
+| Name                | Comment                                                            |
+| :------------------ | ------------------------------------------------------------------ |
+| Create a list       | `(setq field-list '())`                                            |
+| Add item to list    | `(add-to-list 'field-list (list (make-symbol "post_id") post-id))` | 
   
-## String
-
-| Name                | Comment                   |
-| :------------------ | ------------------------- |
-
 ## Integer
 
 | Name          | Comment                      |
@@ -82,6 +89,8 @@ Table of Contents
 
 | Name          | Comment                      |
 | :------------ | ---------------------------- |
+| Open file     | `(find-file html-file)`      |
+| Save file     | `(write-file html-file nil)` |
   
 ## Math
 
