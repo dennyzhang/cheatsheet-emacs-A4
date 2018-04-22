@@ -26,12 +26,12 @@ Table of Contents
   
 ## Frequently Used
 
-| Name                                 | Comment                                                                |
-| :----------------------------------  | ---------------------------------------------------------------------- |
-| Debug a function                     | `edebug-defun`                                                         |
-| Change function via advice           | `defadvice` ;; You can't hardly find the equivalent in other languages |
-| Create org-mode tables with formulas | [org-mode-table.org](org-mode-table.org)                               |
-| Emacs elpa packages' folder          | `~/.emacs.d/elpa/`                                                     | 
+| Name                        | Comment                                   |
+| :-------------------------- | ----------------------------------------- |
+| Debug a function            | `edebug-defun`                            |
+| Change function via advice  | `defadvice` ;; Super inspiring feature !  |
+| Excels in Emacs             | [org-mode-table.org](org-mode-table.org)  |
+| Emacs elpa packages' folder | `~/.emacs.d/elpa/`                        |
   
 ## Org-mode In Emacs
 
@@ -41,16 +41,16 @@ Table of Contents
 
 ## GNUS - Mail In Emacs
 
-| Name                      | Comment                                      |
-| :------------------------ | -------------------------------------------- |
-| Create delayed email      | `gnus-delay-article` `C-c C-j`               | 
+| Name                  | Comment                          |
+| :-------------------- | -------------------------------- |
+| Create delayed email  | `gnus-delay-article` `C-c C-j`   |
 
 ## View In Emacs
 
-| Name                                         | Comment                                      |
-| :------------------------------------------- | -------------------------------------------- |
-| Move forward across one balanced expression  | `forward-sexp` `C-M-f`                       |
-| Move backward across one balanced expression | `backward-sexp` `C-M-b`                      |
+| Name                                         | Comment                  |
+| :------------------------------------------- | ------------------------ |
+| Move forward across one balanced expression  | `forward-sexp` `C-M-f`   |
+| Move backward across one balanced expression | `backward-sexp` `C-M-b`  |
 
 ## Buffer Operations
 
