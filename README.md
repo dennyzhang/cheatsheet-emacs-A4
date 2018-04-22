@@ -7,6 +7,10 @@ File me [tickets](https://github.com/DennyZhang/cheatsheet-elisp-A4/issues) or s
 
 See more CheatSheets from Denny: [#denny-cheatsheets](https://github.com/topics/denny-cheatsheets)
 
+<a href="https://www.dennyzhang.com"><img align="right" width="185" height="37" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/dns_small.png"></a>
+
+**Emacs Elisp CheatSheet**: https://github.com/DennyZhang/cheatsheet-elisp-A4
+  
 Table of Contents
 =================
 
@@ -20,10 +24,6 @@ Table of Contents
    * [Code snippets](#code-snippets)
    * [More links](#more-links)
 
-<a href="https://www.dennyzhang.com"><img align="right" width="185" height="37" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/dns_small.png"></a>
-
-**Emacs Elisp CheatSheet**: https://github.com/DennyZhang/cheatsheet-elisp-A4
-  
 ## Frequently Used
 
 | Name                        | Comment                                               |
@@ -71,22 +71,12 @@ Table of Contents
 
 ## Array
 
-| Name                | Comment                                                            |
-| :------------------ | ------------------------------------------------------------------ |
-| Create a list       | `(setq field-list '())`                                            |
-| Add item to list    | `(add-to-list 'field-list (list (make-symbol "post_id") post-id))` |
-| Head of a list      | `(car '(a b c))`                                                   |
-| Tail of a list      | `(cdr '(a b c))`                                                   |
-  
-## Integer
-
-| Name          | Comment                      |
-| :------------ | ---------------------------- |
-  
-## Dict/Hashmap/Map
-
-| Name          | Comment                      |
-| :------------ | ---------------------------- |
+| Name                | Comment                           |
+| :------------------ | --------------------------------- |
+| Create a list       | `(setq field-list '())`           |
+| Add item to list    | `(add-to-list 'my-list new-item)` |
+| Head of a list      | `(car '(a b c))`                  |
+| Tail of a list      | `(cdr '(a b c))`                  |
   
 ## Files
 
