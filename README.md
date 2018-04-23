@@ -77,7 +77,7 @@ Table of Contents
 
 | Name                | Comment                                  |
 | :------------------ | ---------------------------------------- |
-| Create a list       | `(defvar my-list (list "item1, item2"))  |
+| Create a list       | `(defvar my-list (list "item1, item2"))` |
 | Add item to list    | `(add-to-list 'my-list "item3")`         |
 | Head of a list      | `(car '(a b c))`                         |
 | Tail of a list      | `(cdr '(a b c))`                         |
