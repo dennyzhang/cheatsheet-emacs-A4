@@ -1,0 +1,1988 @@
+-*- mode:org; fill-column:70; coding:utf-8; -*-
+* org-mode configuration
+#+STARTUP: overview customtime noalign logdone hidestars
+#+TAGS: ARCHIVE(a) WORK(w) LIFE(l) EMACS(e) IMPORTANT(i) Debug(d) Communication(c) RECOMMENDATE(r) Tool(t) Habit(h) noexport(n) Share (s) BLOG(b)
+#+SEQ_TODO: TODO HALF ASSIGN | DONE BYPASS DELEGATE CANCELED DEFERRED
+#+DRAWERS: HIDDEN CODE CONF EMAIL WEBPAGE SNIP
+#+PRIORITIES: A D C
+#+ARCHIVE: %s_done::** Finished Tasks
+#+AUTHOR: dennyzhang.com (denny@dennyzhang.com)
+#+OPTIONS: creator:nil
+#+OPTIONS: toc:2 \n:t ^:nil creator:nil d:nil
+* [#A] Emacs -- fundanmental features                                  :Tool:Personal:
+:PROPERTIES:
+:type:   Emacs
+:END:
+[[https://www.dennyzhang.com/wp-content/uploads/2014/04//blog_emacs.png]]
+
+| Num | Item                       | Comment                         |
+|-----+----------------------------+---------------------------------|
+|   1 | M-x locate-library         |                                 |
+|   2 | M-x list-load-path-shadows | Debug conflicting installations |
+|   3 | M-x find-library           |                                 |
+#+TBLFM: $1=@-1$1+1;N
+** Check latest skills of emacs
+./configure --with-crt-dir=/usr/lib/x86_64-linux-gnu
+- Check my emacs configuration at github: https://github.com/DennyZhang/Denny-s-emacs-configuration
+- If Emacs is an operating system, Org-mode is the office/productivity suite.
+- obtain emacs source code: wget http://ftp.gnu.org/pub/gnu/emacs/emacs-23.4.tar.gz ~/emacs-23.4.tar.gz
+
+| Item           | Comment                                         |
+|----------------+-------------------------------------------------|
+| github         | https://github.com/languages/Emacs%20Lisp       |
+| google         | “emacs-related-keywords site:stackoverflow.com” |
+| twitter        | 在twitter上以”emacs :en”定期搜索                |
+| sacha hua blog | http://sachachua.com/blog/                      |
+| Xah Lee blog   |                                                 |
+** [#A] Web-browse in emacs
+*** DONE Why browse the Web in Emacs
+ CLOSED: [2009-11-22 Sun 22:45]
+- Browsing is faster and less distracting
+- You can integrate it into your work
+- You can customize everything
+- You're safe from browser exploits
+- You need less memory
+*** [#A] Webjump in emacs
+通过emacs去管理网页收藏夹
+
+示例配置: https://github.com/DennyZhang/Denny-s-emacs-configuration/blob/master/web-browse-setting.el
+**** DONE [#A] emacs webjump: webhost匹配时, 使用子串匹配, 而不是前缀匹配: 直接使用*XX*即可
+ CLOSED: [2011-09-27 Tue 18:13]
+**** TODO [#A] emacs webjump: 有些网站中国的keyword输入不行
+#+BEGIN_EXAMPLE
+(webjump-url-encode keywords)
+
+http://s.taobao.com/search?q=%E8%A1%A3%E6%9C%8D\\
+http://s.taobao.com/search?q=%D2%C2%B7%FE\\
+#+END_EXAMPLE
+**** CANCELED webjump-plus.el — supplemental Web site list for webjump (by Neil W. Van Dyke)
+#+BEGIN_EXAMPLE
+ CLOSED: [2011-09-12 Mon 23:35]
+ http://www.neilvandyke.org/webjump/\\
+#+END_EXAMPLE
+*** [#A] w3m in emacs                                             :IMPORTANT:
+| Item                                                        | Summary                                                          |
+|-------------------------------------------------------------+------------------------------------------------------------------|
+| C-c C-p                                                     | (w3m-previous-buffer)                                            |
+| C-c C-n                                                     | (w3m-next-buffer)                                                |
+|-------------------------------------------------------------+------------------------------------------------------------------|
+| R                                                           | Reload the current page                                          |
+| TAB                                                         | Move the point to the next anchor.                               |
+| B                                                           | Move back to the previous page in the history.                   |
+| N                                                           | Move forward to the next page in the history.                    |
+| c                                                           | Display the url of the current page and put it into `kill-ring'. |
+| S                                                           | Query to the search engine a word.                               |
+| s                                                           | Display the history of pages you have visited in the session.    |
+| C-c C-t Create a copy of the current page as a new session. |                                                                  |
+| .                                                           | Shift to the left                                                |
+| ,                                                           | Shift to the right                                               |
+| M                                                           | Display the current page using the external browser.             |
+| u                                                           | Display the url under point and put it into `kill-ring'.         |
+| C-c C-s                                                     | (w3m-select-buffer)                                              |
+| G                                                           | Visit the web page in a new session.                             |
+| <S-return>                                                  | Display the page of the link in a new session.                   |
+|-------------------------------------------------------------+------------------------------------------------------------------|
+| M-x w3m-current-title                                       | 在w3m中如何得到当前网页的文件名:                                 |
+**** DONE windows上安装使用w3m: cygwin中安装w3m即可                    :HARD:
+  CLOSED: [2010-04-05 星期一 10:29]
+**** DONE show images in w3m: (setq w3m-default-display-inline-images t) :IMPORTANT:
+     CLOSED: [2010-04-18 星期日 12:45]
+***** useful link
+ http://osdir.com/ml/emacs.w3m/2002-06/msg00056.html\\
+ [emacs-w3m:03544] Re: display inline images for text/html using emacs-w3m (non-member post) - msg#00056 - emacs.w3m
+**** DONE [#B] 设置w3m默认的每行的字符数: (setq w3m-fill-column 100)
+     CLOSED: [2011-10-20 Thu 22:25]
+**** DONE emacs org-w3m: 拷w3m中网页时,　保存有效链接
+  CLOSED: [2011-07-22 Fri 22:42]
+  http://repo.or.cz/w/org-mode.git?a=blob_plain;f=lisp/org-w3m.el;hb=HEAD\\
+**** DONE 调整w3m中, 网页组某个网页的位置
+   CLOSED: [2011-10-20 Thu 22:28]
+(define-key map [?\C-c ?\C-,] 'w3m-tab-move-left)
+(define-key map [?\C-c ?\C-<] 'w3m-tab-move-left)
+**** DONE emacs-w3m开启时, 默认不之前的session, 以提高速度: (setq w3m-session-load-crashed-sessions nil)
+     CLOSED: [2011-10-26 Wed 21:13]
+**** CANCELED build from source code                               :noexport:
+  CLOSED: [2010-04-05 星期一 10:29]
+***** Imlib2
+****** basic use
+#+BEGIN_EXAMPLE
+ Imlib 2 is the successor to Imlib. It is NOT a newer version - it is a completely new library.
+ Imlib 2 does the following:
+ - Load image files from disk in one of many formats
+ - Save images to disk in one of many formats
+ - Render image data onto other images
+ - Render images to an X-Windows drawable
+ - Produce pixmaps and pixmap masks of Images
+ - Apply filters to images
+ - Rotate images
+ - Accept RGBA Data for images
+ - Scale images
+ - Alpha blend Images on other images or drawables
+ - Apply color correction and modification tables and factors to images
+ - Render images onto images with color correction and modification tables
+ - Render truetype anti-aliased text
+ - Render truetype anti-aliased text at any angle
+ - Render anti-aliased lines
+ - Render rectangles
+ - Render linear multi-colored gradients
+ - Cache data intelligently for maximum performance
+ - Allocate colors automatically
+ - Allow full control over caching and color allocation
+ - Provide highly optimized MMX assembly for core routines
+ - Provide plug-in filter interface
+ - Provide on-the-fly runtime plug-in image loading and saving interface
+ - Fastest image compositing, rendering and manipulation library for X
+#+END_EXAMPLE
+****** useful link
+ http://docs.enlightenment.org/api/imlib2/html/\\
+ Imlib2 Library Documentation
+***** compface/uncompface
+  uncompface -- compress and expand 48x48x1 face image files
+****** useful link
+ http://linux.die.net/man/1/uncompface\\
+ uncompface(1) - Linux man page
+**** useful link
+ http://www.cnblogs.com/papam/archive/2009/08/26/1554726.html\\
+ Emacs w3m 配置
+ http://sourceforge.net/projects/w3m/files/\\
+ emacs-w3m
+ http://www.emacswiki.org/emacs/emacs-w3m\\
+ emacs-w3m
+ http://emacs-w3m.namazu.org/ml/msg07882.html\\
+ emacs-w3m 1.4.4 is released
+ http://emacs-w3m.namazu.org/#download\\
+ Emacs-w3m, a simple Emacs interface to w3m.
+ http://www.idcnews.net/html/edu/linux/20070101/282205.html\\
+ emacs-w3m配置说明
+ http://atomized.org/2008/09/emacs-w3m-buffer-name-disambiguation/\\
+ Emacs-w3m buffer name disambiguation
+ http://ahei.yo2.cn/w3m.htm\\
+ Emacs才是世界上最强的IDE - 在Emacs里用w3m浏览网页
+
+ http://sachachua.com/wp/2008/08/12/why-browse-the-web-in-emacs/\\
+ Why browse the Web in Emacs?
+** [#A] BBDB mode in emacs
+*** DONE [#A] 将bbdb导出成有头像的vcard                           :IMPORTANT:
+ CLOSED: [2011-09-17 Sat 16:48]
+- 将bbdb的每条记录导出成一个vcard文件
+ (bbdb-vcard-export "~/exported-vcards/" t t)
+
+- 删除不必要的vcard文件(奇怪：bbdb-vcard-export会生成多余的vcard文件)
+cd ~/exported-vcards/; rm -rf *-1.vcf
+
+- 针对每个vcard文件, 添加相应的PHOTO字段的二进制图片值
+ (update-bbdb-picture-to-vcard)
+
+- 将vcard合并成一个, 因为google只支持导入一个vcard
+ cd ~/exported-vcards/; cat * > /tmp/vcard.vcf
+
+- 通过google contact与手机同步
+  https://www.google.com/contacts_v2/#contacts
+**** useful link
+https://github.com/trebb/bbdb-vcard
+* [#A] Org-mode in emacs                                               :HARD:
+** org-mode数据组织的注意事项                           :noexport:HARD:EMACS:
+*** Attach unique id to the task: like attach bug number, for upgrade support
+*** Delete small tasks which are recorded mainly for the purpose of remind
+*** 为了在org-mode中提高查找命中率, 注意利用大小写的不同
+*** 编写条目时,注意标题结构。防止二义性
+*** 注意内容的前后排序顺序,提高按内容搜索的准确度
+*** todo和done词条之间是总结或未标注的内容。一旦标为DONE的记录就将不经常被查看,只作为知识库
+*** useful link
+ http://orgmode.org/worg/org-tutorials/index.php\\
+ Org tutorials
+** [#A] org-mode publishing
+*** DONE org-mode导出html时，设置为不转义_
+  CLOSED: [2012-07-01 日 01:31]
+  http://blog.ec-ae.com/?p=2542\\
+-:nil
+(setq org-export-with-sub-superscripts nil)
+*** DONE [#A] 将org-mode导出成html时, 保持换行                    :IMPORTANT:
+    CLOSED: [2011-11-11 Fri 11:53]
+**** 方法: 在文本前后, 加上标签: #+BEGIN_EXAMPLE\#+END_EXAMPLE等
+#+begin_src elisp
+(org-defkey org-mode-map [(meta return)] 'my-org-meta-return)
+(defun my-org-meta-return(&optional arg)
+  (interactive "P")
+  (org-meta-return)
+  (insert "\n#+BEGIN_EXAMPLE\n\n#+END_EXAMPLE")
+  (forward-line -3)
+  (org-end-of-line)
+)
+#+end_src
+**** 方法: 通过\n:t可以达到preserve line break, 不过org-mode开发者不再支持该feature了
+#+BEGIN_EXAMPLE
+开发者的理由是:
+I would argue that in fact it is a *much better* solution than a dumb
+preserve-all-linebreaks setting because
+
+  - it allows you to have normal text before and after the poem
+  - it wraps the output into a paragraph with class "verse",
+    so you can add CSS styling to it without changing
+    other formatting
+  - it is cleaner in every possible way.
+
+- Carsten
+#+END_EXAMPLE
+**** 方法: 遵循latex语法行尾添加\\, 或行之前加一个空行
+在emacs中, 必要的行尾添加\\, (rr "^\\([^\\* #].*[^\\|]$\\)" "\\1\\\\\\\\")
+**** useful link
+   http://orgmode.org/manual/Export-options.html\\
+   http://web.archiveorange.com/archive/v/Fv8aA6hixHxcMMzyteC3\\
+   http://web.archiveorange.com/archive/v/Fv8aAhHYJeeUeLvwvQVs\\
+   http://emacser.com/org-mode.htm\\
+**** [#A] 对于title中含有指定字符串的entry, 前后加上#+BEGIN_EXAMPLE和#+END_EXAMPLE :IMPORTANT:
+#+BEGIN_EXAMPLE
+(defun replace-entry(entry_title)
+  ;; filter entries whose title contains entry_title, then quote
+  ;;  content by #+BEGIN_EXAMPLE and #+END_EXAMPLE
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (search-forward-regexp (format "^\*.*%s" entry_title))
+    (forward-line 1)
+    (move-beginning-of-line nil)
+    ;; make sure the code is re-entrant
+    (unless (string= (buffer-substring-no-properties (point) (+ 2 (point))) "#+")
+      (insert "#+BEGIN_EXAMPLE\n")
+      (search-forward-regexp "^\*")
+      (insert "#+END_EXAMPLE\n")
+      )))
+#+END_EXAMPLE
+**** TODO 如果含有#+begin_src shell, 那么导出不成功                :noexport:
+**** 带有如下properties的, 导出会卡死                              :noexport:
+#+BEGIN_EXAMPLE
+sample: ** TODO Map接口与重要实现：　treeMap, HashMap, HashTable
+sample:
+sample: - HashMap可以有空值, 线程不安全
+sample: - HashMap不可以有空值, 线程安全
+#+END_EXAMPLE
+*** DONE 导出时, 使用当前title作为文件名: 全选后导出即可
+    CLOSED: [2011-11-11 Fri 16:24]
+*** DONE [#B] when export org-mode to html, don't export entries of TODO, CANCELED :IMPORTANT:
+  CLOSED: [2011-11-18 Fri 07:58]
+#+begin_example
+Problem:
+Exporting org-mode's entries to html is a fantastic way for knowledge sharing!
+
+Usually entries of "TODO" "HALF" "DELEGATE" "CANCELED" "DEFERRED" are incomplete/immature knowledge.
+Thus, I don't want to export them. Furthermore, after they are marked as "DONE", I'd like to export them.
+
+Any idea for how to achieve this?
+Note that org-export-exclude-tags doesn't help us, at my first glance.
+
+Draft solution:
+After checking the implementation of org-mode for this part, I found org-export-handle-export-tags function.
+It determines what to be excluded when exporting, by search regexp of :\\(TAG1\\|TAG2\\|...\\): in entries' title.
+
+Thus I override org-export-handle-export-tags, by search regexp of \\(TAG1\\|TAG2\\|...\\) with leading/tailing colon removed.
+
+It's ugly but it works.
+So my open question is what's the better solution?
+#+end_example
+**** codesnippet
+#+begin_src elisp
+;; Don't export entries marked as todo-state, in a hack way.
+;; TODO: need a better way, instead of override the default behaviour of org-export-handle-export-tags
+(dolist (exclude-title-item '("TODO" "HALF" "DELEGATE" "DONE" "CANCELED" "DEFERRED"))
+  (add-to-list 'org-export-exclude-tags exclude-title-item))
+
+(defun org-export-handle-export-tags (select-tags exclude-tags)
+  "Modify the buffer, honoring SELECT-TAGS and EXCLUDE-TAGS.
+Both arguments are lists of tags.
+If any of SELECT-TAGS is found, all trees not marked by a SELECT-TAG
+will be removed.
+After that, all subtrees that are marked by EXCLUDE-TAGS will be
+removed as well."
+  (remove-text-properties (point-min) (point-max) '(:org-delete t))
+  (let* ((re-sel (concat ":\\(" (mapconcat 'regexp-quote
+					   select-tags "\\|")
+			 "\\):"))
+	 ;; (re-excl (concat ":\\(" (mapconcat 'regexp-quote
+	 ;;        			   exclude-tags "\\|")
+	 ;;        	"\\):"))
+         ;; below two lines are hacked from above ones
+	 (re-excl (concat "\\(" (mapconcat 'regexp-quote
+					   exclude-tags "\\|")
+			"\\)"))
+	 beg end cont)
+    (goto-char (point-min))
+    (when (and select-tags
+	       (re-search-forward
+		(concat "^\\*+[ \t].*" re-sel "[^ \t\n]*[ \t]*$") nil t))
+      ;; At least one tree is marked for export, this means
+      ;; all the unmarked stuff needs to go.
+      ;; Dig out the trees that should be exported
+      (goto-char (point-min))
+      (outline-next-heading)
+      (setq beg (point))
+      (put-text-property beg (point-max) :org-delete t)
+      (while (re-search-forward re-sel nil t)
+	(when (org-on-heading-p)
+	  (org-back-to-heading)
+	  (remove-text-properties
+	   (max (1- (point)) (point-min))
+	   (setq cont (save-excursion (org-end-of-subtree t t)))
+	   '(:org-delete t))
+	  (while (and (org-up-heading-safe)
+		      (get-text-property (point) :org-delete))
+	    (remove-text-properties (max (1- (point)) (point-min))
+				    (point-at-eol) '(:org-delete t)))
+	  (goto-char cont))))
+    ;; Remove the trees explicitly marked for noexport
+    (when exclude-tags
+      (goto-char (point-min))
+      (while (re-search-forward re-excl nil t)
+	(when (org-at-heading-p)
+	  (org-back-to-heading t)
+	  (setq beg (point))
+	  (org-end-of-subtree t t)
+	  (delete-region beg (point))
+	  (when (featurep 'org-inlinetask)
+	    (org-inlinetask-remove-END-maybe)))))
+    ;; Remove everything that is now still marked for deletion
+    (goto-char (point-min))
+    (while (setq beg (text-property-any (point-min) (point-max) :org-delete t))
+      (setq end (or (next-single-property-change beg :org-delete)
+		    (point-max)))
+      (delete-region beg end))))
+#+end_src
+*** DONE [#A] org-mode中导出html时, 使用比较好看的CSS [5/9]       :IMPORTANT:
+ CLOSED: [2010-05-21 星期五 20:42]
+**** TODO 字体不好看
+**** TODO 自定制行距
+**** TODO 导出html时,table中单元格太长时,自动linewrap
+**** TODO 将table of contents放在右侧
+**** ;; -------------------------- separator --------------------------
+**** DONE mess up for code block
+ CLOSED: [2010-05-21 星期五 01:07]
+ #+BEGIN_SRC -t
+(defun org-xor (a b)
+ "Exclusive or."
+ (if a (not b) b))
+ #+END_SRC
+ http://www.gnu.org/software/emacs/manual/html_node/org/Text-areas-in-HTML-export.html#Text-areas-in-HTML-export\\
+ Text areas in HTML export
+**** DONE wiki page for css support in emacs                       :noexport:
+ CLOSED: [2010-05-20 星期四 23:52]
+ Next: Javascript support, Previous: Text areas in HTML export, Up: HTML export
+ 12.5.7 CSS support
+ You can also give style information for the exported file. The HTML exporter assigns the following special CSS classes1 to appropriate parts of the document—your style specifications may change these, in addition to any of the standard classes like for headlines, tables, etc.
+ p.author author information, including email
+ p.date publishing date
+ p.creator creator info, about org-mode version
+ .title document title
+ .todo TODO keywords, all not-done states
+ .done the DONE keywords, all stated the count as done
+ .WAITING each TODO keyword also uses a class named after itself
+ .timestamp timestamp
+ .timestamp-kwd keyword associated with a timestamp, like SCHEDULED
+ .timestamp-wrapper span around keyword plus timestamp
+ .tag tag in a headline
+ ._HOME each tag uses itself as a class, "@" replaced by "_"
+ .target target for links
+ .linenr the line number in a code example
+ .code-highlighted for highlighting referenced code lines
+ div.outline-N div for outline level N (headline plus text))
+ div.outline-text-N extra div for text at outline level N
+ .section-number-N section number in headlines, different for each level
+ div.figure how to format an inlined image
+ pre.src formatted source code
+ pre.example normal example
+ p.verse verse paragraph
+ div.footnotes footnote section headline
+ p.footnote footnote definition paragraph, containing a footnote
+ .footref a footnote reference number (always a <sup>)
+ .footnum footnote number in footnote definition (always <sup>)
+ Each exported file contains a compact default style that defines these classes in a basic way2. You may overwrite these settings, or add to them by using the variables org-export-html-style (for Org-wide settings) and org-export-html-style-extra (for more granular settings, like file-local settings). To set the latter variable individually for each file, you can use
+ #+STYLE: <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+ For longer style definitions, you can use several such lines. You could also directly write a <style> </style> section in this way, without referring to an external file.
+ Footnotes
+ [1] If the classes on TODO keywords and tags lead to conflicts, use the variables org-export-html-todo-kwd-class-prefix and org-export-html-tag-class-prefix to make them unique.
+ [2] This style is defined in the constant org-export-html-style-default, which you should not modify. To turn inclusion of these defaults off, customize org-export-html-style-include-default
+**** DONE 设置背景图片: background-image:url('org-background.jpg');
+ CLOSED: [2010-05-20 星期四 23:32]
+#+begin_example
+ body {
+ margin:10;
+ padding:0;
+ background-color: #f5f5d5 ;
+ font-family: Georgia, serif;
+ letter-spacing: -0.01em;
+ word-spacing:0.2em;
+ line-height: 1.6em;
+ font-size:62.5%;
+ color:#111111;
+ width:100%;
+ margin-left: 10%;
+ margin-right: 10%;
+ background-image: url("org-background.jpg");
+ background-repeat: repeat-y;
+ }
+#+end_example
+**** DONE 设置背景色
+ CLOSED: [2010-05-20 星期四 22:35]
+#+begin_example
+ body {
+ margin:10;
+ padding:0;
+ background-color: #f5f5d5 ;
+ font-family: Georgia, serif;
+ letter-spacing: -0.01em;
+ word-spacing:0.2em;
+ line-height: 1.5em;
+ font-size:62.5%;
+ color:#111111;
+ width:98%;
+ }
+#+end_example
+**** DONE 将内容左右留出空白出来
+ CLOSED: [2010-05-20 星期四 23:16]
+**** useful link
+ http://www.gnu.org/software/emacs/manual/html_node/org/CSS-support.html#CSS-support\\
+ CSS support
+ http://www.w3schools.com/css/\\
+ CSS Tutorial
+ http://www.ruanyifeng.com/blog/my_life/\\
+ 阮一峰的网络日志
+ http://www.moneytreesystems.com/css/picpopup.html\\
+ CSS ~ Image Pop UP
+ http://www.free-css-templates.com/\\
+ Free CSS templates
+ http://www.smashingmagazine.com/2008/12/01/100-free-high-quality-xhtmlcss-templates/\\
+ 100 Free High-Quality XHTML/CSS Templates - Smashing Magazine
+ http://www.deminy.net/blog/archives/3764-y.html\\
+ 用Skype打长途电话的优缺点
+*** DONE [#A] org-mode中,添加section时,不想被导出内容的话,推荐做法是怎么样的:将相关的item加上noexport的tag即可
+ CLOSED: [2011-04-25 Mon 15:02]
+*** DONE org mode导出的html没有换行
+ CLOSED: [2009-04-22 Wed 22:02]
+ 解决办法：
+ 在 org 文件最前面加上:#+OPTIONS: "\n:t"
+ 就可以了,还有更多的选项,可以看 org-mode 的info
+**** useful link
+ http://www.linuxsir.org/bbs/thread325069.html\\
+ emacs org-mode org-export-as-html 换行
+*** DONE set the export level for "Table of contents": #+OPTIONS: toc:2
+ CLOSED: [2010-01-31 星期日 10:54]
+#+begin_example
+ http://orgmode.org/manual/Table-of-contents.html#Table-of-contents\\
+
+ The table of contents is normally inserted directly before the first
+ headline of the file. If you would like to get it to a different
+ location, insert the string TABLE-OF-CONTENTS on a line by itself at
+ the desired location. The depth of the table of contents is by
+ default the same as the number of headline levels, but you can choose
+ a smaller number, or turn off the table of contents entirely, by
+ configuring the variable org-export-with-toc, or on a per-file basis
+ with a line like
+#+end_example
+- #+OPTIONS: toc:2 (only to two levels in TOC)
+- #+OPTIONS: toc:nil (no TOC at all)
+*** DONE 设置org mode的内嵌css样式                                :IMPORTANT:
+  CLOSED: [2009-04-22 Wed 22:33]
+在配置文件中,设置变量org-export-html-style的值
+**** useful link
+ http://www.gnu.org/software/emacs/manual/html_node/org/CSS-support.html\\
+ CSS support
+*** DONE org mode export table with css
+ CLOSED: [2009-09-04 星期五 22:43]
+ Check out section 12.6.4 (Tables in HTML export) of the Org manual.
+**** useful link
+ http://orgmode.org/manual/Tables-in-HTML-export.html\\
+ 12.6 HTML export
+ http://www.w3schools.com/html/default.asp\\
+ HTML Tutorial
+*** DONE emacs在导出html时,不打印出org-mode的标识
+ CLOSED: [2011-05-28 Sat 01:02]
+ ' #+OPTIONS: creator:nil
+*** DONE org-mode直接导出pdf时,缺少pdflatex
+ CLOSED: [2011-05-20 Fri 16:10]
+#+begin_example
+ sudo apt-get install texlive
+ sudo apt-get install texlive-latex-extra
+ http://linux.derkeiler.com/Mailing-Lists/Ubuntu/2008-01/msg00983.html\\
+ latex and pdflatex on ubuntu 7.10
+ http://comments.gmane.org/gmane.emacs.orgmode/24890\\
+ Org-Mode for GNU Emacs
+#+end_example
+**** console shot: package (texlive) is missing                    :noexport:
+#+BEGIN_EXAMPLE
+ LaTeX export done, pushed to kill ring and clipboard
+ Processing LaTeX file /home/wei/backup/Dropbox/private_data/temp/logink/logink.tex...
+ /bin/bash: pdflatex: command not found [3 times]
+ Processing LaTeX file /home/wei/backup/Dropbox/private_data/temp/logink/logink.tex...done
+ if: PDF file /home/wei/backup/Dropbox/private_data/temp/logink/logink.pdf was not produced
+ Tramp: Opening connection for root@localhost using sudo...
+#+END_EXAMPLE
+**** console shot: package (wrapfig) is missing, need to install texlive-latex-extra :noexport:
+#+BEGIN_EXAMPLE
+ This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian)
+ entering extended mode
+ (/home/wei/backup/Dropbox/private_data/emacs_stuff/org_data/current.tex
+ LaTeX2e <2009/09/24>
+ Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
+ yphenation, loaded.
+ (/usr/share/texmf-texlive/tex/latex/base/article.cls
+ Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+ (/usr/share/texmf-texlive/tex/latex/base/size11.clo))
+ (/usr/share/texmf-texlive/tex/latex/base/inputenc.sty
+ (/usr/share/texmf-texlive/tex/latex/base/utf8.def
+ (/usr/share/texmf-texlive/tex/latex/base/t1enc.dfu)
+ (/usr/share/texmf-texlive/tex/latex/base/ot1enc.dfu)
+ (/usr/share/texmf-texlive/tex/latex/base/omsenc.dfu)))
+ (/usr/share/texmf-texlive/tex/latex/base/fontenc.sty
+ (/usr/share/texmf-texlive/tex/latex/base/t1enc.def))
+ (/usr/share/texmf-texlive/tex/latex/base/fixltx2e.sty)
+ (/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty
+ (/usr/share/texmf-texlive/tex/latex/graphics/keyval.sty)
+ (/usr/share/texmf-texlive/tex/latex/graphics/graphics.sty
+ (/usr/share/texmf-texlive/tex/latex/graphics/trig.sty)
+ (/etc/texmf/tex/latex/config/graphics.cfg)
+ (/usr/share/texmf-texlive/tex/latex/pdftex-def/pdftex.def)))
+ (/usr/share/texmf-texlive/tex/latex/tools/longtable.sty)
+ (/usr/share/texmf-texlive/tex/latex/float/float.sty)
+ ! LaTeX Error: File `wrapfig.sty' not found.
+ Type X to quit or <RETURN> to proceed,
+ or enter new name. (Default extension: sty)
+ Enter file name:
+ ! Emergency stop.
+ <read *>
+ l.10 \usepackage
+ {soul}^^M
+ ! ==> Fatal error occurred, no output PDF file produced!
+ Transcript written on /home/wei/backup/Dropbox/private_data/emacs_stuff/org_dat
+ a//current.log.
+#+END_EXAMPLE
+*** DONE org-mode publish project                                 :IMPORTANT:
+ CLOSED: [2010-04-18 星期日 15:37]
+**** basic use
+#+BEGIN_EXAMPLE
+ insert file: skill.org
+ We need these different components,
+- publish dynamic content (org => html)
+- publish static content like scripts, images, stylesheets or even .htaccess files (org => copy).
+- The third component is just for convenience and tells org to execute the former ones.
+#+END_EXAMPLE
+**** useful link
+ http://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.php\\
+ Publishing Org-mode files to HTML
+*** DONE html打印成pdf的问题 [3/3]
+ CLOSED: [2010-05-21 星期五 21:43]
+**** DONE 没有把背景颜色打印出来：打印设置中,设置打印颜色和背景, 但是打印出来的文件太大(3页共30MB)
+ CLOSED: [2010-05-21 星期五 01:09]
+**** DONE 没有把背景图片打印出来：打印设置中,设置打印颜色和背景
+ CLOSED: [2010-05-21 星期五 01:09]
+**** DONE 打印的表格太大时,不使用A4纸：设置Paper Size为A3
+ CLOSED: [2010-05-20 星期四 23:19]
+*** DONE 导出html时, 不要转义下划线_
+ CLOSED: [2010-05-21 星期五 22:19]
+*** DONE when org-mode html export, change the title automatically: add "#+TITLE: XXX"
+ CLOSED: [2011-03-23 Wed 16:51]
+ (defcustom org-hidden-keywords nil
+ "List of keywords that should be hidden when typed in the org buffer.
+ For example, add #+TITLE to this list in order to make the
+ document title appear in the buffer without the initial #+TITLE:
+ keyword."
+ :group 'org-appearance
+ :type '(set (const :tag "#+AUTHOR" author)
+ (const :tag "#+DATE" date)
+ (const :tag "#+EMAIL" email)
+ (const :tag "#+TITLE" title)))
+*** DONE org-mode export html: set image size            :IMPORTANT:noexport:
+ CLOSED: [2011-03-24 Thu 18:18]
+- method 1:
+ #+html: <img width="300px" height="300px" src="./upgrade_check_list.PNG" alt="The Title" />
+- method 2:
+ #+attr_html: width="300px"
+ [[file:./upgrade_check_list.PNG]]
+*** DONE org-mode easy templates                         :IMPORTANT:noexport:
+ CLOSED: [2011-07-22 Fri 11:47]
+ C-c '(org-edit-special): Edit the source code example at point in its native mode
+<s tab: #+begin_src ... #+end_src
+<e tab: #+begin_example ... #+end_example
+**** "<a tab"扩展
+ "<a tab" 扩展成
+,-----------
+| #+begin_ascii
+|
+| #+end_ascii
+`-----------
+#+BEGIN_SRC emacs-lisp -n
+ (defun org-xor (a b)
+ "Exclusive or."
+ (if a (not b) b))
+#+END_SRC
+**** #+BEGIN_EXAMPLE / #+END_EXAMPLE ,在这之间的文字会保留原有的格式。
+**** 将引文居中排版可以使用#+BEGIN_CENTER / #+END_CENTER.
+#+begin_center
+ C-c '(org-edit-special): Edit the source code example at point in its native mode
+<s tab: #+begin_src ... #+end_src
+
+
+<e tab: #+begin_example ... #+end_example
+#+end_center
+**** in example and in src snippets, -n/+n:　来添加一个行号列
+http://orgmode.org/manual/Literal-examples.html\\
+使用+n的话,the numbering from the previous numbered snippet will be continued in the current one.
+#+BEGIN_SRC emacs-lisp -n
+ (defun org-xor (a b)
+ "Exclusive or."
+ (if a (not b) b))
+#+END_SRC
+#+BEGIN_SRC emacs-lisp +n -r
+ (save-excursion (ref:sc)
+ (goto-char (point-min)) (ref:jump)
+ (message "hello")
+#+END_SRC
+**** 在literal example中使用labels
+http://orgmode.org/manual/Literal-examples.html\\
+Org will interpret strings like ‘(ref:name)’ as labels,
+You can also add a -r switch which removes the labels from the source code
+#+BEGIN_SRC emacs-lisp +n -r
+ (save-excursion (ref:sc)
+ (goto-char (point-min)) (ref:jump)
+ (message "hello")
+#+END_SRC
+** DONE emacs org-mode pdf add header and footer
+  CLOSED: [2016-06-25 Sat 16:17]
+http://ivanhanigan.github.io/2013/11/a-sharp-looking-orgmode-latex-export-header/
+#+BEGIN_EXAMPLE
+     #+LaTeX_CLASS: article
+     #+LaTeX_CLASS_OPTIONS: [a4paper]
+     #+LaTeX_HEADER: \usepackage{amssymb,amsmath}
+     #+LaTeX_HEADER: \usepackage{fancyhdr} %For headers and footers
+     #+LaTeX_HEADER: \pagestyle{fancy} %For headers and footers
+     #+LaTeX_HEADER: \usepackage{lastpage} %For getting page x of y
+     #+LaTeX_HEADER: \usepackage{float} %Allows the figures to be positioned and formatted nicely
+     #+LaTeX_HEADER: \floatstyle{boxed} %using this
+     #+LaTeX_HEADER: \restylefloat{figure} %and this command
+     #+LaTeX_HEADER: \usepackage{url} %Formatting of yrls
+     #+LaTeX_HEADER: \lhead{www.dennyzhang.com}
+     #+LaTeX_HEADER: \chead{}
+     #+LaTeX_HEADER: \rhead{DevOps Weekly Summary}
+     #+LaTeX_HEADER: \lfoot{TOTVSLabs DevOps}
+     #+LaTeX_HEADER: \cfoot{}
+     #+LaTeX_HEADER: \rfoot{\thepage\ of \pageref{LastPage}}
+#+END_EXAMPLE
+** DONE org-mode export latex url color
+  CLOSED: [2016-06-25 Sat 16:36]
+http://emacs.stackexchange.com/questions/12878/how-to-change-style-of-hyperlinks-within-pdf-published-from-org-mode-document
+
+#+BEGIN_EXAMPLE
+    #+LaTeX_HEADER: \usepackage{xcolor}
+    #+LaTeX_HEADER: \PassOptionsToPackage{hyperref,x11names}{xcolor}
+    #+LaTeX_HEADER: \definecolor{electricblue}{HTML}{05ADF3}
+    #+LaTeX_HEADER: \usepackage{tocloft}
+    #+LaTeX_HEADER: \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+    #+LaTeX_HEADER: \usepackage[breaklinks=true,linktocpage,xetex]{hyperref} 
+    #+LaTeX_HEADER: \hypersetup{colorlinks, citecolor=electricblue, filecolor=black, linkcolor=black, urlcolor=electricblue}
+#+END_EXAMPLE
+* [#A] Mail in emacs -- gnus                                  :Tool:Personal:
+:PROPERTIES:
+:type:   Emacs
+:END:
+
+- G m: gnus-group-make-group
+
+| Item                         | Comment                                     |
+|------------------------------+---------------------------------------------|
+| gnus-summary-save-parts      | save mail's attachment                      |
+| gnus-summary-mail-forward    | forward mail                                |
+| gnus-draft-send-message      | send gnus drafts                            |
+| gnus-draft-send-all-messages | send gnus drafts or delayed emails directly |
+
+- Command list
+| Function                          | Summary                          |
+|-----------------------------------+----------------------------------|
+| mml-attach-file(C-c C-m f)        | 发送带附件的邮件                 |
+
+-  Summary 缓冲区命令列表
+| 命令  | 解释                                 |
+|-------+--------------------------------------|
+| RET   | 进入当前文章                         |
+| n     | 下一个未读文章                       |
+| p     | 上一个未读文章                       |
+| SPACE | 向下翻页                             |
+| DEL   | 向上翻页                             |
+| F/f   | 跟帖 ( 引用原文 / 不引用原文 )       |
+| R/r   | 回复原作者 ( 引用原文 / 不引用原文 ) |
+| m     | 创建一个新邮件                       |
+| a     | 创建一个新帖子                       |
+| c     | 把所有的文章标记为已读               |
+* [#A] Difficulties in emacs                                         :Coding:Personal:less
+:PROPERTIES:
+:type:   Emacs
+:END:
+** [question] emacs shell中如何运行mtr, top等会闪屏程序
+** [#B] [question] emacs shell查看当前snippets的所有可用扩展列表  :IMPORTANT:
+** [question] gnus compose-mail发出的邮件，没有放在已发送中
+** [#A] [question] emacs: when deleting in minibuffer, don't change kill-ring, like ido-mode
+*** mail:when deleting in minibuffer, don't change kill-ring       :noexport:
+#+BEGIN_EXAMPLE
+   help-gnu-emacs@gnu.org
+   when deleting in minibuffer, don't change kill-ring
+
+   hi all
+
+   Any idea how to prohibit kill-ring being changed, when I press "backspace" key in minibuffer?
+#+END_EXAMPLE
+** [#A] 在tramp下shell的snippets有时候扩展不成功                  :IMPORTANT:
+*** console shot                                                   :noexport:
+denny@ubuntu:/tmp/emacs1000$
+
+///0874c61c080e3fa9df2c316f0abb1dcd#$
+** [question] emacs 拷贝isearch-backward-regexp输入的字符串
+** [question] emacs gnus回复邮件时，原邮件的重要header没有显示出来, 例如收件人, 收件时间
+   message-insert-citation-line
+** DONE 已完结
+* [#A] Latex in emacs                                    :IMPORTANT:noexport:
+ It seems necessary to chmod -R u+w some subset of /var/cache/fonts, /usr/share/texmf, /usr/lib/texmf for latex to properly be able to build latex.fmt, ditto for pdflatex, and kpathsea to build fonts.
+** basic use
+#+BEGIN_EXAMPLE
+ Latex is a macro package that enables authors to typeset and print their work at the highest typographical quality, using a predefined, professional layout.
+ Typographical design is a craft.
+#+END_EXAMPLE
+** latex commands
+ Latex commands are case sensitive, and take one of the following two formats:
+- They start with a backslash \ and then have a name consisting of letters only. Commmand names are terminated by a space, a number or any other 'non-letter.'
+- They consist of a backslash and exactly one non-letter.
+ Latex ignores whitespace after commands. If you want to get a space after a command, you have to put either {} and a blank or a special spacing command after the command name.
+ Sample for providing parameters to latex commands: \textsl{lean}
+** comments                                                       :Important:
+ When latex encounters a % character while processing an input file, it ignores the rest of the present line, the line break, and all whitespace at the beining of the next line.
+ Sample:
+ This is an %stupid
+ % Better: instructive
+ example: Supercal%
+ ifragilist%
+ icexpialidocious
+** Input File Structures
+ \documentclass{...}
+ \usepackage{...}
+ \begin{document}
+ \end{document}
+** Include other tex files:
+ \include{filename}: \include{1} will include 1.tex in current directory.
+** equation with latex
+ 质能方程：
+ % Example
+ \ldots when Einstein introduced his formula
+ \begin{equation}
+ e = m \cdot c^2 \; ,
+ \end{equation}
+ which is at the same time the most widely known
+ and the least well understood physical formula.
+ 求和
+ % Example
+ \ldots from which follows Kirchhoff’s current law:
+ \begin{equation}
+ \sum_{k=1}^{n} I_k = 0 \; .
+ \end{equation}
+ Kirchhoff’s voltage law can be derived \ldots
+ 下标
+ % Example
+ \ldots which has several advantages.
+ \begin{equation}
+ I_D = I_F - I_R
+ \end{equation}
+ is the core of a very different transistor model. \ldots
+** latex sample: minimal latex file
+ \documentclass{article}
+ \begin{document}
+ Small is beautiful.
+ \end{document}
+** latex sample: a Realistic Journal Article                      :Important:
+ \documentclass[a4paper,11pt]{article}
+ % define the title
+ \author{H.~Partl}
+ \title{Minimalism}
+ \begin{document}
+ % generates the title
+ \maketitle
+ % insert the table of contents
+ \tableofcontents
+ \section{Some Interesting Words}
+ Well, and here begins my lovely article.
+ \section{Good Bye World}
+ \ldots{} and here it ends.
+ \end{document}
+** latex file sample1:
+ \documentclass{article}
+ \usepackage[utf8]{inputenc}
+ \usepackage[T1]{fontenc}
+ \usepackage{geometry}
+ \geometry{a4paper}
+ \title{Premier document}
+ \author{Zhang, Denny}
+ \date{<2010-04-16 00:54 UTC +8>}
+ \begin{document}
+ \maketitle
+ \section{Whitespace and paragrph}
+ It does not matter whether you enter one or several spaces after a word.
+ An empty line starts a new paragraph.
+ \section{Special Characters}
+ \# \$ \% \^{} \& \_ \{ \} \~{}
+ \section{latex commands}
+ Sample for displaying spaces after a latex command.
+ I read that Knuth divides the
+ people working with \TeX{} into
+ \TeX{}nicians and \TeX perts.\\
+ Today is \today.
+ You can \textsl{lean} on me!
+ Please, start a new line
+ right here!\newline
+ Thank you!
+ \section{comment}
+ This is an %stupid
+ % Better: instructive
+ example: Supercal%
+ ifragilist%
+ icexpialidocious
+ \section{Section Two}
+ http://baike.baidu.com/view/1316082.htm\\
+ http://www.cloudcomputing-china.cn/Article/luilan/200909/309.html\\
+ http://baike.baidu.com/view/2044736.htm\\
+ \flushleft
+ \newenvironment{vardesc}[1]{%
+ \settowidth{\parindent}{#1:\ }
+ \makebox[0pt][r]{#1:\ }}{}
+ \begin{displaymath}
+ a^2+b^2=c^2
+ \end{displaymath}
+ \begin{vardesc}{Where}$a$,
+ $b$ -- are adjoin to the right
+ angle of a right-angled triangle.
+ $c$ -- is the hypotenuse of
+ the triangle and feels lonely.
+ $d$ -- finally does not show up
+ here at all. Isn’t that puzzling?
+ \end{vardesc}
+ \makebox[\textwidth]{%
+ c e n t r a l}\par
+ \makebox[\textwidth][s]{%
+ s p r e a d}\par
+ \framebox[1.1\width]{Guess I’m framed now!} \par
+ \framebox[0.8\width][r]{Bummer, I am too wide} \par
+ \framebox[5cm][l]{never mind, so am I} \par
+ Can you read this?
+ \raisebox{0pt}[0pt][0pt]{\Large%
+ \textbf{Aaaa\raisebox{-0.3ex}{a}%
+ \raisebox{-0.7ex}{aa}%
+ \raisebox{-1.2ex}{r}%
+ \raisebox{-2.2ex}{g}%
+ \raisebox{-4.5ex}{h}}}
+ he shouted but not even the next
+ one in line noticed that something
+ terrible had happened to him.
+ \section{Catenary}
+ \setlength{\unitlength}{1.3cm}
+ \begin{picture}(4.3,3.6)(-2.5,-0.25)
+ \put(-2,0){\vector(1,0){4.4}}
+ \put(2.45,-.05){$x$}
+ \put(0,0){\vector(0,1){3.2}}
+ \put(0,3.35){\makebox(0,0){$y$}}
+ \qbezier(0.0,0.0)(1.2384,0.0)
+ (2.0,2.7622)
+ \qbezier(0.0,0.0)(-1.2384,0.0)
+ (-2.0,2.7622)
+ \linethickness{.075mm}
+ \multiput(-2,0)(1,0){5}
+ {\line(0,1){3}}
+ \multiput(-2,0)(0,1){4}
+ {\line(1,0){4}}
+ \linethickness{.2mm}
+ \put( .3,.12763){\line(1,0){.4}}
+ \put(.5,-.07237){\line(0,1){.4}}
+ \put(-.7,.12763){\line(1,0){.4}}
+ \put(-.5,-.07237){\line(0,1){.4}}
+ \put(.8,.54308){\line(1,0){.4}}
+ \put(1,.34308){\line(0,1){.4}}
+ \put(-1.2,.54308){\line(1,0){.4}}
+ \put(-1,.34308){\line(0,1){.4}}
+ \put(1.3,1.35241){\line(1,0){.4}}
+ \put(1.5,1.15241){\line(0,1){.4}}
+ \put(-1.7,1.35241){\line(1,0){.4}}
+ \put(-1.5,1.15241){\line(0,1){.4}}
+ \put(-2.5,-0.25){\circle*{0.2}}
+ \end{picture}
+ \section{Quadratic Bézier Curves}
+ \setlength{\unitlength}{1cm}
+ \begin{picture}(6,4)
+ \linethickness{0.075mm}
+ \multiput(0,0)(1,0){7}
+ {\line(0,1){4}}
+ \multiput(0,0)(0,1){5}
+ {\line(1,0){6}}
+ \thicklines
+ \put(0.5,0.5){\line(1,5){0.5}}
+ \put(1,3){\line(4,1){2}}
+ \qbezier(0.5,0.5)(1,3)(3,3.5)
+ \thinlines
+ \put(2.5,2){\line(2,-1){3}}
+ \put(5.5,0.5){\line(-1,5){0.5}}
+ \linethickness{1mm}
+ \qbezier(2.5,2)(5.5,0.5)(5,3)
+ \thinlines
+ \qbezier(4,2)(4,3)(3,3)
+ \qbezier(3,3)(2,3)(2,2)
+ \qbezier(2,2)(2,1)(3,1)
+ \qbezier(3,1)(4,1)(4,2)
+ \end{picture}
+ \end{document}
+** TODO Input Chinese characters in latex                         :Important:
+ Install ctex
+*** useful link
+ http://www.ctex.org/CTeXDownload\\
+ CTEX:CTexDownload
+ http://wei-jiang.com/research/write-chinese-in-latex-and-lyx-in-lepoard\\
+ Write Chinese in LaTeX and LyX in Leopard | Stone Studio
+ http://www.zoomquiet.org/share/doc/docs.huihoo.com/homepage/shredderyin/tex/tex_chinese.html\\
+ LaTeX Chinese Solutions
+ http://www.math.nus.edu.sg/aslaksen/cs/cjk.html\\
+ Chinese TeX Using the CJK LaTeX Package, Unicode TrueType fonts and PDFTeX under Windows
+** TODO customize font for headings of sections
+** TODO customize font for table of contents
+** line breaking and page breaking
+ \\ or \newline: starts a new line without starting a new paragraph
+ \\*: additionally prohibits a page break after the forced line break
+ \newpage: starts a new page
+** hyphenation: latex hyphenates words whenever necessary.
+ The command \- inserts a discretionary hyphen into a word.
+ sample:
+ I think this is: su\-per\-cal\-%
+ i\-frag\-i\-lis\-tic\-ex\-pi\-%
+ al\-i\-do\-cious
+ Several words can be kept together on one line with the command: \mbox{text}
+ \fbox is similar to \mbox, but in addition there will be a visible box drawn around the content.
+** Ready-Made Strings
+ \today: current date in the current language
+** Tilde(~):$\sim$
+ http://www.rich.edu/\~{}bush \\
+ http://www.clever.edu/$\sim$test
+** Degree symbol: $-30\,^{\circ}\mathrm{C}$
+** Ellipsis: \ldots
+ Not like this ... but like this:\\
+ New York, Tokyo, Budapest, \ldots
+ On a typewriter, a comma or a period takes the same amount of space as any other letter.
+ In book printing, these characters occupy only a little space and are set very close to the preceding letter.
+ Therefore, you cannot enter‘ellipsis’ by just typing three dots, as the spacing would be wrong.
+** Titles, chapters, and sections
+ \section{...}
+ \subsection{...}
+ \subsubsection{...}
+ \paragraph{...}
+ \subparagraph{...}
+** TODO Itemize, Enumerate, and Description
+ sample:
+ \flushleft
+ \begin{enumerate}
+ \item You can mix the list
+ environments to your taste:
+ \begin{itemize}
+ \item But it might start to
+ look silly.
+ \item[-] With a dash.
+ \end{itemize}
+ \item Therefore remember:
+ \begin{description}
+ \item[Stupid] things will not
+ become smart because they are
+ in a list.
+ \item[Smart] things, though, can be
+ presented beautifully in a list.
+ \end{description}
+ \end{enumerate}
+** create table
+*** rows with fixed width
+ \begin{tabular}{|p{4.7cm}|}
+ \hline
+ Welcome to Boxy’s paragraph.
+ We sincerely hope you’ll
+ all enjoy the show.\\
+ \hline
+ \end{tabular}
+*** fixed multicolumn and column
+ \begin{tabular}{|c|c|}
+ \hline
+ \multicolumn{2}{|c|}{Ene} \\
+ \hline
+ Mene & Muh! \\
+ \hline
+ \end{tabular}
+*** 2 rows * 2 columns
+ \begin{tabular}{|c|l|}
+ \hline
+ 7C0 & hexadecimal \\
+ \hline
+ 3700 & octal \\
+ \hline
+ 11111000000 & binary \\
+ \hline
+ \end{tabular}
+** table of content
+ \tableofcontents
+ A "starred" version of a command is built by adding a star * after the command name.
+ This generates section headings that do not show up in the table of contents and are not numbered.
+ The command \section{Help}, for example, would become \section*{Help}
+** cross references
+ A reference to this subsection
+ \label{sec:this} looks like:
+ ''see section\ref{sec:this} on
+ page\pageref{sec:this}.''
+** footnote: \footnote{footnote text}
+ Footnotes\footnote{This is
+ a footnote.} are often used
+ by people using \LaTeX.
+** underline words: \underline{text}
+** align paragraphs: flushleft/flushright/center
+ \begin{flushleft}
+ This text is\\ left-aligned.
+ \LaTeX{} is not trying to make
+ each line the same length.
+ \end{flushleft}
+ \begin{flushright}
+ This text is right-\\aligned.
+ \LaTeX{} is not trying to make
+ each line the same length.
+ \end{flushright}
+ \begin{center}
+ At the centre\\of the earth
+ \end{center}
+** TODO floating bodies for figures and tables
+ Today most publications contain a lot of figures and tables. These elements need special treatment, because they cannot be broken across pages. One method would be to start a new page every time a figure or a table is too large to fit on the present page. This approach would leave pages partially empty, which looks very bad.
+ The solution to this problem is to ‘float’ any figure or table that does not fit on the current page to a later page, while filling the current page with body text.
+ LATEX offers two environments for floating bodies; one for tables and one for figures.
+ ;; -------------------------- separator --------------------------
+ Float Placing Permissions.
+ | Spec | Permission to place the float . . . |
+ |------+------------------------------------------------------------------------------------------------------|
+ | 'h' | here at the very place in the text where it occurred. This is useful mainly for small floats. |
+ | 't' | at the top of a page |
+ | 'b' | at the bottom of a page |
+ | 'p' | on a special page containing only floats. |
+ | '!' | without considering most of the internal parametersa, which could stop this float from being placed. |
+** mathematical formulae
+*** basic use
+#+BEGIN_EXAMPLE
+ Mathematical text within a paragraph is entered between \(and \), between $ and $, or between \begin{math} and \end{math}.
+#+END_EXAMPLE
+*** sample1
+ Add $a$ squared and $b$ squared
+ to get $c$ squared. Or, using
+ a more mathematical approach:
+ $c^{2}=a^{2}+b^{2}$
+*** sample2
+ \TeX{} is pronounced as
+ \(\tau\epsilon\chi\).\\[6pt]
+ 100~m$^{3}$ of water\\[6pt]
+ This comes from my
+ \begin{math}\heartsuit\end{math}
+*** formulae to be set apart from the rest of the paragraph:\[,\] or \begin{displaymath}, \end{displaymath}
+ Add $a$ squared and $b$ squared
+ to get $c$ squared. Or, using
+ a more mathematical approach:
+ \begin{displaymath}
+ c^{2}=a^{2}+b^{2}
+ \end{displaymath}
+ or you can type less with:
+ \[a+b=c\]
+*** enumerate equations for cross-reference
+ You can then \label an equation number and refer to it somewhere else in the text by using \ref:
+ \begin{equation} \label{eq:eps}
+ \epsilon > 0
+ \end{equation}
+ From (\ref{eq:eps}), we gather \ldots{}
+** Whitespace: such as blank or tab, are treated uniformly as "space" by LATEX.
+ Several consecutive whitespace characters are treated as one “space.” Whitespace at the start of a line is generally ignored, and a single line break is treated as “whitespace.”
+** An empty line between two lines of text defines the end of a paragraph
+ Several empty lines are treated the same as one empty line. The text below is an example.
+** Special Characters: # $ % ^ & _ { } ~ \
+** The main advantages of LATEX over normal word processors
+*** Professionally crafted layouts are available, which make a document really look as if “printed.”
+*** The typesetting of mathematical formulae is supported in a convenient way.
+*** Users only need to learn a few easy-to-understand commands that specify the logical structure of a document. They almost never need to tinker with the actual layout of the document.
+*** Even complex structures such as footnotes, references, table of contents, and bibliographies can be generated easily.
+*** Free add-on packages exist for many typographical tasks not directly supported by basic LATEX.
+ For example, packages are available to include PostScript graphics or to typeset bibliographies conforming to exact standards. Many of these add-on packages are described in The LATEX Companion
+*** LATEX encourages authors to write well-structured texts, because this is how LATEX works—by specifyng structure.
+*** TEX, the formatting engine of LATEX2", is highly portable and free. Therefore the system runs on almost any hardware platform available.
+** sample for TeXworks
+ \documentclass{article}
+ \usepackage[utf8]{inputenc}
+ \usepackage[T1]{fontenc}
+ \usepackage{geometry}
+ \geometry{a4paper}
+ \title{Premier document}
+ \author{Zhang, Denny}
+ \date{2010-04-16 00:54 UTC +8}
+ \begin{document}
+ \maketitle
+ \section{Whitespace and paragrph}
+ It does not matter whether you enter one or several spaces after a word.
+ An empty line starts a new paragraph.
+ \section{Special Characters}
+ \# \$ \% \^{} \& \_ \{ \} \~{}
+ \section{Section Two}
+ http://baike.baidu.com/view/1316082.htm\\
+ http://www.cloudcomputing-china.cn/Article/luilan/200909/309.html\\
+ http://baike.baidu.com/view/2044736.htm\\
+ \flushleft
+ \newenvironment{vardesc}[1]{%
+ \settowidth{\parindent}{#1:\ }
+ \makebox[0pt][r]{#1:\ }}{}
+ \begin{displaymath}
+ a^2+b^2=c^2
+ \end{displaymath}
+ \begin{vardesc}{Where}$a$,
+ $b$ -- are adjoin to the right
+ angle of a right-angled triangle.
+ $c$ -- is the hypotenuse of
+ the triangle and feels lonely.
+ $d$ -- finally does not show up
+ here at all. Isn’t that puzzling?
+ \end{vardesc}
+ \makebox[\textwidth]{%
+ c e n t r a l}\par
+ \makebox[\textwidth][s]{%
+ s p r e a d}\par
+ \framebox[1.1\width]{Guess I’m framed now!} \par
+ \framebox[0.8\width][r]{Bummer, I am too wide} \par
+ \framebox[5cm][l]{never mind, so am I} \par
+ Can you read this?
+ \raisebox{0pt}[0pt][0pt]{\Large%
+ \textbf{Aaaa\raisebox{-0.3ex}{a}%
+ \raisebox{-0.7ex}{aa}%
+ \raisebox{-1.2ex}{r}%
+ \raisebox{-2.2ex}{g}%
+ \raisebox{-4.5ex}{h}}}
+ he shouted but not even the next
+ one in line noticed that something
+ terrible had happened to him.
+ \section{Catenary}
+ \setlength{\unitlength}{1.3cm}
+ \begin{picture}(4.3,3.6)(-2.5,-0.25)
+ \put(-2,0){\vector(1,0){4.4}}
+ \put(2.45,-.05){$x$}
+ \put(0,0){\vector(0,1){3.2}}
+ \put(0,3.35){\makebox(0,0){$y$}}
+ \qbezier(0.0,0.0)(1.2384,0.0)
+ (2.0,2.7622)
+ \qbezier(0.0,0.0)(-1.2384,0.0)
+ (-2.0,2.7622)
+ \linethickness{.075mm}
+ \multiput(-2,0)(1,0){5}
+ {\line(0,1){3}}
+ \multiput(-2,0)(0,1){4}
+ {\line(1,0){4}}
+ \linethickness{.2mm}
+ \put( .3,.12763){\line(1,0){.4}}
+ \put(.5,-.07237){\line(0,1){.4}}
+ \put(-.7,.12763){\line(1,0){.4}}
+ \put(-.5,-.07237){\line(0,1){.4}}
+ \put(.8,.54308){\line(1,0){.4}}
+ \put(1,.34308){\line(0,1){.4}}
+ \put(-1.2,.54308){\line(1,0){.4}}
+ \put(-1,.34308){\line(0,1){.4}}
+ \put(1.3,1.35241){\line(1,0){.4}}
+ \put(1.5,1.15241){\line(0,1){.4}}
+ \put(-1.7,1.35241){\line(1,0){.4}}
+ \put(-1.5,1.15241){\line(0,1){.4}}
+ \put(-2.5,-0.25){\circle*{0.2}}
+ \end{picture}
+ \section{Quadratic Bézier Curves}
+ \setlength{\unitlength}{1cm}
+ \begin{picture}(6,4)
+ \linethickness{0.075mm}
+ \multiput(0,0)(1,0){7}
+ {\line(0,1){4}}
+ \multiput(0,0)(0,1){5}
+ {\line(1,0){6}}
+ \thicklines
+ \put(0.5,0.5){\line(1,5){0.5}}
+ \put(1,3){\line(4,1){2}}
+ \qbezier(0.5,0.5)(1,3)(3,3.5)
+ \thinlines
+ \put(2.5,2){\line(2,-1){3}}
+ \put(5.5,0.5){\line(-1,5){0.5}}
+ \linethickness{1mm}
+ \qbezier(2.5,2)(5.5,0.5)(5,3)
+ \thinlines
+ \qbezier(4,2)(4,3)(3,3)
+ \qbezier(3,3)(2,3)(2,2)
+ \qbezier(2,2)(2,1)(3,1)
+ \qbezier(3,1)(4,1)(4,2)
+ \end{picture}
+ \end{document}
+** TODO tcfmgr: config file `tcfmgr.map' (usually in $TEXMFMAIN/texconfig) not found.
+ http://www.cygwin.com/ml/cygwin/2005-02/msg00474.html\\
+ Tetex installation problem on cygwin
+ http://old.nabble.com/tetex-on-Vista-td14108577.html\\
+ tetex on Vista
+ http://ask.metafilter.com/24391/XP-emacs-and-texmode-with-MikTeX-YAP\\
+ XP, emacs, and tex-mode with MikTeX / YAP.
+** install latext for ntemacs
+ http://www.comp.lancs.ac.uk/~fittond/win32latex/win32latex.html\\
+ A Quick Guide to Running Latex under Windows
+ http://www.miktex.org/2.8/setup\\
+ Downloading and Installing MiKTeX 2.8
+** export tex to pdf
+** export tex to html
+ http://gentoo-wiki.com/HOWTO_Convert_LaTeX_to_HTML_with_MathML\\
+ LaTeX to HTML
+ mzlatex my_tex_file "xhtml,mathml-"
+** useful link
+ http://bbs.ctex.org/viewthread.php?tid=38452&extra=page%3D1%26amp%3Bfilter%3Ddigest\\
+ 为什么要用LaTeX(1-5)
+ http://edt1023.sayya.org/tex/latex123/node5.html#SECTION00510000000000000000\\
+ 實際上排版玩看看
+ http://www.comp.lancs.ac.uk/~fittond/win32latex/win32latex.html\\
+ A Quick Guide to Running Latex under Windows
+ http://tech.idv2.com/2006/04/03/latex-memo-1/\\
+ LaTex学习笔记
+ http://www.ssc.wisc.edu/~dvanness/howto.htm\\
+ How to Install LaTeX for Windows 95/98/NT
+ http://www.shamoxia.com/html/y2010/1473.html\\
+ Latex论文排版技巧再总结
+ http://home.uchicago.edu/~gan/file/latex.pdf\\
+ latex 2 cheat sheet
+ http://docs.huihoo.com/homepage/shredderyin/tex_frame.html\\
+ Tex与LaTex
+ http://edt1023.sayya.org/tex/latex123/node1.html\\
+ latex
+ http://www.ssc.wisc.edu/~dvanness/howto.htm\\
+ How to Install LaTeX for Windows 95/98/NT
+ http://tech.idv2.com/2006/04/03/latex-memo-1/\\
+ 学习笔记(一)
+ http://tech.idv2.com/2006/04/05/latex-memo-2/\\
+ 学习笔记(二)
+ http://tech.idv2.com/2006/04/05/latex-memo-3/\\
+ 学习笔记(三)
+** DONE export org-mode latex support color
+  CLOSED: [2016-07-25 Mon 15:51]
+#+LaTeX: \textcolor{red}{some text}
+
+- Need support: \textcolor{red}{mdmbackup feature introduction for customized deployment}
+
+https://en.wikibooks.org/wiki/LaTeX/Colors
+
+http://stackoverflow.com/questions/21340380/exporting-org-mode-to-html-in-place-coloring
+
+** DONE latex page margins: weekly report page width
+  CLOSED: [2016-07-25 Mon 16:10]
+http://www.howtotex.com/tips-tricks/change-margins-of-a-single-page/
+\newgeometry{left=3cm,bottom=0.1cm}
+
+http://tex.stackexchange.com/questions/94795/how-can-i-change-the-margins-in-latex
+http://www.andy-roberts.net/writing/latex/page_layout
+http://tex.stackexchange.com/questions/71172/why-are-default-latex-margins-so-big
+
+* DONE mac OSx上emacs can't see the pdf: 需要安装X11, 而mac OSX现在默认不装X11了。所以要手动装xquartz包
+  CLOSED: [2014-01-31 Fri 12:17]
+
+bash-3.2$gs -dSAFER -dNOPAUSE -sDEVICE=png16m -dTextAlphaBits=4 -dBATCH -dGraphicsAlphaBits=4 -dQUIET -r100 -sOutputFile=/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-01.png /tmp/test.pdf
+
+(defun doc-view-start-process (name program args callback)
+http://support.apple.com/kb/HT5293?viewlocale=en_US&locale=en_US
+
+X11 is no longer included with OS X,
+
+(defun doc-view-insert-image (file &rest args)
+
+brew install imagemagick
+
+(defun doc-view-pdf->png (pdf png pages)
+
+/Applications/Emacs.app/Contents/Resources/lisp/doc-view.el.gz
+
+(defcustom doc-view-unoconv-program "unoconv"
+:(defcustom doc-view-pdftotext-program "pdftotext"
+(defun doc-view-goto-page (page)
+
+(defun doc-view-pdf/ps->png (pdf-ps png)
+(defun doc-view-pdf->png-1 (pdf png page callback)
+
+#+begin_example
+Cannot display this page!
+Maybe because of a conversion failure!
+#+end_example
+
+#+begin_example
+Debugger entered--Lisp error: (wrong-type-argument window-live-p t)
+  apply(debug error (wrong-type-argument window-live-p t))
+  edebug(error (wrong-type-argument window-live-p t))
+  signal(wrong-type-argument (window-live-p t))
+  edebug-signal(wrong-type-argument (window-live-p t))
+  set-window-hscroll(t 0)
+  doc-view-insert-image("/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-0.png" :pointer arrow)
+  (edebug-after (edebug-before 82) 84 (doc-view-insert-image (edebug-after 0 83 file) :pointer (quote arrow)))
+  (let ((file (edebug-after (edebug-before 75) 81 (expand-file-name (edebug-after (edebug-before 76) 78 (format "page-%d.png" (edebug-after 0 77 page))) (edebug-after (edebug-before 79) 80 (doc-view-current-cache-dir)))))) (edebug-after (edebug-before 82) 84 (doc-view-insert-image (edebug-after 0 83 file) :pointer (quote arrow))) (edebug-after (edebug-before 85) 89 (set-window-hscroll (edebug-after (edebug-before 86) 87 (selected-window)) (edebug-after 0 88 hscroll))) (edebug-after (edebug-before 90) 108 (when (edebug-after (edebug-before 91) 98 (and (edebug-after (edebug-before 92) 96 (not (edebug-after ... 95 ...))) (edebug-after 0 97 doc-view-current-converter-processes))) (edebug-after (edebug-before 99) 107 (doc-view-pdf->png-1 (edebug-after 0 100 doc-view-buffer-file-name) (edebug-after 0 101 file) (edebug-after 0 102 page) (edebug-after (edebug-before 103) 106 (let (...) (lambda nil ...))))))))
+  (edebug-after (edebug-before 74) 109 (let ((file (edebug-after (edebug-before 75) 81 (expand-file-name (edebug-after (edebug-before 76) 78 (format "page-%d.png" ...)) (edebug-after (edebug-before 79) 80 (doc-view-current-cache-dir)))))) (edebug-after (edebug-before 82) 84 (doc-view-insert-image (edebug-after 0 83 file) :pointer (quote arrow))) (edebug-after (edebug-before 85) 89 (set-window-hscroll (edebug-after (edebug-before 86) 87 (selected-window)) (edebug-after 0 88 hscroll))) (edebug-after (edebug-before 90) 108 (when (edebug-after (edebug-before 91) 98 (and (edebug-after (edebug-before 92) 96 (not ...)) (edebug-after 0 97 doc-view-current-converter-processes))) (edebug-after (edebug-before 99) 107 (doc-view-pdf->png-1 (edebug-after 0 100 doc-view-buffer-file-name) (edebug-after 0 101 file) (edebug-after 0 102 page) (edebug-after (edebug-before 103) 106 (let ... ...))))))))
+  (let ((len (edebug-after (edebug-before 1) 2 (doc-view-last-page-number))) (hscroll (edebug-after (edebug-before 3) 4 (window-hscroll)))) (edebug-after (edebug-before 5) 25 (if (edebug-after (edebug-before 6) 8 (< (edebug-after 0 7 page) 1)) (edebug-after (edebug-before 9) 10 (setq page 1)) (edebug-after (edebug-before 11) 24 (when (edebug-after (edebug-before 12) 20 (and (edebug-after ... 16 ...) (edebug-after ... 19 ...))) (edebug-after (edebug-before 21) 23 (setq page (edebug-after 0 22 len))))))) (edebug-after (edebug-before 26) 73 (setf (edebug-after (edebug-before 27) 28 (doc-view-current-page)) (edebug-after 0 29 page) (edebug-after (edebug-before 30) 31 (doc-view-current-info)) (edebug-after (edebug-before 32) 72 (concat (edebug-after (edebug-before 33) 38 (propertize (edebug-after ... 37 ...) (quote face) (quote bold))) (edebug-after (edebug-before 39) 41 (if (edebug-after 0 40 doc-view-current-converter-processes) " (still converting...)\n" "\n")) (edebug-after (edebug-before 42) 71 (when (edebug-after ... 49 ...) (edebug-after ... 70 ...))))))) (edebug-after (edebug-before 74) 109 (let ((file (edebug-after (edebug-before 75) 81 (expand-file-name (edebug-after ... 78 ...) (edebug-after ... 80 ...))))) (edebug-after (edebug-before 82) 84 (doc-view-insert-image (edebug-after 0 83 file) :pointer (quote arrow))) (edebug-after (edebug-before 85) 89 (set-window-hscroll (edebug-after (edebug-before 86) 87 (selected-window)) (edebug-after 0 88 hscroll))) (edebug-after (edebug-before 90) 108 (when (edebug-after (edebug-before 91) 98 (and (edebug-after ... 96 ...) (edebug-after 0 97 doc-view-current-converter-processes))) (edebug-after (edebug-before 99) 107 (doc-view-pdf->png-1 (edebug-after 0 100 doc-view-buffer-file-name) (edebug-after 0 101 file) (edebug-after 0 102 page) (edebug-after ... 106 ...))))))) (edebug-after (edebug-before 110) 115 (overlay-put (edebug-after (edebug-before 111) 112 (doc-view-current-overlay)) (quote help-echo) (edebug-after (edebug-before 113) 114 (doc-view-current-info)))))
+  (edebug-after (edebug-before 0) 116 (let ((len (edebug-after (edebug-before 1) 2 (doc-view-last-page-number))) (hscroll (edebug-after (edebug-before 3) 4 (window-hscroll)))) (edebug-after (edebug-before 5) 25 (if (edebug-after (edebug-before 6) 8 (< (edebug-after 0 7 page) 1)) (edebug-after (edebug-before 9) 10 (setq page 1)) (edebug-after (edebug-before 11) 24 (when (edebug-after (edebug-before 12) 20 (and ... ...)) (edebug-after (edebug-before 21) 23 (setq page ...)))))) (edebug-after (edebug-before 26) 73 (setf (edebug-after (edebug-before 27) 28 (doc-view-current-page)) (edebug-after 0 29 page) (edebug-after (edebug-before 30) 31 (doc-view-current-info)) (edebug-after (edebug-before 32) 72 (concat (edebug-after (edebug-before 33) 38 (propertize ... ... ...)) (edebug-after (edebug-before 39) 41 (if ... " (still converting...)\n" "\n")) (edebug-after (edebug-before 42) 71 (when ... ...)))))) (edebug-after (edebug-before 74) 109 (let ((file (edebug-after (edebug-before 75) 81 (expand-file-name ... ...)))) (edebug-after (edebug-before 82) 84 (doc-view-insert-image (edebug-after 0 83 file) :pointer (quote arrow))) (edebug-after (edebug-before 85) 89 (set-window-hscroll (edebug-after (edebug-before 86) 87 (selected-window)) (edebug-after 0 88 hscroll))) (edebug-after (edebug-before 90) 108 (when (edebug-after (edebug-before 91) 98 (and ... ...)) (edebug-after (edebug-before 99) 107 (doc-view-pdf->png-1 ... ... ... ...)))))) (edebug-after (edebug-before 110) 115 (overlay-put (edebug-after (edebug-before 111) 112 (doc-view-current-overlay)) (quote help-echo) (edebug-after (edebug-before 113) 114 (doc-view-current-info))))))
+  (closure ((page . 0) t) nil (edebug-after (edebug-before 0) 116 (let ((len (edebug-after (edebug-before 1) 2 (doc-view-last-page-number))) (hscroll (edebug-after (edebug-before 3) 4 (window-hscroll)))) (edebug-after (edebug-before 5) 25 (if (edebug-after (edebug-before 6) 8 (< (edebug-after 0 7 page) 1)) (edebug-after (edebug-before 9) 10 (setq page 1)) (edebug-after (edebug-before 11) 24 (when (edebug-after ... 20 ...) (edebug-after ... 23 ...))))) (edebug-after (edebug-before 26) 73 (setf (edebug-after (edebug-before 27) 28 (doc-view-current-page)) (edebug-after 0 29 page) (edebug-after (edebug-before 30) 31 (doc-view-current-info)) (edebug-after (edebug-before 32) 72 (concat (edebug-after ... 38 ...) (edebug-after ... 41 ...) (edebug-after ... 71 ...))))) (edebug-after (edebug-before 74) 109 (let ((file (edebug-after ... 81 ...))) (edebug-after (edebug-before 82) 84 (doc-view-insert-image (edebug-after 0 83 file) :pointer (quote arrow))) (edebug-after (edebug-before 85) 89 (set-window-hscroll (edebug-after ... 87 ...) (edebug-after 0 88 hscroll))) (edebug-after (edebug-before 90) 108 (when (edebug-after ... 98 ...) (edebug-after ... 107 ...))))) (edebug-after (edebug-before 110) 115 (overlay-put (edebug-after (edebug-before 111) 112 (doc-view-current-overlay)) (quote help-echo) (edebug-after (edebug-before 113) 114 (doc-view-current-info)))))))()
+  edebug-enter(doc-view-goto-page (1) (closure ((page . 0) t) nil (edebug-after (edebug-before 0) 116 (let ((len (edebug-after (edebug-before 1) 2 (doc-view-last-page-number))) (hscroll (edebug-after (edebug-before 3) 4 (window-hscroll)))) (edebug-after (edebug-before 5) 25 (if (edebug-after (edebug-before 6) 8 (< (edebug-after 0 7 page) 1)) (edebug-after (edebug-before 9) 10 (setq page 1)) (edebug-after (edebug-before 11) 24 (when (edebug-after ... 20 ...) (edebug-after ... 23 ...))))) (edebug-after (edebug-before 26) 73 (setf (edebug-after (edebug-before 27) 28 (doc-view-current-page)) (edebug-after 0 29 page) (edebug-after (edebug-before 30) 31 (doc-view-current-info)) (edebug-after (edebug-before 32) 72 (concat (edebug-after ... 38 ...) (edebug-after ... 41 ...) (edebug-after ... 71 ...))))) (edebug-after (edebug-before 74) 109 (let ((file (edebug-after ... 81 ...))) (edebug-after (edebug-before 82) 84 (doc-view-insert-image (edebug-after 0 83 file) :pointer (quote arrow))) (edebug-after (edebug-before 85) 89 (set-window-hscroll (edebug-after ... 87 ...) (edebug-after 0 88 hscroll))) (edebug-after (edebug-before 90) 108 (when (edebug-after ... 98 ...) (edebug-after ... 107 ...))))) (edebug-after (edebug-before 110) 115 (overlay-put (edebug-after (edebug-before 111) 112 (doc-view-current-overlay)) (quote help-echo) (edebug-after (edebug-before 113) 114 (doc-view-current-info))))))))
+  doc-view-goto-page(1)
+  doc-view-display(#<buffer test.pdf> force)
+  (edebug-after (edebug-before 17) 20 (doc-view-display (edebug-after (edebug-before 18) 19 (current-buffer)) (quote force)))
+  (closure ((resolution . 100) (png . "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (pdf-ps . "/tmp/test.pdf") t) nil (edebug-after (edebug-before 0) 8 (write-region (edebug-after (edebug-before 1) 3 (prin1-to-string (edebug-after 0 2 resolution))) nil (edebug-after (edebug-before 4) 7 (expand-file-name "resolution.el" (edebug-after (edebug-before 5) 6 (doc-view-current-cache-dir)))) nil (quote silently))) (edebug-after (edebug-before 9) 16 (when (edebug-after 0 10 doc-view-current-timer) (edebug-after (edebug-before 11) 13 (cancel-timer (edebug-after 0 12 doc-view-current-timer))) (edebug-after (edebug-before 14) 15 (setq doc-view-current-timer nil)))) (edebug-after (edebug-before 17) 20 (doc-view-display (edebug-after (edebug-before 18) 19 (current-buffer)) (quote force))))()
+  edebug-enter(edebug-anon0 nil (closure ((resolution . 100) (png . "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (pdf-ps . "/tmp/test.pdf") t) nil (edebug-after (edebug-before 0) 8 (write-region (edebug-after (edebug-before 1) 3 (prin1-to-string (edebug-after 0 2 resolution))) nil (edebug-after (edebug-before 4) 7 (expand-file-name "resolution.el" (edebug-after (edebug-before 5) 6 (doc-view-current-cache-dir)))) nil (quote silently))) (edebug-after (edebug-before 9) 16 (when (edebug-after 0 10 doc-view-current-timer) (edebug-after (edebug-before 11) 13 (cancel-timer (edebug-after 0 12 doc-view-current-timer))) (edebug-after (edebug-before 14) 15 (setq doc-view-current-timer nil)))) (edebug-after (edebug-before 17) 20 (doc-view-display (edebug-after (edebug-before 18) 19 (current-buffer)) (quote force)))))
+  edebug-enter(edebug-anon0 nil (closure ((resolution . 100) (png . "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (pdf-ps . "/tmp/test.pdf") t) nil (edebug-after (edebug-before 0) 8 (write-region (edebug-after (edebug-before 1) 3 (prin1-to-string (edebug-after 0 2 resolution))) nil (edebug-after (edebug-before 4) 7 (expand-file-name "resolution.el" (edebug-after (edebug-before 5) 6 (doc-view-current-cache-dir)))) nil (quote silently))) (edebug-after (edebug-before 9) 16 (when (edebug-after 0 10 doc-view-current-timer) (edebug-after (edebug-before 11) 13 (cancel-timer (edebug-after 0 12 doc-view-current-timer))) (edebug-after (edebug-before 14) 15 (setq doc-view-current-timer nil)))) (edebug-after (edebug-before 17) 20 (doc-view-display (edebug-after (edebug-before 18) 19 (current-buffer)) (quote force)))))
+  (closure ((resolution . 100) (png . "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (pdf-ps . "/tmp/test.pdf") t) nil (edebug-enter (quote edebug-anon0) (list) (function (lambda nil (edebug-after (edebug-before 0) 8 (write-region (edebug-after (edebug-before 1) 3 (prin1-to-string ...)) nil (edebug-after (edebug-before 4) 7 (expand-file-name "resolution.el" ...)) nil (quote silently))) (edebug-after (edebug-before 9) 16 (when (edebug-after 0 10 doc-view-current-timer) (edebug-after (edebug-before 11) 13 (cancel-timer ...)) (edebug-after (edebug-before 14) 15 (setq doc-view-current-timer nil)))) (edebug-after (edebug-before 17) 20 (doc-view-display (edebug-after (edebug-before 18) 19 (current-buffer)) (quote force)))))))()
+  doc-view-sentinel(#<process pdf/ps->png> "finished\n")
+  recursive-edit()
+  edebug--recursive-edit(after)
+  edebug--display((buffer #<buffer test.pdf> callback (closure ((resolution . 100) (png . "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (pdf-ps . "/tmp/test.pdf") t) nil (edebug-enter (quote edebug-anon0) (list) (function (lambda nil (edebug-after (edebug-before 0) 8 (write-region (edebug-after ... 3 ...) nil (edebug-after ... 7 ...) nil (quote silently))) (edebug-after (edebug-before 9) 16 (when (edebug-after 0 10 doc-view-current-timer) (edebug-after ... 13 ...) (edebug-after ... 15 ...))) (edebug-after (edebug-before 17) 20 (doc-view-display (edebug-after ... 19 ...) (quote force)))))))) 19 after)
+  edebug-debugger(19 after (buffer #<buffer test.pdf> callback (closure ((resolution . 100) (png . "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (pdf-ps . "/tmp/test.pdf") t) nil (edebug-enter (quote edebug-anon0) (list) (function (lambda nil (edebug-after (edebug-before 0) 8 (write-region (edebug-after ... 3 ...) nil (edebug-after ... 7 ...) nil (quote silently))) (edebug-after (edebug-before 9) 16 (when (edebug-after 0 10 doc-view-current-timer) (edebug-after ... 13 ...) (edebug-after ... 15 ...))) (edebug-after (edebug-before 17) 20 (doc-view-display (edebug-after ... 19 ...) (quote force)))))))))
+  edebug-after(0 19 (buffer #<buffer test.pdf> callback (closure ((resolution . 100) (png . "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (pdf-ps . "/tmp/test.pdf") t) nil (edebug-enter (quote edebug-anon0) (list) (function (lambda nil (edebug-after (edebug-before 0) 8 (write-region (edebug-after ... 3 ...) nil (edebug-after ... 7 ...) nil (quote silently))) (edebug-after (edebug-before 9) 16 (when (edebug-after 0 10 doc-view-current-timer) (edebug-after ... 13 ...) (edebug-after ... 15 ...))) (edebug-after (edebug-before 17) 20 (doc-view-display (edebug-after ... 19 ...) (quote force)))))))))
+  (closure ((png . "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (pdf-ps . "/tmp/test.pdf") t) nil (edebug-after (edebug-before 0) 19 (doc-view-start-process "pdf/ps->png" (edebug-after 0 1 doc-view-ghostscript-program) (edebug-after (edebug-before 2) 15 (append (edebug-after 0 3 doc-view-ghostscript-options) (edebug-after (edebug-before 4) 14 (list (edebug-after ... 9 ...) (edebug-after ... 12 ...) (edebug-after 0 13 pdf-ps))))) (edebug-after (edebug-before 16) 18 (let ((resolution (edebug-after 0 17 doc-view-resolution))) (lambda nil (edebug-enter (quote edebug-anon0) (list) (function ...))))))) (edebug-after (edebug-before 20) 29 (when (edebug-after 0 21 doc-view-conversion-refresh-interval) (edebug-after (edebug-before 22) 28 (setq doc-view-current-timer (edebug-after (edebug-before 23) 27 (run-at-time "1 secs" (edebug-after 0 24 doc-view-conversion-refresh-interval) (quote doc-view-display) (edebug-after ... 26 ...))))))))()
+  edebug-enter(doc-view-pdf/ps->png ("/tmp/test.pdf" "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (closure ((png . "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (pdf-ps . "/tmp/test.pdf") t) nil (edebug-after (edebug-before 0) 19 (doc-view-start-process "pdf/ps->png" (edebug-after 0 1 doc-view-ghostscript-program) (edebug-after (edebug-before 2) 15 (append (edebug-after 0 3 doc-view-ghostscript-options) (edebug-after (edebug-before 4) 14 (list (edebug-after ... 9 ...) (edebug-after ... 12 ...) (edebug-after 0 13 pdf-ps))))) (edebug-after (edebug-before 16) 18 (let ((resolution (edebug-after 0 17 doc-view-resolution))) (lambda nil (edebug-enter (quote edebug-anon0) (list) (function ...))))))) (edebug-after (edebug-before 20) 29 (when (edebug-after 0 21 doc-view-conversion-refresh-interval) (edebug-after (edebug-before 22) 28 (setq doc-view-current-timer (edebug-after (edebug-before 23) 27 (run-at-time "1 secs" (edebug-after 0 24 doc-view-conversion-refresh-interval) (quote doc-view-display) (edebug-after ... 26 ...)))))))))
+  doc-view-pdf/ps->png("/tmp/test.pdf" "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png")
+  (edebug-after (edebug-before 4) 7 (doc-view-pdf/ps->png (edebug-after 0 5 pdf) (edebug-after 0 6 png)))
+  (if (edebug-after (edebug-before 1) 3 (null (edebug-after 0 2 pages))) (edebug-after (edebug-before 4) 7 (doc-view-pdf/ps->png (edebug-after 0 5 pdf) (edebug-after 0 6 png))) (edebug-after (edebug-before 8) 24 (let ((rest (edebug-after (edebug-before 9) 11 (cdr (edebug-after 0 10 pages))))) (edebug-after (edebug-before 12) 23 (doc-view-pdf->png-1 (edebug-after 0 13 pdf) (edebug-after (edebug-before 14) 19 (format (edebug-after 0 15 png) (edebug-after ... 18 ...))) (edebug-after (edebug-before 20) 22 (car (edebug-after 0 21 pages))) (lambda nil (edebug-enter (quote edebug-anon1) (list) (function ...))))))))
+  (edebug-after (edebug-before 0) 25 (if (edebug-after (edebug-before 1) 3 (null (edebug-after 0 2 pages))) (edebug-after (edebug-before 4) 7 (doc-view-pdf/ps->png (edebug-after 0 5 pdf) (edebug-after 0 6 png))) (edebug-after (edebug-before 8) 24 (let ((rest (edebug-after (edebug-before 9) 11 (cdr ...)))) (edebug-after (edebug-before 12) 23 (doc-view-pdf->png-1 (edebug-after 0 13 pdf) (edebug-after (edebug-before 14) 19 (format ... ...)) (edebug-after (edebug-before 20) 22 (car ...)) (lambda nil (edebug-enter ... ... ...))))))))
+  (closure ((pages) (png . "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (pdf . "/tmp/test.pdf") t) nil (edebug-after (edebug-before 0) 25 (if (edebug-after (edebug-before 1) 3 (null (edebug-after 0 2 pages))) (edebug-after (edebug-before 4) 7 (doc-view-pdf/ps->png (edebug-after 0 5 pdf) (edebug-after 0 6 png))) (edebug-after (edebug-before 8) 24 (let ((rest (edebug-after ... 11 ...))) (edebug-after (edebug-before 12) 23 (doc-view-pdf->png-1 (edebug-after 0 13 pdf) (edebug-after ... 19 ...) (edebug-after ... 22 ...) (lambda nil ...))))))))()
+  edebug-enter(doc-view-pdf->png ("/tmp/test.pdf" "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png" nil) (closure ((pages) (png . "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (pdf . "/tmp/test.pdf") t) nil (edebug-after (edebug-before 0) 25 (if (edebug-after (edebug-before 1) 3 (null (edebug-after 0 2 pages))) (edebug-after (edebug-before 4) 7 (doc-view-pdf/ps->png (edebug-after 0 5 pdf) (edebug-after 0 6 png))) (edebug-after (edebug-before 8) 24 (let ((rest (edebug-after ... 11 ...))) (edebug-after (edebug-before 12) 23 (doc-view-pdf->png-1 (edebug-after 0 13 pdf) (edebug-after ... 19 ...) (edebug-after ... 22 ...) (lambda nil ...)))))))))
+  edebug-enter(doc-view-pdf->png ("/tmp/test.pdf" "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png" nil) (closure ((pages) (png . "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (pdf . "/tmp/test.pdf") t) nil (edebug-after (edebug-before 0) 25 (if (edebug-after (edebug-before 1) 3 (null (edebug-after 0 2 pages))) (edebug-after (edebug-before 4) 7 (doc-view-pdf/ps->png (edebug-after 0 5 pdf) (edebug-after 0 6 png))) (edebug-after (edebug-before 8) 24 (let ((rest (edebug-after ... 11 ...))) (edebug-after (edebug-before 12) 23 (doc-view-pdf->png-1 (edebug-after 0 13 pdf) (edebug-after ... 19 ...) (edebug-after ... 22 ...) (lambda nil ...)))))))))
+  doc-view-pdf->png("/tmp/test.pdf" "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png" nil)
+  doc-view-convert-current-doc()
+  doc-view-initiate-display()
+  doc-view-mode()
+  doc-view-mode-maybe()
+  set-auto-mode-0(doc-view-mode-maybe nil)
+  set-auto-mode()
+  normal-mode(t)
+  after-find-file(nil t)
+  find-file-noselect-1(#<buffer test.pdf> "/tmp/test.pdf" nil nil "/private/tmp/test.pdf" (24219582 16777218))
+  find-file-noselect("/tmp/test.pdf" nil nil nil)
+  find-file("/tmp/test.pdf")
+  dired-find-file()
+  call-interactively(dired-find-file nil nil)
+#+end_example
+* TODO emacs语音命令输入: Speak your mind, command the world      :IMPORTANT:
+http://www.cb1.com/~john/computing/emacs/handsfree/voice.html\\
+http://www.cb1.com/~john/computing/ui/voice.html\\
+http://www.nuance.com/\\
+Nuance - Home
+* TODO Emacs Versor: Versatile Cursors
+** useful link
+   http://www.cb1.com/~john/\\
+   http://emacs-versor.sourceforge.net/\\
+   http://emacs-versor.sourceforge.net/versor-speaking.html\\
+   http://emacs-versor.sourceforge.net/versor.html\\
+** TODO Vocola
+** TODO dragon naturally speaking
+  http://askubuntu.com/questions/15749/alternative-to-dragon-naturally-speaking\\
+  http://ubuntuforums.org/showthread.php?t=168711\\
+http://www.nuance.com/dragon/index.htm\\
+*** useful link
+http://en.wikipedia.org/wiki/Speech_recognition_in_Linux\\
+http://www.knowbrainer.com/PubForum/index.cfm?page=viewForumTopic&topicId=2277&CFID=9843242&CFTOKEN=25162098&jsessionid=8430a22584d7db1e04c6b3753656c3060595\\
+** CANCELED 在linux下, 经常会乱码: iconv -f gb2312 -t utf-8 ./别独自用餐.txt > ./1.txt
+  CLOSED: [2012-03-25 日 23:42]
+http://blog.csdn.net/piyajee/article/details/6160659\\
+http://zhidao.baidu.com/question/271476296.html\\
+** CANCELED [#B] linux tcpcopy: TCPCopy是一种请求复制（所有基于tcp的packets）工具，可以把在线流量导入到测试系统中去
+  CLOSED: [2012-10-04 四 16:46]
+tcpcopy---从数据链路层来截取请求，转发给目标测试服务器，达到在线压力甚至极限压力测试的目的
+
+tcpcopy的特点就是即具备网络复杂多变的环境，又具备瞬间破坏力，是一种理想的压力测试工具。
+
+针对http请求，tcpcopy复制过去的效果是最佳的。
+
+TCPCopy七大功能:
+- 分布式压力测试工具，利用在线数据，可以测试系统能够承受的压力大小（远比ab压力测
+- 具真实地多）,也可以提前发现一些bug
+- 普通上线测试，可以发现新系统是否稳定，提前发现上线过程中会出现的诸多问题，让开
+- 有信心上线
+- 对比试验，同样请求，针对不同或不同版本程序，可以做性能对比等试验
+- 流量放大功能，可以利用多种手段构造无限在线压力，满足中小网站压力测试要求
+- 利用TCPCopy转发传统压力测试工具发出的请求，可以增加网络延迟，使其压力测试更加真实
+- 热备份
+- 实战演习（架构师必备）
+*** useful link
+http://code.google.com/p/tcpcopy/\\
+
+https://github.com/wangbin579/tcpcopy
+http://blog.csdn.net/wangbin579/article/details/7476413
+** CANCELED linux对于kernel的代码生成man doc                      :IMPORTANT:
+  CLOSED: [2012-10-06 六 16:33]
+#+begin_example
+sudo apt-get install xmlto
+export objtree=/home/denny/backup/tech/large_sourcecode/linux-3.4-rc7/
+export srctree=/home/denny/backup/tech/large_sourcecode/linux-3.4-rc7/
+make htmldocs
+#+end_example
+** CANCELED linux快速拿到fd count, 避免ls -lt | wc -l: OS不支持
+   CLOSED: [2012-11-10 Sat 09:49]
+** CANCELED rpm hang
+   CLOSED: [2012-12-12 Wed 15:10]
+*** rpm
+#+begin_example
+rpm -qa yum* | xargs rpm -e --nodeps
+
+ --8<-------------------------- separator ------------------------>8--
+rpm -qa yum*
+
+rpm -e --nodeps yum-metadata-parser-1.1.2-3.el5.centos
+rpm -e --nodeps yum-3.2.22-26.el5.centos
+rpm -e --nodeps yum-fastestmirror-1.1.16-14.el5.centos.1
+
+rpm -ivh --replacepkgs python-iniparse-0.2.3-4.el5.noarch.rpm
+ yum-3.2.22-26.el5.centos.noarch.rpm
+ yum-fastestmirror-1.1.16-14.el5.centos.1.noarch.rpm
+ yum-metadata-parser-1.1.2-3.el5.centos.x86_64.rpm
+
+mkdir /home/denny && cd /home/denny
+wget http://mirrors.dev.shopex.cn/rpm/scripts/python-iniparse-0.2.3-4.el5.noarch.rpm
+wget http://mirrors.dev.shopex.cn/rpm/scripts/yum-3.2.22-26.el5.centos.noarch.rpm
+wget http://mirrors.dev.shopex.cn/rpm/scripts/yum-fastestmirror-1.1.16-14.el5.centos.1.noarch.rpm
+wget http://mirrors.dev.shopex.cn/rpm/scripts/yum-metadata-parser-1.1.2-3.el5.centos.x86_64.rpm
+#+end_example
+*** yum
+#+begin_example
+/sshx:root@192.168.75.111: #$ ps -ef | grep yum
+root     10753 10751  0 14:38 ?        00:00:00 bash -c curl http://mirrors.dev.shopex.cn/rpm/scripts/init.txt | sh && wget http://192.168.75.236:8970/shopex-test.repo -O /etc/yum.repos.d/shopex-test.repo
+root     10770 10769  0 14:38 ?        00:00:00 rpm -e --nodeps yum-3.2.22-26.el5.centos yum-metadata-parser-1.1.2-3.el5.centos
+root     12375  9735  0 14:48 pts/10   00:00:00 grep yum
+/sshx:root@192.168.75.111: #$ pstree -A -a -p 10753
+bash,10753 -c...
+  `-sh,10767
+      `-xargs,10769 rpm -e --nodeps
+          `-rpm,10770 -e --nodeps yum-3.2.22-26.el5.centos yum-metadata-parser-1.1.2-3.el5.centos
+/sshx:root@192.168.75.111: #$ date
+Wed Dec 12 14:48:59 CST 2012
+/sshx:root@192.168.75.111: #$
+#+end_example
+* [#A] emacs on mac
+** [#A] mac的光标移动是匀速的，相比ubuntu的加速模式而言太慢       :IMPORTANT:
+http://stackoverflow.com/questions/14290200/emacs24-on-mac-cursor-movement-is-quite-slow
+在System Preference的Keyboard中，把Key Repeat和Delay Until Repeat设置快一些即可
+** DONE [#A] [emacs on mac] 在emacs使用F1之类的功能键，而不是要按Fn+F1: 在键盘中设置fn的反转功能
+   CLOSED: [2013-03-20 Wed 21:15]
+** Use all F1, F2, etc. keys as standard function keys: Otherwise C-f9 won't be recognized
+System Preference -> Keyboard -->  Use all F1, F2, etc. keys as standard function keys
+** DONE [emacs on mac] emacs 不能最大化
+  CLOSED: [2013-03-13 Wed 18:43]
+(set-frame-parameter nil 'fullscreen 'fullboth)
+** DONE mac默认字体太小: 将emacs的字体单独设置一下，其它的不变
+    CLOSED: [2013-03-16 Sat 11:06]
+(set-default-font "-outline-Lucida Console-normal-normal-normal-mono-19-*-*-*-*-*-iso10646-1" 1)
+** DONE [emacs on mac] void-function plist-to-alist: 自己重新定义plist-to-alist函数来解决
+   CLOSED: [2013-03-12 二 09:35]
+http://membled.com/lib/xemacs-21.5-b20/lisp/subr.el
+*** code                                                           :noexport:
+#+begin_example
+Debugger entered--Lisp error: (void-function plist-to-alist)
+  (plist-to-alist plist)
+  (cond ((consp (car plist)) plist) ((not (symbolp (car plist))) (error "Wrong type argument: plist, %S" plist)) (t (plist-to-alist plist)))
+  color-theme-alist(nil)
+  (append params (color-theme-alist default-frame-alist))
+  (setq default-frame-alist (append params (color-theme-alist default-frame-alist)) minibuffer-frame-alist (append params (color-theme-alist minibuffer-frame-alist)))
+  (if (or color-theme-is-cumulative (null color-theme-original-frame-alist)) (setq default-frame-alist (append params (color-theme-alist default-frame-alist)) minibuffer-frame-alist (append params (color-theme-alist minibuffer-frame-alist))) (setq default-frame-alist (append params color-theme-original-frame-alist) minibuffer-frame-alist (append params (color-theme-alist minibuffer-frame-alist))))
+  (let ((frames (frame-list))) (if (or color-theme-is-cumulative (null color-theme-original-frame-alist)) (setq default-frame-alist (append params (color-theme-alist default-frame-alist)) minibuffer-frame-alist (append params (color-theme-alist minibuffer-frame-alist))) (setq default-frame-alist (append params color-theme-original-frame-alist) minibuffer-frame-alist (append params (color-theme-alist minibuffer-frame-alist)))) (setq default-frame-alist (color-theme-alist-reduce default-frame-alist) minibuffer-frame-alist (color-theme-alist-reduce minibuffer-frame-alist)) (dolist (frame frames) (modify-frame-parameters frame (if (eq (quote only) (cdr (assq (quote minibuffer) (frame-parameters frame)))) minibuffer-frame-alist default-frame-alist))))
+  (if color-theme-is-global (let ((frames (frame-list))) (if (or color-theme-is-cumulative (null color-theme-original-frame-alist)) (setq default-frame-alist (append params (color-theme-alist default-frame-alist)) minibuffer-frame-alist (append params (color-theme-alist minibuffer-frame-alist))) (setq default-frame-alist (append params color-theme-original-frame-alist) minibuffer-frame-alist (append params (color-theme-alist minibuffer-frame-alist)))) (setq default-frame-alist (color-theme-alist-reduce default-frame-alist) minibuffer-frame-alist (color-theme-alist-reduce minibuffer-frame-alist)) (dolist (frame frames) (modify-frame-parameters frame (if (eq (quote only) (cdr (assq ... ...))) minibuffer-frame-alist default-frame-alist)))) (modify-frame-parameters (selected-frame) params))
+  color-theme-install-frame-params(((background-color . "#65889C") (background-mode . dark) (background-toolbar-color . "#cf3ccf3ccf3c") (border-color . "black") (bottom-toolbar-shadow-color . "#79e77df779e7") (cursor-color . "white") (foreground-color . "#eedfcc") (mouse-color . "Grey") (top-toolbar-shadow-color . "#fffffbeeffff") (viper-saved-cursor-color-in-replace-mode . "Red3")))
+  color-theme-install((color-theme-subtle-blue ((background-color . "#65889C") (background-mode . dark) (background-toolbar-color . "#cf3ccf3ccf3c") (border-color . "black") (bottom-toolbar-shadow-color . "#79e77df779e7") (cursor-color . "white") (foreground-color . "#eedfcc") (mouse-color . "Grey") (top-toolbar-shadow-color . "#fffffbeeffff") (viper-saved-cursor-color-in-replace-mode . "Red3")) ((blank-space-face . blank-space-face) (blank-tab-face . blank-tab-face) (ecb-source-in-directories-buffer-face . ecb-sources-face) (gnus-mouse-face . highlight) (list-matching-lines-face . bold) (view-highlight-face . highlight) (vm-highlight-url-face . my-url-face) (vm-highlighted-header-face . my-url-face) (vm-mime-button-face . gui-button-face) (vm-summary-highlight-face . my-summary-highlight-face)) (default ((t (nil)))) (bbdb-company ((t (:italic t)))) (bbdb-field-name ((t (:bold t :foreground "MediumAquamarine" :weight bold)))) (bbdb-field-value ((t (nil)))) (bbdb-name ((t (:underline t)))) (blank-space-face ((t (:background "gray80")))) (blank-tab-face ((t (:background "LightBlue" :foreground "DarkSlateGray")))) (blue ((t (:foreground "blue")))) (bold ((t (:bold t :foreground "MediumAquamarine" :weight bold)))) (bold-italic ((t (:italic t :foreground "SkyBlue" :weight bold :slant italic)))) (border ((t (:background "black")))) (border-glyph ((t (nil)))) (calendar-today-face ((t (:underline t)))) (comint-highlight-input ((t (:bold t)))) (comint-highlight-prompt ((t (:foreground "cyan")))) (comint-input-face ((t (:foreground "deepskyblue")))) (cperl-array-face ((t (:bold t :foreground "Yellow" :weight bold)))) (cperl-hash-face ((t (:italic t :foreground "White" :weight bold :slant italic)))) (cperl-nonoverridable-face ((t (:foreground "SkyBlue")))) (cursor ((t (:background "white")))) (custom-button-face ((t (:underline t :foreground "MediumAquaMarine" :weight bold)))) (custom-button-pressed-face ((t (:background "lightgrey" :foreground "black")))) (custom-changed-face ((t (:background "blue" :foreground "white")))) (custom-comment-face ((t (:background "dim gray")))) (custom-comment-tag-face ((t (:foreground "gray80")))) (custom-documentation-face ((t (:foreground "Grey")))) (custom-face-tag-face ((t (:underline t)))) (custom-group-tag-face ((t (:bold t :foreground "MediumAquamarine" :weight bold)))) (custom-group-tag-face-1 ((t (:foreground "MediumAquaMarine")))) (custom-invalid-face ((t (:background "red" :foreground "yellow")))) (custom-modified-face ((t (:background "blue" :foreground "white")))) (custom-rogue-face ((t (:background "black" :foreground "pink")))) (custom-saved-face ((t (:underline t)))) (custom-set-face ((t (:background "white" :foreground "blue")))) (custom-state-face ((t (:foreground "yellow")))) (custom-variable-button-face ((t (:underline t :weight bold)))) (custom-variable-tag-face ((t (:bold t :foreground "Aquamarine" :weight bold)))) (cvs-filename-face ((t (:foreground "blue4")))) (cvs-handled-face ((t (:foreground "pink")))) (cvs-header-face ((t (:bold t :foreground "blue4" :weight bold)))) (cvs-marked-face ((t (:bold t :foreground "green3" :weight bold)))) (cvs-msg-face ((t (:italic t)))) (cvs-need-action-face ((t (:foreground "orange")))) (cvs-unknown-face ((t (:foreground "red")))) (diary-face ((t (:bold t :foreground "cyan" :weight bold)))) (dired-face-boring ((t (:foreground "Gray65")))) (dired-face-directory ((t (:bold t :foreground "sky blue" :weight bold)))) ...))
+  color-theme-subtle-blue()
+  color-theme-dark-blue()
+  eval((color-theme-dark-blue) nil)
+  eval-last-sexp-1(nil)
+  eval-last-sexp(nil)
+  call-interactively(eval-last-sexp nil nil)
+  recursive-edit()
+  debug(error (void-function define-fringe-bitmap))
+  (define-fringe-bitmap (quote bm-marker) [0 0 252 254 15 254 252 0])
+  eval-buffer(#<buffer  *load*> nil "/Users/mac/backup/essential/emacs_vendor/bm/bm-1.34.el" nil t)  ; Reading at buffer position 14420
+  load-with-code-conversion("/Users/mac/backup/essential/emacs_vendor/bm/bm-1.34.el" "/Users/mac/backup/essential/emacs_vendor/bm/bm-1.34.el" nil nil)
+  load("/Users/mac/backup/essential/emacs_vendor/bm/bm-1.34.el" nil nil t)
+  load-file("~/backup/essential/emacs_vendor//bm/bm-1.34.el")
+  eval((load-file (concat EMACS_VENDOR "/bm/bm-1.34.el")) nil)
+  eval-last-sexp-1(nil)
+  eval-last-sexp(nil)
+  call-interactively(eval-last-sexp nil nil)
+#+end_example
+** [emacs on mac] w3m doesn't work: 使用最新的emacs-w3m
+*** console shot                                                   :noexport:
+#+begin_example
+Debugger entered--Lisp error: (void-function --post-body--73171)
+  --post-body--73171((200 "text/html" "ISO-8859-1" nil nil nil "http://www.google.com/"))
+  funcall(--post-body--73171 (200 "text/html" "ISO-8859-1" nil nil nil "http://www.google.com/"))
+  (setq exit-status (funcall (car (prog1 handler (setq handler (cdr handler)))) exit-status))
+  (w3m-process-p (setq exit-status (funcall (car (prog1 handler (setq handler (cdr handler)))) exit-status)))
+  (not (w3m-process-p (setq exit-status (funcall (car (prog1 handler (setq handler (cdr handler)))) exit-status))))
+  (and handler (not (w3m-process-p (setq exit-status (funcall (car (prog1 handler (setq handler ...))) exit-status)))))
+  (while (and handler (not (w3m-process-p (setq exit-status (funcall (car (prog1 handler ...)) exit-status))))))
+  (let ((w3m-process-exit-status) (w3m-current-buffer (aref x 1)) (handler (aref x 2)) (exit-status exit-status)) (if realm (progn (w3m-process-set-authinfo w3m-current-url realm user passwd))) (while (and handler (not (w3m-process-p (setq exit-status (funcall (car ...) exit-status)))))) (let* ((v x)) (aset v 3 exit-status)))
+  (progn (set-buffer (aref x 0)) (let ((w3m-process-exit-status) (w3m-current-buffer (aref x 1)) (handler (aref x 2)) (exit-status exit-status)) (if realm (progn (w3m-process-set-authinfo w3m-current-url realm user passwd))) (while (and handler (not (w3m-process-p (setq exit-status (funcall ... exit-status)))))) (let* ((v x)) (aset v 3 exit-status))))
+  (if (and (buffer-name (aref x 0)) (buffer-name (aref x 1))) (progn (set-buffer (aref x 0)) (let ((w3m-process-exit-status) (w3m-current-buffer (aref x 1)) (handler (aref x 2)) (exit-status exit-status)) (if realm (progn (w3m-process-set-authinfo w3m-current-url realm user passwd))) (while (and handler (not (w3m-process-p (setq exit-status ...))))) (let* ((v x)) (aset v 3 exit-status)))))
+  (while --dolist-tail-- (setq x (car --dolist-tail--)) (if (and (buffer-name (aref x 0)) (buffer-name (aref x 1))) (progn (set-buffer (aref x 0)) (let ((w3m-process-exit-status) (w3m-current-buffer (aref x 1)) (handler (aref x 2)) (exit-status exit-status)) (if realm (progn (w3m-process-set-authinfo w3m-current-url realm user passwd))) (while (and handler (not (w3m-process-p ...)))) (let* ((v x)) (aset v 3 exit-status))))) (setq --dolist-tail-- (cdr --dolist-tail--)))
+  (let ((--dolist-tail-- (aref (cdr obj) 3)) x) (while --dolist-tail-- (setq x (car --dolist-tail--)) (if (and (buffer-name (aref x 0)) (buffer-name (aref x 1))) (progn (set-buffer (aref x 0)) (let ((w3m-process-exit-status) (w3m-current-buffer (aref x 1)) (handler (aref x 2)) (exit-status exit-status)) (if realm (progn (w3m-process-set-authinfo w3m-current-url realm user passwd))) (while (and handler (not ...))) (let* ((v x)) (aset v 3 exit-status))))) (setq --dolist-tail-- (cdr --dolist-tail--))))
+  (progn (let ((--dolist-tail-- (aref (cdr obj) 3)) x) (while --dolist-tail-- (setq x (car --dolist-tail--)) (if (and (buffer-name (aref x 0)) (buffer-name (aref x 1))) (progn (set-buffer (aref x 0)) (let ((w3m-process-exit-status) (w3m-current-buffer ...) (handler ...) (exit-status exit-status)) (if realm (progn ...)) (while (and handler ...)) (let* (...) (aset v 3 exit-status))))) (setq --dolist-tail-- (cdr --dolist-tail--)))))
+  (let ((exit-status (process-exit-status process)) (buffer (current-buffer)) (realm w3m-process-realm) (user w3m-process-user) (passwd w3m-process-passwd) (obj w3m-process-object)) (setq w3m-process-object nil) (progn (let ((--dolist-tail-- (aref (cdr obj) 3)) x) (while --dolist-tail-- (setq x (car --dolist-tail--)) (if (and (buffer-name (aref x 0)) (buffer-name (aref x 1))) (progn (set-buffer (aref x 0)) (if (eq buffer ...) nil (insert-buffer-substring buffer)))) (setq --dolist-tail-- (cdr --dolist-tail--))))) (progn (let ((--dolist-tail-- (aref (cdr obj) 3)) x) (while --dolist-tail-- (setq x (car --dolist-tail--)) (if (and (buffer-name (aref x 0)) (buffer-name (aref x 1))) (progn (set-buffer (aref x 0)) (let (... ... ... ...) (if realm ...) (while ...) (let* ... ...)))) (setq --dolist-tail-- (cdr --dolist-tail--))))))
+  (save-current-buffer (set-buffer (process-buffer process)) (progn (accept-process-output process 1)) (setq w3m-process-queue (delq w3m-process-object w3m-process-queue)) (let ((exit-status (process-exit-status process)) (buffer (current-buffer)) (realm w3m-process-realm) (user w3m-process-user) (passwd w3m-process-passwd) (obj w3m-process-object)) (setq w3m-process-object nil) (progn (let ((--dolist-tail-- (aref (cdr obj) 3)) x) (while --dolist-tail-- (setq x (car --dolist-tail--)) (if (and (buffer-name ...) (buffer-name ...)) (progn (set-buffer ...) (if ... nil ...))) (setq --dolist-tail-- (cdr --dolist-tail--))))) (progn (let ((--dolist-tail-- (aref (cdr obj) 3)) x) (while --dolist-tail-- (setq x (car --dolist-tail--)) (if (and (buffer-name ...) (buffer-name ...)) (progn (set-buffer ...) (let ... ... ... ...))) (setq --dolist-tail-- (cdr --dolist-tail--)))))))
+  (if (buffer-name (process-buffer process)) (save-current-buffer (set-buffer (process-buffer process)) (progn (accept-process-output process 1)) (setq w3m-process-queue (delq w3m-process-object w3m-process-queue)) (let ((exit-status (process-exit-status process)) (buffer (current-buffer)) (realm w3m-process-realm) (user w3m-process-user) (passwd w3m-process-passwd) (obj w3m-process-object)) (setq w3m-process-object nil) (progn (let ((--dolist-tail-- (aref ... 3)) x) (while --dolist-tail-- (setq x (car --dolist-tail--)) (if (and ... ...) (progn ... ...)) (setq --dolist-tail-- (cdr --dolist-tail--))))) (progn (let ((--dolist-tail-- (aref ... 3)) x) (while --dolist-tail-- (setq x (car --dolist-tail--)) (if (and ... ...) (progn ... ...)) (setq --dolist-tail-- (cdr --dolist-tail--))))))) (catch (quote last) (progn (let ((--dolist-tail-- w3m-process-queue) obj) (while --dolist-tail-- (setq obj (car --dolist-tail--)) (if (eq process (aref ... 2)) (progn (setq w3m-process-queue ...) (throw ... nil))) (setq --dolist-tail-- (cdr --dolist-tail--)))))))
+  (unwind-protect (if (buffer-name (process-buffer process)) (save-current-buffer (set-buffer (process-buffer process)) (progn (accept-process-output process 1)) (setq w3m-process-queue (delq w3m-process-object w3m-process-queue)) (let ((exit-status (process-exit-status process)) (buffer (current-buffer)) (realm w3m-process-realm) (user w3m-process-user) (passwd w3m-process-passwd) (obj w3m-process-object)) (setq w3m-process-object nil) (progn (let ((--dolist-tail-- ...) x) (while --dolist-tail-- (setq x ...) (if ... ...) (setq --dolist-tail-- ...)))) (progn (let ((--dolist-tail-- ...) x) (while --dolist-tail-- (setq x ...) (if ... ...) (setq --dolist-tail-- ...)))))) (catch (quote last) (progn (let ((--dolist-tail-- w3m-process-queue) obj) (while --dolist-tail-- (setq obj (car --dolist-tail--)) (if (eq process ...) (progn ... ...)) (setq --dolist-tail-- (cdr --dolist-tail--))))))) (delete-process process) (if ignore-queue nil (w3m-process-start-queued-processes)))
+  (let ((inhibit-quit w3m-process-inhibit-quit) (w3m-process-background t)) (unwind-protect (if (buffer-name (process-buffer process)) (save-current-buffer (set-buffer (process-buffer process)) (progn (accept-process-output process 1)) (setq w3m-process-queue (delq w3m-process-object w3m-process-queue)) (let ((exit-status (process-exit-status process)) (buffer (current-buffer)) (realm w3m-process-realm) (user w3m-process-user) (passwd w3m-process-passwd) (obj w3m-process-object)) (setq w3m-process-object nil) (progn (let (... x) (while --dolist-tail-- ... ... ...))) (progn (let (... x) (while --dolist-tail-- ... ... ...))))) (catch (quote last) (progn (let ((--dolist-tail-- w3m-process-queue) obj) (while --dolist-tail-- (setq obj ...) (if ... ...) (setq --dolist-tail-- ...)))))) (delete-process process) (if ignore-queue nil (w3m-process-start-queued-processes))))
+  w3m-process-sentinel(#<process /usr/local/bin/w3m> "finished\n")
+#+end_example
+** BYPASS [emacs on mac] emacs emms失败: brew install mplayer: emms needs full paths for playlist :noexport:
+  CLOSED: [2013-03-18 Mon 23:13]
+http://stackoverflow.com/questions/9147823/emms-error-dont-know-how-to-play-track
+http://web.archiveorange.com/archive/v/KGR8XDzYl4kiv0ncbbjT
+
+(emms-player-for '(*track* (type . file) (name . "屠洪刚--霸王别姬.mp3")))
+
+#+begin_example
+(No changes need to be> saved)
+
+if: Don't know how to play track: (*track* (type . file) (name
+. "/home/denny/backup/multimediea/music/boyzone--everyday_i_love_you.mp3")
+(metadata) (info-artist . "Boyzone") (info-title . "Everyday I love
+you") (info-album . "The Ultimate Love Songs Collec")
+(info-tracknumber . "0") (info-year . "0") (info-playing-time . 274)
+(info-mtime 20155 31866) (last-played 20356 18351 701762) (play-count
+. 55))
+
+#+end_example
+* TODO emacs mac latex
+http://www.tug.org/mactex/
+http://www.2ality.com/2008/04/latex-on-mac-os-x.html
+
+pdflatex current.tex
+* [#B] gnuplot in emacs
+org-plot/gnuplot
+** sample data
+#+PLOT: title:"Citas" ind:1 deps:(3) type:2d with:histograms set:"yrange <0:>"
+| Sede      | Max cites | H-index |
+|-----------+-----------+---------|
+| Chile     |    257.72 |   21.39 |
+| Leeds     |    165.77 |   19.68 |
+| Sao Paolo |     71.00 |   11.50 |
+| Stockholm |    134.19 |   14.33 |
+| Morelia   |    257.56 |   17.67 |
+** Examples                                                        :noexport:
+*** 2d plots (lines and histograms)
+ First, to plot the following table use the key sequence defined above
+ =C-M-g=. This will call =org-plot/gnuplot= which finds and plots the
+ nearest table. The options specified in any =#+PLOT= lines above the
+ table are read and applied to the plot. Notice that the second
+ =#+PLOT:= line specifies labels for each column, if this line is
+ removed the labels will default to the column headers in the table,
+ try removing this line and re-plotting.
+ [[file:../images/org-plot/example-1.png]]
+ For a complete list of all of the options and their meanings see the
+ [[options]] section at the end of this file. For more information on
+ gnuplot options see [[http://gnuplot.sourceforge.net/documentation.html][the gnuplot documentation]], nearly all gnuplot
+ options should be accessible through org-plot.
+#+PLOT: title:"example table" ind:1 type:2d with:lines
+#+PLOT: labels:("first new label" "second column" "last column")
+ | independent var | first dependent var | second dependent var |
+ |-----------------+---------------------+----------------------|
+ |             0.1 |               0.425 |                0.375 |
+ |             0.2 |              0.3125 |               0.3375 |
+ |             0.3 |          0.24999993 |           0.28333338 |
+ |             0.4 |               0.275 |              0.28125 |
+ |             0.5 |                0.26 |                 0.27 |
+ |             0.6 |          0.25833338 |           0.24999993 |
+ |             0.7 |          0.24642845 |           0.23928553 |
+ |             0.8 |             0.23125 |               0.2375 |
+ |             0.9 |          0.23333323 |            0.2333332 |
+ |               1 |              0.2225 |                 0.22 |
+ |             1.1 |          0.20909075 |           0.22272708 |
+ |             1.2 |          0.19999998 |           0.21458333 |
+ |             1.3 |          0.19615368 |           0.21730748 |
+ |             1.4 |          0.18571433 |           0.21071435 |
+ |             1.5 |          0.19000008 |            0.2150001 |
+ |             1.6 |           0.1828125 |            0.2046875 |
+ |             1.7 |          0.18088253 |            0.1985296 |
+ |             1.8 |          0.17916675 |           0.18888898 |
+ |             1.9 |          0.19342103 |           0.21315783 |
+ |               2 |                0.19 |              0.21625 |
+ |             2.1 |          0.18214268 |           0.20714265 |
+ |             2.2 |          0.17727275 |            0.2022727 |
+ |             2.3 |           0.1739131 |            0.1989131 |
+ |             2.4 |          0.16770833 |            0.1916667 |
+ |             2.5 |               0.164 |                0.188 |
+ |             2.6 |          0.15769238 |           0.18076923 |
+ |             2.7 |           0.1592591 |            0.1888887 |
+ |             2.8 |           0.1598214 |           0.18928565 |
+ |             2.9 |          0.15603453 |            0.1844828 |
+ Org-plot can also produce histograms from 2d data, plot the following
+ table. Notice that the column specified as =ind= contains textual
+ non-numeric data, when this is the case org-plot will use the data as
+ labels for the x-axis using the gnuplot =xticlabels()= function.
+ [[file:../images/org-plot/example-2.png]]
+#+PLOT: title:"Citas" ind:1 deps:(3) type:2d with:histograms set:"yrange <0:>"
+ | Sede       | Max cites | H-index |
+ |------------+-----------+---------|
+ | Chile      |    257.72 |   21.39 |
+ | Leeds      |    165.77 |   19.68 |
+ | S茫o Paolo |     71.00 |   11.50 |
+ | Stockholm  |    134.19 |   14.33 |
+ | Morelia    |    257.56 |   17.67 |
+ For another example of plotting histograms instead of lines, change
+ the following options on the first table on this page, and replot
+1) remove the =ind:1= option
+2) replace the =with:lines= option with =with:histograms=
+ [[file:../images/org-plot/example-3.png]]
+*** 3d grid plots
+ There are also some functions for plotting 3d or grid data. To see an
+ example of a grid plot call org-plot/gnuplot =C-M-g= which will plot
+ the following table as a grid.
+ [[file:../images/org-plot/example-4.png]]
+ To see the effect of =map= try setting it to =t=, and then
+ re-plotting.
+ [[file:../images/org-plot/example-5.png]]
+#+PLOT: type:grid map:t title:"org mode"
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+ | 0 | 0 | 1 | 1 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1 | 1 | 1 | 0 | 0 |
+ | 0 | 1 | 0 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 1 | 0 |
+ | 0 | 1 | 0 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 1 | 0 |
+ | 0 | 1 | 0 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 1 | 0 | 1 | 1 | 1 | 0 |
+ | 0 | 1 | 0 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
+ | 0 | 1 | 0 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
+ | 0 | 1 | 0 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 1 | 0 |
+ | 0 | 1 | 0 | 0 | 1 | 0 | 1 | 1 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | 1 | 0 |
+ | 0 | 0 | 1 | 1 | 0 | 0 | 1 | 0 | 1 | 1 | 0 | 0 | 1 | 1 | 1 | 0 | 0 |
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+ Plotting grids also respects the independent variable (=ind:=) option,
+ and uses the values of the independent row to label the resulting
+ graph. The following example borrows a short description of org-mode
+ from Bernt Hansen on the mailing list (a more practical usage would
+ label every single row with something informative).
+ [[file:../images/org-plot/example-6.png]]
+ #+PLOT: type:grid map:t title:"Org-Mode" ind:1
+ | text | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+ | | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+ | plain | 0 | 0 | 1 | 1 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1 | 1 | 1 | 0 | 0 |
+ | | 0 | 1 | 0 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 1 | 0 |
+ | in | 0 | 1 | 0 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 1 | 0 |
+ | | 0 | 1 | 0 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 1 | 0 | 1 | 1 | 1 | 0 |
+ | everything | 0 | 1 | 0 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
+ | | 0 | 1 | 0 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
+ | track | 0 | 1 | 0 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 1 | 0 |
+ | | 0 | 1 | 0 | 0 | 1 | 0 | 1 | 1 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | 1 | 0 |
+ | and | 0 | 0 | 1 | 1 | 0 | 0 | 1 | 0 | 1 | 1 | 0 | 0 | 1 | 1 | 1 | 0 | 0 |
+ | | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+ | Organize | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+*** 3d plots
+ Finally the last type of graphing currently supported is 3d graphs of
+ data in a table. This will probably require some more knowledge of
+ gnuplot to make full use of the many options available.
+ [[file:../images/org-plot/example-7.png]]
+ For some simple demonstrations try the following graph using some
+ different =with:= options =with:points=, =with:lines=, and
+ =with:pm3d=.
+ [[file:../images/org-plot/example-8.png]]
+#+PLOT: type:3d with:pm3d
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+ | 0 | 2 | 2 | 2 | 2 | 2 | 0 |
+ | 0 | 2 | 3 | 3 | 3 | 2 | 0 |
+ | 0 | 2 | 3 | 4 | 3 | 2 | 0 |
+ | 0 | 2 | 3 | 3 | 3 | 2 | 0 |
+ | 0 | 2 | 2 | 2 | 2 | 2 | 0 |
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+** CANCELED install gd library                                     :noexport:
+ CLOSED: [2009-11-06 Fri 00:43]
+ GD is an open source code library for the dynamic creation of images
+*** CANCELED /usr/lib/libxcb-xlib.la: No such file or directory
+ CLOSED: [2009-11-06 Fri 00:43]
+ xcb library: The X protocol C-language Binding (XCB) is a replacement for Xlib featuring a small footprint, latency hiding, direct access to the protocol, improved threading support, and extensibility.
+*** console shot                                                   :noexport:
+#+BEGIN_EXAMPLE
+ gcc -DHAVE_CONFIG_H -I. -I/usr/include/freetype2 -I/usr/include/libpng12 -g -O2 -MT gdtables.lo -MD -MP -MF .deps/gdtables.Tpo -c gdtables.c -DDLL_EXPORT -DPIC -o .libs/gdtables.o
+ gcc -DHAVE_CONFIG_H -I. -I/usr/include/freetype2 -I/usr/include/libpng12 -g -O2 -MT gdtables.lo -MD -MP -MF .deps/gdtables.Tpo -c gdtables.c -o gdtables.o >/dev/null 2>&1
+ mv -f .deps/gdtables.Tpo .deps/gdtables.Plo
+ /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I/usr/include/freetype2 -I/usr/include/libpng12 -g -O2 -MT gdxpm.lo -MD -MP -MF .deps/gdxpm.Tpo -c -o gdxpm.lo gdxpm.c
+ gcc -DHAVE_CONFIG_H -I. -I/usr/include/freetype2 -I/usr/include/libpng12 -g -O2 -MT gdxpm.lo -MD -MP -MF .deps/gdxpm.Tpo -c gdxpm.c -DDLL_EXPORT -DPIC -o .libs/gdxpm.o
+ gcc -DHAVE_CONFIG_H -I. -I/usr/include/freetype2 -I/usr/include/libpng12 -g -O2 -MT gdxpm.lo -MD -MP -MF .deps/gdxpm.Tpo -c gdxpm.c -o gdxpm.o >/dev/null 2>&1
+ mv -f .deps/gdxpm.Tpo .deps/gdxpm.Plo
+ /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I/usr/include/freetype2 -I/usr/include/libpng12 -g -O2 -MT wbmp.lo -MD -MP -MF .deps/wbmp.Tpo -c -o wbmp.lo wbmp.c
+ gcc -DHAVE_CONFIG_H -I. -I/usr/include/freetype2 -I/usr/include/libpng12 -g -O2 -MT wbmp.lo -MD -MP -MF .deps/wbmp.Tpo -c wbmp.c -DDLL_EXPORT -DPIC -o .libs/wbmp.o
+ gcc -DHAVE_CONFIG_H -I. -I/usr/include/freetype2 -I/usr/include/libpng12 -g -O2 -MT wbmp.lo -MD -MP -MF .deps/wbmp.Tpo -c wbmp.c -o wbmp.o >/dev/null 2>&1
+ mv -f .deps/wbmp.Tpo .deps/wbmp.Plo
+ /bin/sh ./libtool --tag=CC --mode=link gcc -g -O2 -version-info 2:0:0 -no-undefined -L/usr/lib -o libgd.la -rpath /usr/local/lib gd.lo gdfx.lo gd_security.lo gd_gd.lo gd_gd2.lo gd_io.lo gd_io_dp.l
+ o gd_gif_in.lo gd_gif_out.lo gd_io_file.lo gd_io_ss.lo gd_jpeg.lo gd_png.lo gd_ss.lo gd_topal.lo gd_wbmp.lo gdcache.lo gdfontg.lo gdfontl.lo gdfontmb.lo gdfonts.lo gdfontt.lo gdft.lo gdhelpers.lo gdka
+ nji.lo gdtables.lo gdxpm.lo wbmp.lo -liconv -lXpm -lX11 -ljpeg -lfontconfig -lfreetype -lpng12 -lz
+ grep: /usr/lib/libxcb-xlib.la: No such file or directory
+ /usr/bin/sed: can't read /usr/lib/libxcb-xlib.la: No such file or directory
+ libtool: link: `/usr/lib/libxcb-xlib.la' is not a valid libtool archive
+ make<2>: *** [libgd.la] Error 1
+ make<2>: Leaving directory `/cygdrive/d/gd-2.0.36RC1'
+ make<1>: *** [all-recursive] Error 1
+ make<1>: Leaving directory `/cygdrive/d/gd-2.0.36RC1'
+ make: *** [all] Error 2
+#+END_EXAMPLE
+**** DONE xcb-proto is not found
+ CLOSED: [2009-09-05 星期六 11:31]
+*** console shot                                                   :noexport:
+#+BEGIN_EXAMPLE
+ checking whether to build shared libraries... yes
+ checking whether to build static libraries... yes
+ checking for gcc... (cached) gcc
+ checking whether we are using the GNU C compiler... (cached) yes
+ checking whether gcc accepts -g... (cached) yes
+ checking for gcc option to accept ISO C89... (cached) none needed
+ checking dependency style of gcc... (cached) gcc3
+ checking for xsltproc... /usr/bin/xsltproc
+ checking for XCBPROTO... configure: error: Package requirements (xcb-proto >= 1.5) were not met:
+ No package 'xcb-proto' found
+ Consider adjusting the PKG_CONFIG_PATH environment variable if you
+ installed software in a non-standard prefix.
+ Alternatively, you may set the environment variables XCBPROTO_CFLAGS
+ and XCBPROTO_LIBS to avoid the need to call pkg-config.
+ See the pkg-config man page for more details.
+#+END_EXAMPLE
+***** useful link
+ http://xcb.freedesktop.org/dist/\\
+ xcb-proto-0.9.93.tar.gz
+**** useful link
+ http://cblfs.cross-lfs.org/index.php/Libxcb\\
+ Libxcb
+ http://xcb.freedesktop.org/\\
+*** useful link
+ http://www.libgd.org/Main_Page\\
+ GD Graphics Library
+** CANCELED study gnuplot                                          :noexport:
+ CLOSED: [2009-11-06 Fri 00:43]
+*** useful link
+ http://www.duke.edu/~hpgavin/gnuplot.html\\
+ GNUPLOT 4.2 - A Brief Manual and Tutorial
+ http://nucl.sci.hokudai.ac.jp/~ohnishi/Lib/gnuplot.html\\
+ Library -- Gnuplot Examples
+** CANCELED Process gnuplot exited abnormally with code 53         :noexport:
+ CLOSED: [2009-11-06 Fri 00:43]
+** install XPM(XPiMap)
+ XPM(XPixMap)图形格式在X11中是一个标准格式,它把图形保存成ASCII文本
+*** useful link
+ http://baike.baidu.com/view/1307657.htm\\
+ XPM
+** useful link
+ http://www.gnuplot.info/screenshots/index.html\\
+ gnuplot demo plots
+ http://www.gnuplot.info/faq/faq.html\\
+ Gnuplot FAQ
+ http://www.nabble.com/strange-behavior-emf-term-on-gnuplot-4.2.4-1-td19909058.html\\
+ strange behavior emf term on gnuplot 4.2.4 1
+ http://www.gnuplot.info/screenshots/index.html\\
+ gnuplot demo plots
+ http://dsec.pku.edu.cn/dsectest/dsec_cn/gnuplot/\\
+ GNUPLOT使用手册
+ http://www2.warwick.ac.uk/fac/sci/moac/currentstudents/peter_cock/cygwin/part5/\\
+ Installing gnuplot on cygwin
+ http://bbs.ctex.org/viewthread.php?tid=39022\\
+ window下用Emacs编辑gnuplot的方法
+ http://www.emacswiki.org/emacs/GnuPlot\\
+ GnuPlot
+ http://t16web.lanl.gov/Kawano/gnuplot/index-e.html\\
+ gnuplot
+ http://orgmode.org/worg/org-tutorials/org-plot.php\\
+ Plotting tables in Org-Mode using org-plot
+ http://orgmode.org/manual/Org_002dPlot.html\\
+ 3.6 Org-Plot
+ http://www.gnuplot.info/\\
+ gnuplot homepage
+ http://cars9.uchicago.edu/~ravel/software/gnuplot-mode.html\\
+ Gnuplot-mode for Emacs
+** DONE gnuplot-make-gnuplot-buffer: Symbol's function definition is void: make-local-hook: make-local-hook is removed
+  CLOSED: [2013-03-27 Wed 22:45]
+http://code.google.com/p/emacs-evernote-mode/issues/detail?id=3
+
+(require 'gnuplot)
+
+注释掉gnuplot.el中(make-local-hook 'kill-buffer-hook)
+** [#A] Plotting Options
+#<<options>>
+
+Gnuplot options (see [[http://gnuplot.sourceforge.net/documentation.html][the gnuplot documentation]]) accessible through
+`org-plot', common gnuplot options are specifically supported, while
+all other options are accessible through specification of generic set
+commands, script lines, or specification of custom script files.
+Possible options are...
+
+- set :: specify any gnuplot option to be set when graphing
+- title :: specify the title of the plot
+- ind :: specify which column of the table to use as the x axis
+- deps :: specify the columns to graph as a lisp style list,
+          surrounded by parenthesis and separated by spaces for
+          example =dep:(3 4)= to graph the third and fourth columns
+          (defaults to graphing all other columns aside from the ind
+          column).
+- type :: specify whether the plot will be '2d' '3d or 'grid'
+- with :: specify a with option to be inserted for every col being
+          plotted (e.g. lines, points, boxes, impulses, etc...)
+          defaults to 'lines'
+- file :: if you want to plot to a file specify the path to the
+          desired output file
+- labels :: list of labels to be used for the deps (defaults to column
+            headers if they exist)
+- line :: specify an entire line to be inserted in the gnuplot script
+- map :: when plotting 3d or grid types, set this to true to graph a
+         flat mapping rather than a 3d slope
+- script :: if you want total control you can specify a script file
+            (place the file name inside quotes) which will be used to
+            plot, before plotting every instance of $datafile in the
+            specified script will be replaced with the path to the
+            generated data file.  Note even if you set this option you
+            may still want to specify the plot type, as that can
+            impact the content of the data file.
+- timefmt :: if there is time and/or date data to be plotted, set the
+             format.  For example, =timefmt:%Y-%m-%d= if the data look
+             like =2008-03-25=.
+* DONE [#A] 将bbdb导出成有头像的vcard                             :IMPORTANT:
+ CLOSED: [2011-09-17 Sat 16:48]
+- 将bbdb的每条记录导出成一个vcard文件
+ (bbdb-vcard-export "~/exported-vcards/" t t)
+
+- 删除不必要的vcard文件(奇怪：bbdb-vcard-export会生成多余的vcard文件)
+cd ~/exported-vcards/; rm -rf *-1.vcf
+
+- 针对每个vcard文件, 添加相应的PHOTO字段的二进制图片值
+ (update-bbdb-picture-to-vcard)
+
+- 将vcard合并成一个, 因为google只支持导入一个vcard
+ cd ~/exported-vcards/; cat * > /tmp/vcard.vcf
+
+- 通过google contact与手机同步
+  https://www.google.com/contacts_v2/#contacts
+** useful link
+https://github.com/trebb/bbdb-vcard
+* TODO [#B] org-mode don't wrap lines
+truncate-lines:nil
+* TODO [#B] emacs shell很好用，但网络卡住时tmux有不可抗拒的优势
+* DONE org-mode export html code block add line number
+  CLOSED: [2016-08-21 Sun 08:56]
+http://stackoverflow.com/questions/12170382/org-mode-source-inclusion-line-numbers
+
+http://orgmode.org/manual/CSS-support.html.
+
+.linenr
+#+BEGIN_EXAMPLE
+Org-mode has a great feature to include source code like this:
+
+#+begin_src java -n
+    /**
+     * @param foo
+     */
+    public static void doBar(Baz ba)
+    {
+        Collection<String> strings = ba.getStrings(true);
+        return strings;
+    }
+#+end_src
+The -n option shows line numbers.
+#+END_EXAMPLE
+* DONE [#A] emacs org-mode use customized css
+  CLOSED: [2016-08-21 Sun 13:56]
+http://orgmode.org/manual/CSS-support.html 
+
+ #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="style1.css" />
+ #+HTML_HEAD_EXTRA: <link rel="alternate stylesheet" type="text/css" href="style2.css" />
+
+* DONE css for underline: .underline { text-decoration: underline; }
+  CLOSED: [2016-08-21 Sun 14:03]
+http://www.w3schools.com/cssref/pr_text_text-decoration.asp
+* DONE emacs multiline regexp
+  CLOSED: [2016-09-20 Tue 13:21]
+http://stackoverflow.com/questions/1309050/emacs-query-replace-regexp-multiline
+(setq content-str "hello
+this
+----
+Denny
+Sophia")
+
+(message (replace-regexp-in-string
+          "\n----\\(.\\|\n\\)*" "" content-str))
+* DONE org-mode change customize footnotes css
+  CLOSED: [2016-09-20 Tue 21:08]
+/Users/mac/.emacs.d/elpa/org-plus-contrib-20150406/ox-html.el
+(defun org-html-footnote-section (info)
+
+(setq org-html-footnotes-section "<div id=\"footnotes\">
+<p class=\"footnotes\">%s: </p>
+<div id=\"text-footnotes\">
+%s
+</div>
+</div>")
+
+* TODO [#A] org-mode footnote: change face link
+https://www.dennyzhang.com/docker_capacity/
+
+http://orgmode.org/manual/Footnotes.html
+* DONE [#A] Exporting inline code to html in org-mode
+  CLOSED: [2016-10-05 Wed 13:18]
+http://orgmode.org/manual/Quoting-HTML-tags.html
+@@html:<b>@@bold text@@html:</b>@@
+#+BEGIN_HTML
+All lines between these markers are exported literally
+#+END_HTML
+* TODO emacs Latex doesn't export Chinese characters: work/osc_2013/totvs_work_review/DevOpsWorkReview.org
+* TODO [#A] emacs org-mode don't show change, since the color change is really annoying :IMPORTANT:
+* DONE gnus send email group: gnus-select-newsgroup: Couldn’t request group mail.sent.mail: Invalid group (no such directory)
+  CLOSED: [2017-01-03 Tue 15:21]
+gnus-group-delete-group
+
+#+BEGIN_EXAMPLE
+Debugger entered--Lisp error: (error "Couldn’t request group mail.sent.mail: Invalid group (no such directory)")
+  signal(error ("Couldn’t request group mail.sent.mail: Invalid group (no such directory)"))
+  error("Couldn't request group %s: %s" "mail.sent.mail" "Invalid group (no such directory)")
+  gnus-select-newsgroup("mail.sent.mail" nil nil)
+  gnus-summary-read-group-1("mail.sent.mail" nil t nil nil nil)
+  gnus-summary-read-group("mail.sent.mail" nil t nil nil nil nil)
+  gnus-group-read-group(nil t)
+  gnus-group-select-group(nil)
+  gnus-topic-select-group(nil)
+  funcall-interactively(gnus-topic-select-group nil)
+  call-interactively(gnus-topic-select-group nil nil)
+  command-execute(gnus-topic-select-group)
+#+END_EXAMPLE
+
+* DONE [#A] org-mode highlight things                             :IMPORTANT:
+  CLOSED: [2017-08-26 Sat 22:36]
+*bold*
+/italic/
++strike-through+
+=verbatim=
+~code~
+
+https://emacs.stackexchange.com/questions/5889/how-to-highlight-text-permanently-in-org-mode
+http://ergoemacs.org/emacs/emacs_org_markup.html
+http://orgmode.org/manual/Emphasis-and-monospace.html#Emphasis-and-monospace
+** DONE _underlined_
+   CLOSED: [2017-08-26 Sat 22:35]
+<span class="underline">Try it</span>
+** TODO org-mode verbatim
+<code>Try it</code>
+** DONE Customized css: [[color:#c7254e][
+   CLOSED: [2017-08-26 Sat 20:48]
+
+* DONE org-mode - no syntax highlighting in exported HTML page: need to install htmlize library
+  CLOSED: [2016-07-31 Sun 18:33]
+http://stackoverflow.com/questions/24082430/org-mode-no-syntax-highlighting-in-exported-html-page
+
+Code block syntax highlighting in Org-mode's HTML export depends on
+the htmlize library, which Org-mode's documentation says is included
+but may actually need to be installed separately
+https://www.reddit.com/r/emacs/comments/3pvbag/is_there_a_collection_of_css_styles_for_org/
+http://eschulte.github.io/babel-dev/DONE-Suitable-export-of-srcname-and-resname-lines.html
+http://www.cnblogs.com/cheukyin/p/4208621.html
+
+https://lists.gnu.org/archive/html/emacs-orgmode/2014-01/msg00731.html
+http://orgmode.org/manual/CSS-support.html
+https://github.com/fniessen/org-html-themes
+* TODO emacs sort by columns
+* DONE emacs change mini-buffer height
+  CLOSED: [2018-02-27 Tue 16:15]
+https://ftp.gnu.org/old-gnu/Manuals/emacs/html_node/emacs_33.html
+
+(setq resize-mini-windows nil)
+(setq max-mini-window-height 10)
+
+Use mouse to drag minibuffer up or down in order to resize it.
+* DONE emacs show line number: M-x linum-mode
+  CLOSED: [2018-05-01 Tue 11:23]
+
