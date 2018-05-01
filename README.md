@@ -2,7 +2,12 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. cheatsheet-emacs-A4</a></li>
+<li><a href="#sec-1">1. cheatsheet-emacs-A4</a>
+<ul>
+<li><a href="#sec-1-1">1.1. Code snippets</a></li>
+<li><a href="#sec-1-2">1.2. More links</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -20,7 +25,7 @@ See more CheatSheets from Denny: [#denny-cheatsheets](<https://github.com/topics
 
 <a href="<https://www.dennyzhang.com>"><img align="right" width="185" height="37" src="![img](//raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/dns_small.png)"></a>  
 
-****Emacs Elisp CheatSheet****: <https://github.com/DennyZhang/cheatsheet-emacs-A4>  
+****\*Emacs Elisp CheatSheet****: <https://github.com/DennyZhang/cheatsheet-emacs-A4>  
 
 Table of Contents  
 `===============`  
@@ -38,7 +43,7 @@ Table of Contents
 -   [Code snippets](#code-snippets)
 -   [More links](#more-links)
 
-\## Frequently Used  
+### Frequently Used<a id="sec-1-0-1" name="sec-1-0-1"></a>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -48,19 +53,14 @@ Table of Contents
 
 <col  class="left" />
 </colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">Name</th>
+<th scope="col" class="left">Comment</th>
+</tr>
+</thead>
+
 <tbody>
-<tr>
-<td class="left">Name</td>
-<td class="left">Comment</td>
-</tr>
-
-
-<tr>
-<td class="left">:--------------------------</td>
-<td class="left">-----------------------------------------------------</td>
-</tr>
-
-
 <tr>
 <td class="left">Debug a function</td>
 <td class="left">\`edebug-defun\`</td>
@@ -98,7 +98,7 @@ Table of Contents
 </tbody>
 </table>
 
-\## Org-mode In Emacs  
+### Org-mode In Emacs<a id="sec-1-0-2" name="sec-1-0-2"></a>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -108,19 +108,14 @@ Table of Contents
 
 <col  class="left" />
 </colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">Name</th>
+<th scope="col" class="left">Comment</th>
+</tr>
+</thead>
+
 <tbody>
-<tr>
-<td class="left">Name</td>
-<td class="left">Comment</td>
-</tr>
-
-
-<tr>
-<td class="left">:--------------------------</td>
-<td class="left">------------------------------------------</td>
-</tr>
-
-
 <tr>
 <td class="left">Export org-mode to markdown</td>
 <td class="left">\`org-md-export-to-markdown\` \`C-c C-e m m\`</td>
@@ -128,7 +123,7 @@ Table of Contents
 </tbody>
 </table>
 
-\## GNUS - Mail In Emacs  
+### GNUS - Mail In Emacs<a id="sec-1-0-3" name="sec-1-0-3"></a>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -158,7 +153,7 @@ Table of Contents
 </tbody>
 </table>
 
-\## View In Emacs  
+### View In Emacs<a id="sec-1-0-4" name="sec-1-0-4"></a>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -194,7 +189,7 @@ Table of Contents
 </tbody>
 </table>
 
-\## Buffer Operations  
+### Buffer Operations<a id="sec-1-0-5" name="sec-1-0-5"></a>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -242,7 +237,7 @@ Table of Contents
 </tbody>
 </table>
 
-\## String  
+### String<a id="sec-1-0-6" name="sec-1-0-6"></a>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -278,7 +273,7 @@ Table of Contents
 </tbody>
 </table>
 
-\## Array  
+### Array<a id="sec-1-0-7" name="sec-1-0-7"></a>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -332,7 +327,7 @@ Table of Contents
 </tbody>
 </table>
 
-\## Files  
+### Files<a id="sec-1-0-8" name="sec-1-0-8"></a>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -368,7 +363,7 @@ Table of Contents
 </tbody>
 </table>
 
-\## Math  
+### Math<a id="sec-1-0-9" name="sec-1-0-9"></a>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -392,7 +387,9 @@ Table of Contents
 </tbody>
 </table>
 
+## Code snippets<a id="sec-1-1" name="sec-1-1"></a>
 
+## More links<a id="sec-1-2" name="sec-1-2"></a>
 
 TODO: Need to automatically generate A4 pdf  
 
