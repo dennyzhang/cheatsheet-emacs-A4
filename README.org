@@ -2095,3 +2095,9 @@ Use mouse to drag minibuffer up or down in order to resize it.
 * DONE emacs show line number: M-x linum-mode
   CLOSED: [2018-05-01 Tue 11:23]
 
+* DONE [#A] emacs open remote folder: /sshx:kubo:/home/kubo/
+  CLOSED: [2018-07-01 Sun 01:22]
+https://www.gnu.org/software/emacs/manual/html_node/emacs/Remote-Files.html
+
+kubo /sshx:kubo@10.193.19.29:/home/kubo/
+
