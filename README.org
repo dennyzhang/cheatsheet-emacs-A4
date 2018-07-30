@@ -33,56 +33,56 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
 | Name                        | Comment                                          |
 |-----------------------------+--------------------------------------------------|
 | Debug a function            | =edebug-defun=                                   |
-| Change function via advice  | `defadvice` ;; Super inspiring feature!          |
+| Change function via advice  | =defadvice= ;; Super inspiring feature!          |
 | Excels in Emacs             | [org-mode-table.org](org-mode-table.org)         |
-| Emacs elpa packages' folder | `~/.emacs.d/elpa/`                               |
+| Emacs elpa packages' folder | =~/.emacs.d/elpa/=                               |
 | Regrexp In Emacs            | [regexp-string-match.el](regexp-string-match.el) |
-| Set default value           | `(setq-default indent-tabs-mode nil)`            |
+| Set default value           | =(setq-default indent-tabs-mode nil)=            |
 ** GNUS - Mail In Emacs
 
 | Name                 | Comment                        |
 |----------------------+--------------------------------|
-| Create delayed email | `gnus-delay-article` `C-c C-j` |
+| Create delayed email | =gnus-delay-article= =C-c C-j= |
 
 ** View In Emacs
 
 | Name                                         | Comment                 |
 |----------------------------------------------+-------------------------|
-| Move forward across one balanced expression  | `forward-sexp` `C-M-f`  |
-| Move backward across one balanced expression | `backward-sexp` `C-M-b` |
+| Move forward across one balanced expression  | =forward-sexp= =C-M-f=  |
+| Move backward across one balanced expression | =backward-sexp= =C-M-b= |
 
 ** Buffer Operations
 
 | Name                          | Comment                                              |
 |-------------------------------+------------------------------------------------------|
-| Move to top                   | `(goto-char (point-min))`                            |
+| Move to top                   | =(goto-char (point-min))=                            |
 | Replace string by regexp      | [buffer-replace.el](buffer-replace.el)               |
-| Delete region                 | `(delete-region start-pos end-pos)`                  |
-| Buffer string with plain text | `(buffer-substring-no-properties start-pos end-pos)` |
+| Delete region                 | =(delete-region start-pos end-pos)=                  |
+| Buffer string with plain text | =(buffer-substring-no-properties start-pos end-pos)= |
 
 ** String
 
 | Name              | Comment                                                |
 |-------------------+--------------------------------------------------------|
-| Replace by regexp | `(setq ret (replace-regexp-in-string "<hr/>" "" ret))` |
-| Format string     | `(format "%s/%s" mywordpress-server-url blog-uri)`     |
+| Replace by regexp | =(setq ret (replace-regexp-in-string "<hr/>" "" ret))= |
+| Format string     | =(format "%s/%s" mywordpress-server-url blog-uri)=     |
 
 ** Array
 
 | Name             | Comment                                  |
 |------------------+------------------------------------------|
-| Create a list    | `(defvar my-list (list "item1, item2"))` |
-| Add item to list | `(add-to-list 'my-list "item3")`         |
-| Head of a list   | `(car '(a b c))`                         |
-| Tail of a list   | `(cdr '(a b c))`                         |
-| Loop a list      | `(dolist (item my-list) (message item))` |
+| Create a list    | =(defvar my-list (list "item1, item2"))= |
+| Add item to list | =(add-to-list 'my-list "item3")=         |
+| Head of a list   | =(car '(a b c))=                         |
+| Tail of a list   | =(cdr '(a b c))=                         |
+| Loop a list      | =(dolist (item my-list) (message item))= |
   
 ** Files
 
 | Name      | Comment                      |
 |-----------+------------------------------|
-| Open file | `(find-file html-file)`      |
-| Save file | `(write-file html-file nil)` |
+| Open file | =(find-file html-file)=      |
+| Save file | =(write-file html-file nil)= |
 * Org-mode
 ** org-mode export
 | Name                        | Comment                                   |
