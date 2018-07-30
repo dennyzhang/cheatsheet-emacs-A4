@@ -84,6 +84,11 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
 | Open file | =(find-file html-file)=      |
 | Save file | =(write-file html-file nil)= |
 * Org-mode
+#+BEGIN_HTML
+<a href="https://www.dennyzhang.com"><img align="right" width="201" height="268" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/denny_201706.png"></a>
+
+<a href="https://www.dennyzhang.com"><img align="right" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/dns_small.png"></a>
+#+END_HTML
 ** org-mode export
 | Name                        | Comment                                   |
 |-----------------------------+-------------------------------------------|
@@ -121,12 +126,6 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
  not center, again
 
 #+END_QUOTE
-
-#+BEGIN_HTML
-<a href="https://www.dennyzhang.com"><img align="right" width="201" height="268" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/denny_201706.png"></a>
-
-<a href="https://www.dennyzhang.com"><img align="right" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/dns_small.png"></a>
-#+END_HTML
 
 ** Emphasis
 | *bold* *bold*                                                        | [[http://www.google.com]] *bold*                                                        | [[http://www.xkcd.com][helpful text link]] *bold*                                                        | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] *bold*                                                        | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] *bold*                                                        |
