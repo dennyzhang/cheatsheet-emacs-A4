@@ -30,14 +30,14 @@ File me [[https://github.com/DennyZhang/cheatsheet-emacs-A4/issues][Issues]] or 
 See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][#denny-cheatsheets]]
 * CheatSheet
 ** Frequently Used
-| Name                        | Comment                                          |
-|-----------------------------+--------------------------------------------------|
-| Debug a function            | =edebug-defun=                                   |
-| Change function via advice  | =defadvice= ;; Super inspiring feature!          |
-| Excels in Emacs             | [org-mode-table.org](org-mode-table.org)         |
-| Emacs elpa packages' folder | =~/.emacs.d/elpa/=                               |
-| Regrexp In Emacs            | [regexp-string-match.el](regexp-string-match.el) |
-| Set default value           | =(setq-default indent-tabs-mode nil)=            |
+| Name                        | Comment                                  |
+|-----------------------------+------------------------------------------|
+| Debug a function            | =edebug-defun=                           |
+| Change function via advice  | =defadvice= ;; Super inspiring feature!  |
+| Excels in Emacs             | [org-mode-table.org](org-mode-table.org) |
+| Emacs elpa packages' folder | =~/.emacs.d/elpa/=                       |
+| Regrexp In Emacs            | [[regexp-string-match.el][regexp-string-match.el]]                   |
+| Set default value           | =(setq-default indent-tabs-mode nil)=    |
 ** GNUS - Mail In Emacs
 
 | Name                 | Comment                        |
@@ -56,7 +56,7 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
 | Name                          | Comment                                              |
 |-------------------------------+------------------------------------------------------|
 | Move to top                   | =(goto-char (point-min))=                            |
-| Replace string by regexp      | [buffer-replace.el](buffer-replace.el)               |
+| Replace string by regexp      | [[buffer-replace.el][buffer-replace.el]]                                    |
 | Delete region                 | =(delete-region start-pos end-pos)=                  |
 | Buffer string with plain text | =(buffer-substring-no-properties start-pos end-pos)= |
 
