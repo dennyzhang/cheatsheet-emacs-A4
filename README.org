@@ -1,295 +1,118 @@
--*- mode:org; fill-column:70; coding:utf-8; -*-
-* org-mode configuration
+* org-mode configuration                                           :noexport:
 #+STARTUP: overview customtime noalign logdone hidestars
-#+SEQ_TODO: TODO HALF ASSIGN | DONE BYPASS DELEGATE CANCELED DEFERRED
-#+DRAWERS: HIDDEN CODE CONF EMAIL WEBPAGE SNIP
+#+TITLE:  Kubernetes Security Pratice
+#+DESCRIPTION: 
+#+KEYWORDS: 
+#+AUTHOR: Denny Zhang
+#+EMAIL:  denny@dennyzhang.com
+#+TAGS: noexport(n)
 #+PRIORITIES: A D C
-#+ARCHIVE: %s_done::** Finished Tasks
-#+AUTHOR: dennyzhang.com (denny@dennyzhang.com)
-#+OPTIONS: creator:nil
-#+OPTIONS: toc:3 \n:t ^:nil creator:nil d:nil
-* cheatsheet-emacs-A4
-# cheatsheet-emacs-A4
-<a href="https://github.com/DennyZhang?tab=followers"><img align="right" width="200" height="183" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/fork_github.png" /></a>
+#+OPTIONS:   H:3 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:nil skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+EXPORT_EXCLUDE_TAGS: exclude noexport
+#+SEQ_TODO: TODO HALF ASSIGN | DONE BYPASS DELEGATE CANCELED DEFERRED
+#+LINK_UP:   
+#+LINK_HOME: 
+* Summary
+#+BEGIN_HTML
+<a href="https://www.linkedin.com/in/dennyzhang001"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/linkedin.png" alt="linkedin" /></a>
+<a href="https://github.com/DennyZhang"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a>
+<a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="http://slack.dennyzhang.com/badge.svg" alt="slack"/></a>
+<a href="https://github.com/DennyZhang"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
 
-[[https://img.shields.io/badge/PRs-welcome-brightgreen.svg][PRs Welcome]]
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com) [![LinkedIn](https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/linkedin_icon.png)](https://www.linkedin.com/in/dennyzhang001) <a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="http://slack.dennyzhang.com/badge.svg" alt="slack"/></a> [![Github](https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/github.png)](https://github.com/DennyZhang)
+<br/><br/>
 
-File me [[https://github.com/DennyZhang/cheatsheet-emacs-A4/issues][tickets]] or star [[https://github.com/DennyZhang/cheatsheet-emacs-A4][the repo]].
+<a href="http://makeapullrequest.com" target="_blank" rel="nofollow"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"/></a>
+#+END_HTML
 
-See more CheatSheets from Denny: [#denny-cheatsheets](https://github.com/topics/denny-cheatsheets)
+File me [[https://github.com/DennyZhang/cheatsheet-emacs-A4/issues][Issues]] or star [[https://github.com/DennyZhang/cheatsheet-emacs-A4][this repo]].
 
-<a href="https://www.dennyzhang.com"><img align="right" width="185" height="37" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/dns_small.png"></a>
+See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][#denny-cheatsheets]]
+* CheatSheet
+** Frequently Used
 
-***Emacs Elisp CheatSheet**: https://github.com/DennyZhang/cheatsheet-emacs-A4
+| Name                        | Comment                                               |
+| :-------------------------- | ----------------------------------------------------- |
+| Debug a function            | `edebug-defun`                                        |
+| Change function via advice  | `defadvice` ;; Super inspiring feature!               |
+| Excels in Emacs             | [org-mode-table.org](org-mode-table.org)              |
+| Emacs elpa packages' folder | `~/.emacs.d/elpa/`                                    |
+| Regrexp In Emacs            | [regexp-string-match.el](regexp-string-match.el)      |
+| Set default value           | `(setq-default indent-tabs-mode nil)`                 | 
   
-Table of Contents
-=================
+** Org-mode In Emacs
 
-   * [cheatsheet-emacs-A4](#cheatsheet-emacs-a4)
-      * [Frequently Used](#frequently-used)
-      * [Org-mode In Emacs](#org-mode-in-emacs)
-      * [GNUS - Mail In Emacs](#gnus---mail-in-emacs)
-      * [View In Emacs](#view-in-emacs)
-      * [Buffer Operations](#buffer-operations)
-      * [String](#string)
-      * [Array](#array)
-      * [Files](#files)
-      * [Math](#math)
-   * [Code snippets](#code-snippets)
-   * [More links](#more-links)
+| Name                        | Comment                                    |
+| :-------------------------- | ------------------------------------------ |
+| Export org-mode to markdown | `org-md-export-to-markdown` `C-c C-e m m`  |
 
-*** Frequently Used
-
-| Name                        | Comment                                          |
-|-----------------------------+--------------------------------------------------|
-| Debug a function            | edebug-defun                                   |
-| Change function via advice  | defadvice ;; Super inspiring feature!          |
-| Excels in Emacs             | [org-mode-table.org](org-mode-table.org)         |
-| Emacs elpa packages' folder | ~/.emacs.d/elpa/                               |
-| Regrexp In Emacs            | [regexp-string-match.el](regexp-string-match.el) |
-| Set default value           | (setq-default indent-tabs-mode nil)            |
-  
-*** Org-mode In Emacs
-
-| Name                        | Comment                                   |
-|-----------------------------+-------------------------------------------|
-| Export org-mode to markdown | org-md-export-to-markdown C-c C-e m m |
-
-*** GNUS - Mail In Emacs
+** GNUS - Mail In Emacs
 
 | Name                  | Comment                          |
-|---------------------- | -------------------------------- |
-| Create delayed email  | gnus-delay-article C-c C-j   |
+| :-------------------- | -------------------------------- |
+| Create delayed email  | `gnus-delay-article` `C-c C-j`   |
 
-*** View In Emacs
+** View In Emacs
 
 | Name                                         | Comment                  |
-|--------------------------------------------- | ------------------------ |
-| Move forward across one balanced expression  | forward-sexp C-M-f   |
-| Move backward across one balanced expression | backward-sexp C-M-b  |
+| :------------------------------------------- | ------------------------ |
+| Move forward across one balanced expression  | `forward-sexp` `C-M-f`   |
+| Move backward across one balanced expression | `backward-sexp` `C-M-b`  |
 
-*** Buffer Operations
+** Buffer Operations
 
 | Name                          | Comment                                              |
-|-------------------------      | ---------------------------------------------------- |
-| Move to top                   | (goto-char (point-min))                            |
+| :-----------------------      | ---------------------------------------------------- |
+| Move to top                   | `(goto-char (point-min))`                            |
 | Replace string by regexp      | [buffer-replace.el](buffer-replace.el)               |
-| Delete region                 | (delete-region start-pos end-pos)                  |
-| Buffer string with plain text | (buffer-substring-no-properties start-pos end-pos) |
+| Delete region                 | `(delete-region start-pos end-pos)`                  |
+| Buffer string with plain text | `(buffer-substring-no-properties start-pos end-pos)` |
 
-*** String
+** String
 
 | Name                | Comment                                                |
-|-------------------- | ------------------------------------------------------ |
-| Replace by regexp   | (setq ret (replace-regexp-in-string "<hr/>" "" ret)) |
-| Format string       | (format "%s/%s" mywordpress-server-url blog-uri)     |
+| :------------------ | ------------------------------------------------------ |
+| Replace by regexp   | `(setq ret (replace-regexp-in-string "<hr/>" "" ret))` |
+| Format string       | `(format "%s/%s" mywordpress-server-url blog-uri)`     |
 
-*** Array
+** Array
 
 | Name                | Comment                                  |
-|-------------------- | ---------------------------------------- |
-| Create a list       | (defvar my-list (list "item1, item2")) |
-| Add item to list    | (add-to-list 'my-list "item3")         |
-| Head of a list      | (car '(a b c))                         |
-| Tail of a list      | (cdr '(a b c))                         |
-| Loop a list         | (dolist (item my-list) (message item)) |
+| :------------------ | ---------------------------------------- |
+| Create a list       | `(defvar my-list (list "item1, item2"))` |
+| Add item to list    | `(add-to-list 'my-list "item3")`         |
+| Head of a list      | `(car '(a b c))`                         |
+| Tail of a list      | `(cdr '(a b c))`                         |
+| Loop a list         | `(dolist (item my-list) (message item))` |
   
-*** Files
+** Files
 
 | Name          | Comment                      |
-|-------------- | ---------------------------- |
-| Open file     | (find-file html-file)        |
-| Save file     | (write-file html-file nil)   |
+| :------------ | ---------------------------- |
+| Open file     | `(find-file html-file)`      |
+| Save file     | `(write-file html-file nil)` |
   
-*** Math
+** Math
 
-| Name | Comment |
-|------+---------|
-  
-** Code snippets
+| Name          | Comment                  |
+| :------------ | ------------------------ |
 
-** More links
-
-TODO: Need to automatically generate A4 pdf
-
-License: Code is licensed under [MIT License](https://www.dennyzhang.com/wp-content/mit_license.txt).
-
+* #  --8<-------------------------- separator ------------------------>8-- :noexport:
+* Security deployemnt 
+| Name                      | Summary          |
+|---------------------------+------------------|
+| Make filesystem read-only | [[mark-fs-readonly][mark-fs-readonly]] |
+| Set runAsNonRoot as True | [[run-as-nonroot][run-as-nonroot]]   |
+* Scan Docker Image
+* More Resources
+License: Code is licensed under [[https://www.dennyzhang.com/wp-content/mit_license.txt][MIT License]].
+#+BEGIN_HTML
 <a href="https://www.dennyzhang.com"><img align="right" width="201" height="268" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/denny_201706.png"></a>
 
 <a href="https://www.dennyzhang.com"><img align="right" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/dns_small.png"></a>
-* [#A] Emacs -- fundanmental features                                  :Tool:Personal:
-:PROPERTIES:
-:type:   Emacs
-:END:
-[[https://www.dennyzhang.com/wp-content/uploads/2014/04//blog_emacs.png]]
-
-| Num | Item                       | Comment                         |
-|-----+----------------------------+---------------------------------|
-|   1 | M-x locate-library         |                                 |
-|   2 | M-x list-load-path-shadows | Debug conflicting installations |
-|   3 | M-x find-library           |                                 |
-#+TBLFM: $1=@-1$1+1;N
-** Check latest skills of emacs
-./configure --with-crt-dir=/usr/lib/x86_64-linux-gnu
-- Check my emacs configuration at github: https://github.com/DennyZhang/Denny-s-emacs-configuration
-- If Emacs is an operating system, Org-mode is the office/productivity suite.
-- obtain emacs source code: wget http://ftp.gnu.org/pub/gnu/emacs/emacs-23.4.tar.gz ~/emacs-23.4.tar.gz
-
-| Item           | Comment                                         |
-|----------------+-------------------------------------------------|
-| github         | https://github.com/languages/Emacs%20Lisp       |
-| google         | “emacs-related-keywords site:stackoverflow.com” |
-| twitter        | 在twitter上以”emacs :en”定期搜索                |
-| sacha hua blog | http://sachachua.com/blog/                      |
-| Xah Lee blog   |                                                 |
-** [#A] Web-browse in emacs
-*** DONE Why browse the Web in Emacs
- CLOSED: [2009-11-22 Sun 22:45]
-- Browsing is faster and less distracting
-- You can integrate it into your work
-- You can customize everything
-- You're safe from browser exploits
-- You need less memory
-*** [#A] Webjump in emacs
-通过emacs去管理网页收藏夹
-
-示例配置: https://github.com/DennyZhang/Denny-s-emacs-configuration/blob/master/web-browse-setting.el
-**** DONE [#A] emacs webjump: webhost匹配时, 使用子串匹配, 而不是前缀匹配: 直接使用*XX*即可
- CLOSED: [2011-09-27 Tue 18:13]
-**** TODO [#A] emacs webjump: 有些网站中国的keyword输入不行
-#+BEGIN_EXAMPLE
-(webjump-url-encode keywords)
-
-http://s.taobao.com/search?q=%E8%A1%A3%E6%9C%8D\\
-http://s.taobao.com/search?q=%D2%C2%B7%FE\\
-#+END_EXAMPLE
-**** CANCELED webjump-plus.el — supplemental Web site list for webjump (by Neil W. Van Dyke)
-#+BEGIN_EXAMPLE
- CLOSED: [2011-09-12 Mon 23:35]
- http://www.neilvandyke.org/webjump/\\
-#+END_EXAMPLE
-*** [#A] w3m in emacs                                             :IMPORTANT:
-| Item                                                        | Summary                                                          |
-|-------------------------------------------------------------+------------------------------------------------------------------|
-| C-c C-p                                                     | (w3m-previous-buffer)                                            |
-| C-c C-n                                                     | (w3m-next-buffer)                                                |
-|-------------------------------------------------------------+------------------------------------------------------------------|
-| R                                                           | Reload the current page                                          |
-| TAB                                                         | Move the point to the next anchor.                               |
-| B                                                           | Move back to the previous page in the history.                   |
-| N                                                           | Move forward to the next page in the history.                    |
-| c                                                           | Display the url of the current page and put it into `kill-ring'. |
-| S                                                           | Query to the search engine a word.                               |
-| s                                                           | Display the history of pages you have visited in the session.    |
-| C-c C-t Create a copy of the current page as a new session. |                                                                  |
-| .                                                           | Shift to the left                                                |
-| ,                                                           | Shift to the right                                               |
-| M                                                           | Display the current page using the external browser.             |
-| u                                                           | Display the url under point and put it into `kill-ring'.         |
-| C-c C-s                                                     | (w3m-select-buffer)                                              |
-| G                                                           | Visit the web page in a new session.                             |
-| <S-return>                                                  | Display the page of the link in a new session.                   |
-|-------------------------------------------------------------+------------------------------------------------------------------|
-| M-x w3m-current-title                                       | 在w3m中如何得到当前网页的文件名:                                 |
-**** DONE windows上安装使用w3m: cygwin中安装w3m即可                    :HARD:
-  CLOSED: [2010-04-05 星期一 10:29]
-**** DONE show images in w3m: (setq w3m-default-display-inline-images t) :IMPORTANT:
-     CLOSED: [2010-04-18 星期日 12:45]
-***** useful link
- http://osdir.com/ml/emacs.w3m/2002-06/msg00056.html\\
- [emacs-w3m:03544] Re: display inline images for text/html using emacs-w3m (non-member post) - msg#00056 - emacs.w3m
-**** DONE [#B] 设置w3m默认的每行的字符数: (setq w3m-fill-column 100)
-     CLOSED: [2011-10-20 Thu 22:25]
-**** DONE emacs org-w3m: 拷w3m中网页时,　保存有效链接
-  CLOSED: [2011-07-22 Fri 22:42]
-  http://repo.or.cz/w/org-mode.git?a=blob_plain;f=lisp/org-w3m.el;hb=HEAD\\
-**** DONE 调整w3m中, 网页组某个网页的位置
-   CLOSED: [2011-10-20 Thu 22:28]
-(define-key map [?\C-c ?\C-,] 'w3m-tab-move-left)
-(define-key map [?\C-c ?\C-<] 'w3m-tab-move-left)
-**** DONE emacs-w3m开启时, 默认不之前的session, 以提高速度: (setq w3m-session-load-crashed-sessions nil)
-     CLOSED: [2011-10-26 Wed 21:13]
-**** CANCELED build from source code                               :noexport:
-  CLOSED: [2010-04-05 星期一 10:29]
-***** Imlib2
-****** basic use
-#+BEGIN_EXAMPLE
- Imlib 2 is the successor to Imlib. It is NOT a newer version - it is a completely new library.
- Imlib 2 does the following:
- - Load image files from disk in one of many formats
- - Save images to disk in one of many formats
- - Render image data onto other images
- - Render images to an X-Windows drawable
- - Produce pixmaps and pixmap masks of Images
- - Apply filters to images
- - Rotate images
- - Accept RGBA Data for images
- - Scale images
- - Alpha blend Images on other images or drawables
- - Apply color correction and modification tables and factors to images
- - Render images onto images with color correction and modification tables
- - Render truetype anti-aliased text
- - Render truetype anti-aliased text at any angle
- - Render anti-aliased lines
- - Render rectangles
- - Render linear multi-colored gradients
- - Cache data intelligently for maximum performance
- - Allocate colors automatically
- - Allow full control over caching and color allocation
- - Provide highly optimized MMX assembly for core routines
- - Provide plug-in filter interface
- - Provide on-the-fly runtime plug-in image loading and saving interface
- - Fastest image compositing, rendering and manipulation library for X
-#+END_EXAMPLE
-****** useful link
- http://docs.enlightenment.org/api/imlib2/html/\\
- Imlib2 Library Documentation
-***** compface/uncompface
-  uncompface -- compress and expand 48x48x1 face image files
-****** useful link
- http://linux.die.net/man/1/uncompface\\
- uncompface(1) - Linux man page
-**** useful link
- http://www.cnblogs.com/papam/archive/2009/08/26/1554726.html\\
- Emacs w3m 配置
- http://sourceforge.net/projects/w3m/files/\\
- emacs-w3m
- http://www.emacswiki.org/emacs/emacs-w3m\\
- emacs-w3m
- http://emacs-w3m.namazu.org/ml/msg07882.html\\
- emacs-w3m 1.4.4 is released
- http://emacs-w3m.namazu.org/#download\\
- Emacs-w3m, a simple Emacs interface to w3m.
- http://www.idcnews.net/html/edu/linux/20070101/282205.html\\
- emacs-w3m配置说明
- http://atomized.org/2008/09/emacs-w3m-buffer-name-disambiguation/\\
- Emacs-w3m buffer name disambiguation
- http://ahei.yo2.cn/w3m.htm\\
- Emacs才是世界上最强的IDE - 在Emacs里用w3m浏览网页
-
- http://sachachua.com/wp/2008/08/12/why-browse-the-web-in-emacs/\\
- Why browse the Web in Emacs?
-** [#A] BBDB mode in emacs
-*** DONE [#A] 将bbdb导出成有头像的vcard                           :IMPORTANT:
- CLOSED: [2011-09-17 Sat 16:48]
-- 将bbdb的每条记录导出成一个vcard文件
- (bbdb-vcard-export "~/exported-vcards/" t t)
-
-- 删除不必要的vcard文件(奇怪：bbdb-vcard-export会生成多余的vcard文件)
-cd ~/exported-vcards/; rm -rf *-1.vcf
-
-- 针对每个vcard文件, 添加相应的PHOTO字段的二进制图片值
- (update-bbdb-picture-to-vcard)
-
-- 将vcard合并成一个, 因为google只支持导入一个vcard
- cd ~/exported-vcards/; cat * > /tmp/vcard.vcf
-
-- 通过google contact与手机同步
-  https://www.google.com/contacts_v2/#contacts
-**** useful link
-https://github.com/trebb/bbdb-vcard
-* [#A] Org-mode in emacs                                               :HARD:
+#+END_HTML
+* #  --8<-------------------------- separator ------------------------>8-- :noexport:
+* [#A] Org-mode in emacs                                      :noexport:HARD:
 ** org-mode数据组织的注意事项                           :noexport:HARD:EMACS:
 *** Attach unique id to the task: like attach bug number, for upgrade support
 *** Delete small tasks which are recorded mainly for the purpose of remind
@@ -787,7 +610,1018 @@ http://emacs.stackexchange.com/questions/12878/how-to-change-style-of-hyperlinks
     #+LaTeX_HEADER: \usepackage[breaklinks=true,linktocpage,xetex]{hyperref} 
     #+LaTeX_HEADER: \hypersetup{colorlinks, citecolor=electricblue, filecolor=black, linkcolor=black, urlcolor=electricblue}
 #+END_EXAMPLE
-* [#A] Mail in emacs -- gnus                                  :Tool:Personal:
+** DONE org-mode add comment
+   CLOSED: [2018-07-29 Sun 18:34]
+ #+BEGIN_COMMENT
+
+ /Foo/
+
+ #+BEGIN_SRC c++
+ int main() { }
+ #+END_SRC
+
+ #+END_COMMENT
+** DONE org-mode strikethrough: Description +strikethrough+
+   CLOSED: [2018-07-29 Sun 18:44]
+** DONE org-mode add quote
+   CLOSED: [2018-07-29 Sun 18:35]
+ #+BEGIN_QUOTE
+
+ /Example:/
+
+ This is blockquote text.
+
+ #+END_QUOTE
+** DONE org-mode center text
+   CLOSED: [2018-07-29 Sun 18:36]
+ not center
+ #+BEGIN_CENTER
+ center
+ #+END_CENTER
+ not center, again
+** TODO [#B] org-mode don't wrap lines
+ truncate-lines:nil
+** DONE org-mode export html code block add line number
+   CLOSED: [2016-08-21 Sun 08:56]
+ http://stackoverflow.com/questions/12170382/org-mode-source-inclusion-line-numbers
+
+ http://orgmode.org/manual/CSS-support.html.
+
+ .linenr
+ #+BEGIN_EXAMPLE
+ Org-mode has a great feature to include source code like this:
+
+ #+begin_src java -n
+     /**
+      * @param foo
+      */
+     public static void doBar(Baz ba)
+     {
+         Collection<String> strings = ba.getStrings(true);
+         return strings;
+     }
+ #+end_src
+ The -n option shows line numbers.
+ #+END_EXAMPLE
+** DONE [#A] emacs org-mode use customized css
+   CLOSED: [2016-08-21 Sun 13:56]
+ http://orgmode.org/manual/CSS-support.html 
+
+  #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="style1.css" />
+  #+HTML_HEAD_EXTRA: <link rel="alternate stylesheet" type="text/css" href="style2.css" />
+
+** DONE org-mode change customize footnotes css
+   CLOSED: [2016-09-20 Tue 21:08]
+ /Users/mac/.emacs.d/elpa/org-plus-contrib-20150406/ox-html.el
+ (defun org-html-footnote-section (info)
+
+ (setq org-html-footnotes-section "<div id=\"footnotes\">
+ <p class=\"footnotes\">%s: </p>
+ <div id=\"text-footnotes\">
+ %s
+ </div>
+ </div>")
+
+** TODO [#A] org-mode footnote: change face link
+ https://www.dennyzhang.com/docker_capacity/
+
+ http://orgmode.org/manual/Footnotes.html
+** DONE [#A] Exporting inline code to html in org-mode
+   CLOSED: [2016-10-05 Wed 13:18]
+ http://orgmode.org/manual/Quoting-HTML-tags.html
+ @@html:<b>@@bold text@@html:</b>@@
+ #+BEGIN_HTML
+ All lines between these markers are exported literally
+ #+END_HTML
+** DONE [#A] org-mode highlight things                            :IMPORTANT:
+   CLOSED: [2017-08-26 Sat 22:36]
+ *bold*
+ /italic/
+ +strike-through+
+ =verbatim=
+ ~code~
+
+ https://emacs.stackexchange.com/questions/5889/how-to-highlight-text-permanently-in-org-mode
+ http://ergoemacs.org/emacs/emacs_org_markup.html
+ http://orgmode.org/manual/Emphasis-and-monospace.html#Emphasis-and-monospace
+*** DONE _underlined_
+    CLOSED: [2017-08-26 Sat 22:35]
+ <span class="underline">Try it</span>
+*** TODO org-mode verbatim
+ <code>Try it</code>
+*** DONE Customized css: [[color:#c7254e][
+    CLOSED: [2017-08-26 Sat 20:48]
+
+** DONE org-mode - no syntax highlighting in exported HTML page: need to install htmlize library
+   CLOSED: [2016-07-31 Sun 18:33]
+ http://stackoverflow.com/questions/24082430/org-mode-no-syntax-highlighting-in-exported-html-page
+
+ Code block syntax highlighting in Org-mode's HTML export depends on
+ the htmlize library, which Org-mode's documentation says is included
+ but may actually need to be installed separately
+ https://www.reddit.com/r/emacs/comments/3pvbag/is_there_a_collection_of_css_styles_for_org/
+ http://eschulte.github.io/babel-dev/DONE-Suitable-export-of-srcname-and-resname-lines.html
+ http://www.cnblogs.com/cheukyin/p/4208621.html
+
+ https://lists.gnu.org/archive/html/emacs-orgmode/2014-01/msg00731.html
+ http://orgmode.org/manual/CSS-support.html
+ https://github.com/fniessen/org-html-themes
+** BYPASS Org property: (org-entry-get nil "type")
+   CLOSED: [2018-07-22 Sun 13:18]
+ https://emacs.stackexchange.com/questions/21713/how-to-get-property-values-from-org-file-headers
+
+ https://emacs.stackexchange.com/questions/29836/how-to-get-the-headline-title-using-org-entry-get
+
+ (org-entry-properties nil nil)
+
+ /Users/zdenny/Dropbox/git_code/challenges/challenges-leetcode-interesting/problems/prefix-and-suffix-search
+
+ (("CATEGORY" . "README") ("BLOCKED" . "") ("ALLTAGS" . ":BLOG:Medium:") ("TAGS" . ":BLOG:Medium:") ("FILE" . "/Users/zdenny/Dropbox/git_code/challenges/challenges-leetcode-interesting/problems/prefix-and-suffix-search/README.org") ("PRIORITY" . "B") ("ITEM" . "Leetcode: Prefix and Suffix Search"))
+
+** TODO [#A] emacs org-mode don't show change, since the color change is really annoying :IMPORTANT:
+* [#A] Elisp                                       :noexport:Coding:Personal:
+:PROPERTIES:
+:type:   Emacs_Language
+:END:
+ C-h i m ELisp Intro RET
+
+- 学习Lisp所收获的是如何自由地表达设计思想
+** DONE [#A] lisp宏: 宏的工作方式和函数类似。主要的差别是，宏的参数在代入时不求值 :IMPORTANT:
+  CLOSED: [2013-11-15 Fri 21:23]
+http://www.aqee.net/why-i-love-lisp/
+
+- Lisp宏的输入和输出都是S表达式，它本质上是把一种DSL转换为另一种DSL
+
+(macro-name (+ 4 5)) : ( + 4 5)作为一个表传递给宏
+(func-name (+ 4 5))
+#+begin_example
+对于宏，其实还有更令人惊奇的东西，但现在，它已经很能变戏法了。
+
+这种技术的力量还没有被完全展现出来。按着" 为什么我喜欢Smalltalk？"的思路，我们假设Clojure里没有if语法，只有cond语法。也许在这里，这并不是一个太好的例子，但这个例子很简单。
+
+cond 功能跟其它语言里的switch 或 case 很相似：
+
+1
+(cond (= x 0) "It's zero"
+2
+      (= x 1) "It's one"
+3
+      :else "It's something else")
+使用 cond，我们可以直接创建出my-if函数：
+
+1
+(defn my-if [predicate if-true if-false]
+2
+  (cond predicate if-true
+3
+        :else if-false))
+初看起来似乎好使：
+
+1
+(my-if (= 0 0) "equals" "not-equals")
+2
+;=> "equals"
+3
+(my-if (= 0 1) "equals" "not-equals")
+4
+;=> "not-equals"
+但有一个问题。你能发现它吗？my-if执行了它所有的参数，所以，如果我们像这样做，它就不能产生预期的结果了：
+
+1
+(my-if (= 0 0) (println "equals") (println "not-equals"))
+2
+; equals
+3
+; not-equals
+4
+;=> nil
+把my-if转变成宏：
+
+1
+(defmacro my-if [predicate if-true if-false]
+2
+  `(cond ~predicate ~if-true
+3
+         :else ~if-false))
+问题解决了：
+
+1
+(my-if (= 0 0) (println "equals") (println "not-equals"))
+2
+; equals
+3
+;=> nil
+这只是对宏的强大功能的窥豹一斑。一个非常有趣的案例是，当面向对象编程被发明出来后(Lisp的出现先于这概念)，Lisp程序员想使用这种技术。
+
+C程序员不得不使用他们的编译器
+#+end_example
+** # --8<-------------------------- separator ------------------------>8--
+** useful link
+ http://www.emacswiki.org/emacs/CategoryCode\\
+ EmacsWiki: Category Code
+ http://www.emacswiki.org/emacs/EmacsLisp\\
+ EmacsWiki: Emacs Lisp
+ http://emacswiki.org/emacs/ElispCookbook\\
+ EmacsWiki: Elisp Cookbook
+ http://c2.com/cgi/wiki?EmacsLisp\\
+ Emacs Lisp
+ http://www.dina.kvl.dk/~abraham/custom/widget.html\\
+ The Emacs Widget Library
+ http://www.gnu.org/software/emacs/emacs-lisp-intro/html_node/index.html\\
+ An Introduction to Programming in Emacs Lisp
+ http://steve-yegge.blogspot.com/2008/01/emergency-elisp.html\\
+ emergency elisp
+ http://www.delorie.com/gnu/docs/emacs-lisp-intro/emacs-lisp-intro_toc.html\\
+ Programming in Emacs Lisp
+ http://xahlee.org/emacs/elisp.html\\
+ Xah's Emacs Lisp Tutorial
+ http://www.emacswiki.org/cgi-bin/emacs/ProgrammingInEmacsLisp_Chinese_Notes\\
+ EmacsWiki: ProgrammingInEmacsLisp Chinese Notes
+ http://mypage.iu.edu/~colallen/lp/\\
+ Lisp Primer
+** [#A] list
+ (list 1 2 3 4 5)
+
+ List的一些函数：
+ | Function                                                     | 优先级 | 目的                                                                                                                                           |
+ |--------------------------------------------------------------+--------+------------------------------------------------------------------------------------------------------------------------------------------------|
+ | (list x)                                                     | P0     | Return a newly created list with specified arguments as elements.                                                                              |
+ | (cons x mylist)                                              |        | 把x加到list前面                                                                                                                                |
+ | (add-to-list 'auto-mode-alist '("\\.gp$" . gnuplot-mode))    | P0     | auto-mode-alist为null, 也没有问题. 注意: 重复添加, 不会加两次; 默认是加在头部， 可以设置成加在尾部                                             |
+ | (add-to-list LIST-VAR ELEMENT &optional APPEND COMPARE-FN)   | P0     | Add ELEMENT to the value of LIST-VAR if it isn't there yet.                                                                                    |
+ | (car mylist)                                                 | P0     | 取第一个元素                                                                                                                                   |
+ | (caar value)                                                 |        | 相当于(car (car value))                                                                                                                        |
+ | (cdar value)                                                 |        | 相当于(cdr (car value))                                                                                                                        |
+ | (nth n mylist)                                               | P0     | 最第n个元素                                                                                                                                    |
+ | (car (last mylist))                                          | P0     | 取最后一个元素                                                                                                                                 |
+ | (cdr mylist)                                                 |        | 从第二个到最后一个                                                                                                                             |
+ | (cddr X)                                                     |        | Return the cdr of the cdr of X.                                                                                                                |
+ | (nthcdr n mylist)                                            |        | 从第n个到最后一个元素                                                                                                                          |
+ | (nbutlast mylist n)                                          |        | 删除第n个元素,返回删除后的list.                                                                                                                |
+ | (butlast mylist n)                                           |        | Return a copy of LIST with the last N elements removed.                                                                                        |
+ | (assoc KEY LIST)                                             | P0     | 在多维数组中,按第一维来查找                                                                                                                    |
+ | (assoc-default file-name shell-history-alist 'string-match)  | P0     | 与assoc不同在于，可以指定匹配的算法，而不是默认的equal                                                                                         |
+ | (position '(0 3 6) '((0 1 2) (0 3 6) (1 3 7)) :test #'equal) | P0     | Find the first occurrence of item in seq                                                                                                       |
+ |--------------------------------------------------------------+--------+------------------------------------------------------------------------------------------------------------------------------------------------|
+ | (length mylist)                                              |        | List长度                                                                                                                                       |
+ | (append mylist1 mylist2)                                     |        | 连接两个List                                                                                                                                   |
+ |--------------------------------------------------------------+--------+------------------------------------------------------------------------------------------------------------------------------------------------|
+ | (pop mylist)                                                 |        | 删除第一个元素并返回                                                                                                                           |
+ | (setcar mylist x)                                            |        | 替换第一个元素,并返回                                                                                                                          |
+ | (setcdr mylist x)                                            |        | 替换除第一个之外的所有元素                                                                                                                     |
+ |--------------------------------------------------------------+--------+------------------------------------------------------------------------------------------------------------------------------------------------|
+ | (intersection '(a b c) '(a c e)) = (C A)                     |        | Set intersection.                                                                                                                              |
+ | set-difference                                               |        | 注意: 它比较时是使用eq函数而不是equal函数                                                                                                      |
+ | union                                                        |        |                                                                                                                                                |
+ | (subst x y z)                                                |        | (subst 'sugar 'cream '(peaches and cream)) = (PEACHES AND SUGAR)                                                                               |
+ | (sublis alist z)                                             |        | (sublis '((rose . peach) (smell . taste)) '(a rose by any other name would smell as sweet)) = (A PEACH BY ANY OTHER NAME WOULD TASTE AS SWEET) |
+ |--------------------------------------------------------------+--------+------------------------------------------------------------------------------------------------------------------------------------------------|
+ | nreverse                                                     |        | Reverse LIST by modifying cdr pointers.                                                                                                        |
+ | (apply 'string (reverse (string-to-list "foo")))             |        | Reverse list                                                                                                                                   |
+ | (nconc some-list (list "ef"))                                |        | 向list尾部追回一个list, 原值变修改                                                                                                             |
+ |--------------------------------------------------------------+--------+------------------------------------------------------------------------------------------------------------------------------------------------|
+ | (mapconcat 'identity '("one" "two" "three") "-")             | P0     | 将list串成string,并按指定分隔符分隔                                                                                                            |
+ | (mapcar #'(lambda (x) (+ x 2)) '(1 2 3)) = (3 4 5)           | P0     | Apply FUNCTION to each element of SEQUENCE, and make a list of the results.                                                                    |
+ |--------------------------------------------------------------+--------+------------------------------------------------------------------------------------------------------------------------------------------------|
+ | (memq 'three '(two one three four three five))               | P0     | 如果 elt 不等于 list 中的任何元素,返回 nil 。使用 eq 比较反之返回值为从第一匹配的元素到结尾元素的列表。                                        |
+ | (delete ELT SEQ)                                             |        | Delete by side effect any occurrences of ELT as a member of SEQ.                                                                               |
+ | (delq 'c sample-list)                                        |        | 删除原list中, 包含的满足条件的元素                                                                                                             |
+ | (remq 'a sample-list)                                        |        | 与delq相比, 它没有副作用, 不改变原数据                                                                                                         |
+ | (member "abd" '("ab" "cd" "ed"))                             | P0     | Return non-nil if ELT is an element of LIST.                                                                                                   |
+ |--------------------------------------------------------------+--------+------------------------------------------------------------------------------------------------------------------------------------------------|
+ | (remove ELT SEQ)                                             |        | Return a copy of SEQ with all occurrences of ELT removed.                                                                                      |
+ | (remove-if-not 'buffer-live-p keep-end-buffer-list)          |        | Remove all items not satisfying PREDICATE in SEQ.                                                                                              |
+
+空列表 () 同时看作既是一个原子, 也是一个列表
+
+当Lisp读取表达式时, 它剔除所有多余的空格(但是原子间至少需要一个空格以使原子分割开来)
+**** code
+ #+BEGIN_SRC -t
+ (message "%S" '(a b c))
+ (setq mylist '(a b c)) ;定义
+ (let ((x 3) (y 4) (z 5))
+ (message "%S" (list x y z))
+ )
+
+ (car (list "a" "b" "c"))
+ (nth 2 (list "a" "b" "c"))
+ (last (list "a" "b" "c"))
+ #+END_SRC
+**** useful link
+ http://www.gnu.org/software/emacs/elisp/html_node/List-Elements.html#List-Elements\\
+ Accessing Elements of Lists
+ http://www.gnu.org/software/emacs/elisp/html_node/Lists.html#Lists\\
+ Lists
+*** assoc与assoc-default
+    http://emacswiki.org/emacs/ElispCookbook\\
+#+begin_example
+Association lists
+
+The ElispManual has examples of finding and deleting values in an association list. Here are cases when the car values are strings.
+
+  (assoc "2" '(("2" . 2) ("1" . 1) ("2") ("3" . 3)))
+  ==> ("2" . 2)
+
+Deleting:
+
+  (let ((alist '(("a" . 1) ("b" . 2))))
+    (delq (assoc "a" alist) alist))
+  ==> (("b" . 2))
+
+Matches with a test function other than ‘equal’:
+
+  (let ((alist '(("ab" . 1) ("bc" . 2) ("cd" . 3))))
+    (assoc-default "c" alist (lambda (x y) (string-match y x))))
+  ==> 2
+#+end_example
+** strings
+ | Function                                                     | 备注                                                                          |
+ |--------------------------------------------------------------+-------------------------------------------------------------------------------|
+ | (string< S1 S2)                                              | 如果S1比S2小, 则返回t, 否则返回nil                                            |
+ | (length "abc")                                               |                                                                               |
+ | (substring myStr startIndex endIndex)                        |                                                                               |
+ | (concat "some" "thing")                                      |                                                                               |
+ | (split-string "ry_007_cardioid" "_")                         | ; split a string into parts, returns a list                                   |
+ | (string-to-number "3")                                       | ; change datatype                                                             |
+ | (format "0%4x" (random 65535))                               | ; like number-to-string but with fine control                                 |
+ |--------------------------------------------------------------+-------------------------------------------------------------------------------|
+ | bbdb-string-trim                                             | Lose leading and trailing whitespace. Also remove all properties from string. |
+ | (with-temp-buffer (insert "abcdefg") (buffer-substring 2 4)) | 通过临时buffer来进行一些数据处理                                              |
+
+- 在emacs 里字符串是有序的字符数组。
+- 和c语言的字符串数组不同,emacs 的字符串可以容纳任何字符,包括 \0:
+   (setq foo "abc\000abc") ; => "abc abc"
+- 关于字符串有很多高级的属性,例如字符串的表示有单字节和多字节类型
+- 字符串可以有文本属性(text property)等等。
+*** DONE elisp string: 判断两个字符串是否为子串
+ CLOSED: [2011-09-16 Fri 15:13]
+ http://stackoverflow.com/questions/5097561/killing-buffers-whose-names-start-with-a-particular-string\\
+(defun string-prefix s1 s2
+ (if (> (string-length s1) (string-length s2)) nil
+ (string=? s1 (substring s2 0 (string-length s1))) ))
+** grab/find/replace text
+ | Function                                                          | 备注                                                                              |
+ |-------------------------------------------------------------------+-----------------------------------------------------------------------------------|
+ | (replace-string from-string to-string &optional start end)        | 基于字符串的替换                                                                  |
+ | (replace-regexp REGEXP TO-STRING &optional DELIMITED START END)   | 基于regexp的替换                                                                  |
+ | replace-match                                                     | (while (search-forward-regexp "myRegexPattern" nil t) (replace-match "myRepStr")) |
+ | (match-string 2)                                                  | ; the second captured string                                                      |
+ | (match-beginning 2) (match-end 2)                                 | ; get the position of the 2nd captured string                                     |
+ | (setq myStr (replace-regexp-in-string "myRegex1" "myRep1" myStr)) |                                                                                   |
+ | (count-matches "\n")                                              | 列出匹配项有多少个                                                                         |
+ |-------------------------------------------------------------------+-----------------------------------------------------------------------------------|
+ | (setq myStr (buffer-substring myStartPos myEndPos))               |                                                                                   |
+ | (setq myStr (buffer-substring-no-properties myStartPos myEndPos)) |                                                                                   |
+ | (setq myStr (thing-at-point 'word))                               |                                                                                   |
+ | (setq myStr (thing-at-point 'symbol))                             |                                                                                   |
+ | (setq myStr (thing-at-point 'line))                               |                                                                                   |
+ | (setq myBoundaries (bounds-of-thing-at-point 'word))              | ; grab the start and end positions of a word                                      |
+ |-------------------------------------------------------------------+-----------------------------------------------------------------------------------|
+ | char-after                                                        |                                                                                   |
+ | char-before                                                       |                                                                                   |
+ |-------------------------------------------------------------------+-----------------------------------------------------------------------------------|
+ | (looking-at REGEXP)                                               | Return t if text after point matches regular expression REGEXP.                   |
+** integer
+ | Function                                 | 目的                                                    |
+ |------------------------------------------+---------------------------------------------------------|
+ | (parse-integer "23")                     |                                                         |
+ | (integerp 23)                            |                                                         |
+ | (format "%x" 10)                         | decimal to hex. Returns 「a」                           |
+ | (format "%d" #xa)                        | hex 「a」 to decimal. Returns 「10」.                   |
+ | (string-to-number STRING &optional BASE) | Parse STRING as a decimal number and return the number. |
+** sequence
+#+begin_example
+  _____________________________________________
+ |                                             |
+ |          Sequence                           |
+ |  ______   ________________________________  |
+ | |      | |                                | |
+ | | List | |             Array              | |
+ | |      | |    ________       ________     | |
+ | |______| |   |        |     |        |    | |
+ |          |   | Vector |     | String |    | |
+ |          |   |________|     |________|    | |
+ |          |  ____________   _____________  | |
+ |          | |            | |             | | |
+ |          | | Char-table | | Bool-vector | | |
+ |          | |____________| |_____________| | |
+ |          |________________________________| |
+ |_____________________________________________|
+#+end_example
+** vector
+ | Function                                             | 优先级 | 目的                           |
+ |------------------------------------------------------+--------+--------------------------------|
+ | (vector 'entry fromaccountname toaccountname amount) | P0     | 生成一个vector                 |
+ | (copy-sequence x)                                    |        | 拷贝一个list, vector, string等 |
+ | (elt x 2)                                            | P0     | 向vector中拿出第二维的数据     |
+*** copy-sequence与copy-tree的异同
+#+begin_example
+Copying:
+
+Use ‘copy-sequence’ to make a copy of a list that won’t change the elements of the original.
+
+    (let* ((orig '((1 2) (3 4)))
+           (copy (copy-sequence orig)))
+      (setcdr copy '((5 6)))
+      (list orig copy))
+    ==> (((1 2) (3 4)) ((1 2) (5 6)))
+
+However, the elements in the copy are still from the original.
+
+    (let* ((orig '((1 2) (3 4)))
+           (copy (copy-sequence orig)))
+      (setcdr (cadr copy) '(0))
+      (list orig copy))
+    ==> (((1 2) (3 0)) ((1 2) (3 0)))
+
+The function ‘copy-tree’ is the recursive version of ‘copy-sequence’.
+
+    (let* ((orig '((1 2) (3 4)))
+           (copy (copy-tree orig)))
+      (setcdr (cadr copy) '(0))
+      (list orig copy))
+    ==> (((1 2) (3 4)) ((1 2) (3 0)))
+#+end_example
+** regexp
+ | Function                                | 备注                                                                   |
+ |-----------------------------------------+------------------------------------------------------------------------|
+ | (regexp-quote “^”)                      | 将^ . * $ 等特殊字符作为普通字符, 而不用手动输入成^ ,\\. 等形式        |
+ | (regexp-opt ‘(“hello” “world”))         | 输出了”\\(?:hello\\｜world\)”                                          |
+ | (replace-regexp-in-string "^ +" "" url) | ; change a given string using regex. Returns changed string.           |
+ | (string-match myRegex myStr)            | seach regexp in some string                                            |
+ | (match-string 1 myStr)                  | ; get captured match                                                   |
+ |-----------------------------------------+------------------------------------------------------------------------|
+ | (rx &rest REGEXPS)                      | Translate regular expressions REGEXPS in sexp form to a regexp string. |
+** file management
+ | Function                                                        | 备注                                                                               |
+ |-----------------------------------------------------------------+------------------------------------------------------------------------------------|
+ | (file-name-nondirectory somefilename)                           | 得到短文件名                                                                       |
+ | (file-name-directory FILENAME)                                  | Return the directory component in file name FILENAME.                              |
+ | (file-exists-p bfilename)                                       | 判断文件或文件夹是否存在                                                           |
+ |-----------------------------------------------------------------+------------------------------------------------------------------------------------|
+ | (insert-file-contents somefilename)                             | Insert contents of file FILENAME after point.                                      |
+ | (file-name-extension "test.erl")                                | Return FILENAME's final "extension".                                               |
+ | (file-name-sans-extension "test.erl")                           | Return FILENAME sans final "extension".                                            |
+ | (directory-files DIRECTORY &optional FULL MATCH NOSORT)         | Return a list of names of files in DIRECTORY.                                      |
+ |-----------------------------------------------------------------+------------------------------------------------------------------------------------|
+ | (insert-file-contents FILENAME &optional VISIT BEG END REPLACE) | Insert contents of file FILENAME after point.                                      |
+ | (file-directory-p FILENAME)                                     | Return t if FILENAME names an existing directory.                                  |
+ | (make-directory "~/.emacs.d/autosaves/" t)                      | 创建目录                                                                           |
+ | (find-dired "../" "-name defined.hrl")                          | 按文件名查找文件                                                                   |
+ |-----------------------------------------------------------------+------------------------------------------------------------------------------------|
+ | read file content into a string                                 | (setq dddstring (with-temp-buffer (insert-file-contents "dd.txt")(buffer-string))) |
+** buffer
+ | Function                    | 目的 |
+ |-----------------------------+------|
+ | get-buffer-create           |      |
+ | current-buffer              |      |
+ | set-buffer                  |      |
+ | kill-buffer                 |      |
+ |-----------------------------+------|
+ | (set-buffer-modified-p nil) |      |
+*** sample
+#+begin_src elisp
+;; show some buffers
+(defun show-some-buffers (buffer-list)
+ (delete-other-windows)
+ (split-window-horizontally)
+ (other-window 1)
+ (dolist (buffer buffer-list)
+ (split-window-vertically)
+ (switch-to-buffer (get-buffer buffer))
+ (other-window 1))
+ ;; at the end we have one extra window we need to delete
+ (delete-window)
+ (balance-windows))
+
+;; show some erc buffers
+(defun show-erc-buffers ()
+ (interactive)
+ (show-some-buffers '("#emacs" "#clojure")))
+
+(defun kill-buffers-by-mode (mode)
+ (mapcar 'kill-buffer (filter-buffers-by-mode mode)))
+
+(defun kill-erc-buffers ()
+ (interactive)
+ (kill-buffers-by-mode 'erc-mode))
+
+(defun filter-buffers-by-mode (mode)
+ (delq nil
+ (mapcar
+ (lambda (x) (and (eq (buffer-mode x) mode) x))
+ (buffer-list))))
+
+(defun buffer-mode (buffer-or-name)
+ (with-current-buffer buffer-or-name major-mode))
+
+(defun visit-term-buffer ()
+ (interactive)
+ (if (not (get-buffer "*ansi-term*"))
+ (ansi-term "/bin/zsh")
+ (switch-to-buffer "*ansi-term*")))
+#+end_src
+** org-mode
+ | Function                                                        | 目的                                                                      |
+ |-----------------------------------------------------------------+---------------------------------------------------------------------------|
+ | org-get-heading                                                 | Return the heading of the current entry, without the stars.               |
+ | org-get-entry                                                   | Get the entry text, after heading, entire subtree.                        |
+ | org-current-level                                               |                                                                           |
+ | (org-end-of-subtree t)                                          |                                                                           |
+ | point-at-bol                                                    | Return the character position of the first character on the current line. |
+ | (org-on-heading-p)                                              |                                                                           |
+ | (org-in-item-p)                                                 |                                                                           |
+ | (org-get-tags)                                                  |                                                                           |
+ | (org-get-tags-string)                                           | 在entry的title中搜索tags, 即:XX:XX:                                       |
+ | (org-get-todo-state)                                            |                                                                           |
+ |-----------------------------------------------------------------+---------------------------------------------------------------------------|
+ | (defun org-export-handle-export-tags (select-tags exclude-tags) |                                                                           |
+ |-----------------------------------------------------------------+---------------------------------------------------------------------------|
+ | (outline-next-heading)                                          |                                                                           |
+ | (org-no-properties (org-get-heading))                           | 去掉text的properties                                                      |
+ | (org-set-property "name" name)                                  |                                                                           |
+ | (org-entry-get nil "name")                                      |                                                                           |
+** # --8<-------------------------- separator ------------------------>8--
+** item
+#+begin_example
+LISP中不可以再被分称更小的部份, 一个列表可以拆分成不同的部分
+例如: 数字, 单个字符, 串 (String)
+
+双引号中的文本, 不论是句子或者是段落, 都是一个原子, 这种原子被称作串(String)
+#+end_example
+** symbol
+ | Function    | 优先级 | 目的 |
+ |-------------+--------+------|
+ | make-symbol |        |      |
+** 单引号 '
+#+begin_example
+ 在列表前面的引号, 被称作一个引用(quto), 它搞告诉LISP不要对这个列表作任何操作, 而仅仅使按其原样.
+ 如果列表是变量, 则返回变量的值
+ 如果列表是函数, 则返回函数返回的值
+#+end_example
+*** 引用 ('): 单引号出现在一个列表前,告诉Lisp不要对这个列表做任何操作,仅仅保持其原样
+#+begin_example
+ http://jianlee.ylinux.org/Computer/Emacs/elisp.html\\
+ Elisp 编程
+
+单引号('),表示一个引用。单引号出现在一个列表前,告诉Lisp不要对这个列表做任何操作,仅仅保持
+其原样。如果一个列表前没有引号,这个列表的第一个符号就是计算机将要执行的一条命令(Lisp中,
+这些命令称为函数)。
+
+'(setq 次数 20) ; 光标定位到这个列表尾部,按 C-x C-e 得到列表本身
+(setq 次数 10) ; 光标定位到它的尾部, C-x C-e 得到 10
+(if (< 次数 10)
+ (message "次数是 %d,小于 10" 次数)
+ (message "次数是 %d, 大于 10" 次数)) ; C-x C-e 得到“大于10”的提示。
+
+上例中 '(setq 次数 20) 就是一个引用,对它执行计算(C-x C-e)得到列表本身, (setq 次数 10) 中
+的 setq 是此列表的第一个符号(即Lisp中的函数),执行它回显区得到10(真正的情况是,这个列表
+返回值为10,重要的是副作用 — 将 “次数”的值设置为10)。再接下来的 if , < , message 都是
+Lisp命令(函数)。
+#+end_example
+** Lisp解释器
+*** 工作原理
+#+begin_example
+ 首先, 它查看一下在列表前面是否有单引号, 如果有, 解释器就为我们给出这个列表.
+ 如果没有引号, 解释器就查看列表的第一个元素, 并判断它是否是一个函数的定义. 如果确实是一个函数, 这解释器执行函数定义中的指令.
+ 否则打印一个错误消息
+#+end_example
+*** LISP解释器可以对一个符号求值
+#+begin_example
+ 只要这个符号前没有引号也没有括号包围它, LISP解释器将试图像变量一样来确定符号的值
+#+end_example
+*** 因为一些函数异常并且以异常的方式运行
+#+begin_example
+ 这些异常的函数通常叫做 特殊表 (speical form) 他们用于特殊的工作
+#+end_example
+*** 嵌套解释
+#+begin_example
+ 如果LISP解释器正在寻找的函数不是一个特殊表, 而是列表的一部分, 这LISP解释器首先查看这个列表中是否有另一个列表,
+ 如果有一个内部列表, LISP解释器首先解释将如果处理内部列表, 而且以嵌套的方式, 首先处理最内层的列表, 然后返回结果给上一层的列表使用
+#+end_example
+** nil有三个意思:
+在Lisp中, 只要不是 nil 的值都为真
+*** 一个空列表, 等同于空列表 ()
+*** 表示 假, 并在真假测试中为 假 的返回值, 真的返回值为 nil
+*** 可以表示符号 "nil"
+** html
+ | Function                              | 备注                                                                                 |
+ |---------------------------------------+--------------------------------------------------------------------------------------|
+ | (url-insert-entities-in-string value) | Replaces these characters as follows: & ==> &amp; < ==> &lt; > ==> &gt; " ==> &quot; |
+** hook
+ | Function                                                    | 备注                     |
+ |-------------------------------------------------------------+--------------------------|
+ | (add-hook 'myhook '(lambda () (insert "fun1 was called "))) |                          |
+ | (run-hooks 'myhook)                                         | Run each hook in myhook. |
+** Time
+ | Function                                                      | Summary                                |
+ |---------------------------------------------------------------+----------------------------------------|
+ | (format-time-string "<%Y-%m-%d %H:%M UTC +8>" (current-time)) | 时间转字符串                           |
+ | current-time                                                  | 当前时间                               |
+ | (time-add time (seconds-to-time seconds))                     | add some offset for a time             |
+ | (time-subtract after-init-time before-init-time)              | Subtract two time values, T1 minus T2. |
+ | (float-time (time-subtract after-init-time before-init-time)) | 计算秒钟数                             |
+** Date
+ | Function                                                | Summary                                             |
+ |---------------------------------------------------------+-----------------------------------------------------|
+ | calendar-current-date                                   | Return the current date in a list (month day year). |
+ | (calendar-extract-month date)                           |                                                     |
+ | (calendar-increment-month m1 y1 -1)                     | m1 will be changed                                  |
+ | (calendar-date-compare '((12 27 2012)) '((12 26 2012))) |                                                     |
+ | (calendar-holiday-list)                                 |                                                     |
+** insert/delete/transform text
+ | Function                                                                  | 目的 |
+ |---------------------------------------------------------------------------+------|
+ | (insert "hi i ♥ u.")                                                      |      |
+ | (insert-buffer-substring buffer &optional start end)                      |      |
+ | (insert-buffer-substring-no-properties buffer &optional start end)        |      |
+ | (insert-file-contents myPath)                                             |      |
+ | (insert-file-contents-literally filename &optional visit beg end replace) |      |
+ |---------------------------------------------------------------------------+------|
+ | (delete-char 9)                                                           |      |
+ | (delete-region myStartPos myEndPos)                                       |      |
+ | (erase-buffer)                                                            |      |
+ |---------------------------------------------------------------------------+------|
+ | (upcase obj)                                                              |      |
+ | (upcase-word n)                                                           |      |
+ | (upcase-region beg end)                                                   |      |
+ | (upcase-initials obj)                                                     |      |
+ | (upcase-initials-region beg end)                                          |      |
+ | (capitalize obj)                                                          |      |
+ | (capitalize-word n)                                                       |      |
+ | (capitalize-region beg end)                                               |      |
+ | (downcase)                                                                |      |
+ | (downcase-word n)                                                         |      |
+ | (downcase-region beg end)                                                 |      |
+** # --8<-------------------------- separator ------------------------>8--
+** timer -- 定时器
+ | Function                                                 | 备注                                                            |
+ |----------------------------------------------------------+-----------------------------------------------------------------|
+ | (run-at-time "0.9 sec" nil 'flyc/show-stored-error-now)) | Perform an action at time TIME.                                 |
+ | (cancel-timer flyc--e-display-timer)                     | Remove TIMER from the list of active timers.                    |
+ | (with-timeout (SECONDS TIMEOUT-FORMS...) BODY)           | Run BODY, but if it doesn't finish in SECONDS seconds, give up. |
+** exception -- 异常
+ | Function | 备注 |
+ |---------------------------+------------------------------------------------------------------------|
+ | (error STRING &rest ARGS) | Signal an error, making error message by passing all args to `format'. |
+** user input
+ | Function | 目的 |
+ |-------------+------|
+ | read-buffer | |
+ | read-file | |
+ | read-string | |
+*** sample                                                         :noexport:
+    (read-file-name "Write current record to vCard file: language.org
+    bbdb-vcard-default-dir nil nil default-filename))
+*** sample
+#+begin_src elisp
+(defun find-name-dired (dir pattern)
+ "Search DIR recursively for files matching the globbing pattern PATTERN,
+and run dired on those files.
+PATTERN is a shell wildcard (not an Emacs regexp) and need not be quoted.
+The command run (after changing into DIR) is
+
+ find . -name 'PATTERN' -ls"
+ (interactive
+ "DFind-name (directory): \nsFind-name (filename wildcard): ")
+ (find-dired dir (concat find-name-arg " " (shell-quote-argument pattern))))
+#+end_src
+** Misc function
+| Function                                 | Summary                                                                                     |
+|------------------------------------------+---------------------------------------------------------------------------------------------|
+| (prog1 FIRST BODY...)                    | 与progn不同, 它返回FIRST的值。 (setq start (prog1 end (setq end start)))): 交换两个变量的值 |
+| (unwind-protect BODYFORM UNWINDFORMS...) |                                                                                             |
+|------------------------------------------+---------------------------------------------------------------------------------------------|
+| (ding &optional ARG)                     | 提示: 响铃或闪屏幕                                                                          |
+| (execute-extended-command PREFIXARG)     | Read function name, then read its arguments and call it.                                    |
+| (fboundp 'diary-list-entries)            | 判断函数是否已经有定义了                                                                    |
+| (prin1-to-string '(1 2 3))               | 类似php的var_dump方法                                                                       |
+** text property
+| Function                                   | Summary  |
+|--------------------------------------------+----------|
+| (put-text-property cbeg cend 'invisible t) | 隐藏文本 |
+** # --8<-------------------------- §separator§ ------------------------>8--
+** [#B] 定义结构体                                                :Important:
+ CLOSED: [2011-07-03 Sun 17:25]
+定义结构体　(defstruct foo (a 10) (b nil) c)
+获取结构体某个属性的值: (结构体名-属性名　变量名)
+设置结构体某个属性的值: (setf (结构体名-属性名　变量名) 值)
+设置结构体的值：　(setq 变量名 (make-结构体名 :属性名1　值1 :属性名2　值1)
+** DONE elisp: assignment to free variable
+  CLOSED: [2016-09-27 Tue 21:52]
+http://stackoverflow.com/questions/12432093/get-rid-of-reference-to-free-variable-byte-compilation-warnings
+The official way to do what you want is (defvar foo-state)
+
+#+BEGIN_EXAMPLE
+Warning (bytecomp): assignment to free variable ‘my-string’
+Warning (bytecomp): reference to free variable ‘my-string’
+
+          (setq my-string (org-no-properties (car kill-ring)))
+          (if (listp my-string) (setq my-string (car my-string)))
+          (setq entry (replace-regexp-in-string "\* DONE"
+                                                (concat "\*\* " (format-time-string "%Y-%m-%d:" (current-time)))
+                                                my-string))
+#+END_EXAMPLE
+* [#A] Emacs -- fundanmental features                :noexport:Tool:Personal:
+:PROPERTIES:
+:type:   Emacs
+:END:
+[[https://www.dennyzhang.com/wp-content/uploads/2014/04//blog_emacs.png]]
+
+| Num | Item                       | Comment                         |
+|-----+----------------------------+---------------------------------|
+|   1 | M-x locate-library         |                                 |
+|   2 | M-x list-load-path-shadows | Debug conflicting installations |
+|   3 | M-x find-library           |                                 |
+#+TBLFM: $1=@-1$1+1;N
+** Check latest skills of emacs
+./configure --with-crt-dir=/usr/lib/x86_64-linux-gnu
+- Check my emacs configuration at github: https://github.com/DennyZhang/Denny-s-emacs-configuration
+- If Emacs is an operating system, Org-mode is the office/productivity suite.
+- obtain emacs source code: wget http://ftp.gnu.org/pub/gnu/emacs/emacs-23.4.tar.gz ~/emacs-23.4.tar.gz
+
+| Item           | Comment                                         |
+|----------------+-------------------------------------------------|
+| github         | https://github.com/languages/Emacs%20Lisp       |
+| google         | “emacs-related-keywords site:stackoverflow.com” |
+| twitter        | 在twitter上以”emacs :en”定期搜索                |
+| sacha hua blog | http://sachachua.com/blog/                      |
+| Xah Lee blog   |                                                 |
+** [#A] Web-browse in emacs
+*** DONE Why browse the Web in Emacs
+ CLOSED: [2009-11-22 Sun 22:45]
+- Browsing is faster and less distracting
+- You can integrate it into your work
+- You can customize everything
+- You're safe from browser exploits
+- You need less memory
+*** [#A] Webjump in emacs
+通过emacs去管理网页收藏夹
+
+示例配置: https://github.com/DennyZhang/Denny-s-emacs-configuration/blob/master/web-browse-setting.el
+**** DONE [#A] emacs webjump: webhost匹配时, 使用子串匹配, 而不是前缀匹配: 直接使用*XX*即可
+ CLOSED: [2011-09-27 Tue 18:13]
+**** TODO [#A] emacs webjump: 有些网站中国的keyword输入不行
+#+BEGIN_EXAMPLE
+(webjump-url-encode keywords)
+
+http://s.taobao.com/search?q=%E8%A1%A3%E6%9C%8D\\
+http://s.taobao.com/search?q=%D2%C2%B7%FE\\
+#+END_EXAMPLE
+**** CANCELED webjump-plus.el — supplemental Web site list for webjump (by Neil W. Van Dyke)
+#+BEGIN_EXAMPLE
+ CLOSED: [2011-09-12 Mon 23:35]
+ http://www.neilvandyke.org/webjump/\\
+#+END_EXAMPLE
+*** [#A] w3m in emacs                                             :IMPORTANT:
+| Item                                                        | Summary                                                          |
+|-------------------------------------------------------------+------------------------------------------------------------------|
+| C-c C-p                                                     | (w3m-previous-buffer)                                            |
+| C-c C-n                                                     | (w3m-next-buffer)                                                |
+|-------------------------------------------------------------+------------------------------------------------------------------|
+| R                                                           | Reload the current page                                          |
+| TAB                                                         | Move the point to the next anchor.                               |
+| B                                                           | Move back to the previous page in the history.                   |
+| N                                                           | Move forward to the next page in the history.                    |
+| c                                                           | Display the url of the current page and put it into `kill-ring'. |
+| S                                                           | Query to the search engine a word.                               |
+| s                                                           | Display the history of pages you have visited in the session.    |
+| C-c C-t Create a copy of the current page as a new session. |                                                                  |
+| .                                                           | Shift to the left                                                |
+| ,                                                           | Shift to the right                                               |
+| M                                                           | Display the current page using the external browser.             |
+| u                                                           | Display the url under point and put it into `kill-ring'.         |
+| C-c C-s                                                     | (w3m-select-buffer)                                              |
+| G                                                           | Visit the web page in a new session.                             |
+| <S-return>                                                  | Display the page of the link in a new session.                   |
+|-------------------------------------------------------------+------------------------------------------------------------------|
+| M-x w3m-current-title                                       | 在w3m中如何得到当前网页的文件名:                                 |
+**** DONE windows上安装使用w3m: cygwin中安装w3m即可                    :HARD:
+  CLOSED: [2010-04-05 星期一 10:29]
+**** DONE show images in w3m: (setq w3m-default-display-inline-images t) :IMPORTANT:
+     CLOSED: [2010-04-18 星期日 12:45]
+***** useful link
+ http://osdir.com/ml/emacs.w3m/2002-06/msg00056.html\\
+ [emacs-w3m:03544] Re: display inline images for text/html using emacs-w3m (non-member post) - msg#00056 - emacs.w3m
+**** DONE [#B] 设置w3m默认的每行的字符数: (setq w3m-fill-column 100)
+     CLOSED: [2011-10-20 Thu 22:25]
+**** DONE emacs org-w3m: 拷w3m中网页时,　保存有效链接
+  CLOSED: [2011-07-22 Fri 22:42]
+  http://repo.or.cz/w/org-mode.git?a=blob_plain;f=lisp/org-w3m.el;hb=HEAD\\
+**** DONE 调整w3m中, 网页组某个网页的位置
+   CLOSED: [2011-10-20 Thu 22:28]
+(define-key map [?\C-c ?\C-,] 'w3m-tab-move-left)
+(define-key map [?\C-c ?\C-<] 'w3m-tab-move-left)
+**** DONE emacs-w3m开启时, 默认不之前的session, 以提高速度: (setq w3m-session-load-crashed-sessions nil)
+     CLOSED: [2011-10-26 Wed 21:13]
+**** CANCELED build from source code                               :noexport:
+  CLOSED: [2010-04-05 星期一 10:29]
+***** Imlib2
+****** basic use
+#+BEGIN_EXAMPLE
+ Imlib 2 is the successor to Imlib. It is NOT a newer version - it is a completely new library.
+ Imlib 2 does the following:
+ - Load image files from disk in one of many formats
+ - Save images to disk in one of many formats
+ - Render image data onto other images
+ - Render images to an X-Windows drawable
+ - Produce pixmaps and pixmap masks of Images
+ - Apply filters to images
+ - Rotate images
+ - Accept RGBA Data for images
+ - Scale images
+ - Alpha blend Images on other images or drawables
+ - Apply color correction and modification tables and factors to images
+ - Render images onto images with color correction and modification tables
+ - Render truetype anti-aliased text
+ - Render truetype anti-aliased text at any angle
+ - Render anti-aliased lines
+ - Render rectangles
+ - Render linear multi-colored gradients
+ - Cache data intelligently for maximum performance
+ - Allocate colors automatically
+ - Allow full control over caching and color allocation
+ - Provide highly optimized MMX assembly for core routines
+ - Provide plug-in filter interface
+ - Provide on-the-fly runtime plug-in image loading and saving interface
+ - Fastest image compositing, rendering and manipulation library for X
+#+END_EXAMPLE
+****** useful link
+ http://docs.enlightenment.org/api/imlib2/html/\\
+ Imlib2 Library Documentation
+***** compface/uncompface
+  uncompface -- compress and expand 48x48x1 face image files
+****** useful link
+ http://linux.die.net/man/1/uncompface\\
+ uncompface(1) - Linux man page
+**** useful link
+ http://www.cnblogs.com/papam/archive/2009/08/26/1554726.html\\
+ Emacs w3m 配置
+ http://sourceforge.net/projects/w3m/files/\\
+ emacs-w3m
+ http://www.emacswiki.org/emacs/emacs-w3m\\
+ emacs-w3m
+ http://emacs-w3m.namazu.org/ml/msg07882.html\\
+ emacs-w3m 1.4.4 is released
+ http://emacs-w3m.namazu.org/#download\\
+ Emacs-w3m, a simple Emacs interface to w3m.
+ http://www.idcnews.net/html/edu/linux/20070101/282205.html\\
+ emacs-w3m配置说明
+ http://atomized.org/2008/09/emacs-w3m-buffer-name-disambiguation/\\
+ Emacs-w3m buffer name disambiguation
+ http://ahei.yo2.cn/w3m.htm\\
+ Emacs才是世界上最强的IDE - 在Emacs里用w3m浏览网页
+
+ http://sachachua.com/wp/2008/08/12/why-browse-the-web-in-emacs/\\
+ Why browse the Web in Emacs?
+** DONE emacs show line number: M-x linum-mode
+   CLOSED: [2018-05-01 Tue 11:23]
+
+** TODO emacs sort by columns
+** DONE emacs change mini-buffer height
+   CLOSED: [2018-02-27 Tue 16:15]
+ https://ftp.gnu.org/old-gnu/Manuals/emacs/html_node/emacs_33.html
+
+ (setq resize-mini-windows nil)
+ (setq max-mini-window-height 10)
+
+ Use mouse to drag minibuffer up or down in order to resize it.
+** TODO emacs语音命令输入: Speak your mind, command the world     :IMPORTANT:
+ http://www.cb1.com/~john/computing/emacs/handsfree/voice.html\\
+ http://www.cb1.com/~john/computing/ui/voice.html\\
+ http://www.nuance.com/\\
+ Nuance - Home
+** DONE css for underline: .underline { text-decoration: underline; }
+   CLOSED: [2016-08-21 Sun 14:03]
+ http://www.w3schools.com/cssref/pr_text_text-decoration.asp
+** TODO Emacs Versor: Versatile Cursors                            :noexport:
+*** useful link
+    http://www.cb1.com/~john/\\
+    http://emacs-versor.sourceforge.net/\\
+    http://emacs-versor.sourceforge.net/versor-speaking.html\\
+    http://emacs-versor.sourceforge.net/versor.html\\
+*** TODO Vocola
+*** TODO dragon naturally speaking
+   http://askubuntu.com/questions/15749/alternative-to-dragon-naturally-speaking\\
+   http://ubuntuforums.org/showthread.php?t=168711\\
+ http://www.nuance.com/dragon/index.htm\\
+**** useful link
+ http://en.wikipedia.org/wiki/Speech_recognition_in_Linux\\
+ http://www.knowbrainer.com/PubForum/index.cfm?page=viewForumTopic&topicId=2277&CFID=9843242&CFTOKEN=25162098&jsessionid=8430a22584d7db1e04c6b3753656c3060595\\
+*** CANCELED 在linux下, 经常会乱码: iconv -f gb2312 -t utf-8 ./别独自用餐.txt > ./1.txt
+    CLOSED: [2012-03-25 日 23:42]
+ http://blog.csdn.net/piyajee/article/details/6160659\\
+ http://zhidao.baidu.com/question/271476296.html\\
+*** CANCELED [#B] linux tcpcopy: TCPCopy是一种请求复制（所有基于tcp的packets）工具，可以把在线流量导入到测试系统中去
+    CLOSED: [2012-10-04 四 16:46]
+ tcpcopy---从数据链路层来截取请求，转发给目标测试服务器，达到在线压力甚至极限压力测试的目的
+
+ tcpcopy的特点就是即具备网络复杂多变的环境，又具备瞬间破坏力，是一种理想的压力测试工具。
+
+ 针对http请求，tcpcopy复制过去的效果是最佳的。
+
+ TCPCopy七大功能:
+ - 分布式压力测试工具，利用在线数据，可以测试系统能够承受的压力大小（远比ab压力测
+ - 具真实地多）,也可以提前发现一些bug
+ - 普通上线测试，可以发现新系统是否稳定，提前发现上线过程中会出现的诸多问题，让开
+ - 有信心上线
+ - 对比试验，同样请求，针对不同或不同版本程序，可以做性能对比等试验
+ - 流量放大功能，可以利用多种手段构造无限在线压力，满足中小网站压力测试要求
+ - 利用TCPCopy转发传统压力测试工具发出的请求，可以增加网络延迟，使其压力测试更加真实
+ - 热备份
+ - 实战演习（架构师必备）
+**** useful link
+ http://code.google.com/p/tcpcopy/\\
+
+ https://github.com/wangbin579/tcpcopy
+ http://blog.csdn.net/wangbin579/article/details/7476413
+*** CANCELED linux对于kernel的代码生成man doc                     :IMPORTANT:
+    CLOSED: [2012-10-06 六 16:33]
+ #+begin_example
+ sudo apt-get install xmlto
+ export objtree=/home/denny/backup/tech/large_sourcecode/linux-3.4-rc7/
+ export srctree=/home/denny/backup/tech/large_sourcecode/linux-3.4-rc7/
+ make htmldocs
+ #+end_example
+*** CANCELED linux快速拿到fd count, 避免ls -lt | wc -l: OS不支持
+    CLOSED: [2012-11-10 Sat 09:49]
+*** CANCELED rpm hang
+    CLOSED: [2012-12-12 Wed 15:10]
+**** rpm
+ #+begin_example
+ rpm -qa yum* | xargs rpm -e --nodeps
+
+  --8<-------------------------- separator ------------------------>8--
+ rpm -qa yum*
+
+ rpm -e --nodeps yum-metadata-parser-1.1.2-3.el5.centos
+ rpm -e --nodeps yum-3.2.22-26.el5.centos
+ rpm -e --nodeps yum-fastestmirror-1.1.16-14.el5.centos.1
+
+ rpm -ivh --replacepkgs python-iniparse-0.2.3-4.el5.noarch.rpm
+  yum-3.2.22-26.el5.centos.noarch.rpm
+  yum-fastestmirror-1.1.16-14.el5.centos.1.noarch.rpm
+  yum-metadata-parser-1.1.2-3.el5.centos.x86_64.rpm
+
+ mkdir /home/denny && cd /home/denny
+ wget http://mirrors.dev.shopex.cn/rpm/scripts/python-iniparse-0.2.3-4.el5.noarch.rpm
+ wget http://mirrors.dev.shopex.cn/rpm/scripts/yum-3.2.22-26.el5.centos.noarch.rpm
+ wget http://mirrors.dev.shopex.cn/rpm/scripts/yum-fastestmirror-1.1.16-14.el5.centos.1.noarch.rpm
+ wget http://mirrors.dev.shopex.cn/rpm/scripts/yum-metadata-parser-1.1.2-3.el5.centos.x86_64.rpm
+ #+end_example
+**** yum
+ #+begin_example
+ /sshx:root@192.168.75.111: #$ ps -ef | grep yum
+ root     10753 10751  0 14:38 ?        00:00:00 bash -c curl http://mirrors.dev.shopex.cn/rpm/scripts/init.txt | sh && wget http://192.168.75.236:8970/shopex-test.repo -O /etc/yum.repos.d/shopex-test.repo
+ root     10770 10769  0 14:38 ?        00:00:00 rpm -e --nodeps yum-3.2.22-26.el5.centos yum-metadata-parser-1.1.2-3.el5.centos
+ root     12375  9735  0 14:48 pts/10   00:00:00 grep yum
+ /sshx:root@192.168.75.111: #$ pstree -A -a -p 10753
+ bash,10753 -c...
+   `-sh,10767
+       `-xargs,10769 rpm -e --nodeps
+           `-rpm,10770 -e --nodeps yum-3.2.22-26.el5.centos yum-metadata-parser-1.1.2-3.el5.centos
+ /sshx:root@192.168.75.111: #$ date
+ Wed Dec 12 14:48:59 CST 2012
+ /sshx:root@192.168.75.111: #$
+ #+end_example
+* [#A] BBDB mode in emacs                                          :noexport:
+** DONE [#A] 将bbdb导出成有头像的vcard                            :IMPORTANT:
+   CLOSED: [2011-09-17 Sat 16:48]
+- 将bbdb的每条记录导出成一个vcard文件
+ (bbdb-vcard-export "~/exported-vcards/" t t)
+
+- 删除不必要的vcard文件(奇怪：bbdb-vcard-export会生成多余的vcard文件)
+cd ~/exported-vcards/; rm -rf *-1.vcf
+
+- 针对每个vcard文件, 添加相应的PHOTO字段的二进制图片值
+ (update-bbdb-picture-to-vcard)
+
+- 将vcard合并成一个, 因为google只支持导入一个vcard
+ cd ~/exported-vcards/; cat * > /tmp/vcard.vcf
+
+- 通过google contact与手机同步
+  https://www.google.com/contacts_v2/#contacts
+*** useful link
+https://github.com/trebb/bbdb-vcard
+** DONE [#A] 将bbdb导出成有头像的vcard                            :IMPORTANT:
+   CLOSED: [2011-09-17 Sat 16:48]
+ - 将bbdb的每条记录导出成一个vcard文件
+  (bbdb-vcard-export "~/exported-vcards/" t t)
+
+ - 删除不必要的vcard文件(奇怪：bbdb-vcard-export会生成多余的vcard文件)
+ cd ~/exported-vcards/; rm -rf *-1.vcf
+
+ - 针对每个vcard文件, 添加相应的PHOTO字段的二进制图片值
+  (update-bbdb-picture-to-vcard)
+
+ - 将vcard合并成一个, 因为google只支持导入一个vcard
+  cd ~/exported-vcards/; cat * > /tmp/vcard.vcf
+
+ - 通过google contact与手机同步
+   https://www.google.com/contacts_v2/#contacts
+*** useful link
+ https://github.com/trebb/bbdb-vcard
+* [#A] Mail in emacs -- gnus                         :noexport:Personal:
 :PROPERTIES:
 :type:   Emacs
 :END:
@@ -819,7 +1653,26 @@ http://emacs.stackexchange.com/questions/12878/how-to-change-style-of-hyperlinks
 | m     | 创建一个新邮件                       |
 | a     | 创建一个新帖子                       |
 | c     | 把所有的文章标记为已读               |
-* [#A] Difficulties in emacs                                         :Coding:Personal:less
+** DONE gnus send email group: gnus-select-newsgroup: Couldn’t request group mail.sent.mail: Invalid group (no such directory)
+   CLOSED: [2017-01-03 Tue 15:21]
+ gnus-group-delete-group
+
+ #+BEGIN_EXAMPLE
+ Debugger entered--Lisp error: (error "Couldn’t request group mail.sent.mail: Invalid group (no such directory)")
+   signal(error ("Couldn’t request group mail.sent.mail: Invalid group (no such directory)"))
+   error("Couldn't request group %s: %s" "mail.sent.mail" "Invalid group (no such directory)")
+   gnus-select-newsgroup("mail.sent.mail" nil nil)
+   gnus-summary-read-group-1("mail.sent.mail" nil t nil nil nil)
+   gnus-summary-read-group("mail.sent.mail" nil t nil nil nil nil)
+   gnus-group-read-group(nil t)
+   gnus-group-select-group(nil)
+   gnus-topic-select-group(nil)
+   funcall-interactively(gnus-topic-select-group nil)
+   call-interactively(gnus-topic-select-group nil nil)
+   command-execute(gnus-topic-select-group)
+ #+END_EXAMPLE
+
+* [#A] Difficulties in emacs                                :Coding:noexport:
 :PROPERTIES:
 :type:   Emacs
 :END:
@@ -845,7 +1698,7 @@ denny@ubuntu:/tmp/emacs1000$
 ** [question] emacs gnus回复邮件时，原邮件的重要header没有显示出来, 例如收件人, 收件时间
    message-insert-citation-line
 ** DONE 已完结
-* [#A] Latex in emacs                                    :IMPORTANT:noexport:
+* [#A] Latex in emacs                                    :noexport:IMPORTANT:
  It seems necessary to chmod -R u+w some subset of /var/cache/fonts, /usr/share/texmf, /usr/lib/texmf for latex to properly be able to build latex.fmt, ditto for pdflatex, and kpathsea to build fonts.
 ** basic use
 #+BEGIN_EXAMPLE
@@ -1386,184 +2239,13 @@ http://tex.stackexchange.com/questions/94795/how-can-i-change-the-margins-in-lat
 http://www.andy-roberts.net/writing/latex/page_layout
 http://tex.stackexchange.com/questions/71172/why-are-default-latex-margins-so-big
 
-* DONE mac OSx上emacs can't see the pdf: 需要安装X11, 而mac OSX现在默认不装X11了。所以要手动装xquartz包
-  CLOSED: [2014-01-31 Fri 12:17]
+** TODO emacs mac latex
+ http://www.tug.org/mactex/
+ http://www.2ality.com/2008/04/latex-on-mac-os-x.html
 
-bash-3.2$gs -dSAFER -dNOPAUSE -sDEVICE=png16m -dTextAlphaBits=4 -dBATCH -dGraphicsAlphaBits=4 -dQUIET -r100 -sOutputFile=/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-01.png /tmp/test.pdf
-
-(defun doc-view-start-process (name program args callback)
-http://support.apple.com/kb/HT5293?viewlocale=en_US&locale=en_US
-
-X11 is no longer included with OS X,
-
-(defun doc-view-insert-image (file &rest args)
-
-brew install imagemagick
-
-(defun doc-view-pdf->png (pdf png pages)
-
-/Applications/Emacs.app/Contents/Resources/lisp/doc-view.el.gz
-
-(defcustom doc-view-unoconv-program "unoconv"
-:(defcustom doc-view-pdftotext-program "pdftotext"
-(defun doc-view-goto-page (page)
-
-(defun doc-view-pdf/ps->png (pdf-ps png)
-(defun doc-view-pdf->png-1 (pdf png page callback)
-
-#+begin_example
-Cannot display this page!
-Maybe because of a conversion failure!
-#+end_example
-
-#+begin_example
-Debugger entered--Lisp error: (wrong-type-argument window-live-p t)
-  apply(debug error (wrong-type-argument window-live-p t))
-  edebug(error (wrong-type-argument window-live-p t))
-  signal(wrong-type-argument (window-live-p t))
-  edebug-signal(wrong-type-argument (window-live-p t))
-  set-window-hscroll(t 0)
-  doc-view-insert-image("/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-0.png" :pointer arrow)
-  (edebug-after (edebug-before 82) 84 (doc-view-insert-image (edebug-after 0 83 file) :pointer (quote arrow)))
-  (let ((file (edebug-after (edebug-before 75) 81 (expand-file-name (edebug-after (edebug-before 76) 78 (format "page-%d.png" (edebug-after 0 77 page))) (edebug-after (edebug-before 79) 80 (doc-view-current-cache-dir)))))) (edebug-after (edebug-before 82) 84 (doc-view-insert-image (edebug-after 0 83 file) :pointer (quote arrow))) (edebug-after (edebug-before 85) 89 (set-window-hscroll (edebug-after (edebug-before 86) 87 (selected-window)) (edebug-after 0 88 hscroll))) (edebug-after (edebug-before 90) 108 (when (edebug-after (edebug-before 91) 98 (and (edebug-after (edebug-before 92) 96 (not (edebug-after ... 95 ...))) (edebug-after 0 97 doc-view-current-converter-processes))) (edebug-after (edebug-before 99) 107 (doc-view-pdf->png-1 (edebug-after 0 100 doc-view-buffer-file-name) (edebug-after 0 101 file) (edebug-after 0 102 page) (edebug-after (edebug-before 103) 106 (let (...) (lambda nil ...))))))))
-  (edebug-after (edebug-before 74) 109 (let ((file (edebug-after (edebug-before 75) 81 (expand-file-name (edebug-after (edebug-before 76) 78 (format "page-%d.png" ...)) (edebug-after (edebug-before 79) 80 (doc-view-current-cache-dir)))))) (edebug-after (edebug-before 82) 84 (doc-view-insert-image (edebug-after 0 83 file) :pointer (quote arrow))) (edebug-after (edebug-before 85) 89 (set-window-hscroll (edebug-after (edebug-before 86) 87 (selected-window)) (edebug-after 0 88 hscroll))) (edebug-after (edebug-before 90) 108 (when (edebug-after (edebug-before 91) 98 (and (edebug-after (edebug-before 92) 96 (not ...)) (edebug-after 0 97 doc-view-current-converter-processes))) (edebug-after (edebug-before 99) 107 (doc-view-pdf->png-1 (edebug-after 0 100 doc-view-buffer-file-name) (edebug-after 0 101 file) (edebug-after 0 102 page) (edebug-after (edebug-before 103) 106 (let ... ...))))))))
-  (let ((len (edebug-after (edebug-before 1) 2 (doc-view-last-page-number))) (hscroll (edebug-after (edebug-before 3) 4 (window-hscroll)))) (edebug-after (edebug-before 5) 25 (if (edebug-after (edebug-before 6) 8 (< (edebug-after 0 7 page) 1)) (edebug-after (edebug-before 9) 10 (setq page 1)) (edebug-after (edebug-before 11) 24 (when (edebug-after (edebug-before 12) 20 (and (edebug-after ... 16 ...) (edebug-after ... 19 ...))) (edebug-after (edebug-before 21) 23 (setq page (edebug-after 0 22 len))))))) (edebug-after (edebug-before 26) 73 (setf (edebug-after (edebug-before 27) 28 (doc-view-current-page)) (edebug-after 0 29 page) (edebug-after (edebug-before 30) 31 (doc-view-current-info)) (edebug-after (edebug-before 32) 72 (concat (edebug-after (edebug-before 33) 38 (propertize (edebug-after ... 37 ...) (quote face) (quote bold))) (edebug-after (edebug-before 39) 41 (if (edebug-after 0 40 doc-view-current-converter-processes) " (still converting...)\n" "\n")) (edebug-after (edebug-before 42) 71 (when (edebug-after ... 49 ...) (edebug-after ... 70 ...))))))) (edebug-after (edebug-before 74) 109 (let ((file (edebug-after (edebug-before 75) 81 (expand-file-name (edebug-after ... 78 ...) (edebug-after ... 80 ...))))) (edebug-after (edebug-before 82) 84 (doc-view-insert-image (edebug-after 0 83 file) :pointer (quote arrow))) (edebug-after (edebug-before 85) 89 (set-window-hscroll (edebug-after (edebug-before 86) 87 (selected-window)) (edebug-after 0 88 hscroll))) (edebug-after (edebug-before 90) 108 (when (edebug-after (edebug-before 91) 98 (and (edebug-after ... 96 ...) (edebug-after 0 97 doc-view-current-converter-processes))) (edebug-after (edebug-before 99) 107 (doc-view-pdf->png-1 (edebug-after 0 100 doc-view-buffer-file-name) (edebug-after 0 101 file) (edebug-after 0 102 page) (edebug-after ... 106 ...))))))) (edebug-after (edebug-before 110) 115 (overlay-put (edebug-after (edebug-before 111) 112 (doc-view-current-overlay)) (quote help-echo) (edebug-after (edebug-before 113) 114 (doc-view-current-info)))))
-  (edebug-after (edebug-before 0) 116 (let ((len (edebug-after (edebug-before 1) 2 (doc-view-last-page-number))) (hscroll (edebug-after (edebug-before 3) 4 (window-hscroll)))) (edebug-after (edebug-before 5) 25 (if (edebug-after (edebug-before 6) 8 (< (edebug-after 0 7 page) 1)) (edebug-after (edebug-before 9) 10 (setq page 1)) (edebug-after (edebug-before 11) 24 (when (edebug-after (edebug-before 12) 20 (and ... ...)) (edebug-after (edebug-before 21) 23 (setq page ...)))))) (edebug-after (edebug-before 26) 73 (setf (edebug-after (edebug-before 27) 28 (doc-view-current-page)) (edebug-after 0 29 page) (edebug-after (edebug-before 30) 31 (doc-view-current-info)) (edebug-after (edebug-before 32) 72 (concat (edebug-after (edebug-before 33) 38 (propertize ... ... ...)) (edebug-after (edebug-before 39) 41 (if ... " (still converting...)\n" "\n")) (edebug-after (edebug-before 42) 71 (when ... ...)))))) (edebug-after (edebug-before 74) 109 (let ((file (edebug-after (edebug-before 75) 81 (expand-file-name ... ...)))) (edebug-after (edebug-before 82) 84 (doc-view-insert-image (edebug-after 0 83 file) :pointer (quote arrow))) (edebug-after (edebug-before 85) 89 (set-window-hscroll (edebug-after (edebug-before 86) 87 (selected-window)) (edebug-after 0 88 hscroll))) (edebug-after (edebug-before 90) 108 (when (edebug-after (edebug-before 91) 98 (and ... ...)) (edebug-after (edebug-before 99) 107 (doc-view-pdf->png-1 ... ... ... ...)))))) (edebug-after (edebug-before 110) 115 (overlay-put (edebug-after (edebug-before 111) 112 (doc-view-current-overlay)) (quote help-echo) (edebug-after (edebug-before 113) 114 (doc-view-current-info))))))
-  (closure ((page . 0) t) nil (edebug-after (edebug-before 0) 116 (let ((len (edebug-after (edebug-before 1) 2 (doc-view-last-page-number))) (hscroll (edebug-after (edebug-before 3) 4 (window-hscroll)))) (edebug-after (edebug-before 5) 25 (if (edebug-after (edebug-before 6) 8 (< (edebug-after 0 7 page) 1)) (edebug-after (edebug-before 9) 10 (setq page 1)) (edebug-after (edebug-before 11) 24 (when (edebug-after ... 20 ...) (edebug-after ... 23 ...))))) (edebug-after (edebug-before 26) 73 (setf (edebug-after (edebug-before 27) 28 (doc-view-current-page)) (edebug-after 0 29 page) (edebug-after (edebug-before 30) 31 (doc-view-current-info)) (edebug-after (edebug-before 32) 72 (concat (edebug-after ... 38 ...) (edebug-after ... 41 ...) (edebug-after ... 71 ...))))) (edebug-after (edebug-before 74) 109 (let ((file (edebug-after ... 81 ...))) (edebug-after (edebug-before 82) 84 (doc-view-insert-image (edebug-after 0 83 file) :pointer (quote arrow))) (edebug-after (edebug-before 85) 89 (set-window-hscroll (edebug-after ... 87 ...) (edebug-after 0 88 hscroll))) (edebug-after (edebug-before 90) 108 (when (edebug-after ... 98 ...) (edebug-after ... 107 ...))))) (edebug-after (edebug-before 110) 115 (overlay-put (edebug-after (edebug-before 111) 112 (doc-view-current-overlay)) (quote help-echo) (edebug-after (edebug-before 113) 114 (doc-view-current-info)))))))()
-  edebug-enter(doc-view-goto-page (1) (closure ((page . 0) t) nil (edebug-after (edebug-before 0) 116 (let ((len (edebug-after (edebug-before 1) 2 (doc-view-last-page-number))) (hscroll (edebug-after (edebug-before 3) 4 (window-hscroll)))) (edebug-after (edebug-before 5) 25 (if (edebug-after (edebug-before 6) 8 (< (edebug-after 0 7 page) 1)) (edebug-after (edebug-before 9) 10 (setq page 1)) (edebug-after (edebug-before 11) 24 (when (edebug-after ... 20 ...) (edebug-after ... 23 ...))))) (edebug-after (edebug-before 26) 73 (setf (edebug-after (edebug-before 27) 28 (doc-view-current-page)) (edebug-after 0 29 page) (edebug-after (edebug-before 30) 31 (doc-view-current-info)) (edebug-after (edebug-before 32) 72 (concat (edebug-after ... 38 ...) (edebug-after ... 41 ...) (edebug-after ... 71 ...))))) (edebug-after (edebug-before 74) 109 (let ((file (edebug-after ... 81 ...))) (edebug-after (edebug-before 82) 84 (doc-view-insert-image (edebug-after 0 83 file) :pointer (quote arrow))) (edebug-after (edebug-before 85) 89 (set-window-hscroll (edebug-after ... 87 ...) (edebug-after 0 88 hscroll))) (edebug-after (edebug-before 90) 108 (when (edebug-after ... 98 ...) (edebug-after ... 107 ...))))) (edebug-after (edebug-before 110) 115 (overlay-put (edebug-after (edebug-before 111) 112 (doc-view-current-overlay)) (quote help-echo) (edebug-after (edebug-before 113) 114 (doc-view-current-info))))))))
-  doc-view-goto-page(1)
-  doc-view-display(#<buffer test.pdf> force)
-  (edebug-after (edebug-before 17) 20 (doc-view-display (edebug-after (edebug-before 18) 19 (current-buffer)) (quote force)))
-  (closure ((resolution . 100) (png . "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (pdf-ps . "/tmp/test.pdf") t) nil (edebug-after (edebug-before 0) 8 (write-region (edebug-after (edebug-before 1) 3 (prin1-to-string (edebug-after 0 2 resolution))) nil (edebug-after (edebug-before 4) 7 (expand-file-name "resolution.el" (edebug-after (edebug-before 5) 6 (doc-view-current-cache-dir)))) nil (quote silently))) (edebug-after (edebug-before 9) 16 (when (edebug-after 0 10 doc-view-current-timer) (edebug-after (edebug-before 11) 13 (cancel-timer (edebug-after 0 12 doc-view-current-timer))) (edebug-after (edebug-before 14) 15 (setq doc-view-current-timer nil)))) (edebug-after (edebug-before 17) 20 (doc-view-display (edebug-after (edebug-before 18) 19 (current-buffer)) (quote force))))()
-  edebug-enter(edebug-anon0 nil (closure ((resolution . 100) (png . "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (pdf-ps . "/tmp/test.pdf") t) nil (edebug-after (edebug-before 0) 8 (write-region (edebug-after (edebug-before 1) 3 (prin1-to-string (edebug-after 0 2 resolution))) nil (edebug-after (edebug-before 4) 7 (expand-file-name "resolution.el" (edebug-after (edebug-before 5) 6 (doc-view-current-cache-dir)))) nil (quote silently))) (edebug-after (edebug-before 9) 16 (when (edebug-after 0 10 doc-view-current-timer) (edebug-after (edebug-before 11) 13 (cancel-timer (edebug-after 0 12 doc-view-current-timer))) (edebug-after (edebug-before 14) 15 (setq doc-view-current-timer nil)))) (edebug-after (edebug-before 17) 20 (doc-view-display (edebug-after (edebug-before 18) 19 (current-buffer)) (quote force)))))
-  edebug-enter(edebug-anon0 nil (closure ((resolution . 100) (png . "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (pdf-ps . "/tmp/test.pdf") t) nil (edebug-after (edebug-before 0) 8 (write-region (edebug-after (edebug-before 1) 3 (prin1-to-string (edebug-after 0 2 resolution))) nil (edebug-after (edebug-before 4) 7 (expand-file-name "resolution.el" (edebug-after (edebug-before 5) 6 (doc-view-current-cache-dir)))) nil (quote silently))) (edebug-after (edebug-before 9) 16 (when (edebug-after 0 10 doc-view-current-timer) (edebug-after (edebug-before 11) 13 (cancel-timer (edebug-after 0 12 doc-view-current-timer))) (edebug-after (edebug-before 14) 15 (setq doc-view-current-timer nil)))) (edebug-after (edebug-before 17) 20 (doc-view-display (edebug-after (edebug-before 18) 19 (current-buffer)) (quote force)))))
-  (closure ((resolution . 100) (png . "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (pdf-ps . "/tmp/test.pdf") t) nil (edebug-enter (quote edebug-anon0) (list) (function (lambda nil (edebug-after (edebug-before 0) 8 (write-region (edebug-after (edebug-before 1) 3 (prin1-to-string ...)) nil (edebug-after (edebug-before 4) 7 (expand-file-name "resolution.el" ...)) nil (quote silently))) (edebug-after (edebug-before 9) 16 (when (edebug-after 0 10 doc-view-current-timer) (edebug-after (edebug-before 11) 13 (cancel-timer ...)) (edebug-after (edebug-before 14) 15 (setq doc-view-current-timer nil)))) (edebug-after (edebug-before 17) 20 (doc-view-display (edebug-after (edebug-before 18) 19 (current-buffer)) (quote force)))))))()
-  doc-view-sentinel(#<process pdf/ps->png> "finished\n")
-  recursive-edit()
-  edebug--recursive-edit(after)
-  edebug--display((buffer #<buffer test.pdf> callback (closure ((resolution . 100) (png . "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (pdf-ps . "/tmp/test.pdf") t) nil (edebug-enter (quote edebug-anon0) (list) (function (lambda nil (edebug-after (edebug-before 0) 8 (write-region (edebug-after ... 3 ...) nil (edebug-after ... 7 ...) nil (quote silently))) (edebug-after (edebug-before 9) 16 (when (edebug-after 0 10 doc-view-current-timer) (edebug-after ... 13 ...) (edebug-after ... 15 ...))) (edebug-after (edebug-before 17) 20 (doc-view-display (edebug-after ... 19 ...) (quote force)))))))) 19 after)
-  edebug-debugger(19 after (buffer #<buffer test.pdf> callback (closure ((resolution . 100) (png . "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (pdf-ps . "/tmp/test.pdf") t) nil (edebug-enter (quote edebug-anon0) (list) (function (lambda nil (edebug-after (edebug-before 0) 8 (write-region (edebug-after ... 3 ...) nil (edebug-after ... 7 ...) nil (quote silently))) (edebug-after (edebug-before 9) 16 (when (edebug-after 0 10 doc-view-current-timer) (edebug-after ... 13 ...) (edebug-after ... 15 ...))) (edebug-after (edebug-before 17) 20 (doc-view-display (edebug-after ... 19 ...) (quote force)))))))))
-  edebug-after(0 19 (buffer #<buffer test.pdf> callback (closure ((resolution . 100) (png . "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (pdf-ps . "/tmp/test.pdf") t) nil (edebug-enter (quote edebug-anon0) (list) (function (lambda nil (edebug-after (edebug-before 0) 8 (write-region (edebug-after ... 3 ...) nil (edebug-after ... 7 ...) nil (quote silently))) (edebug-after (edebug-before 9) 16 (when (edebug-after 0 10 doc-view-current-timer) (edebug-after ... 13 ...) (edebug-after ... 15 ...))) (edebug-after (edebug-before 17) 20 (doc-view-display (edebug-after ... 19 ...) (quote force)))))))))
-  (closure ((png . "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (pdf-ps . "/tmp/test.pdf") t) nil (edebug-after (edebug-before 0) 19 (doc-view-start-process "pdf/ps->png" (edebug-after 0 1 doc-view-ghostscript-program) (edebug-after (edebug-before 2) 15 (append (edebug-after 0 3 doc-view-ghostscript-options) (edebug-after (edebug-before 4) 14 (list (edebug-after ... 9 ...) (edebug-after ... 12 ...) (edebug-after 0 13 pdf-ps))))) (edebug-after (edebug-before 16) 18 (let ((resolution (edebug-after 0 17 doc-view-resolution))) (lambda nil (edebug-enter (quote edebug-anon0) (list) (function ...))))))) (edebug-after (edebug-before 20) 29 (when (edebug-after 0 21 doc-view-conversion-refresh-interval) (edebug-after (edebug-before 22) 28 (setq doc-view-current-timer (edebug-after (edebug-before 23) 27 (run-at-time "1 secs" (edebug-after 0 24 doc-view-conversion-refresh-interval) (quote doc-view-display) (edebug-after ... 26 ...))))))))()
-  edebug-enter(doc-view-pdf/ps->png ("/tmp/test.pdf" "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (closure ((png . "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (pdf-ps . "/tmp/test.pdf") t) nil (edebug-after (edebug-before 0) 19 (doc-view-start-process "pdf/ps->png" (edebug-after 0 1 doc-view-ghostscript-program) (edebug-after (edebug-before 2) 15 (append (edebug-after 0 3 doc-view-ghostscript-options) (edebug-after (edebug-before 4) 14 (list (edebug-after ... 9 ...) (edebug-after ... 12 ...) (edebug-after 0 13 pdf-ps))))) (edebug-after (edebug-before 16) 18 (let ((resolution (edebug-after 0 17 doc-view-resolution))) (lambda nil (edebug-enter (quote edebug-anon0) (list) (function ...))))))) (edebug-after (edebug-before 20) 29 (when (edebug-after 0 21 doc-view-conversion-refresh-interval) (edebug-after (edebug-before 22) 28 (setq doc-view-current-timer (edebug-after (edebug-before 23) 27 (run-at-time "1 secs" (edebug-after 0 24 doc-view-conversion-refresh-interval) (quote doc-view-display) (edebug-after ... 26 ...)))))))))
-  doc-view-pdf/ps->png("/tmp/test.pdf" "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png")
-  (edebug-after (edebug-before 4) 7 (doc-view-pdf/ps->png (edebug-after 0 5 pdf) (edebug-after 0 6 png)))
-  (if (edebug-after (edebug-before 1) 3 (null (edebug-after 0 2 pages))) (edebug-after (edebug-before 4) 7 (doc-view-pdf/ps->png (edebug-after 0 5 pdf) (edebug-after 0 6 png))) (edebug-after (edebug-before 8) 24 (let ((rest (edebug-after (edebug-before 9) 11 (cdr (edebug-after 0 10 pages))))) (edebug-after (edebug-before 12) 23 (doc-view-pdf->png-1 (edebug-after 0 13 pdf) (edebug-after (edebug-before 14) 19 (format (edebug-after 0 15 png) (edebug-after ... 18 ...))) (edebug-after (edebug-before 20) 22 (car (edebug-after 0 21 pages))) (lambda nil (edebug-enter (quote edebug-anon1) (list) (function ...))))))))
-  (edebug-after (edebug-before 0) 25 (if (edebug-after (edebug-before 1) 3 (null (edebug-after 0 2 pages))) (edebug-after (edebug-before 4) 7 (doc-view-pdf/ps->png (edebug-after 0 5 pdf) (edebug-after 0 6 png))) (edebug-after (edebug-before 8) 24 (let ((rest (edebug-after (edebug-before 9) 11 (cdr ...)))) (edebug-after (edebug-before 12) 23 (doc-view-pdf->png-1 (edebug-after 0 13 pdf) (edebug-after (edebug-before 14) 19 (format ... ...)) (edebug-after (edebug-before 20) 22 (car ...)) (lambda nil (edebug-enter ... ... ...))))))))
-  (closure ((pages) (png . "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (pdf . "/tmp/test.pdf") t) nil (edebug-after (edebug-before 0) 25 (if (edebug-after (edebug-before 1) 3 (null (edebug-after 0 2 pages))) (edebug-after (edebug-before 4) 7 (doc-view-pdf/ps->png (edebug-after 0 5 pdf) (edebug-after 0 6 png))) (edebug-after (edebug-before 8) 24 (let ((rest (edebug-after ... 11 ...))) (edebug-after (edebug-before 12) 23 (doc-view-pdf->png-1 (edebug-after 0 13 pdf) (edebug-after ... 19 ...) (edebug-after ... 22 ...) (lambda nil ...))))))))()
-  edebug-enter(doc-view-pdf->png ("/tmp/test.pdf" "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png" nil) (closure ((pages) (png . "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (pdf . "/tmp/test.pdf") t) nil (edebug-after (edebug-before 0) 25 (if (edebug-after (edebug-before 1) 3 (null (edebug-after 0 2 pages))) (edebug-after (edebug-before 4) 7 (doc-view-pdf/ps->png (edebug-after 0 5 pdf) (edebug-after 0 6 png))) (edebug-after (edebug-before 8) 24 (let ((rest (edebug-after ... 11 ...))) (edebug-after (edebug-before 12) 23 (doc-view-pdf->png-1 (edebug-after 0 13 pdf) (edebug-after ... 19 ...) (edebug-after ... 22 ...) (lambda nil ...)))))))))
-  edebug-enter(doc-view-pdf->png ("/tmp/test.pdf" "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png" nil) (closure ((pages) (png . "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (pdf . "/tmp/test.pdf") t) nil (edebug-after (edebug-before 0) 25 (if (edebug-after (edebug-before 1) 3 (null (edebug-after 0 2 pages))) (edebug-after (edebug-before 4) 7 (doc-view-pdf/ps->png (edebug-after 0 5 pdf) (edebug-after 0 6 png))) (edebug-after (edebug-before 8) 24 (let ((rest (edebug-after ... 11 ...))) (edebug-after (edebug-before 12) 23 (doc-view-pdf->png-1 (edebug-after 0 13 pdf) (edebug-after ... 19 ...) (edebug-after ... 22 ...) (lambda nil ...)))))))))
-  doc-view-pdf->png("/tmp/test.pdf" "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png" nil)
-  doc-view-convert-current-doc()
-  doc-view-initiate-display()
-  doc-view-mode()
-  doc-view-mode-maybe()
-  set-auto-mode-0(doc-view-mode-maybe nil)
-  set-auto-mode()
-  normal-mode(t)
-  after-find-file(nil t)
-  find-file-noselect-1(#<buffer test.pdf> "/tmp/test.pdf" nil nil "/private/tmp/test.pdf" (24219582 16777218))
-  find-file-noselect("/tmp/test.pdf" nil nil nil)
-  find-file("/tmp/test.pdf")
-  dired-find-file()
-  call-interactively(dired-find-file nil nil)
-#+end_example
-* TODO emacs语音命令输入: Speak your mind, command the world      :IMPORTANT:
-http://www.cb1.com/~john/computing/emacs/handsfree/voice.html\\
-http://www.cb1.com/~john/computing/ui/voice.html\\
-http://www.nuance.com/\\
-Nuance - Home
-* TODO Emacs Versor: Versatile Cursors
-** useful link
-   http://www.cb1.com/~john/\\
-   http://emacs-versor.sourceforge.net/\\
-   http://emacs-versor.sourceforge.net/versor-speaking.html\\
-   http://emacs-versor.sourceforge.net/versor.html\\
-** TODO Vocola
-** TODO dragon naturally speaking
-  http://askubuntu.com/questions/15749/alternative-to-dragon-naturally-speaking\\
-  http://ubuntuforums.org/showthread.php?t=168711\\
-http://www.nuance.com/dragon/index.htm\\
-*** useful link
-http://en.wikipedia.org/wiki/Speech_recognition_in_Linux\\
-http://www.knowbrainer.com/PubForum/index.cfm?page=viewForumTopic&topicId=2277&CFID=9843242&CFTOKEN=25162098&jsessionid=8430a22584d7db1e04c6b3753656c3060595\\
-** CANCELED 在linux下, 经常会乱码: iconv -f gb2312 -t utf-8 ./别独自用餐.txt > ./1.txt
-  CLOSED: [2012-03-25 日 23:42]
-http://blog.csdn.net/piyajee/article/details/6160659\\
-http://zhidao.baidu.com/question/271476296.html\\
-** CANCELED [#B] linux tcpcopy: TCPCopy是一种请求复制（所有基于tcp的packets）工具，可以把在线流量导入到测试系统中去
-  CLOSED: [2012-10-04 四 16:46]
-tcpcopy---从数据链路层来截取请求，转发给目标测试服务器，达到在线压力甚至极限压力测试的目的
-
-tcpcopy的特点就是即具备网络复杂多变的环境，又具备瞬间破坏力，是一种理想的压力测试工具。
-
-针对http请求，tcpcopy复制过去的效果是最佳的。
-
-TCPCopy七大功能:
-- 分布式压力测试工具，利用在线数据，可以测试系统能够承受的压力大小（远比ab压力测
-- 具真实地多）,也可以提前发现一些bug
-- 普通上线测试，可以发现新系统是否稳定，提前发现上线过程中会出现的诸多问题，让开
-- 有信心上线
-- 对比试验，同样请求，针对不同或不同版本程序，可以做性能对比等试验
-- 流量放大功能，可以利用多种手段构造无限在线压力，满足中小网站压力测试要求
-- 利用TCPCopy转发传统压力测试工具发出的请求，可以增加网络延迟，使其压力测试更加真实
-- 热备份
-- 实战演习（架构师必备）
-*** useful link
-http://code.google.com/p/tcpcopy/\\
-
-https://github.com/wangbin579/tcpcopy
-http://blog.csdn.net/wangbin579/article/details/7476413
-** CANCELED linux对于kernel的代码生成man doc                      :IMPORTANT:
-  CLOSED: [2012-10-06 六 16:33]
-#+begin_example
-sudo apt-get install xmlto
-export objtree=/home/denny/backup/tech/large_sourcecode/linux-3.4-rc7/
-export srctree=/home/denny/backup/tech/large_sourcecode/linux-3.4-rc7/
-make htmldocs
-#+end_example
-** CANCELED linux快速拿到fd count, 避免ls -lt | wc -l: OS不支持
-   CLOSED: [2012-11-10 Sat 09:49]
-** CANCELED rpm hang
-   CLOSED: [2012-12-12 Wed 15:10]
-*** rpm
-#+begin_example
-rpm -qa yum* | xargs rpm -e --nodeps
-
- --8<-------------------------- separator ------------------------>8--
-rpm -qa yum*
-
-rpm -e --nodeps yum-metadata-parser-1.1.2-3.el5.centos
-rpm -e --nodeps yum-3.2.22-26.el5.centos
-rpm -e --nodeps yum-fastestmirror-1.1.16-14.el5.centos.1
-
-rpm -ivh --replacepkgs python-iniparse-0.2.3-4.el5.noarch.rpm
- yum-3.2.22-26.el5.centos.noarch.rpm
- yum-fastestmirror-1.1.16-14.el5.centos.1.noarch.rpm
- yum-metadata-parser-1.1.2-3.el5.centos.x86_64.rpm
-
-mkdir /home/denny && cd /home/denny
-wget http://mirrors.dev.shopex.cn/rpm/scripts/python-iniparse-0.2.3-4.el5.noarch.rpm
-wget http://mirrors.dev.shopex.cn/rpm/scripts/yum-3.2.22-26.el5.centos.noarch.rpm
-wget http://mirrors.dev.shopex.cn/rpm/scripts/yum-fastestmirror-1.1.16-14.el5.centos.1.noarch.rpm
-wget http://mirrors.dev.shopex.cn/rpm/scripts/yum-metadata-parser-1.1.2-3.el5.centos.x86_64.rpm
-#+end_example
-*** yum
-#+begin_example
-/sshx:root@192.168.75.111: #$ ps -ef | grep yum
-root     10753 10751  0 14:38 ?        00:00:00 bash -c curl http://mirrors.dev.shopex.cn/rpm/scripts/init.txt | sh && wget http://192.168.75.236:8970/shopex-test.repo -O /etc/yum.repos.d/shopex-test.repo
-root     10770 10769  0 14:38 ?        00:00:00 rpm -e --nodeps yum-3.2.22-26.el5.centos yum-metadata-parser-1.1.2-3.el5.centos
-root     12375  9735  0 14:48 pts/10   00:00:00 grep yum
-/sshx:root@192.168.75.111: #$ pstree -A -a -p 10753
-bash,10753 -c...
-  `-sh,10767
-      `-xargs,10769 rpm -e --nodeps
-          `-rpm,10770 -e --nodeps yum-3.2.22-26.el5.centos yum-metadata-parser-1.1.2-3.el5.centos
-/sshx:root@192.168.75.111: #$ date
-Wed Dec 12 14:48:59 CST 2012
-/sshx:root@192.168.75.111: #$
-#+end_example
-* [#A] emacs on mac
+ pdflatex current.tex
+** TODO emacs Latex doesn't export Chinese characters: work/osc_2013/totvs_work_review/DevOpsWorkReview.org
+* [#A] emacs on mac                                                :noexport:
 ** [#A] mac的光标移动是匀速的，相比ubuntu的加速模式而言太慢       :IMPORTANT:
 http://stackoverflow.com/questions/14290200/emacs24-on-mac-cursor-movement-is-quite-slow
 在System Preference的Keyboard中，把Key Repeat和Delay Until Repeat设置快一些即可
@@ -1654,12 +2336,89 @@ you") (info-album . "The Ultimate Love Songs Collec")
 . 55))
 
 #+end_example
-* TODO emacs mac latex
-http://www.tug.org/mactex/
-http://www.2ality.com/2008/04/latex-on-mac-os-x.html
+** DONE mac OSx上emacs can't see the pdf: 需要安装X11, 而mac OSX现在默认不装X11了。所以要手动装xquartz包
+   CLOSED: [2014-01-31 Fri 12:17]
 
-pdflatex current.tex
-* [#B] gnuplot in emacs
+ bash-3.2$gs -dSAFER -dNOPAUSE -sDEVICE=png16m -dTextAlphaBits=4 -dBATCH -dGraphicsAlphaBits=4 -dQUIET -r100 -sOutputFile=/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-01.png /tmp/test.pdf
+
+ (defun doc-view-start-process (name program args callback)
+ http://support.apple.com/kb/HT5293?viewlocale=en_US&locale=en_US
+
+ X11 is no longer included with OS X,
+
+ (defun doc-view-insert-image (file &rest args)
+
+ brew install imagemagick
+
+ (defun doc-view-pdf->png (pdf png pages)
+
+ /Applications/Emacs.app/Contents/Resources/lisp/doc-view.el.gz
+
+ (defcustom doc-view-unoconv-program "unoconv"
+ :(defcustom doc-view-pdftotext-program "pdftotext"
+ (defun doc-view-goto-page (page)
+
+ (defun doc-view-pdf/ps->png (pdf-ps png)
+ (defun doc-view-pdf->png-1 (pdf png page callback)
+
+ #+begin_example
+ Cannot display this page!
+ Maybe because of a conversion failure!
+ #+end_example
+
+ #+begin_example
+ Debugger entered--Lisp error: (wrong-type-argument window-live-p t)
+   apply(debug error (wrong-type-argument window-live-p t))
+   edebug(error (wrong-type-argument window-live-p t))
+   signal(wrong-type-argument (window-live-p t))
+   edebug-signal(wrong-type-argument (window-live-p t))
+   set-window-hscroll(t 0)
+   doc-view-insert-image("/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-0.png" :pointer arrow)
+   (edebug-after (edebug-before 82) 84 (doc-view-insert-image (edebug-after 0 83 file) :pointer (quote arrow)))
+   (let ((file (edebug-after (edebug-before 75) 81 (expand-file-name (edebug-after (edebug-before 76) 78 (format "page-%d.png" (edebug-after 0 77 page))) (edebug-after (edebug-before 79) 80 (doc-view-current-cache-dir)))))) (edebug-after (edebug-before 82) 84 (doc-view-insert-image (edebug-after 0 83 file) :pointer (quote arrow))) (edebug-after (edebug-before 85) 89 (set-window-hscroll (edebug-after (edebug-before 86) 87 (selected-window)) (edebug-after 0 88 hscroll))) (edebug-after (edebug-before 90) 108 (when (edebug-after (edebug-before 91) 98 (and (edebug-after (edebug-before 92) 96 (not (edebug-after ... 95 ...))) (edebug-after 0 97 doc-view-current-converter-processes))) (edebug-after (edebug-before 99) 107 (doc-view-pdf->png-1 (edebug-after 0 100 doc-view-buffer-file-name) (edebug-after 0 101 file) (edebug-after 0 102 page) (edebug-after (edebug-before 103) 106 (let (...) (lambda nil ...))))))))
+   (edebug-after (edebug-before 74) 109 (let ((file (edebug-after (edebug-before 75) 81 (expand-file-name (edebug-after (edebug-before 76) 78 (format "page-%d.png" ...)) (edebug-after (edebug-before 79) 80 (doc-view-current-cache-dir)))))) (edebug-after (edebug-before 82) 84 (doc-view-insert-image (edebug-after 0 83 file) :pointer (quote arrow))) (edebug-after (edebug-before 85) 89 (set-window-hscroll (edebug-after (edebug-before 86) 87 (selected-window)) (edebug-after 0 88 hscroll))) (edebug-after (edebug-before 90) 108 (when (edebug-after (edebug-before 91) 98 (and (edebug-after (edebug-before 92) 96 (not ...)) (edebug-after 0 97 doc-view-current-converter-processes))) (edebug-after (edebug-before 99) 107 (doc-view-pdf->png-1 (edebug-after 0 100 doc-view-buffer-file-name) (edebug-after 0 101 file) (edebug-after 0 102 page) (edebug-after (edebug-before 103) 106 (let ... ...))))))))
+   (let ((len (edebug-after (edebug-before 1) 2 (doc-view-last-page-number))) (hscroll (edebug-after (edebug-before 3) 4 (window-hscroll)))) (edebug-after (edebug-before 5) 25 (if (edebug-after (edebug-before 6) 8 (< (edebug-after 0 7 page) 1)) (edebug-after (edebug-before 9) 10 (setq page 1)) (edebug-after (edebug-before 11) 24 (when (edebug-after (edebug-before 12) 20 (and (edebug-after ... 16 ...) (edebug-after ... 19 ...))) (edebug-after (edebug-before 21) 23 (setq page (edebug-after 0 22 len))))))) (edebug-after (edebug-before 26) 73 (setf (edebug-after (edebug-before 27) 28 (doc-view-current-page)) (edebug-after 0 29 page) (edebug-after (edebug-before 30) 31 (doc-view-current-info)) (edebug-after (edebug-before 32) 72 (concat (edebug-after (edebug-before 33) 38 (propertize (edebug-after ... 37 ...) (quote face) (quote bold))) (edebug-after (edebug-before 39) 41 (if (edebug-after 0 40 doc-view-current-converter-processes) " (still converting...)\n" "\n")) (edebug-after (edebug-before 42) 71 (when (edebug-after ... 49 ...) (edebug-after ... 70 ...))))))) (edebug-after (edebug-before 74) 109 (let ((file (edebug-after (edebug-before 75) 81 (expand-file-name (edebug-after ... 78 ...) (edebug-after ... 80 ...))))) (edebug-after (edebug-before 82) 84 (doc-view-insert-image (edebug-after 0 83 file) :pointer (quote arrow))) (edebug-after (edebug-before 85) 89 (set-window-hscroll (edebug-after (edebug-before 86) 87 (selected-window)) (edebug-after 0 88 hscroll))) (edebug-after (edebug-before 90) 108 (when (edebug-after (edebug-before 91) 98 (and (edebug-after ... 96 ...) (edebug-after 0 97 doc-view-current-converter-processes))) (edebug-after (edebug-before 99) 107 (doc-view-pdf->png-1 (edebug-after 0 100 doc-view-buffer-file-name) (edebug-after 0 101 file) (edebug-after 0 102 page) (edebug-after ... 106 ...))))))) (edebug-after (edebug-before 110) 115 (overlay-put (edebug-after (edebug-before 111) 112 (doc-view-current-overlay)) (quote help-echo) (edebug-after (edebug-before 113) 114 (doc-view-current-info)))))
+   (edebug-after (edebug-before 0) 116 (let ((len (edebug-after (edebug-before 1) 2 (doc-view-last-page-number))) (hscroll (edebug-after (edebug-before 3) 4 (window-hscroll)))) (edebug-after (edebug-before 5) 25 (if (edebug-after (edebug-before 6) 8 (< (edebug-after 0 7 page) 1)) (edebug-after (edebug-before 9) 10 (setq page 1)) (edebug-after (edebug-before 11) 24 (when (edebug-after (edebug-before 12) 20 (and ... ...)) (edebug-after (edebug-before 21) 23 (setq page ...)))))) (edebug-after (edebug-before 26) 73 (setf (edebug-after (edebug-before 27) 28 (doc-view-current-page)) (edebug-after 0 29 page) (edebug-after (edebug-before 30) 31 (doc-view-current-info)) (edebug-after (edebug-before 32) 72 (concat (edebug-after (edebug-before 33) 38 (propertize ... ... ...)) (edebug-after (edebug-before 39) 41 (if ... " (still converting...)\n" "\n")) (edebug-after (edebug-before 42) 71 (when ... ...)))))) (edebug-after (edebug-before 74) 109 (let ((file (edebug-after (edebug-before 75) 81 (expand-file-name ... ...)))) (edebug-after (edebug-before 82) 84 (doc-view-insert-image (edebug-after 0 83 file) :pointer (quote arrow))) (edebug-after (edebug-before 85) 89 (set-window-hscroll (edebug-after (edebug-before 86) 87 (selected-window)) (edebug-after 0 88 hscroll))) (edebug-after (edebug-before 90) 108 (when (edebug-after (edebug-before 91) 98 (and ... ...)) (edebug-after (edebug-before 99) 107 (doc-view-pdf->png-1 ... ... ... ...)))))) (edebug-after (edebug-before 110) 115 (overlay-put (edebug-after (edebug-before 111) 112 (doc-view-current-overlay)) (quote help-echo) (edebug-after (edebug-before 113) 114 (doc-view-current-info))))))
+   (closure ((page . 0) t) nil (edebug-after (edebug-before 0) 116 (let ((len (edebug-after (edebug-before 1) 2 (doc-view-last-page-number))) (hscroll (edebug-after (edebug-before 3) 4 (window-hscroll)))) (edebug-after (edebug-before 5) 25 (if (edebug-after (edebug-before 6) 8 (< (edebug-after 0 7 page) 1)) (edebug-after (edebug-before 9) 10 (setq page 1)) (edebug-after (edebug-before 11) 24 (when (edebug-after ... 20 ...) (edebug-after ... 23 ...))))) (edebug-after (edebug-before 26) 73 (setf (edebug-after (edebug-before 27) 28 (doc-view-current-page)) (edebug-after 0 29 page) (edebug-after (edebug-before 30) 31 (doc-view-current-info)) (edebug-after (edebug-before 32) 72 (concat (edebug-after ... 38 ...) (edebug-after ... 41 ...) (edebug-after ... 71 ...))))) (edebug-after (edebug-before 74) 109 (let ((file (edebug-after ... 81 ...))) (edebug-after (edebug-before 82) 84 (doc-view-insert-image (edebug-after 0 83 file) :pointer (quote arrow))) (edebug-after (edebug-before 85) 89 (set-window-hscroll (edebug-after ... 87 ...) (edebug-after 0 88 hscroll))) (edebug-after (edebug-before 90) 108 (when (edebug-after ... 98 ...) (edebug-after ... 107 ...))))) (edebug-after (edebug-before 110) 115 (overlay-put (edebug-after (edebug-before 111) 112 (doc-view-current-overlay)) (quote help-echo) (edebug-after (edebug-before 113) 114 (doc-view-current-info)))))))()
+   edebug-enter(doc-view-goto-page (1) (closure ((page . 0) t) nil (edebug-after (edebug-before 0) 116 (let ((len (edebug-after (edebug-before 1) 2 (doc-view-last-page-number))) (hscroll (edebug-after (edebug-before 3) 4 (window-hscroll)))) (edebug-after (edebug-before 5) 25 (if (edebug-after (edebug-before 6) 8 (< (edebug-after 0 7 page) 1)) (edebug-after (edebug-before 9) 10 (setq page 1)) (edebug-after (edebug-before 11) 24 (when (edebug-after ... 20 ...) (edebug-after ... 23 ...))))) (edebug-after (edebug-before 26) 73 (setf (edebug-after (edebug-before 27) 28 (doc-view-current-page)) (edebug-after 0 29 page) (edebug-after (edebug-before 30) 31 (doc-view-current-info)) (edebug-after (edebug-before 32) 72 (concat (edebug-after ... 38 ...) (edebug-after ... 41 ...) (edebug-after ... 71 ...))))) (edebug-after (edebug-before 74) 109 (let ((file (edebug-after ... 81 ...))) (edebug-after (edebug-before 82) 84 (doc-view-insert-image (edebug-after 0 83 file) :pointer (quote arrow))) (edebug-after (edebug-before 85) 89 (set-window-hscroll (edebug-after ... 87 ...) (edebug-after 0 88 hscroll))) (edebug-after (edebug-before 90) 108 (when (edebug-after ... 98 ...) (edebug-after ... 107 ...))))) (edebug-after (edebug-before 110) 115 (overlay-put (edebug-after (edebug-before 111) 112 (doc-view-current-overlay)) (quote help-echo) (edebug-after (edebug-before 113) 114 (doc-view-current-info))))))))
+   doc-view-goto-page(1)
+   doc-view-display(#<buffer test.pdf> force)
+   (edebug-after (edebug-before 17) 20 (doc-view-display (edebug-after (edebug-before 18) 19 (current-buffer)) (quote force)))
+   (closure ((resolution . 100) (png . "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (pdf-ps . "/tmp/test.pdf") t) nil (edebug-after (edebug-before 0) 8 (write-region (edebug-after (edebug-before 1) 3 (prin1-to-string (edebug-after 0 2 resolution))) nil (edebug-after (edebug-before 4) 7 (expand-file-name "resolution.el" (edebug-after (edebug-before 5) 6 (doc-view-current-cache-dir)))) nil (quote silently))) (edebug-after (edebug-before 9) 16 (when (edebug-after 0 10 doc-view-current-timer) (edebug-after (edebug-before 11) 13 (cancel-timer (edebug-after 0 12 doc-view-current-timer))) (edebug-after (edebug-before 14) 15 (setq doc-view-current-timer nil)))) (edebug-after (edebug-before 17) 20 (doc-view-display (edebug-after (edebug-before 18) 19 (current-buffer)) (quote force))))()
+   edebug-enter(edebug-anon0 nil (closure ((resolution . 100) (png . "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (pdf-ps . "/tmp/test.pdf") t) nil (edebug-after (edebug-before 0) 8 (write-region (edebug-after (edebug-before 1) 3 (prin1-to-string (edebug-after 0 2 resolution))) nil (edebug-after (edebug-before 4) 7 (expand-file-name "resolution.el" (edebug-after (edebug-before 5) 6 (doc-view-current-cache-dir)))) nil (quote silently))) (edebug-after (edebug-before 9) 16 (when (edebug-after 0 10 doc-view-current-timer) (edebug-after (edebug-before 11) 13 (cancel-timer (edebug-after 0 12 doc-view-current-timer))) (edebug-after (edebug-before 14) 15 (setq doc-view-current-timer nil)))) (edebug-after (edebug-before 17) 20 (doc-view-display (edebug-after (edebug-before 18) 19 (current-buffer)) (quote force)))))
+   edebug-enter(edebug-anon0 nil (closure ((resolution . 100) (png . "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (pdf-ps . "/tmp/test.pdf") t) nil (edebug-after (edebug-before 0) 8 (write-region (edebug-after (edebug-before 1) 3 (prin1-to-string (edebug-after 0 2 resolution))) nil (edebug-after (edebug-before 4) 7 (expand-file-name "resolution.el" (edebug-after (edebug-before 5) 6 (doc-view-current-cache-dir)))) nil (quote silently))) (edebug-after (edebug-before 9) 16 (when (edebug-after 0 10 doc-view-current-timer) (edebug-after (edebug-before 11) 13 (cancel-timer (edebug-after 0 12 doc-view-current-timer))) (edebug-after (edebug-before 14) 15 (setq doc-view-current-timer nil)))) (edebug-after (edebug-before 17) 20 (doc-view-display (edebug-after (edebug-before 18) 19 (current-buffer)) (quote force)))))
+   (closure ((resolution . 100) (png . "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (pdf-ps . "/tmp/test.pdf") t) nil (edebug-enter (quote edebug-anon0) (list) (function (lambda nil (edebug-after (edebug-before 0) 8 (write-region (edebug-after (edebug-before 1) 3 (prin1-to-string ...)) nil (edebug-after (edebug-before 4) 7 (expand-file-name "resolution.el" ...)) nil (quote silently))) (edebug-after (edebug-before 9) 16 (when (edebug-after 0 10 doc-view-current-timer) (edebug-after (edebug-before 11) 13 (cancel-timer ...)) (edebug-after (edebug-before 14) 15 (setq doc-view-current-timer nil)))) (edebug-after (edebug-before 17) 20 (doc-view-display (edebug-after (edebug-before 18) 19 (current-buffer)) (quote force)))))))()
+   doc-view-sentinel(#<process pdf/ps->png> "finished\n")
+   recursive-edit()
+   edebug--recursive-edit(after)
+   edebug--display((buffer #<buffer test.pdf> callback (closure ((resolution . 100) (png . "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (pdf-ps . "/tmp/test.pdf") t) nil (edebug-enter (quote edebug-anon0) (list) (function (lambda nil (edebug-after (edebug-before 0) 8 (write-region (edebug-after ... 3 ...) nil (edebug-after ... 7 ...) nil (quote silently))) (edebug-after (edebug-before 9) 16 (when (edebug-after 0 10 doc-view-current-timer) (edebug-after ... 13 ...) (edebug-after ... 15 ...))) (edebug-after (edebug-before 17) 20 (doc-view-display (edebug-after ... 19 ...) (quote force)))))))) 19 after)
+   edebug-debugger(19 after (buffer #<buffer test.pdf> callback (closure ((resolution . 100) (png . "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (pdf-ps . "/tmp/test.pdf") t) nil (edebug-enter (quote edebug-anon0) (list) (function (lambda nil (edebug-after (edebug-before 0) 8 (write-region (edebug-after ... 3 ...) nil (edebug-after ... 7 ...) nil (quote silently))) (edebug-after (edebug-before 9) 16 (when (edebug-after 0 10 doc-view-current-timer) (edebug-after ... 13 ...) (edebug-after ... 15 ...))) (edebug-after (edebug-before 17) 20 (doc-view-display (edebug-after ... 19 ...) (quote force)))))))))
+   edebug-after(0 19 (buffer #<buffer test.pdf> callback (closure ((resolution . 100) (png . "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (pdf-ps . "/tmp/test.pdf") t) nil (edebug-enter (quote edebug-anon0) (list) (function (lambda nil (edebug-after (edebug-before 0) 8 (write-region (edebug-after ... 3 ...) nil (edebug-after ... 7 ...) nil (quote silently))) (edebug-after (edebug-before 9) 16 (when (edebug-after 0 10 doc-view-current-timer) (edebug-after ... 13 ...) (edebug-after ... 15 ...))) (edebug-after (edebug-before 17) 20 (doc-view-display (edebug-after ... 19 ...) (quote force)))))))))
+   (closure ((png . "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (pdf-ps . "/tmp/test.pdf") t) nil (edebug-after (edebug-before 0) 19 (doc-view-start-process "pdf/ps->png" (edebug-after 0 1 doc-view-ghostscript-program) (edebug-after (edebug-before 2) 15 (append (edebug-after 0 3 doc-view-ghostscript-options) (edebug-after (edebug-before 4) 14 (list (edebug-after ... 9 ...) (edebug-after ... 12 ...) (edebug-after 0 13 pdf-ps))))) (edebug-after (edebug-before 16) 18 (let ((resolution (edebug-after 0 17 doc-view-resolution))) (lambda nil (edebug-enter (quote edebug-anon0) (list) (function ...))))))) (edebug-after (edebug-before 20) 29 (when (edebug-after 0 21 doc-view-conversion-refresh-interval) (edebug-after (edebug-before 22) 28 (setq doc-view-current-timer (edebug-after (edebug-before 23) 27 (run-at-time "1 secs" (edebug-after 0 24 doc-view-conversion-refresh-interval) (quote doc-view-display) (edebug-after ... 26 ...))))))))()
+   edebug-enter(doc-view-pdf/ps->png ("/tmp/test.pdf" "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (closure ((png . "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (pdf-ps . "/tmp/test.pdf") t) nil (edebug-after (edebug-before 0) 19 (doc-view-start-process "pdf/ps->png" (edebug-after 0 1 doc-view-ghostscript-program) (edebug-after (edebug-before 2) 15 (append (edebug-after 0 3 doc-view-ghostscript-options) (edebug-after (edebug-before 4) 14 (list (edebug-after ... 9 ...) (edebug-after ... 12 ...) (edebug-after 0 13 pdf-ps))))) (edebug-after (edebug-before 16) 18 (let ((resolution (edebug-after 0 17 doc-view-resolution))) (lambda nil (edebug-enter (quote edebug-anon0) (list) (function ...))))))) (edebug-after (edebug-before 20) 29 (when (edebug-after 0 21 doc-view-conversion-refresh-interval) (edebug-after (edebug-before 22) 28 (setq doc-view-current-timer (edebug-after (edebug-before 23) 27 (run-at-time "1 secs" (edebug-after 0 24 doc-view-conversion-refresh-interval) (quote doc-view-display) (edebug-after ... 26 ...)))))))))
+   doc-view-pdf/ps->png("/tmp/test.pdf" "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png")
+   (edebug-after (edebug-before 4) 7 (doc-view-pdf/ps->png (edebug-after 0 5 pdf) (edebug-after 0 6 png)))
+   (if (edebug-after (edebug-before 1) 3 (null (edebug-after 0 2 pages))) (edebug-after (edebug-before 4) 7 (doc-view-pdf/ps->png (edebug-after 0 5 pdf) (edebug-after 0 6 png))) (edebug-after (edebug-before 8) 24 (let ((rest (edebug-after (edebug-before 9) 11 (cdr (edebug-after 0 10 pages))))) (edebug-after (edebug-before 12) 23 (doc-view-pdf->png-1 (edebug-after 0 13 pdf) (edebug-after (edebug-before 14) 19 (format (edebug-after 0 15 png) (edebug-after ... 18 ...))) (edebug-after (edebug-before 20) 22 (car (edebug-after 0 21 pages))) (lambda nil (edebug-enter (quote edebug-anon1) (list) (function ...))))))))
+   (edebug-after (edebug-before 0) 25 (if (edebug-after (edebug-before 1) 3 (null (edebug-after 0 2 pages))) (edebug-after (edebug-before 4) 7 (doc-view-pdf/ps->png (edebug-after 0 5 pdf) (edebug-after 0 6 png))) (edebug-after (edebug-before 8) 24 (let ((rest (edebug-after (edebug-before 9) 11 (cdr ...)))) (edebug-after (edebug-before 12) 23 (doc-view-pdf->png-1 (edebug-after 0 13 pdf) (edebug-after (edebug-before 14) 19 (format ... ...)) (edebug-after (edebug-before 20) 22 (car ...)) (lambda nil (edebug-enter ... ... ...))))))))
+   (closure ((pages) (png . "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (pdf . "/tmp/test.pdf") t) nil (edebug-after (edebug-before 0) 25 (if (edebug-after (edebug-before 1) 3 (null (edebug-after 0 2 pages))) (edebug-after (edebug-before 4) 7 (doc-view-pdf/ps->png (edebug-after 0 5 pdf) (edebug-after 0 6 png))) (edebug-after (edebug-before 8) 24 (let ((rest (edebug-after ... 11 ...))) (edebug-after (edebug-before 12) 23 (doc-view-pdf->png-1 (edebug-after 0 13 pdf) (edebug-after ... 19 ...) (edebug-after ... 22 ...) (lambda nil ...))))))))()
+   edebug-enter(doc-view-pdf->png ("/tmp/test.pdf" "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png" nil) (closure ((pages) (png . "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (pdf . "/tmp/test.pdf") t) nil (edebug-after (edebug-before 0) 25 (if (edebug-after (edebug-before 1) 3 (null (edebug-after 0 2 pages))) (edebug-after (edebug-before 4) 7 (doc-view-pdf/ps->png (edebug-after 0 5 pdf) (edebug-after 0 6 png))) (edebug-after (edebug-before 8) 24 (let ((rest (edebug-after ... 11 ...))) (edebug-after (edebug-before 12) 23 (doc-view-pdf->png-1 (edebug-after 0 13 pdf) (edebug-after ... 19 ...) (edebug-after ... 22 ...) (lambda nil ...)))))))))
+   edebug-enter(doc-view-pdf->png ("/tmp/test.pdf" "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png" nil) (closure ((pages) (png . "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png") (pdf . "/tmp/test.pdf") t) nil (edebug-after (edebug-before 0) 25 (if (edebug-after (edebug-before 1) 3 (null (edebug-after 0 2 pages))) (edebug-after (edebug-before 4) 7 (doc-view-pdf/ps->png (edebug-after 0 5 pdf) (edebug-after 0 6 png))) (edebug-after (edebug-before 8) 24 (let ((rest (edebug-after ... 11 ...))) (edebug-after (edebug-before 12) 23 (doc-view-pdf->png-1 (edebug-after 0 13 pdf) (edebug-after ... 19 ...) (edebug-after ... 22 ...) (lambda nil ...)))))))))
+   doc-view-pdf->png("/tmp/test.pdf" "/var/folders/n7/wyw4zz1d4wj91l6j3rb8rw780000gn/T/docview501/test.pdf-315963beb55c7093204624435fd280cd/page-%d.png" nil)
+   doc-view-convert-current-doc()
+   doc-view-initiate-display()
+   doc-view-mode()
+   doc-view-mode-maybe()
+   set-auto-mode-0(doc-view-mode-maybe nil)
+   set-auto-mode()
+   normal-mode(t)
+   after-find-file(nil t)
+   find-file-noselect-1(#<buffer test.pdf> "/tmp/test.pdf" nil nil "/private/tmp/test.pdf" (24219582 16777218))
+   find-file-noselect("/tmp/test.pdf" nil nil nil)
+   find-file("/tmp/test.pdf")
+   dired-find-file()
+   call-interactively(dired-find-file nil nil)
+ #+end_example
+* [#B] gnuplot in emacs                                            :noexport:
 org-plot/gnuplot
 ** sample data
 #+PLOT: title:"Citas" ind:1 deps:(3) type:2d with:histograms set:"yrange <0:>"
@@ -1942,162 +2701,82 @@ Possible options are...
 - timefmt :: if there is time and/or date data to be plotted, set the
              format.  For example, =timefmt:%Y-%m-%d= if the data look
              like =2008-03-25=.
-* DONE [#A] 将bbdb导出成有头像的vcard                             :IMPORTANT:
- CLOSED: [2011-09-17 Sat 16:48]
-- 将bbdb的每条记录导出成一个vcard文件
- (bbdb-vcard-export "~/exported-vcards/" t t)
+* shell in emacs                                                   :noexport:
+** DONE [#A] emacs open remote folder: /sshx:kubo:/home/kubo/
+   CLOSED: [2018-07-01 Sun 01:22]
+ https://www.gnu.org/software/emacs/manual/html_node/emacs/Remote-Files.html
 
-- 删除不必要的vcard文件(奇怪：bbdb-vcard-export会生成多余的vcard文件)
-cd ~/exported-vcards/; rm -rf *-1.vcf
+ kubo /sshx:kubo@10.193.19.29:/home/kubo/
 
-- 针对每个vcard文件, 添加相应的PHOTO字段的二进制图片值
- (update-bbdb-picture-to-vcard)
+** TODO [#B] emacs shell很好用，但网络卡住时tmux有不可抗拒的优势
+* regrexp in emacs                                                 :noexport:
+** DONE emacs multiline regexp
+   CLOSED: [2016-09-20 Tue 13:21]
+ http://stackoverflow.com/questions/1309050/emacs-query-replace-regexp-multiline
+ (setq content-str "hello
+ this
+ ----
+ Denny
+ Sophia")
 
-- 将vcard合并成一个, 因为google只支持导入一个vcard
- cd ~/exported-vcards/; cat * > /tmp/vcard.vcf
+ (message (replace-regexp-in-string
+           "\n----\\(.\\|\n\\)*" "" content-str))
+* flymake in emacs                                                 :noexport:
+** TODO [#A] emacs delete flymake files: another folder
+ https://github.com/flymake/emacs-flymake#use-the-system-temporary-directory-for-temp-files
+** TODO [#A] emacs avoid flymake file
+ #+BEGIN_EXAMPLE
+ bash-3.2$ git status
+ On branch master
+ Your branch is up-to-date with 'origin/master'.
 
-- 通过google contact与手机同步
-  https://www.google.com/contacts_v2/#contacts
-** useful link
-https://github.com/trebb/bbdb-vcard
-* TODO [#B] org-mode don't wrap lines
-truncate-lines:nil
-* TODO [#B] emacs shell很好用，但网络卡住时tmux有不可抗拒的优势
-* DONE org-mode export html code block add line number
-  CLOSED: [2016-08-21 Sun 08:56]
-http://stackoverflow.com/questions/12170382/org-mode-source-inclusion-line-numbers
+ Changes not staged for commit:
+   (use "git add <file>..." to update what will be committed)
+   (use "git checkout -- <file>..." to discard changes in working directory)
 
-http://orgmode.org/manual/CSS-support.html.
+	 modified:   example_file.go
+	 modified:   golang.org
 
-.linenr
-#+BEGIN_EXAMPLE
-Org-mode has a great feature to include source code like this:
+ Untracked files:
+   (use "git add <file>..." to include in what will be committed)
 
-#+begin_src java -n
-    /**
-     * @param foo
-     */
-    public static void doBar(Baz ba)
-    {
-        Collection<String> strings = ba.getStrings(true);
-        return strings;
-    }
-#+end_src
-The -n option shows line numbers.
-#+END_EXAMPLE
-* DONE [#A] emacs org-mode use customized css
-  CLOSED: [2016-08-21 Sun 13:56]
-http://orgmode.org/manual/CSS-support.html 
+	 example_file_flymake
+	 test_flymake
 
- #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="style1.css" />
- #+HTML_HEAD_EXTRA: <link rel="alternate stylesheet" type="text/css" href="style2.css" />
+ no changes added to commit (use "git add" and/or "git commit -a")
+ bash-3.2$ pwd
+ /Users/zdenny/git_code/github/cheatsheet-golang-A4
+ #+END_EXAMPLE
 
-* DONE css for underline: .underline { text-decoration: underline; }
-  CLOSED: [2016-08-21 Sun 14:03]
-http://www.w3schools.com/cssref/pr_text_text-decoration.asp
-* DONE emacs multiline regexp
-  CLOSED: [2016-09-20 Tue 13:21]
-http://stackoverflow.com/questions/1309050/emacs-query-replace-regexp-multiline
-(setq content-str "hello
-this
-----
-Denny
-Sophia")
+* programming with emacs                                           :noexport:
+** TODO setup golang dev env
+ http://tleyden.github.io/blog/2014/05/22/configure-emacs-as-a-go-editor-from-scratch/
+ https://johnsogg.github.io/emacs-golang
+ http://dominik.honnef.co/posts/2013/03/writing_go_in_emacs/
+*** TODO autocomplete
+*** DONE flymake
+    CLOSED: [2018-07-02 Mon 09:10]
+*** HALF golang unit test 
+  https://github.com/golangci/golangci-lint
 
-(message (replace-regexp-in-string
-          "\n----\\(.\\|\n\\)*" "" content-str))
-* DONE org-mode change customize footnotes css
-  CLOSED: [2016-09-20 Tue 21:08]
-/Users/mac/.emacs.d/elpa/org-plus-contrib-20150406/ox-html.el
-(defun org-html-footnote-section (info)
+  cat > ~/.bashrc << EOF
+  export GOPATH=/usr/local/Cellar/go/1.10.3
+  export PATH=$PATH:/usr/local/opt/go/libexec/bin:$GOPATH/bin
+  EOF
 
-(setq org-html-footnotes-section "<div id=\"footnotes\">
-<p class=\"footnotes\">%s: </p>
-<div id=\"text-footnotes\">
-%s
-</div>
-</div>")
+  curl -sfL https://install.goreleaser.com/github.com/golangci/golangci-lint.sh | bash -s -- -b $GOPATH/bin v1.8.1
 
-* TODO [#A] org-mode footnote: change face link
-https://www.dennyzhang.com/docker_capacity/
+  which golangci-lint
 
-http://orgmode.org/manual/Footnotes.html
-* DONE [#A] Exporting inline code to html in org-mode
-  CLOSED: [2016-10-05 Wed 13:18]
-http://orgmode.org/manual/Quoting-HTML-tags.html
-@@html:<b>@@bold text@@html:</b>@@
-#+BEGIN_HTML
-All lines between these markers are exported literally
-#+END_HTML
-* TODO emacs Latex doesn't export Chinese characters: work/osc_2013/totvs_work_review/DevOpsWorkReview.org
-* TODO [#A] emacs org-mode don't show change, since the color change is really annoying :IMPORTANT:
-* DONE gnus send email group: gnus-select-newsgroup: Couldn’t request group mail.sent.mail: Invalid group (no such directory)
-  CLOSED: [2017-01-03 Tue 15:21]
-gnus-group-delete-group
+  golangci-lint run 
 
-#+BEGIN_EXAMPLE
-Debugger entered--Lisp error: (error "Couldn’t request group mail.sent.mail: Invalid group (no such directory)")
-  signal(error ("Couldn’t request group mail.sent.mail: Invalid group (no such directory)"))
-  error("Couldn't request group %s: %s" "mail.sent.mail" "Invalid group (no such directory)")
-  gnus-select-newsgroup("mail.sent.mail" nil nil)
-  gnus-summary-read-group-1("mail.sent.mail" nil t nil nil nil)
-  gnus-summary-read-group("mail.sent.mail" nil t nil nil nil nil)
-  gnus-group-read-group(nil t)
-  gnus-group-select-group(nil)
-  gnus-topic-select-group(nil)
-  funcall-interactively(gnus-topic-select-group nil)
-  call-interactively(gnus-topic-select-group nil nil)
-  command-execute(gnus-topic-select-group)
-#+END_EXAMPLE
+  golangci-lint run /Users/zdenny/git_code/github/cheatsheet-golang-A4/example_file.go
 
-* DONE [#A] org-mode highlight things                             :IMPORTANT:
-  CLOSED: [2017-08-26 Sat 22:36]
-*bold*
-/italic/
-+strike-through+
-=verbatim=
-~code~
+*** TODO golang emacs auto completion
+  https://www.emacswiki.org/emacs/GoLangMode
+  https://github.com/nsf/gocode
+  https://github.com/auto-complete/auto-complete
 
-https://emacs.stackexchange.com/questions/5889/how-to-highlight-text-permanently-in-org-mode
-http://ergoemacs.org/emacs/emacs_org_markup.html
-http://orgmode.org/manual/Emphasis-and-monospace.html#Emphasis-and-monospace
-** DONE _underlined_
-   CLOSED: [2017-08-26 Sat 22:35]
-<span class="underline">Try it</span>
-** TODO org-mode verbatim
-<code>Try it</code>
-** DONE Customized css: [[color:#c7254e][
-   CLOSED: [2017-08-26 Sat 20:48]
+  http://tleyden.github.io/blog/2014/05/22/configure-emacs-as-a-go-editor-from-scratch/
 
-* DONE org-mode - no syntax highlighting in exported HTML page: need to install htmlize library
-  CLOSED: [2016-07-31 Sun 18:33]
-http://stackoverflow.com/questions/24082430/org-mode-no-syntax-highlighting-in-exported-html-page
-
-Code block syntax highlighting in Org-mode's HTML export depends on
-the htmlize library, which Org-mode's documentation says is included
-but may actually need to be installed separately
-https://www.reddit.com/r/emacs/comments/3pvbag/is_there_a_collection_of_css_styles_for_org/
-http://eschulte.github.io/babel-dev/DONE-Suitable-export-of-srcname-and-resname-lines.html
-http://www.cnblogs.com/cheukyin/p/4208621.html
-
-https://lists.gnu.org/archive/html/emacs-orgmode/2014-01/msg00731.html
-http://orgmode.org/manual/CSS-support.html
-https://github.com/fniessen/org-html-themes
-* TODO emacs sort by columns
-* DONE emacs change mini-buffer height
-  CLOSED: [2018-02-27 Tue 16:15]
-https://ftp.gnu.org/old-gnu/Manuals/emacs/html_node/emacs_33.html
-
-(setq resize-mini-windows nil)
-(setq max-mini-window-height 10)
-
-Use mouse to drag minibuffer up or down in order to resize it.
-* DONE emacs show line number: M-x linum-mode
-  CLOSED: [2018-05-01 Tue 11:23]
-
-* DONE [#A] emacs open remote folder: /sshx:kubo:/home/kubo/
-  CLOSED: [2018-07-01 Sun 01:22]
-https://www.gnu.org/software/emacs/manual/html_node/emacs/Remote-Files.html
-
-kubo /sshx:kubo@10.193.19.29:/home/kubo/
-
+  go get -u github.com/nsf/gocode
