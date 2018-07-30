@@ -30,39 +30,36 @@ File me [[https://github.com/DennyZhang/cheatsheet-emacs-A4/issues][Issues]] or 
 See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][#denny-cheatsheets]]
 * CheatSheet
 ** Frequently Used
-
-| Name                        | Comment                                               |
-| :-------------------------- | ----------------------------------------------------- |
-| Debug a function            | `edebug-defun`                                        |
-| Change function via advice  | `defadvice` ;; Super inspiring feature!               |
-| Excels in Emacs             | [org-mode-table.org](org-mode-table.org)              |
-| Emacs elpa packages' folder | `~/.emacs.d/elpa/`                                    |
-| Regrexp In Emacs            | [regexp-string-match.el](regexp-string-match.el)      |
-| Set default value           | `(setq-default indent-tabs-mode nil)`                 | 
-  
+| Name                        | Comment                                          |
+|-----------------------------+--------------------------------------------------|
+| Debug a function            | `edebug-defun`                                   |
+| Change function via advice  | `defadvice` ;; Super inspiring feature!          |
+| Excels in Emacs             | [org-mode-table.org](org-mode-table.org)         |
+| Emacs elpa packages' folder | `~/.emacs.d/elpa/`                               |
+| Regrexp In Emacs            | [regexp-string-match.el](regexp-string-match.el) |
+| Set default value           | `(setq-default indent-tabs-mode nil)`            |
 ** Org-mode In Emacs
-
-| Name                        | Comment                                    |
-| :-------------------------- | ------------------------------------------ |
-| Export org-mode to markdown | `org-md-export-to-markdown` `C-c C-e m m`  |
+| Name                        | Comment                                   |
+|-----------------------------+-------------------------------------------|
+| Export org-mode to markdown | `org-md-export-to-markdown` `C-c C-e m m` |
 
 ** GNUS - Mail In Emacs
 
-| Name                  | Comment                          |
-| :-------------------- | -------------------------------- |
-| Create delayed email  | `gnus-delay-article` `C-c C-j`   |
+| Name                 | Comment                        |
+|----------------------+--------------------------------|
+| Create delayed email | `gnus-delay-article` `C-c C-j` |
 
 ** View In Emacs
 
-| Name                                         | Comment                  |
-| :------------------------------------------- | ------------------------ |
-| Move forward across one balanced expression  | `forward-sexp` `C-M-f`   |
-| Move backward across one balanced expression | `backward-sexp` `C-M-b`  |
+| Name                                         | Comment                 |
+|----------------------------------------------+-------------------------|
+| Move forward across one balanced expression  | `forward-sexp` `C-M-f`  |
+| Move backward across one balanced expression | `backward-sexp` `C-M-b` |
 
 ** Buffer Operations
 
 | Name                          | Comment                                              |
-| :-----------------------      | ---------------------------------------------------- |
+|-------------------------------+------------------------------------------------------|
 | Move to top                   | `(goto-char (point-min))`                            |
 | Replace string by regexp      | [buffer-replace.el](buffer-replace.el)               |
 | Delete region                 | `(delete-region start-pos end-pos)`                  |
@@ -70,40 +67,27 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
 
 ** String
 
-| Name                | Comment                                                |
-| :------------------ | ------------------------------------------------------ |
-| Replace by regexp   | `(setq ret (replace-regexp-in-string "<hr/>" "" ret))` |
-| Format string       | `(format "%s/%s" mywordpress-server-url blog-uri)`     |
+| Name              | Comment                                                |
+|-------------------+--------------------------------------------------------|
+| Replace by regexp | `(setq ret (replace-regexp-in-string "<hr/>" "" ret))` |
+| Format string     | `(format "%s/%s" mywordpress-server-url blog-uri)`     |
 
 ** Array
 
-| Name                | Comment                                  |
-| :------------------ | ---------------------------------------- |
-| Create a list       | `(defvar my-list (list "item1, item2"))` |
-| Add item to list    | `(add-to-list 'my-list "item3")`         |
-| Head of a list      | `(car '(a b c))`                         |
-| Tail of a list      | `(cdr '(a b c))`                         |
-| Loop a list         | `(dolist (item my-list) (message item))` |
+| Name             | Comment                                  |
+|------------------+------------------------------------------|
+| Create a list    | `(defvar my-list (list "item1, item2"))` |
+| Add item to list | `(add-to-list 'my-list "item3")`         |
+| Head of a list   | `(car '(a b c))`                         |
+| Tail of a list   | `(cdr '(a b c))`                         |
+| Loop a list      | `(dolist (item my-list) (message item))` |
   
 ** Files
 
-| Name          | Comment                      |
-| :------------ | ---------------------------- |
-| Open file     | `(find-file html-file)`      |
-| Save file     | `(write-file html-file nil)` |
-  
-** Math
-
-| Name          | Comment                  |
-| :------------ | ------------------------ |
-
-* #  --8<-------------------------- separator ------------------------>8-- :noexport:
-* Security deployemnt 
-| Name                      | Summary          |
-|---------------------------+------------------|
-| Make filesystem read-only | [[mark-fs-readonly][mark-fs-readonly]] |
-| Set runAsNonRoot as True | [[run-as-nonroot][run-as-nonroot]]   |
-* Scan Docker Image
+| Name      | Comment                      |
+|-----------+------------------------------|
+| Open file | `(find-file html-file)`      |
+| Save file | `(write-file html-file nil)` |
 * More Resources
 License: Code is licensed under [[https://www.dennyzhang.com/wp-content/mit_license.txt][MIT License]].
 #+BEGIN_HTML
