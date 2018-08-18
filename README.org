@@ -7,9 +7,9 @@ Blog URL: https://cheatsheet.dennyzhang.com/cheatsheet-emacs, Category: [[https:
 
 #+BEGIN_HTML
 <a href="https://www.linkedin.com/in/dennyzhang001"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/linkedin.png" alt="linkedin" /></a>
-<a href="https://github.com/DennyZhang"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a>
+<a href="https://github.com/dennyzhang"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a>
 <a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a>
-<a href="https://github.com/DennyZhang/cheatsheet-emacs-A4"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
+<a href="https://github.com/dennyzhang/cheatsheet-emacs-A4"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
 
 <br/><br/>
 
@@ -28,6 +28,24 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
 | Emacs elpa packages' folder | =~/.emacs.d/elpa/=                       |
 | Regrexp In Emacs            | [[https://github.com/dennyzhang/cheatsheet-emacs-A4/blob/master/regexp-string-match.el][regexp-string-match.el]]                   |
 | Set default value           | =(setq-default indent-tabs-mode nil)=    |
+** String
+
+| Name              | Comment                                                |
+|-------------------+--------------------------------------------------------|
+| Replace by regexp | =(setq ret (replace-regexp-in-string "<hr/>" "" ret))= |
+| Format string     | =(format "%s/%s" mywordpress-server-url blog-uri)=     |
+
+** Array & List
+
+| Name             | Comment                                       |
+|------------------+-----------------------------------------------|
+| Create a list    | =(defvar my-list (list "item1, item2"))=      |
+| Add item to list | =(add-to-list 'my-list "item3")=              |
+| Head of a list   | =(car '(a b c))=                              |
+| Tail of a list   | =(cdr '(a b c))=                              |
+| Loop a list      | =(dolist (item my-list) (message item))=      |
+| Concat two lists | =(nconc '("a" "b" "c") '("d" "e" "f"))=  [[https://emacs.stackexchange.com/questions/32644/how-to-concatenate-two-lists/32647][link]] |
+
 ** GNUS - Mail In Emacs
 
 | Name                 | Comment                        |
@@ -50,23 +68,6 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
 | Delete region                 | =(delete-region start-pos end-pos)=                  |
 | Buffer string with plain text | =(buffer-substring-no-properties start-pos end-pos)= |
 
-** String
-
-| Name              | Comment                                                |
-|-------------------+--------------------------------------------------------|
-| Replace by regexp | =(setq ret (replace-regexp-in-string "<hr/>" "" ret))= |
-| Format string     | =(format "%s/%s" mywordpress-server-url blog-uri)=     |
-
-** Array
-
-| Name             | Comment                                  |
-|------------------+------------------------------------------|
-| Create a list    | =(defvar my-list (list "item1, item2"))= |
-| Add item to list | =(add-to-list 'my-list "item3")=         |
-| Head of a list   | =(car '(a b c))=                         |
-| Tail of a list   | =(cdr '(a b c))=                         |
-| Loop a list      | =(dolist (item my-list) (message item))= |
-  
 ** Files
 
 | Name      | Comment                      |
@@ -136,7 +137,7 @@ License: Code is licensed under [[https://www.dennyzhang.com/wp-content/mit_lice
 <a href="https://www.dennyzhang.com"><img align="right" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/dns_small.png"></a>
 
 <a href="https://www.linkedin.com/in/dennyzhang001"><img align="bottom" src="https://www.dennyzhang.com/wp-content/uploads/sns/linkedin.png" alt="linkedin" /></a>
-<a href="https://github.com/DennyZhang"><img align="bottom"src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a>
+<a href="https://github.com/dennyzhang"><img align="bottom"src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a>
 <a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img align="bottom" src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a>
 #+END_HTML
 * org-mode configuration                                           :noexport:
@@ -1369,7 +1370,7 @@ Warning (bytecomp): reference to free variable ‘my-string’
 #+TBLFM: $1=@-1$1+1;N
 ** Check latest skills of emacs
 ./configure --with-crt-dir=/usr/lib/x86_64-linux-gnu
-- Check my emacs configuration at github: https://github.com/DennyZhang/Denny-s-emacs-configuration
+- Check my emacs configuration at github: https://github.com/dennyzhang/Denny-s-emacs-configuration
 - If Emacs is an operating system, Org-mode is the office/productivity suite.
 - obtain emacs source code: wget http://ftp.gnu.org/pub/gnu/emacs/emacs-23.4.tar.gz ~/emacs-23.4.tar.gz
 
@@ -1391,7 +1392,7 @@ Warning (bytecomp): reference to free variable ‘my-string’
 *** [#A] Webjump in emacs
 通过emacs去管理网页收藏夹
 
-示例配置: https://github.com/DennyZhang/Denny-s-emacs-configuration/blob/master/web-browse-setting.el
+示例配置: https://github.com/dennyzhang/Denny-s-emacs-configuration/blob/master/web-browse-setting.el
 **** DONE [#A] emacs webjump: webhost匹配时, 使用子串匹配, 而不是前缀匹配: 直接使用*XX*即可
  CLOSED: [2011-09-27 Tue 18:13]
 **** TODO [#A] emacs webjump: 有些网站中国的keyword输入不行
@@ -2819,7 +2820,7 @@ Possible options are...
 #+BEGIN_HTML
 <div id="the whole thing" style="overflow: hidden;">
 <div style="float: left; padding: 5px"> <a href="https://www.linkedin.com/in/dennyzhang001"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/linkedin.png" alt="linkedin" /></a></div>
-<div style="float: left; padding: 5px"><a href="https://github.com/DennyZhang"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a></div>
+<div style="float: left; padding: 5px"><a href="https://github.com/dennyzhang"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a></div>
 <div style="float: left; padding: 5px"><a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a></div>
 </div>
 #+END_HTML
@@ -2827,7 +2828,7 @@ Possible options are...
 #+BEGIN_HTML
 <div style="overflow: hidden;">
 <div style="float: left; padding: 5px"> <a href="https://www.linkedin.com/in/dennyzhang001"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/linkedin.png" alt="linkedin" /></a></div>
-<div style="float: left; padding: 5px"><a href="https://github.com/DennyZhang"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a></div>
+<div style="float: left; padding: 5px"><a href="https://github.com/dennyzhang"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a></div>
 <div style="float: left; padding: 5px"><a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a></div>
 </div>
 #+END_HTML
@@ -2840,7 +2841,7 @@ https://www.reddit.com/r/emacs/comments/71wy6n/orgmode_as_a_markup_language_does
 #+BEGIN_HTML
 <div id="the whole thing" style="overflow: hidden;">
 <div style="float: left; padding: 5px"><a href="https://www.linkedin.com/in/dennyzhang001"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/linkedin.png" alt="linkedin" /></a></div>
-<div style="float: left; padding: 5px"><a href="https://github.com/DennyZhang"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a></div>
+<div style="float: left; padding: 5px"><a href="https://github.com/dennyzhang"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a></div>
 <div style="float: left; padding: 5px"><a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a></div>
 </div>
 #+END_HTML
@@ -2848,13 +2849,7 @@ https://www.reddit.com/r/emacs/comments/71wy6n/orgmode_as_a_markup_language_does
 #+BEGIN_HTML
 <br/><br/>
 <a href="https://www.linkedin.com/in/dennyzhang001"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/linkedin.png" alt="linkedin" /></a>
-<a href="https://github.com/DennyZhang"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a>
+<a href="https://github.com/dennyzhang"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a>
 <a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a>
 #+END_HTML
-* HALF use emacs to update wordpress                               :noexport:
-(cd problems/house-robber-ii; /Applications/Emacs.app/Contents/MacOS/Emacs-x86_64-10_10 --batch -l ../../emacs-update.el)
-
-        ;; "mac-setting.el" ;; TODO
-
-;;        "programming/golang-setting.el"
-          Symbol’s function definition is void: company-go
+* TODO elisp combine two list
