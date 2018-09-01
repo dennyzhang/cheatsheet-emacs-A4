@@ -47,7 +47,7 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
 | Change function via advice  | =defadvice= ;; Super inspiring feature!  |
 | Set default value           | =(setq-default indent-tabs-mode nil)=    |
 
-** String & Regexp
+** String
 | Name                                        | Comment                                                                                 |
 |---------------------------------------------+-----------------------------------------------------------------------------------------|
 | string1 contains string2                    | =(string-match ".*README.org" buffer-file-truename)=                                    |
@@ -74,6 +74,17 @@ Sophia")
 (message (replace-regexp-in-string
           "\n----\\(.\\|\n\\)*" "" content-str))
 #+END_SRC
+
+** Regexp
+| Name                              | Comment                                   |
+|-----------------------------------+-------------------------------------------|
+| Regexp In Emacs                   | [[https://github.com/dennyzhang/cheatsheet-emacs-A4/blob/master/regexp-string-match.el][regexp-string-match.el]]                    |
+| Change a given string using regex | =(replace-regexp-in-string "^ +" "" url)= |
+| Seach regexp in some string       | =(string-match myRegex myStr)=            |
+| Get captured match                | =(match-string 1 myStr)=                  |
+| Escape special characters         | =(regexp-quote "^")=                      |
+|                                   | =(regexp-opt '=("hello" "world")=)=       |
+
 ** Intger
 | Name                   | Comment                                    |
 |------------------------+--------------------------------------------|
@@ -117,16 +128,6 @@ Sophia")
 |      | =(downcase)=                          |
 |      | =(downcase-word n)=                   |
 |      | =(downcase-region beg end)=           |
-
-** Regexp
-| Name                                                       | Comment                                 |
-|------------------------------------------------------------+-----------------------------------------|
-| Regexp In Emacs                                            | [[https://github.com/dennyzhang/cheatsheet-emacs-A4/blob/master/regexp-string-match.el][regexp-string-match.el]]                  |
-| Print "\\(?:hello\\｜world\)"                              | (regexp-opt '("hello" "world"))         |
-| Change a given string using regex. Returns changed string. | (replace-regexp-in-string "^ +" "" url) |
-| Seach regexp in some string                                | (string-match myRegex myStr)            |
-| Get captured match                                         | (match-string 1 myStr)                  |
-| Escape special characters                                  | (regexp-quote "^")                      |
 
 ** Array & List
 - Get items from list
@@ -185,11 +186,12 @@ Sophia")
 | Remove all items not satisfying PREDICATE in SEQ.                                                     | (remove-if-not 'buffer-live-p keep-end-buffer-list)          |
 
 ** Loop
-- Switch
+- cond: like switch or case
+[[https://www.emacswiki.org/emacs/WhenToUseIf][link: WhenToUseIf]]
 #+BEGIN_SRC elisp
 (let ((x 1))
-  (cond (= x 0) "It's zero"
-        (= x 1) "It's one"
+  (cond ((eq x 0) "It's zero")
+        ((eq x 1) "It's one")
         :else "It's something else")
 )
 #+END_SRC
@@ -1057,7 +1059,6 @@ cond 功能跟其它语言里的switch 或 case 很相似:
 
 C程序员不得不使用他们的编译器
 #+end_example
-** # --8<-------------------------- separator ------------------------>8--
 ** useful link
  http://www.emacswiki.org/emacs/CategoryCode\\
  EmacsWiki: Category Code
@@ -1248,7 +1249,6 @@ Lisp命令(函数).
  | Function                              | 备注                                                                                 |
  |---------------------------------------+--------------------------------------------------------------------------------------|
  | (url-insert-entities-in-string value) | Replaces these characters as follows: & ==> &amp; < ==> &lt; > ==> &gt; " ==> &quot; |
-** # --8<-------------------------- separator ------------------------>8--
 ** timer -- 定时器
  | Function                                                 | 备注                                                            |
  |----------------------------------------------------------+-----------------------------------------------------------------|
@@ -1295,7 +1295,6 @@ The command run (after changing into DIR) is
 | Function                                   | Summary  |
 |--------------------------------------------+----------|
 | (put-text-property cbeg cend 'invisible t) | 隐藏文本 |
-** # --8<-------------------------- §separator§ ------------------------>8--
 ** [#B] 定义结构体                                                :Important:
  CLOSED: [2011-07-03 Sun 17:25]
 定义结构体　(defstruct foo (a 10) (b nil) c)
@@ -2563,4 +2562,4 @@ https://emacs.stackexchange.com/questions/18741/how-to-syntax-highlight-begin-ex
 
 https://github.com/coldnew/org-ioslide/issues/55
 https://www.reddit.com/r/emacs/comments/71wy6n/orgmode_as_a_markup_language_does_make_sense_even/
-* TODO elisp combine two list
+* TODO elisp combine two list                                      :noexport:
