@@ -62,18 +62,6 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
 | Grab the start and end positions of a word  | =(setq myBoundaries (bounds-of-thing-at-point 'word))=                                  |
 |                                             | =(setq myStr (buffer-substring myStartPos myEndPos))=                                   |
 |                                             | =(setq myStr (buffer-substring-no-properties myStartPos myEndPos))=                     |
-- emacs multiline regexp
-#+BEGIN_SRC elisp
-;; http://stackoverflow.com/questions/1309050/emacs-query-replace-regexp-multiline
-(setq content-str "hello
-this
-----
-Denny
-Sophia")
-
-(message (replace-regexp-in-string
-          "\n----\\(.\\|\n\\)*" "" content-str))
-#+END_SRC
 
 ** Regexp
 | Name                              | Comment                                   |
@@ -185,16 +173,6 @@ Sophia")
 | Return a copy of SEQ with all occurrences of ELT removed.                                             | (remove ELT SEQ)                                             |
 | Remove all items not satisfying PREDICATE in SEQ.                                                     | (remove-if-not 'buffer-live-p keep-end-buffer-list)          |
 
-** Loop
-- cond: like switch or case
-[[https://www.emacswiki.org/emacs/WhenToUseIf][link: WhenToUseIf]]
-#+BEGIN_SRC elisp
-(let ((x 1))
-  (cond ((eq x 0) "It's zero")
-        ((eq x 1) "It's one")
-        :else "It's something else")
-)
-#+END_SRC
 ** Hook
 | Name                     | Comment                                                       |
 |--------------------------+---------------------------------------------------------------|
@@ -265,10 +243,31 @@ Sophia")
 | Send gnus drafts             | =gnus-draft-send-message=      |
 | Send all the sendable drafts | =gnus-draft-send-all-messages= |
 | Add attachment               | =mml-attach-file(C-c C-m f)=   |
+| Create group                 | =gnus-group-make-group (G m)=  |
 
-#+BEGIN_EXAMPLE
-G m: gnus-group-make-group
-#+END_EXAMPLE
+** Common Scripts
+- emacs multiline regexp
+#+BEGIN_SRC elisp
+;; http://stackoverflow.com/questions/1309050/emacs-query-replace-regexp-multiline
+(setq content-str "hello
+this
+----
+Denny
+Sophia")
+
+(message (replace-regexp-in-string
+          "\n----\\(.\\|\n\\)*" "" content-str))
+#+END_SRC
+
+- cond: like switch or case
+[[https://www.emacswiki.org/emacs/WhenToUseIf][link: WhenToUseIf]]
+#+BEGIN_SRC elisp
+(let ((x 1))
+  (cond ((eq x 0) "It's zero")
+        ((eq x 1) "It's one")
+        :else "It's something else")
+)
+#+END_SRC
 
 ** Org-mode
 #+BEGIN_HTML
