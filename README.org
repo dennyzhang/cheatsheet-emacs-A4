@@ -2581,7 +2581,10 @@ https://github.com/coldnew/org-ioslide/issues/55
 https://www.reddit.com/r/emacs/comments/71wy6n/orgmode_as_a_markup_language_does_make_sense_even/
 * TODO elisp combine two list                                      :noexport:
 * [#A] Org-mode export to latex                                    :noexport:
-** TODO change font to smaller
 ** TODO change url color: https://github.com/dennyzhang/cheatsheet-kubernetes-A4/blob/master/cheatsheet-kubernetes-A4.pdf
-** less indentation
-** no chinese character
+** TODO no chinese character
+** #  --8<-------------------------- separator ------------------------>8-- :noexport:
+** TODO change font to smaller
+** TODO less indentation
+** useful link
+https://www.sharelatex.com/learn/Learn_LaTeX_in_30_minutes
