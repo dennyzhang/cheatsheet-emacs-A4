@@ -83,6 +83,25 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
  | Send all the sendable drafts | =gnus-draft-send-all-messages= |
  | Add attachment               | =mml-attach-file(C-c C-m f)=   |
  | Create group                 | =gnus-group-make-group (G m)=  |
+*** Table in Org-mode
+#+BEGIN_EXAMPLE
+#+NAME: supplies
+| Date       | Category         | Amount |
+|------------+------------------+--------|
+| 2014/01/14 | Supplies         |  43.97 |
+| 2014/02/15 | Supplies         |  56.48 |
+| 2014/02/11 | Book             |  17.99 |
+| 2014/06/10 | Kinesis Keyboard | 289.16 |
+| 2014/08/23 | Printer          |  99.96 |
+| 2014/08/30 | Supplies         |  58.26 |
+| 2014/08/22 | Books            |  18.99 |
+| 2014/08/25 | Books            |   7.50 |
+| 2014/09/15 | Books            |  21.49 |
+| 2014/12/31 | Toner Service    | :=24.95*4 |
+|------------+------------------+--------|
+|            | Total:           |        |
+#+TBLFM: @>$3=vsum(@2..@-1);%.2f
+#+END_EXAMPLE
 *** Org-mode                                                       :noexport:
 #+BEGIN_HTML
  <a href="https://www.dennyzhang.com"><img align="right" width="201" height="268" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/denny_201706.png"></a>
