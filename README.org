@@ -16,9 +16,8 @@
 <a href="http://makeapullrequest.com" target="_blank" rel="nofollow"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"/></a>
 #+END_HTML
 
-- PDF Link: [[https://github.com/dennyzhang/cheatsheet-emacs-A4/blob/master/cheatsheet-emacs-A4.pdf][cheatsheet-emacs-A4.pdf]]
+- PDF Link: [[https://github.com/dennyzhang/cheatsheet-emacs-A4/blob/master/cheatsheet-emacs-A4.pdf][cheatsheet-emacs-A4.pdf]], Category: [[https://cheatsheet.dennyzhang.com/category/languages/][languages]]
 - Blog URL: https://cheatsheet.dennyzhang.com/cheatsheet-emacs-A4
-- Category: [[https://cheatsheet.dennyzhang.com/category/languages/][languages]]
 
 File me [[https://github.com/DennyZhang/cheatsheet-emacs-A4/issues][Issues]] or star [[https://github.com/DennyZhang/cheatsheet-emacs-A4][this repo]].
 
@@ -376,7 +375,7 @@ License: Code is licensed under [[https://www.dennyzhang.com/wp-content/mit_lice
 <a href="https://github.com/dennyzhang"><img align="bottom"src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a>
 <a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img align="bottom" src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a>
 #+END_HTML
-** org-mode configuration                                          :noexport:
+* org-mode configuration                                           :noexport:
 #+STARTUP: overview customtime noalign logdone showall
 #+DESCRIPTION: 
 #+KEYWORDS: 
@@ -578,11 +577,11 @@ removed as well."
 **** ;; -------------------------- separator --------------------------
 **** DONE mess up for code block
  CLOSED: [2010-05-21 星期五 01:07]
- #+BEGIN_SRC -t
+#+BEGIN_SRC -t
 (defun org-xor (a b)
  "Exclusive or."
  (if a (not b) b))
- #+END_SRC
+#+END_SRC
  http://www.gnu.org/software/emacs/manual/html_node/org/Text-areas-in-HTML-export.html#Text-areas-in-HTML-export\\
  Text areas in HTML export
 **** DONE wiki page for css support in emacs                       :noexport:
@@ -617,7 +616,7 @@ removed as well."
  .footref a footnote reference number (always a <sup>)
  .footnum footnote number in footnote definition (always <sup>)
  Each exported file contains a compact default style that defines these classes in a basic way2. You may overwrite these settings, or add to them by using the variables org-export-html-style (for Org-wide settings) and org-export-html-style-extra (for more granular settings, like file-local settings). To set the latter variable individually for each file, you can use
- #+STYLE: <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+#+STYLE: <link rel="stylesheet" type="text/css" href="stylesheet.css" />
  For longer style definitions, you can use several such lines. You could also directly write a <style> </style> section in this way, without referring to an external file.
  Footnotes
  [1] If the classes on TODO keywords and tags lead to conflicts, use the variables org-export-html-todo-kwd-class-prefix and org-export-html-tag-class-prefix to make them unique.
@@ -814,9 +813,9 @@ removed as well."
 *** DONE org-mode export html: set image size            :IMPORTANT:noexport:
  CLOSED: [2011-03-24 Thu 18:18]
 - method 1:
- #+html: <img width="300px" height="300px" src="./upgrade_check_list.PNG" alt="The Title" />
+#+html: <img width="300px" height="300px" src="./upgrade_check_list.PNG" alt="The Title" />
 - method 2:
- #+attr_html: width="300px"
+#+attr_html: width="300px"
  [[file:./upgrade_check_list.PNG]]
 *** DONE org-mode easy templates                         :IMPORTANT:noexport:
  CLOSED: [2011-07-22 Fri 11:47]
@@ -909,10 +908,10 @@ http://emacs.stackexchange.com/questions/12878/how-to-change-style-of-hyperlinks
  http://orgmode.org/manual/CSS-support.html.
 
  .linenr
- #+BEGIN_EXAMPLE
+#+BEGIN_EXAMPLE
  Org-mode has a great feature to include source code like this:
 
- #+begin_src java -n
+#+begin_src java -n
      /**
       * @param foo
       */
@@ -921,9 +920,9 @@ http://emacs.stackexchange.com/questions/12878/how-to-change-style-of-hyperlinks
          Collection<String> strings = ba.getStrings(true);
          return strings;
      }
- #+end_src
+#+end_src
  The -n option shows line numbers.
- #+END_EXAMPLE
+#+END_EXAMPLE
 ** DONE [#A] emacs org-mode use customized css
    CLOSED: [2016-08-21 Sun 13:56]
  http://orgmode.org/manual/CSS-support.html 
@@ -951,9 +950,9 @@ http://emacs.stackexchange.com/questions/12878/how-to-change-style-of-hyperlinks
    CLOSED: [2016-10-05 Wed 13:18]
  http://orgmode.org/manual/Quoting-HTML-tags.html
  @@html:<b>@@bold text@@html:</b>@@
- #+BEGIN_HTML
+#+BEGIN_HTML
  All lines between these markers are exported literally
- #+END_HTML
+#+END_HTML
 ** DONE [#A] org-mode highlight things                            :IMPORTANT:
    CLOSED: [2017-08-26 Sat 22:36]
  *bold*
@@ -1127,7 +1126,7 @@ C程序员不得不使用他们的编译器
 
 当Lisp读取表达式时, 它剔除所有多余的空格(但是原子间至少需要一个空格以使原子分割开来)
 **** code
- #+BEGIN_SRC -t
+#+BEGIN_SRC -t
  (message "%S" '(a b c))
  (setq mylist '(a b c)) ;定义
  (let ((x 3) (y 4) (z 5))
@@ -1137,7 +1136,7 @@ C程序员不得不使用他们的编译器
  (car (list "a" "b" "c"))
  (nth 2 (list "a" "b" "c"))
  (last (list "a" "b" "c"))
- #+END_SRC
+#+END_SRC
 *** assoc与assoc-default
     http://emacswiki.org/emacs/ElispCookbook\\
 #+begin_example
@@ -1567,18 +1566,18 @@ http://s.taobao.com/search?q=%D2%C2%B7%FE\\
  http://blog.csdn.net/wangbin579/article/details/7476413
 *** CANCELED linux对于kernel的代码生成man doc                     :IMPORTANT:
     CLOSED: [2012-10-06 六 16:33]
- #+begin_example
+#+begin_example
  sudo apt-get install xmlto
  export objtree=/home/denny/backup/tech/large_sourcecode/linux-3.4-rc7/
  export srctree=/home/denny/backup/tech/large_sourcecode/linux-3.4-rc7/
  make htmldocs
- #+end_example
+#+end_example
 *** CANCELED linux快速拿到fd count, 避免ls -lt | wc -l: OS不支持
     CLOSED: [2012-11-10 Sat 09:49]
 *** CANCELED rpm hang
     CLOSED: [2012-12-12 Wed 15:10]
 **** rpm
- #+begin_example
+#+begin_example
  rpm -qa yum* | xargs rpm -e --nodeps
 
   --8<-------------------------- separator ------------------------>8--
@@ -1598,9 +1597,9 @@ http://s.taobao.com/search?q=%D2%C2%B7%FE\\
  wget http://mirrors.dev.shopex.cn/rpm/scripts/yum-3.2.22-26.el5.centos.noarch.rpm
  wget http://mirrors.dev.shopex.cn/rpm/scripts/yum-fastestmirror-1.1.16-14.el5.centos.1.noarch.rpm
  wget http://mirrors.dev.shopex.cn/rpm/scripts/yum-metadata-parser-1.1.2-3.el5.centos.x86_64.rpm
- #+end_example
+#+end_example
 **** yum
- #+begin_example
+#+begin_example
  /sshx:root@192.168.75.111: #$ ps -ef | grep yum
  root     10753 10751  0 14:38 ?        00:00:00 bash -c curl http://mirrors.dev.shopex.cn/rpm/scripts/init.txt | sh && wget http://192.168.75.236:8970/shopex-test.repo -O /etc/yum.repos.d/shopex-test.repo
  root     10770 10769  0 14:38 ?        00:00:00 rpm -e --nodeps yum-3.2.22-26.el5.centos yum-metadata-parser-1.1.2-3.el5.centos
@@ -1613,7 +1612,7 @@ http://s.taobao.com/search?q=%D2%C2%B7%FE\\
  /sshx:root@192.168.75.111: #$ date
  Wed Dec 12 14:48:59 CST 2012
  /sshx:root@192.168.75.111: #$
- #+end_example
+#+end_example
 * DONE [#A] 将bbdb导出成有头像的vcard                    :noexport:IMPORTANT:
   CLOSED: [2011-09-17 Sat 16:48]
 - 将bbdb的每条记录导出成一个vcard文件
@@ -2333,7 +2332,7 @@ org-plot/gnuplot
  from Bernt Hansen on the mailing list (a more practical usage would
  label every single row with something informative).
  [[file:../images/org-plot/example-6.png]]
- #+PLOT: type:grid map:t title:"Org-Mode" ind:1
+#+PLOT: type:grid map:t title:"Org-Mode" ind:1
  | text | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
  | | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
  | plain | 0 | 0 | 1 | 1 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1 | 1 | 1 | 0 | 0 |
@@ -2521,7 +2520,7 @@ kubo /sshx:kubo@10.193.19.29:/home/kubo/
 ** TODO [#A] emacs delete flymake files: another folder
  https://github.com/flymake/emacs-flymake#use-the-system-temporary-directory-for-temp-files
 ** TODO [#A] emacs avoid flymake file
- #+BEGIN_EXAMPLE
+#+BEGIN_EXAMPLE
  bash-3.2$ git status
  On branch master
  Your branch is up-to-date with 'origin/master'.
@@ -2542,7 +2541,7 @@ kubo /sshx:kubo@10.193.19.29:/home/kubo/
  no changes added to commit (use "git add" and/or "git commit -a")
  bash-3.2$ pwd
  /Users/zdenny/git_code/github/cheatsheet-golang-A4
- #+END_EXAMPLE
+#+END_EXAMPLE
 
 * TODO setup golang dev env                                        :noexport:
 http://tleyden.github.io/blog/2014/05/22/configure-emacs-as-a-go-editor-from-scratch/
