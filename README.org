@@ -2719,3 +2719,16 @@ https://www.sharelatex.com/learn/Learn_LaTeX_in_30_minutes
     (add-hook 'org-mode-hook
               '(lambda ()
                  (visual-line-mode 1)))
+* TODO emacs update package                                        :noexport:
+* TODO emacs update issue                                          :noexport:
+Warning (bytecomp): Use ‘with-current-buffer’ rather than save-excursion+set-buffer
+Warning (bytecomp): assignment to free variable ‘my-string’
+Warning (bytecomp): reference to free variable ‘my-string’
+Warning (bytecomp): assignment to free variable ‘entry’
+Warning (bytecomp): reference to free variable ‘entry’
+Warning (bytecomp): reference to free variable ‘flymake-mode’
+
+      8:backup/emacs_vendor/bbdb-vcard/bbdb-vcard.el: ‘flet’ is an obsolete macro (as of 24.3); use either ‘cl-flet’ or ‘cl-letf’. [2 times]
+     47:Package iswitchb is obsolete!
+     71:backup/emacs_vendor/visual-basic/visual-basic-mode.el: ‘flet’ is an obsolete macro (as of 24.3); use either ‘cl-flet’ or ‘cl-letf’.
+     75:backup/emacs_vendor/csharp/csharp-mode.el: ‘flet’ is an obsolete macro (as of 24.3); use either ‘cl-flet’ or ‘cl-letf’. [2 times]
