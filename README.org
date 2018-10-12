@@ -2732,3 +2732,6 @@ Warning (bytecomp): reference to free variable ‘flymake-mode’
      47:Package iswitchb is obsolete!
      71:backup/emacs_vendor/visual-basic/visual-basic-mode.el: ‘flet’ is an obsolete macro (as of 24.3); use either ‘cl-flet’ or ‘cl-letf’.
      75:backup/emacs_vendor/csharp/csharp-mode.el: ‘flet’ is an obsolete macro (as of 24.3); use either ‘cl-flet’ or ‘cl-letf’. [2 times]
+* emacs shortcut                                                   :noexport:
+https://www.cheatography.com/jona5/cheat-sheets/emacs/
+* TODO org-mode use a different seperator                          :noexport:
