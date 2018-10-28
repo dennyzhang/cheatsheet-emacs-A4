@@ -41,47 +41,41 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
  |          |________________________________| |
  |_____________________________________________|
 #+end_example
-
 ** Features
 *** View In Emacs
-
 | Name                                         | Comment                 |
 |----------------------------------------------+-------------------------|
 | Move forward across one balanced expression  | =forward-sexp= =C-M-f=  |
 | Move backward across one balanced expression | =backward-sexp= =C-M-b= |
-
-*** Org-mode export Latex 
+*** Org-mode export Latex
 | Name                             | Comment                                                                   |
 |----------------------------------+---------------------------------------------------------------------------|
-| Make page size bigger            | =#+LATEX_HEADER: \usepackage[margin=0.5in]{geometry}= [[https://emacs.stackexchange.com/questions/7996/is-there-a-way-to-resize-margins-when-exporting-pdf-in-org-mode][link: stackexchange]] |
-| Change document class            | =#+LaTeX_CLASS_OPTIONS: [a4paper]=  [[https://emacs.stackexchange.com/questions/16864/how-do-i-configure-class-options-for-latex-export-in-my-emacs][link: stackexchange]]                   |
-| Add the date of today            | =#+LATEX_HEADER: \rhead{Updated: \today}= [[https://tex.stackexchange.com/questions/165991/how-to-use-date-today-without-using-maketitle][link: stackexchange]]             |
+| Make page size bigger            | =#+LATEX_HEADER: \usepackage[margin=0.5in]{geometry}= [[https://emacs.stackexchange.com/questions/7996/is-there-a-way-to-resize-margins-when-exporting-pdf-in-org-mode][Link: stackexchange]] |
+| Change document class            | =#+LaTeX_CLASS_OPTIONS: [a4paper]= [[https://emacs.stackexchange.com/questions/16864/how-do-i-configure-class-options-for-latex-export-in-my-emacs][Link: stackexchange]]                    |
+| Add the date of today            | =#+LATEX_HEADER: \rhead{Updated: \today}= [[https://tex.stackexchange.com/questions/165991/how-to-use-date-today-without-using-maketitle][Link: stackexchange]]             |
 | Add page number with total pages | =#+LATEX_HEADER: \rfoot{\thepage\ of \pageref{LastPage}}=                 |
 *** Buffer Operations
-
- | Name                          | Comment                                              |
- |-------------------------------+------------------------------------------------------|
- | Move to top                   | =(goto-char (point-min))=                            |
- | Replace string by regexp      | [[https://github.com/dennyzhang/cheatsheet-emacs-A4/blob/master/buffer-replace.el][buffer-replace.el]]                                    |
- | Delete region                 | =(delete-region start-pos end-pos)=                  |
- | Buffer string with plain text | =(buffer-substring-no-properties start-pos end-pos)= |
- |                               | =(get-buffer-create BUFFER-OR-NAME)=                   |
- |                               | =(current-buffer)=                                     |
- |                               | =(set-buffer BUFFER-OR-NAME)=                          |
- |                               | =(kill-buffer)=                                        |
- |                               | =(set-buffer-modified-p nil)=                          |
-
+| Name                          | Comment                                              |
+|-------------------------------+------------------------------------------------------|
+| Move to top                   | =(goto-char (point-min))=                            |
+| Replace string by regexp      | [[https://github.com/dennyzhang/cheatsheet-emacs-A4/blob/master/buffer-replace.el][buffer-replace.el]]                                    |
+| Delete region                 | =(delete-region start-pos end-pos)=                  |
+| Buffer string with plain text | =(buffer-substring-no-properties start-pos end-pos)= |
+|                               | =(get-buffer-create BUFFER-OR-NAME)=                 |
+|                               | =(current-buffer)=                                   |
+|                               | =(set-buffer BUFFER-OR-NAME)=                        |
+|                               | =(kill-buffer)=                                      |
+|                               | =(set-buffer-modified-p nil)=                        |
 *** GNUS - Mail In Emacs
-
- | Name                         | Comment                        |
- |------------------------------+--------------------------------|
- | Create delayed email         | =gnus-delay-article= =C-c C-j= |
- | Save mail's attachment       | =gnus-summary-save-parts=      |
- | Forward mail                 | =gnus-summary-mail-forward=    |
- | Send gnus drafts             | =gnus-draft-send-message=      |
- | Send all the sendable drafts | =gnus-draft-send-all-messages= |
- | Add attachment               | =mml-attach-file(C-c C-m f)=   |
- | Create group                 | =gnus-group-make-group (G m)=  |
+| Name                         | Comment                        |
+|------------------------------+--------------------------------|
+| Create delayed email         | =gnus-delay-article= =C-c C-j= |
+| Save mail's attachment       | =gnus-summary-save-parts=      |
+| Forward mail                 | =gnus-summary-mail-forward=    |
+| Send gnus drafts             | =gnus-draft-send-message=      |
+| Send all the sendable drafts | =gnus-draft-send-all-messages= |
+| Add attachment               | =mml-attach-file(C-c C-m f)=   |
+| Create group                 | =gnus-group-make-group (G m)=  |
 *** Table in Org-mode
 #+BEGIN_EXAMPLE
 #+NAME: supplies
@@ -124,7 +118,6 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
  | Remove properties from text      | =(org-no-properties (org-get-heading))=   |
  |                                  | =(org-set-property "name" name)=          |
  |                                  | =(org-entry-get nil "name")=              |
-
 **** Different Annotations                                         :noexport:
   - Add comment
   #+BEGIN_QUOTE
@@ -158,7 +151,6 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
    not center, again
 
   #+END_QUOTE
-
 **** Emphasis                                                      :noexport:
   | *bold* *bold*                                                        | [[http://www.google.com]] *bold*                                                        | [[http://www.xkcd.com][helpful text link]] *bold*                                                        | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] *bold*                                                        | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] *bold*                                                        |
   | *bold* /italic/                                                      | [[http://www.google.com]] /italic/                                                      | [[http://www.xkcd.com][helpful text link]] /italic/                                                      | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] /italic/                                                      | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] /italic/                                                      |
@@ -172,7 +164,6 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
   | *bold* [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] | [[http://www.google.com]] [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] | [[http://www.xkcd.com][helpful text link]] [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] |
   | *bold* [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]]                       | [[http://www.google.com]] [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]]                       | [[http://www.xkcd.com][helpful text link]] [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]]                       | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]]                       | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]]                       |
   | *bold* <http://www.google.com>                                       | [[http://www.google.com]] <http://www.google.com>                                       | [[http://www.xkcd.com][helpful text link]] <http://www.google.com>                                       | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] <http://www.google.com>                                       | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] <http://www.google.com>                                       |
-
 ** Data Structures
 *** Debug
  | Name                        | Comment                                  |
@@ -180,7 +171,6 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
  | Debug a function            | =edebug-defun=                           |
  | Change function via advice  | =defadvice= ;; Super inspiring feature!  |
  | Set default value           | =(setq-default indent-tabs-mode nil)=    |
-
 *** String
  | Name                                        | Comment                                                                                 |
  |---------------------------------------------+-----------------------------------------------------------------------------------------|
@@ -196,7 +186,6 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
  | Grab the start and end positions of a word  | =(setq myBoundaries (bounds-of-thing-at-point 'word))=                                  |
  |                                             | =(setq myStr (buffer-substring myStartPos myEndPos))=                                   |
  |                                             | =(setq myStr (buffer-substring-no-properties myStartPos myEndPos))=                     |
-
 *** Regexp
  | Name                              | Comment                                   |
  |-----------------------------------+-------------------------------------------|
@@ -206,7 +195,6 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
  | Get captured match                | =(match-string 1 myStr)=                  |
  | Escape special characters         | =(regexp-quote "^")=                      |
  |                                   | =(regexp-opt '=("hello" "world")=)=       |
-
 *** Intger
  | Name                   | Comment                                    |
  |------------------------+--------------------------------------------|
@@ -242,7 +230,6 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
  | Append x to the head of a list  | =(cons x mylist)=                                           |
  | Append without duplication      | =(add-to-list 'auto-mode-alist '("\\.gp$" . gnuplot-mode))= |
  | Add ELEMENT if missing          | =(add-to-list LIST-VAR ELEMENT &optional APPEND COMPARE-FN)= |
-
 *** list TODO                                                      :noexport:
  | 删除第n个元素,返回删除后的list.                                                                       | (nbutlast mylist n)                                          |
  | Return a copy of LIST with the last N elements removed.                                               | (butlast mylist n)                                           |
@@ -270,7 +257,6 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
  | Return non-nil if ELT is an element of LIST.                                                          | (member "abd" '("ab" "cd" "ed"))                             |
  | Return a copy of SEQ with all occurrences of ELT removed.                                             | (remove ELT SEQ)                                             |
  | Remove all items not satisfying PREDICATE in SEQ.                                                     | (remove-if-not 'buffer-live-p keep-end-buffer-list)          |
-
 *** Position
  | Name                                | Comment                                 |
  |-------------------------------------+-----------------------------------------|
@@ -357,7 +343,7 @@ Sophia")
 #+END_SRC
 
 - cond: like switch or case
-[[https://www.emacswiki.org/emacs/WhenToUseIf][link: WhenToUseIf]]
+[[https://www.emacswiki.org/emacs/WhenToUseIf][Link: WhenToUseIf]]
 #+BEGIN_SRC elisp
 (let ((x 1))
   (cond ((eq x 0) "It's zero")
@@ -377,8 +363,8 @@ License: Code is licensed under [[https://www.dennyzhang.com/wp-content/mit_lice
 #+END_HTML
 * org-mode configuration                                           :noexport:
 #+STARTUP: overview customtime noalign logdone showall
-#+DESCRIPTION: 
-#+KEYWORDS: 
+#+DESCRIPTION:
+#+KEYWORDS:
 #+LATEX_HEADER: \usepackage[margin=0.6in]{geometry}
 #+LaTeX_CLASS_OPTIONS: [8pt]
 #+LATEX_HEADER: \usepackage[english]{babel}
@@ -398,8 +384,8 @@ License: Code is licensed under [[https://www.dennyzhang.com/wp-content/mit_lice
 #+OPTIONS:   TeX:t LaTeX:nil skip:nil d:nil todo:t pri:nil tags:not-in-toc
 #+EXPORT_EXCLUDE_TAGS: exclude noexport
 #+SEQ_TODO: TODO HALF ASSIGN | DONE BYPASS DELEGATE CANCELED DEFERRED
-#+LINK_UP:   
-#+LINK_HOME: 
+#+LINK_UP:
+#+LINK_HOME:
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * [#A] Org-mode in emacs                                      :noexport:HARD:
 ** org-mode数据组织的注意事项                           :noexport:HARD:EMACS:
@@ -896,7 +882,7 @@ http://emacs.stackexchange.com/questions/12878/how-to-change-style-of-hyperlinks
     #+LaTeX_HEADER: \definecolor{electricblue}{HTML}{05ADF3}
     #+LaTeX_HEADER: \usepackage{tocloft}
     #+LaTeX_HEADER: \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
-    #+LaTeX_HEADER: \usepackage[breaklinks=true,linktocpage,xetex]{hyperref} 
+    #+LaTeX_HEADER: \usepackage[breaklinks=true,linktocpage,xetex]{hyperref}
     #+LaTeX_HEADER: \hypersetup{colorlinks, citecolor=electricblue, filecolor=black, linkcolor=black, urlcolor=electricblue}
 #+END_EXAMPLE
 ** TODO [#B] org-mode don't wrap lines
@@ -925,11 +911,10 @@ http://emacs.stackexchange.com/questions/12878/how-to-change-style-of-hyperlinks
 #+END_EXAMPLE
 ** DONE [#A] emacs org-mode use customized css
    CLOSED: [2016-08-21 Sun 13:56]
- http://orgmode.org/manual/CSS-support.html 
+ http://orgmode.org/manual/CSS-support.html
 
   #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="style1.css" />
   #+HTML_HEAD_EXTRA: <link rel="alternate stylesheet" type="text/css" href="style2.css" />
-
 ** DONE org-mode change customize footnotes css
    CLOSED: [2016-09-20 Tue 21:08]
  /Users/mac/.emacs.d/elpa/org-plus-contrib-20150406/ox-html.el
@@ -941,7 +926,6 @@ http://emacs.stackexchange.com/questions/12878/how-to-change-style-of-hyperlinks
  %s
  </div>
  </div>")
-
 ** TODO [#A] org-mode footnote: change face link
  https://www.dennyzhang.com/docker_capacity/
 
@@ -971,7 +955,6 @@ http://emacs.stackexchange.com/questions/12878/how-to-change-style-of-hyperlinks
  <code>Try it</code>
 *** DONE Customized css: [[color:#c7254e][
     CLOSED: [2017-08-26 Sat 20:48]
-
 ** DONE org-mode - no syntax highlighting in exported HTML page: need to install htmlize library
    CLOSED: [2016-07-31 Sun 18:33]
  http://stackoverflow.com/questions/24082430/org-mode-no-syntax-highlighting-in-exported-html-page
@@ -997,9 +980,8 @@ http://emacs.stackexchange.com/questions/12878/how-to-change-style-of-hyperlinks
  /Users/zdenny/Dropbox/git_code/challenges/challenges-leetcode-interesting/problems/prefix-and-suffix-search
 
  (("CATEGORY" . "README") ("BLOCKED" . "") ("ALLTAGS" . ":BLOG:Medium:") ("TAGS" . ":BLOG:Medium:") ("FILE" . "/Users/zdenny/Dropbox/git_code/challenges/challenges-leetcode-interesting/problems/prefix-and-suffix-search/README.org") ("PRIORITY" . "B") ("ITEM" . "Leetcode: Prefix and Suffix Search"))
-
 ** TODO [#A] emacs org-mode don't show change, since the color change is really annoying :IMPORTANT:
-** Table: sum up a column 
+** Table: sum up a column
 |     Num | Item      |     Vote |
 |---------+-----------+----------|
 |       1 | Item1     |       11 |
@@ -1505,7 +1487,6 @@ http://s.taobao.com/search?q=%D2%C2%B7%FE\\
  Why browse the Web in Emacs?
 ** DONE emacs show line number: M-x linum-mode
    CLOSED: [2018-05-01 Tue 11:23]
-
 ** TODO emacs sort by columns
 ** DONE emacs change mini-buffer height
    CLOSED: [2018-02-27 Tue 16:15]
@@ -2178,7 +2159,6 @@ denny@ubuntu:/tmp/emacs1000$
 https://en.wikibooks.org/wiki/LaTeX/Colors
 
 http://stackoverflow.com/questions/21340380/exporting-org-mode-to-html-in-place-coloring
-
 ** DONE latex page margins: weekly report page width
   CLOSED: [2016-07-25 Mon 16:10]
 http://www.howtotex.com/tips-tricks/change-margins-of-a-single-page/
@@ -2187,7 +2167,6 @@ http://www.howtotex.com/tips-tricks/change-margins-of-a-single-page/
 http://tex.stackexchange.com/questions/94795/how-can-i-change-the-margins-in-latex
 http://www.andy-roberts.net/writing/latex/page_layout
 http://tex.stackexchange.com/questions/71172/why-are-default-latex-margins-so-big
-
 ** TODO emacs mac latex
  http://www.tug.org/mactex/
  http://www.2ality.com/2008/04/latex-on-mac-os-x.html
@@ -2542,7 +2521,6 @@ kubo /sshx:kubo@10.193.19.29:/home/kubo/
  bash-3.2$ pwd
  /Users/zdenny/git_code/github/cheatsheet-golang-A4
 #+END_EXAMPLE
-
 * TODO setup golang dev env                                        :noexport:
 http://tleyden.github.io/blog/2014/05/22/configure-emacs-as-a-go-editor-from-scratch/
 https://johnsogg.github.io/emacs-golang
@@ -2550,7 +2528,7 @@ http://dominik.honnef.co/posts/2013/03/writing_go_in_emacs/
 ** TODO autocomplete
 ** DONE flymake
    CLOSED: [2018-07-02 Mon 09:10]
-** HALF golang unit test 
+** HALF golang unit test
  https://github.com/golangci/golangci-lint
 
  cat > ~/.bashrc << EOF
@@ -2562,10 +2540,9 @@ http://dominik.honnef.co/posts/2013/03/writing_go_in_emacs/
 
  which golangci-lint
 
- golangci-lint run 
+ golangci-lint run
 
  golangci-lint run /Users/zdenny/git_code/github/cheatsheet-golang-A4/example_file.go
-
 ** TODO golang emacs auto completion
  https://www.emacswiki.org/emacs/GoLangMode
  https://github.com/nsf/gocode
@@ -2646,7 +2623,7 @@ https://www.sharelatex.com/learn/Learn_LaTeX_in_30_minutes
   Run command in the scratch buffer               CTRL-x CTRL-e
 
 # Navigation ( backward / forward )
-  
+
   Character-wise                                  CTRL-b , CTRL-f
   Word-wise                                       ALT-b  , ALT-f
   Line-wise                                       CTRL-p , CTRL-n
@@ -2721,17 +2698,17 @@ https://www.sharelatex.com/learn/Learn_LaTeX_in_30_minutes
                  (visual-line-mode 1)))
 * TODO emacs update package                                        :noexport:
 * TODO emacs update issue                                          :noexport:
-Warning (bytecomp): Use ‘with-current-buffer’ rather than save-excursion+set-buffer
-Warning (bytecomp): assignment to free variable ‘my-string’
-Warning (bytecomp): reference to free variable ‘my-string’
-Warning (bytecomp): assignment to free variable ‘entry’
-Warning (bytecomp): reference to free variable ‘entry’
-Warning (bytecomp): reference to free variable ‘flymake-mode’
+Warning (bytecomp): Use 'with-current-buffer' rather than save-excursion+set-buffer
+Warning (bytecomp): assignment to free variable 'my-string'
+Warning (bytecomp): reference to free variable 'my-string'
+Warning (bytecomp): assignment to free variable 'entry'
+Warning (bytecomp): reference to free variable 'entry'
+Warning (bytecomp): reference to free variable 'flymake-mode'
 
-      8:backup/emacs_vendor/bbdb-vcard/bbdb-vcard.el: ‘flet’ is an obsolete macro (as of 24.3); use either ‘cl-flet’ or ‘cl-letf’. [2 times]
+      8:backup/emacs_vendor/bbdb-vcard/bbdb-vcard.el: 'flet' is an obsolete macro (as of 24.3); use either 'cl-flet' or 'cl-letf'. [2 times]
      47:Package iswitchb is obsolete!
-     71:backup/emacs_vendor/visual-basic/visual-basic-mode.el: ‘flet’ is an obsolete macro (as of 24.3); use either ‘cl-flet’ or ‘cl-letf’.
-     75:backup/emacs_vendor/csharp/csharp-mode.el: ‘flet’ is an obsolete macro (as of 24.3); use either ‘cl-flet’ or ‘cl-letf’. [2 times]
+     71:backup/emacs_vendor/visual-basic/visual-basic-mode.el: 'flet' is an obsolete macro (as of 24.3); use either 'cl-flet' or 'cl-letf'.
+     75:backup/emacs_vendor/csharp/csharp-mode.el: 'flet' is an obsolete macro (as of 24.3); use either 'cl-flet' or 'cl-letf'. [2 times]
 * emacs shortcut                                                   :noexport:
 https://www.cheatography.com/jona5/cheat-sheets/emacs/
 * TODO org-mode use a different seperator                          :noexport:
