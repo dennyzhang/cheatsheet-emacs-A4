@@ -95,262 +95,136 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
 |            | Total:           |        |
 #+TBLFM: @>$3=vsum(@2..@-1);%.2f
 #+END_EXAMPLE
-*** Org-mode                                                       :noexport:
-#+BEGIN_HTML
- <a href="https://www.dennyzhang.com"><img align="right" width="201" height="268" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/denny_201706.png"></a>
- <a href="https://www.dennyzhang.com"><img align="right" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/dns_small.png"></a>
-#+END_HTML
-**** org-mode export
- | Name                             | Comment                                   |
- |----------------------------------+-------------------------------------------|
- | Export org-mode to markdown      | =org-md-export-to-markdown= =C-c C-e m m= |
- | Return entry's heading           | =(org-get-heading)=                       |
- | Get the entry text               | =(org-get-entry)=                         |
- |                                  | =(org-current-level)=                     |
- |                                  | =(org-end-of-subtree t)=                  |
- | Return the position              | =(point-at-bol)=                          |
- |                                  | =(org-on-heading-p)=                      |
- |                                  | =(org-in-item-p)=                         |
- |                                  | =(org-get-tags)=                          |
- | Get tags from title. e.g :XX:XX: | =(org-get-tags-string)=                   |
- |                                  | =(org-get-todo-state)=                    |
- |                                  | =(outline-next-heading)=                  |
- | Remove properties from text      | =(org-no-properties (org-get-heading))=   |
- |                                  | =(org-set-property "name" name)=          |
- |                                  | =(org-entry-get nil "name")=              |
-**** Different Annotations                                         :noexport:
-  - Add comment
-  #+BEGIN_QUOTE
-   #+BEGIN_COMMENT
-
-   /Foo/
-
-   #+BEGIN_SRC c++
-   int main() { }
-   #+END_SRC
-
-   #+END_COMMENT
-  #+END_QUOTE
-  - Add Quote
-  #+BEGIN_QUOTE
-   #+BEGIN_QUOTE
-
-   /Example:/
-
-   This is blockquote text.
-
-   #+END_QUOTE
-  #+END_QUOTE
-
-  - Center Text
-  #+BEGIN_QUOTE
-   not center
-   #+BEGIN_CENTER
-   center
-   #+END_CENTER
-   not center, again
-
-  #+END_QUOTE
-**** Emphasis                                                      :noexport:
-  | *bold* *bold*                                                        | [[http://www.google.com]] *bold*                                                        | [[http://www.xkcd.com][helpful text link]] *bold*                                                        | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] *bold*                                                        | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] *bold*                                                        |
-  | *bold* /italic/                                                      | [[http://www.google.com]] /italic/                                                      | [[http://www.xkcd.com][helpful text link]] /italic/                                                      | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] /italic/                                                      | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] /italic/                                                      |
-  | *bold* =code=                                                        | [[http://www.google.com]] =code=                                                        | [[http://www.xkcd.com][helpful text link]] =code=                                                        | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] =code=                                                        | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] =code=                                                        |
-  | *bold* ~verbatim~                                                    | [[http://www.google.com]] ~verbatim~                                                    | [[http://www.xkcd.com][helpful text link]] ~verbatim~                                                    | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] ~verbatim~                                                    | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] ~verbatim~                                                    |
-  | *bold* _underline_                                                   | [[http://www.google.com]] _underline_                                                   | [[http://www.xkcd.com][helpful text link]] _underline_                                                   | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] _underline_                                                   | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] _underline_                                                   |
-  | *bold* +strikethrough+                                               | [[http://www.google.com]] +strikethrough+                                               | [[http://www.xkcd.com][helpful text link]] +strikethrough+                                               | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] +strikethrough+                                               | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] +strikethrough+                                               |
-  | *bold* [[http://www.bing.com]]                                           | [[http://www.google.com]] [[http://www.bing.com]]                                           | [[http://www.xkcd.com][helpful text link]] [[http://www.bing.com]]                                           | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] [[http://www.bing.com]]                                           | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] [[http://www.bing.com]]                                           |
-  | *bold* [[http://www.google.com]]                                         | [[http://www.google.com]] [[http://www.google.com]]                                         | [[http://www.xkcd.com][helpful text link]] [[http://www.google.com]]                                         | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] [[http://www.google.com]]                                         | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] [[http://www.google.com]]                                         |
-  | *bold* [[http://www.xkcd.com][helpful text link]]                                             | [[http://www.google.com]] [[http://www.xkcd.com][helpful text link]]                                             | [[http://www.xkcd.com][helpful text link]] [[http://www.xkcd.com][helpful text link]]                                             | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] [[http://www.xkcd.com][helpful text link]]                                             | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] [[http://www.xkcd.com][helpful text link]]                                             |
-  | *bold* [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] | [[http://www.google.com]] [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] | [[http://www.xkcd.com][helpful text link]] [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] |
-  | *bold* [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]]                       | [[http://www.google.com]] [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]]                       | [[http://www.xkcd.com][helpful text link]] [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]]                       | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]]                       | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]]                       |
-  | *bold* <http://www.google.com>                                       | [[http://www.google.com]] <http://www.google.com>                                       | [[http://www.xkcd.com][helpful text link]] <http://www.google.com>                                       | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] <http://www.google.com>                                       | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] <http://www.google.com>                                       |
 ** Data Structures
 *** Debug
- | Name                        | Comment                                  |
- |-----------------------------+------------------------------------------|
- | Debug a function            | =edebug-defun=                           |
- | Change function via advice  | =defadvice= ;; Super inspiring feature!  |
- | Set default value           | =(setq-default indent-tabs-mode nil)=    |
+| Name                        | Comment                                  |
+|-----------------------------+------------------------------------------|
+| Debug a function            | =edebug-defun=                           |
+| Change function via advice  | =defadvice= ;; Super inspiring feature!  |
+| Set default value           | =(setq-default indent-tabs-mode nil)=    |
 *** String
- | Name                                        | Comment                                                                                 |
- |---------------------------------------------+-----------------------------------------------------------------------------------------|
- | string1 contains string2                    | =(string-match ".*README.org" buffer-file-truename)=                                    |
- | Replace by regexp                           | =(setq ret (replace-regexp-in-string "<hr/>" "" ret))=                                  |
- | Format string                               | =(format "%s/%s" mywordpress-server-url blog-uri)=                                      |
- | String replace                              | =(replace-string from-string to-string &optional start end)=                            |
- | Replace by regexp                           | =(replace-regexp REGEXP TO-STRING &optional DELIMITED START END)=                       |
- | replace-match                               | =(while (search-forward-regexp "myRegexPattern" nil t) (replace-match "myRepStr"))=     |
- | The second captured string                  | =(match-string 2)=                                                                      |
- | Get the position of the 2nd captured string | =(match-beginning 2) (match-end 2)=                                                     |
- | List matched count                          | =(setq myStr (replace-regexp-in-string "myRegex1" "myRep1" myStr)) (count-matches "\n")= |
- | Grab the start and end positions of a word  | =(setq myBoundaries (bounds-of-thing-at-point 'word))=                                  |
- |                                             | =(setq myStr (buffer-substring myStartPos myEndPos))=                                   |
- |                                             | =(setq myStr (buffer-substring-no-properties myStartPos myEndPos))=                     |
+| Name                                        | Comment                                                                                 |
+|---------------------------------------------+-----------------------------------------------------------------------------------------|
+| string1 contains string2                    | =(string-match ".*README.org" buffer-file-truename)=                                    |
+| Replace by regexp                           | =(setq ret (replace-regexp-in-string "<hr/>" "" ret))=                                  |
+| Format string                               | =(format "%s/%s" mywordpress-server-url blog-uri)=                                      |
+| String replace                              | =(replace-string from-string to-string &optional start end)=                            |
+| Replace by regexp                           | =(replace-regexp REGEXP TO-STRING &optional DELIMITED START END)=                       |
+| replace-match                               | =(while (search-forward-regexp "myRegexPattern" nil t) (replace-match "myRepStr"))=     |
+| The second captured string                  | =(match-string 2)=                                                                      |
+| Get the position of the 2nd captured string | =(match-beginning 2) (match-end 2)=                                                     |
+| List matched count                          | =(setq myStr (replace-regexp-in-string "myRegex1" "myRep1" myStr)) (count-matches "\n")= |
+| Grab the start and end positions of a word  | =(setq myBoundaries (bounds-of-thing-at-point 'word))=                                  |
+|                                             | =(setq myStr (buffer-substring myStartPos myEndPos))=                                   |
+|                                             | =(setq myStr (buffer-substring-no-properties myStartPos myEndPos))=                     |
 *** Regexp
- | Name                              | Comment                                   |
- |-----------------------------------+-------------------------------------------|
- | Regexp In Emacs                   | [[https://github.com/dennyzhang/cheatsheet-emacs-A4/blob/master/regexp-string-match.el][regexp-string-match.el]]                    |
- | Change a given string using regex | =(replace-regexp-in-string "^ +" "" url)= |
- | Seach regexp in some string       | =(string-match myRegex myStr)=            |
- | Get captured match                | =(match-string 1 myStr)=                  |
- | Escape special characters         | =(regexp-quote "^")=                      |
- |                                   | =(regexp-opt '=("hello" "world")=)=       |
+| Name                              | Comment                                   |
+|-----------------------------------+-------------------------------------------|
+| Regexp In Emacs                   | [[https://github.com/dennyzhang/cheatsheet-emacs-A4/blob/master/regexp-string-match.el][regexp-string-match.el]]                    |
+| Change a given string using regex | =(replace-regexp-in-string "^ +" "" url)= |
+| Seach regexp in some string       | =(string-match myRegex myStr)=            |
+| Get captured match                | =(match-string 1 myStr)=                  |
+| Escape special characters         | =(regexp-quote "^")=                      |
+|                                   | =(regexp-opt '=("hello" "world")=)=       |
 *** Intger
- | Name                   | Comment                                    |
- |------------------------+--------------------------------------------|
- | String to int          | =(string-to-number STRING &optional BASE)= |
- | Check whether it's int | =(integerp 23)=                            |
- | decimal to hex         | =(format "%x" 10)=                         |
- | hex to decimal         | =(format "%d" #xa)=                        |
+| Name                   | Comment                                    |
+|------------------------+--------------------------------------------|
+| String to int          | =(string-to-number STRING &optional BASE)= |
+| Check whether it's int | =(integerp 23)=                            |
+| decimal to hex         | =(format "%x" 10)=                         |
+| hex to decimal         | =(format "%d" #xa)=                        |
 *** Array & List
- - Get items from list
-
- | Name                             | Comment               |
- |----------------------------------+-----------------------|
- | Get the first element            | =(car mylist)=        |
- | Get the nth element              | =(nth n mylist)=      |
- | Get the last element             | =(car (last mylist))= |
- | Get the 2nd to the last elements | =(cdr mylist)=        |
- | Get the nth to the last elements | =(nthcdr n mylist)=   |
- | Similar to (car (car value))     | =(caar value)=        |
- | Similar to (cdr (car value))     | =(cdar value)=        |
- | Return the cdr of the cdr of X.  | =(cddr X)=            |
-
- - More about list
-
- | Name                            | Comment                                                     |
- |---------------------------------+-------------------------------------------------------------|
- | Create a list                   | =(defvar my-list (list "item1, item2"))=                    |
- | Add item to list                | =(add-to-list 'my-list "item3")=                            |
- | Head of a list                  | =(car '(a b c))=                                            |
- | Tail of a list                  | =(cdr '(a b c))=                                            |
- | Loop a list                     | =(dolist (item my-list) (message item))=                    |
- | Concat two lists                | =(nconc '("a" "b" "c") '("d" "e" "f"))=  [[https://emacs.stackexchange.com/questions/32644/how-to-concatenate-two-lists/32647][link]]               |
- | Return a newly created list     | =(list x)=                                                  |
- | Append x to the head of a list  | =(cons x mylist)=                                           |
- | Append without duplication      | =(add-to-list 'auto-mode-alist '("\\.gp$" . gnuplot-mode))= |
- | Add ELEMENT if missing          | =(add-to-list LIST-VAR ELEMENT &optional APPEND COMPARE-FN)= |
-*** list TODO                                                      :noexport:
- | 删除第n个元素,返回删除后的list.                                                                       | (nbutlast mylist n)                                          |
- | Return a copy of LIST with the last N elements removed.                                               | (butlast mylist n)                                           |
- | 在多维数组中,按第一维来查找                                                                           | (assoc KEY LIST)                                             |
- | 与assoc不同在于,可以指定匹配的算法,而不是默认的equal                                                  | (assoc-default file-name shell-history-alist 'string-match)  |
- | Find the first occurrence of item in seq                                                              | (position '(0 3 6) '((0 1 2) (0 3 6) (1 3 7)) :test #'equal) |
- | Get the length of a list                                                                              | (length mylist)                                              |
- | 连接两个List                                                                                          | (append mylist1 mylist2)                                     |
- | 删除第一个元素并返回                                                                                  | (pop mylist)                                                 |
- | 替换第一个元素,并返回                                                                                 | (setcar mylist x)                                            |
- | 替换除第一个之外的所有元素                                                                            | (setcdr mylist x)                                            |
- | Set intersection.                                                                                     | (intersection '(a b c) '(a c e)) = (C A)                     |
- | 注意: 它比较时是使用eq函数而不是equal函数                                                             | set-difference                                               |
- |                                                                                                       | union                                                        |
- | (subst 'sugar 'cream '(peaches and cream)) = (PEACHES AND SUGAR)                                      | (subst x y z)                                                |
- | Reverse LIST by modifying cdr pointers.                                                               | nreverse                                                     |
- | Reverse list                                                                                          | (apply 'string (reverse (string-to-list "foo")))             |
- | 向list尾部追回一个list, 原值变修改                                                                    | (nconc some-list (list "ef"))                                |
- | 将list串成string,并按指定分隔符分隔                                                                   | (mapconcat 'identity '("one" "two" "three") "-")             |
- | Apply FUNCTION to each element of SEQUENCE, and make a list of the results.                           | (mapcar #'(lambda (x) (+ x 2)) '(1 2 3)) = (3 4 5)           |
- | 如果 elt 不等于 list 中的任何元素,返回 nil .使用 eq 比较反之返回值为从第一匹配的元素到结尾元素的列表. | (memq 'three '(two one three four three five))               |
- | Delete by side effect any occurrences of ELT as a member of SEQ.                                      | (delete ELT SEQ)                                             |
- | 删除原list中, 包含的满足条件的元素                                                                    | (delq 'c sample-list)                                        |
- | 与delq相比, 它没有副作用, 不改变原数据                                                                | (remq 'a sample-list)                                        |
- | Return non-nil if ELT is an element of LIST.                                                          | (member "abd" '("ab" "cd" "ed"))                             |
- | Return a copy of SEQ with all occurrences of ELT removed.                                             | (remove ELT SEQ)                                             |
- | Remove all items not satisfying PREDICATE in SEQ.                                                     | (remove-if-not 'buffer-live-p keep-end-buffer-list)          |
+| Name                             | Comment               |
+|----------------------------------+-----------------------|
+| Get the first element            | =(car mylist)=        |
+| Get the nth element              | =(nth n mylist)=      |
+| Get the last element             | =(car (last mylist))= |
+| Get the 2nd to the last elements | =(cdr mylist)=        |
+| Get the nth to the last elements | =(nthcdr n mylist)=   |
+| Similar to (car (car value))     | =(caar value)=        |
+| Similar to (cdr (car value))     | =(cdar value)=        |
+| Return the cdr of the cdr of X.  | =(cddr X)=            |
+*** Array & List - More
+| Name                            | Comment                                                     |
+|---------------------------------+-------------------------------------------------------------|
+| Create a list                   | =(defvar my-list (list "item1, item2"))=                    |
+| Add item to list                | =(add-to-list 'my-list "item3")=                            |
+| Head of a list                  | =(car '(a b c))=                                            |
+| Tail of a list                  | =(cdr '(a b c))=                                            |
+| Loop a list                     | =(dolist (item my-list) (message item))=                    |
+| Concat two lists                | =(nconc '("a" "b" "c") '("d" "e" "f"))=  [[https://emacs.stackexchange.com/questions/32644/how-to-concatenate-two-lists/32647][link]]               |
+| Return a newly created list     | =(list x)=                                                  |
+| Append x to the head of a list  | =(cons x mylist)=                                           |
+| Append without duplication      | =(add-to-list 'auto-mode-alist '("\\.gp$" . gnuplot-mode))= |
+| Add ELEMENT if missing          | =(add-to-list LIST-VAR ELEMENT &optional APPEND COMPARE-FN)= |
 *** Position
- | Name                                | Comment                                 |
- |-------------------------------------+-----------------------------------------|
- | Return character at position        | =(char-after (point))=                  |
- | Return character preceding position | =(char-before (point))=                 |
- |                                     | =(setq myStr (thing-at-point 'word))=   |
- |                                     | =(setq myStr (thing-at-point 'symbol))= |
- |                                     | =(setq myStr (thing-at-point 'line))=   |
-
- - Insert text
- | Name          | Comment                                                                     |
- |---------------+-----------------------------------------------------------------------------|
- | Insert string | =(insert "hello world")=                                                    |
- |               | =(insert-buffer-substring buffer &optional start end)=                      |
- |               | =(insert-buffer-substring-no-properties buffer &optional start end)=        |
- |               | =(insert-file-contents myPath)=                                             |
- |               | =(insert-file-contents-literally filename &optional visit beg end replace)= |
-
- - Delete text
- | Name | Comment                             |
- |------+-------------------------------------|
- |      | =(delete-char 9)=                     |
- |      | =(delete-region myStartPos myEndPos)= |
- |      | =(erase-buffer)=                      |
- |      | =(upcase obj)=                        |
- |      | =(upcase-word n)=                     |
- |      | =(upcase-region beg end)=             |
- |      | =(upcase-initials obj)=               |
- |      | =(upcase-initials-region beg end)=    |
- |      | =(capitalize obj)=                    |
- |      | =(capitalize-word n)=                 |
- |      | =(capitalize-region beg end)=         |
- |      | =(downcase)=                          |
- |      | =(downcase-word n)=                   |
- |      | =(downcase-region beg end)=           |
+| Name                                | Comment                                 |
+|-------------------------------------+-----------------------------------------|
+| Return character at position        | =(char-after (point))=                  |
+| Return character preceding position | =(char-before (point))=                 |
+|                                     | =(setq myStr (thing-at-point 'word))=   |
+|                                     | =(setq myStr (thing-at-point 'symbol))= |
+|                                     | =(setq myStr (thing-at-point 'line))=   |
+*** Insert text
+| Name          | Comment                                                                     |
+|---------------+-----------------------------------------------------------------------------|
+| Insert string | =(insert "hello world")=                                                    |
+|               | =(insert-buffer-substring buffer &optional start end)=                      |
+|               | =(insert-buffer-substring-no-properties buffer &optional start end)=        |
+|               | =(insert-file-contents myPath)=                                             |
+|               | =(insert-file-contents-literally filename &optional visit beg end replace)= |
+*** Delete text
+| Name | Comment                             |
+|------+-------------------------------------|
+|      | =(delete-char 9)=                     |
+|      | =(delete-region myStartPos myEndPos)= |
+|      | =(erase-buffer)=                      |
+|      | =(upcase obj)=                        |
+|      | =(upcase-word n)=                     |
+|      | =(upcase-region beg end)=             |
+|      | =(upcase-initials obj)=               |
+|      | =(upcase-initials-region beg end)=    |
+|      | =(capitalize obj)=                    |
+|      | =(capitalize-word n)=                 |
+|      | =(capitalize-region beg end)=         |
+|      | =(downcase)=                          |
+|      | =(downcase-word n)=                   |
+|      | =(downcase-region beg end)=           |
 *** DateTime
- | Name                               | Comment                                                         |
- |------------------------------------+-----------------------------------------------------------------|
- | Convert time to string             | =(format-time-string "<%Y-%m-%d %H:%M UTC +8>" (current-time))= |
- | Get current time                   | =(current-time)=                                                |
- | Add some offset for a time         | =(time-add time (seconds-to-time seconds))=                     |
- | Subtract two time values           | =(time-subtract after-init-time before-init-time)=              |
- | Get second count                   | =(float-time (time-subtract after-init-time before-init-time))= |
- | Return date as a list (mm/dd/yyyy) | =calendar-current-date=                                         |
- |                                    | =(calendar-extract-month date)=                                 |
- | m1 will be changed                 | =(calendar-increment-month m1 y1 -1)=                           |
- |                                    | =(calendar-date-compare '((12 27 2012)) '((12 26 2012)))=       |
- |                                    | =(calendar-holiday-list)=                                       |
+| Name                               | Comment                                                         |
+|------------------------------------+-----------------------------------------------------------------|
+| Convert time to string             | =(format-time-string "<%Y-%m-%d %H:%M UTC +8>" (current-time))= |
+| Get current time                   | =(current-time)=                                                |
+| Add some offset for a time         | =(time-add time (seconds-to-time seconds))=                     |
+| Subtract two time values           | =(time-subtract after-init-time before-init-time)=              |
+| Get second count                   | =(float-time (time-subtract after-init-time before-init-time))= |
+| Return date as a list (mm/dd/yyyy) | =calendar-current-date=                                         |
+|                                    | =(calendar-extract-month date)=                                 |
+| m1 will be changed                 | =(calendar-increment-month m1 y1 -1)=                           |
+|                                    | =(calendar-date-compare '((12 27 2012)) '((12 26 2012)))=       |
+|                                    | =(calendar-holiday-list)=                                       |
 *** Hook
- | Name                     | Comment                                                       |
- |--------------------------+---------------------------------------------------------------|
- | Add hook                 | =(add-hook 'myhook '(lambda () (insert "fun1 was called ")))= |
- | Run each hook in myhook. | =(run-hooks 'myhook)=                                         |
+| Name                    | Comment                                                       |
+|-------------------------+---------------------------------------------------------------|
+| Add hook                | =(add-hook 'myhook '(lambda () (insert "fun1 was called ")))= |
+| Run each hook in myhook | =(run-hooks 'myhook)=                                         |
 *** Files
-
- | Name                                         | Comment                                                                               |
- |----------------------------------------------+---------------------------------------------------------------------------------------|
- | Open file                                    | =(find-file html-file)=                                                               |
- | Save file                                    | =(write-file html-file nil)=                                                          |
- | Get short filename                           | =(file-name-nondirectory somefilename)=                                               |
- | Get the directory name from filename         | =(file-name-directory FILENAME)=                                                      |
- | Check file/directories existence             | =(file-exists-p bfilename)=                                                           |
- | Insert contents of file FILENAME after point | =(insert-file-contents somefilename)=                                                 |
- | Return FILENAME's final "extension"          | =(file-name-extension "test.erl")=                                                    |
- | Return FILENAME sans final "extension"       | =(file-name-sans-extension "test.erl")=                                               |
- | Return a list of names of files in DIRECTORY | =(directory-files DIRECTORY &optional FULL MATCH NOSORT)=                             |
- | Insert contents of file FILENAME after point | =(insert-file-contents FILENAME &optional VISIT BEG END REPLACE)=                     |
- | Confirm directory exists                     | =(file-directory-p FILENAME)=                                                         |
- | Create directory                             | =(make-directory "~/.emacs.d/autosaves/" t)=                                          |
- | Find files by name                           | =(find-dired "../" "-name defined.hrl")=                                              |
- | read file content into a string              | =(setq dddstring (with-temp-buffer (insert-file-contents "dd.txt")=(buffer-string)))= |
-** Common Scripts
-- emacs multiline regexp
-#+BEGIN_SRC elisp
-;; http://stackoverflow.com/questions/1309050/emacs-query-replace-regexp-multiline
-(setq content-str "hello
-this
-----
-Denny
-Sophia")
-
-(message (replace-regexp-in-string
-          "\n----\\(.\\|\n\\)*" "" content-str))
-#+END_SRC
-
-- cond: like switch or case
-[[https://www.emacswiki.org/emacs/WhenToUseIf][Link: WhenToUseIf]]
-#+BEGIN_SRC elisp
-(let ((x 1))
-  (cond ((eq x 0) "It's zero")
-        ((eq x 1) "It's one")
-        :else "It's something else")
-)
-#+END_SRC
+| Name                                         | Comment                                                                               |
+|----------------------------------------------+---------------------------------------------------------------------------------------|
+| Open file                                    | =(find-file html-file)=                                                               |
+| Save file                                    | =(write-file html-file nil)=                                                          |
+| Get short filename                           | =(file-name-nondirectory somefilename)=                                               |
+| Get the directory name from filename         | =(file-name-directory FILENAME)=                                                      |
+| Check file/directories existence             | =(file-exists-p bfilename)=                                                           |
+| Insert contents of file FILENAME after point | =(insert-file-contents somefilename)=                                                 |
+| Return FILENAME's final "extension"          | =(file-name-extension "test.erl")=                                                    |
+| Return FILENAME sans final "extension"       | =(file-name-sans-extension "test.erl")=                                               |
+| Return a list of names of files in DIRECTORY | =(directory-files DIRECTORY &optional FULL MATCH NOSORT)=                             |
+| Insert contents of file FILENAME after point | =(insert-file-contents FILENAME &optional VISIT BEG END REPLACE)=                     |
+| Confirm directory exists                     | =(file-directory-p FILENAME)=                                                         |
+| Create directory                             | =(make-directory "~/.emacs.d/autosaves/" t)=                                          |
+| Find files by name                           | =(find-dired "../" "-name defined.hrl")=                                              |
+| read file content into a string              | =(setq dddstring (with-temp-buffer (insert-file-contents "dd.txt")=(buffer-string)))= |
 ** More Resources
 License: Code is licensed under [[https://www.dennyzhang.com/wp-content/mit_license.txt][MIT License]].
 #+BEGIN_HTML
@@ -386,6 +260,163 @@ License: Code is licensed under [[https://www.dennyzhang.com/wp-content/mit_lice
 #+SEQ_TODO: TODO HALF ASSIGN | DONE BYPASS DELEGATE CANCELED DEFERRED
 #+LINK_UP:
 #+LINK_HOME:
+* #  --8<-------------------------- separator ------------------------>8-- :noexport:
+* DONE Org-mode                                                    :noexport:
+  CLOSED: [2018-11-17 Sat 12:31]
+#+BEGIN_HTML
+ <a href="https://www.dennyzhang.com"><img align="right" width="201" height="268" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/denny_201706.png"></a>
+ <a href="https://www.dennyzhang.com"><img align="right" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/dns_small.png"></a>
+#+END_HTML
+** org-mode export
+| Name                             | Comment                                   |
+|----------------------------------+-------------------------------------------|
+| Export org-mode to markdown      | =org-md-export-to-markdown= =C-c C-e m m= |
+| Return entry's heading           | =(org-get-heading)=                       |
+| Get the entry text               | =(org-get-entry)=                         |
+|                                  | =(org-current-level)=                     |
+|                                  | =(org-end-of-subtree t)=                  |
+| Return the position              | =(point-at-bol)=                          |
+|                                  | =(org-on-heading-p)=                      |
+|                                  | =(org-in-item-p)=                         |
+|                                  | =(org-get-tags)=                          |
+| Get tags from title. e.g :XX:XX: | =(org-get-tags-string)=                   |
+|                                  | =(org-get-todo-state)=                    |
+|                                  | =(outline-next-heading)=                  |
+| Remove properties from text      | =(org-no-properties (org-get-heading))=   |
+|                                  | =(org-set-property "name" name)=          |
+|                                  | =(org-entry-get nil "name")=              |
+** Different Annotations                                           :noexport:
+- Add comment
+#+BEGIN_QUOTE
+ #+BEGIN_COMMENT
+
+ /Foo/
+
+ #+BEGIN_SRC c++
+ int main() { }
+ #+END_SRC
+
+ #+END_COMMENT
+#+END_QUOTE
+- Add Quote
+#+BEGIN_QUOTE
+ #+BEGIN_QUOTE
+
+ /Example:/
+
+ This is blockquote text.
+
+ #+END_QUOTE
+#+END_QUOTE
+
+- Center Text
+#+BEGIN_QUOTE
+ not center
+ #+BEGIN_CENTER
+ center
+ #+END_CENTER
+ not center, again
+
+#+END_QUOTE
+** Emphasis                                                        :noexport:
+| *bold* *bold*                                                        | [[http://www.google.com]] *bold*                                                        | [[http://www.xkcd.com][helpful text link]] *bold*                                                        | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] *bold*                                                        | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] *bold*                                                        |
+| *bold* /italic/                                                      | [[http://www.google.com]] /italic/                                                      | [[http://www.xkcd.com][helpful text link]] /italic/                                                      | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] /italic/                                                      | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] /italic/                                                      |
+| *bold* =code=                                                        | [[http://www.google.com]] =code=                                                        | [[http://www.xkcd.com][helpful text link]] =code=                                                        | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] =code=                                                        | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] =code=                                                        |
+| *bold* ~verbatim~                                                    | [[http://www.google.com]] ~verbatim~                                                    | [[http://www.xkcd.com][helpful text link]] ~verbatim~                                                    | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] ~verbatim~                                                    | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] ~verbatim~                                                    |
+| *bold* _underline_                                                   | [[http://www.google.com]] _underline_                                                   | [[http://www.xkcd.com][helpful text link]] _underline_                                                   | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] _underline_                                                   | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] _underline_                                                   |
+| *bold* +strikethrough+                                               | [[http://www.google.com]] +strikethrough+                                               | [[http://www.xkcd.com][helpful text link]] +strikethrough+                                               | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] +strikethrough+                                               | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] +strikethrough+                                               |
+| *bold* [[http://www.bing.com]]                                           | [[http://www.google.com]] [[http://www.bing.com]]                                           | [[http://www.xkcd.com][helpful text link]] [[http://www.bing.com]]                                           | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] [[http://www.bing.com]]                                           | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] [[http://www.bing.com]]                                           |
+| *bold* [[http://www.google.com]]                                         | [[http://www.google.com]] [[http://www.google.com]]                                         | [[http://www.xkcd.com][helpful text link]] [[http://www.google.com]]                                         | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] [[http://www.google.com]]                                         | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] [[http://www.google.com]]                                         |
+| *bold* [[http://www.xkcd.com][helpful text link]]                                             | [[http://www.google.com]] [[http://www.xkcd.com][helpful text link]]                                             | [[http://www.xkcd.com][helpful text link]] [[http://www.xkcd.com][helpful text link]]                                             | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] [[http://www.xkcd.com][helpful text link]]                                             | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] [[http://www.xkcd.com][helpful text link]]                                             |
+| *bold* [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] | [[http://www.google.com]] [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] | [[http://www.xkcd.com][helpful text link]] [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] |
+| *bold* [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]]                       | [[http://www.google.com]] [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]]                       | [[http://www.xkcd.com][helpful text link]] [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]]                       | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]]                       | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]]                       |
+| *bold* <http://www.google.com>                                       | [[http://www.google.com]] <http://www.google.com>                                       | [[http://www.xkcd.com][helpful text link]] <http://www.google.com>                                       | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] <http://www.google.com>                                       | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] <http://www.google.com>                                       |
+
+* DONE Common Scripts                                              :noexport:
+  CLOSED: [2018-11-17 Sat 12:28]
+- emacs multiline regexp
+#+BEGIN_SRC elisp
+;; http://stackoverflow.com/questions/1309050/emacs-query-replace-regexp-multiline
+(setq content-str "hello
+this
+----
+Denny
+Sophia")
+
+(message (replace-regexp-in-string
+          "\n----\\(.\\|\n\\)*" "" content-str))
+#+END_SRC
+
+- cond: like switch or case
+[[https://www.emacswiki.org/emacs/WhenToUseIf][Link: WhenToUseIf]]
+#+BEGIN_SRC elisp
+(let ((x 1))
+  (cond ((eq x 0) "It's zero")
+        ((eq x 1) "It's one")
+        :else "It's something else")
+)
+#+END_SRC
+* DONE list                                                        :noexport:
+  CLOSED: [2018-11-17 Sat 12:30]
+| 删除第n个元素,返回删除后的list.                                                                       | (nbutlast mylist n)                                          |
+| Return a copy of LIST with the last N elements removed.                                               | (butlast mylist n)                                           |
+| 在多维数组中,按第一维来查找                                                                           | (assoc KEY LIST)                                             |
+| 与assoc不同在于,可以指定匹配的算法,而不是默认的equal                                                  | (assoc-default file-name shell-history-alist 'string-match)  |
+| Find the first occurrence of item in seq                                                              | (position '(0 3 6) '((0 1 2) (0 3 6) (1 3 7)) :test #'equal) |
+| Get the length of a list                                                                              | (length mylist)                                              |
+| 连接两个List                                                                                          | (append mylist1 mylist2)                                     |
+| 删除第一个元素并返回                                                                                  | (pop mylist)                                                 |
+| 替换第一个元素,并返回                                                                                 | (setcar mylist x)                                            |
+| 替换除第一个之外的所有元素                                                                            | (setcdr mylist x)                                            |
+| Set intersection.                                                                                     | (intersection '(a b c) '(a c e)) = (C A)                     |
+| 注意: 它比较时是使用eq函数而不是equal函数                                                             | set-difference                                               |
+|                                                                                                       | union                                                        |
+| (subst 'sugar 'cream '(peaches and cream)) = (PEACHES AND SUGAR)                                      | (subst x y z)                                                |
+| Reverse LIST by modifying cdr pointers.                                                               | nreverse                                                     |
+| Reverse list                                                                                          | (apply 'string (reverse (string-to-list "foo")))             |
+| 向list尾部追回一个list, 原值变修改                                                                    | (nconc some-list (list "ef"))                                |
+| 将list串成string,并按指定分隔符分隔                                                                   | (mapconcat 'identity '("one" "two" "three") "-")             |
+| Apply FUNCTION to each element of SEQUENCE, and make a list of the results.                           | (mapcar #'(lambda (x) (+ x 2)) '(1 2 3)) = (3 4 5)           |
+| 如果 elt 不等于 list 中的任何元素,返回 nil .使用 eq 比较反之返回值为从第一匹配的元素到结尾元素的列表. | (memq 'three '(two one three four three five))               |
+| Delete by side effect any occurrences of ELT as a member of SEQ.                                      | (delete ELT SEQ)                                             |
+| 删除原list中, 包含的满足条件的元素                                                                    | (delq 'c sample-list)                                        |
+| 与delq相比, 它没有副作用, 不改变原数据                                                                | (remq 'a sample-list)                                        |
+| Return non-nil if ELT is an element of LIST.                                                          | (member "abd" '("ab" "cd" "ed"))                             |
+| Return a copy of SEQ with all occurrences of ELT removed.                                             | (remove ELT SEQ)                                             |
+| Remove all items not satisfying PREDICATE in SEQ.                                                     | (remove-if-not 'buffer-live-p keep-end-buffer-list)          |
+* [#A] emacs on mac                                                :noexport:
+** [#A] mac的光标移动是匀速的,相比ubuntu的加速模式而言太慢       :IMPORTANT:
+http://stackoverflow.com/questions/14290200/emacs24-on-mac-cursor-movement-is-quite-slow
+在System Preference的Keyboard中,把Key Repeat和Delay Until Repeat设置快一些即可
+** DONE [#A] [emacs on mac] 在emacs使用F1之类的功能键,而不是要按Fn+F1: 在键盘中设置fn的反转功能
+   CLOSED: [2013-03-20 Wed 21:15]
+** Use all F1, F2, etc. keys as standard function keys: Otherwise C-f9 won't be recognized
+System Preference -> Keyboard -->  Use all F1, F2, etc. keys as standard function keys
+** DONE [emacs on mac] emacs 不能最大化
+  CLOSED: [2013-03-13 Wed 18:43]
+(set-frame-parameter nil 'fullscreen 'fullboth)
+** DONE mac默认字体太小: 将emacs的字体单独设置一下,其它的不变
+    CLOSED: [2013-03-16 Sat 11:06]
+(set-default-font "-outline-Lucida Console-normal-normal-normal-mono-19-*-*-*-*-*-iso10646-1" 1)
+** BYPASS [emacs on mac] emacs emms失败: brew install mplayer: emms needs full paths for playlist :noexport:
+  CLOSED: [2013-03-18 Mon 23:13]
+http://stackoverflow.com/questions/9147823/emms-error-dont-know-how-to-play-track
+http://web.archiveorange.com/archive/v/KGR8XDzYl4kiv0ncbbjT
+
+(emms-player-for '(*track* (type . file) (name . "屠洪刚--霸王别姬.mp3")))
+
+#+begin_example
+(No changes need to be> saved)
+
+if: Don't know how to play track: (*track* (type . file) (name
+. "/home/denny/backup/multimediea/music/boyzone--everyday_i_love_you.mp3")
+(metadata) (info-artist . "Boyzone") (info-title . "Everyday I love
+you") (info-album . "The Ultimate Love Songs Collec")
+(info-tracknumber . "0") (info-year . "0") (info-playing-time . 274)
+(info-mtime 20155 31866) (last-played 20356 18351 701762) (play-count
+. 55))
+
+#+end_example
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * [#A] Org-mode in emacs                                      :noexport:HARD:
 ** org-mode数据组织的注意事项                           :noexport:HARD:EMACS:
@@ -2173,39 +2204,6 @@ http://tex.stackexchange.com/questions/71172/why-are-default-latex-margins-so-bi
 
  pdflatex current.tex
 ** TODO emacs Latex doesn't export Chinese characters: work/osc_2013/totvs_work_review/DevOpsWorkReview.org
-* [#A] emacs on mac                                                :noexport:
-** [#A] mac的光标移动是匀速的,相比ubuntu的加速模式而言太慢       :IMPORTANT:
-http://stackoverflow.com/questions/14290200/emacs24-on-mac-cursor-movement-is-quite-slow
-在System Preference的Keyboard中,把Key Repeat和Delay Until Repeat设置快一些即可
-** DONE [#A] [emacs on mac] 在emacs使用F1之类的功能键,而不是要按Fn+F1: 在键盘中设置fn的反转功能
-   CLOSED: [2013-03-20 Wed 21:15]
-** Use all F1, F2, etc. keys as standard function keys: Otherwise C-f9 won't be recognized
-System Preference -> Keyboard -->  Use all F1, F2, etc. keys as standard function keys
-** DONE [emacs on mac] emacs 不能最大化
-  CLOSED: [2013-03-13 Wed 18:43]
-(set-frame-parameter nil 'fullscreen 'fullboth)
-** DONE mac默认字体太小: 将emacs的字体单独设置一下,其它的不变
-    CLOSED: [2013-03-16 Sat 11:06]
-(set-default-font "-outline-Lucida Console-normal-normal-normal-mono-19-*-*-*-*-*-iso10646-1" 1)
-** BYPASS [emacs on mac] emacs emms失败: brew install mplayer: emms needs full paths for playlist :noexport:
-  CLOSED: [2013-03-18 Mon 23:13]
-http://stackoverflow.com/questions/9147823/emms-error-dont-know-how-to-play-track
-http://web.archiveorange.com/archive/v/KGR8XDzYl4kiv0ncbbjT
-
-(emms-player-for '(*track* (type . file) (name . "屠洪刚--霸王别姬.mp3")))
-
-#+begin_example
-(No changes need to be> saved)
-
-if: Don't know how to play track: (*track* (type . file) (name
-. "/home/denny/backup/multimediea/music/boyzone--everyday_i_love_you.mp3")
-(metadata) (info-artist . "Boyzone") (info-title . "Everyday I love
-you") (info-album . "The Ultimate Love Songs Collec")
-(info-tracknumber . "0") (info-year . "0") (info-playing-time . 274)
-(info-mtime 20155 31866) (last-played 20356 18351 701762) (play-count
-. 55))
-
-#+end_example
 * [#B] gnuplot in emacs                                            :noexport:
 org-plot/gnuplot
 ** sample data
@@ -2712,3 +2710,7 @@ Warning (bytecomp): reference to free variable 'flymake-mode'
 * emacs shortcut                                                   :noexport:
 https://www.cheatography.com/jona5/cheat-sheets/emacs/
 * TODO org-mode use a different seperator                          :noexport:
+* TODO emacs, when no end of-file: https://github.com/oratos/deployment/pull/2/files#r199572587 :noexport:
+* #  --8<-------------------------- separator ------------------------>8-- :noexport:
+* TODO [#A] emacs find go function definition                      :noexport:
+* TODO [#A] Export emacs bbdb to iphone contact                    :noexport:
