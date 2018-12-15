@@ -1,6 +1,6 @@
 * Emacs CheatSheet                                                     :Languages:
 :PROPERTIES:
-:type:     emacs
+:type:     tool
 :export_file_name: cheatsheet-emacs-A4.pdf
 :END:
 
@@ -9,7 +9,7 @@
 <div id="the whole thing" style="overflow: hidden;">
 <div style="float: left; padding: 5px"> <a href="https://www.linkedin.com/in/dennyzhang001"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/linkedin.png" alt="linkedin" /></a></div>
 <div style="float: left; padding: 5px"><a href="https://github.com/dennyzhang"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a></div>
-<div style="float: left; padding: 5px"><a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a></div>
+<div style="float: left; padding: 5px"><a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/slack.png" alt="slack"/></a></div>
 </div>
 
 <br/><br/>
@@ -20,7 +20,7 @@
 - Blog URL: https://cheatsheet.dennyzhang.com/cheatsheet-emacs-A4
 - Related posts: [[https://cheatsheet.dennyzhang.com/cheatsheet-vim-A4][Vim CheatSheet]], [[https://github.com/topics/denny-cheatsheets][#denny-cheatsheets]]
 
-File me [[https://github.com/DennyZhang/cheatsheet-emacs-A4/issues][Issues]] or star [[https://github.com/DennyZhang/cheatsheet-emacs-A4][this repo]].
+File me [[https://github.com/dennyzhang/cheatsheet.dennyzhang.com/issues][Issues]] or star [[https://github.com/dennyzhang/cheatsheet.dennyzhang.com][this repo]].
 
 See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][#denny-cheatsheets]]
 #+begin_example
@@ -228,12 +228,12 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
 ** More Resources
 License: Code is licensed under [[https://www.dennyzhang.com/wp-content/mit_license.txt][MIT License]].
 #+BEGIN_HTML
-<a href="https://www.dennyzhang.com"><img align="right" width="201" height="268" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/denny_201706.png"></a>
-<a href="https://www.dennyzhang.com"><img align="right" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/dns_small.png"></a>
+<a href="https://cheatsheet.dennyzhang.com"><img align="right" width="201" height="268" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/denny_201706.png"></a>
+<a href="https://cheatsheet.dennyzhang.com"><img align="right" src="https://raw.githubusercontent.com/dennyzhang/cheatsheet.dennyzhang.com/master/images/cheatsheet_dns.png"></a>
 
 <a href="https://www.linkedin.com/in/dennyzhang001"><img align="bottom" src="https://www.dennyzhang.com/wp-content/uploads/sns/linkedin.png" alt="linkedin" /></a>
 <a href="https://github.com/dennyzhang"><img align="bottom"src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a>
-<a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img align="bottom" src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a>
+<a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img align="bottom" src="https://www.dennyzhang.com/wp-content/uploads/sns/slack.png" alt="slack"/></a>
 #+END_HTML
 * org-mode configuration                                           :noexport:
 #+STARTUP: overview customtime noalign logdone showall
@@ -249,7 +249,7 @@ License: Code is licensed under [[https://www.dennyzhang.com/wp-content/mit_lice
 #+LATEX_HEADER: \rhead{Updated: \today}
 #+LATEX_HEADER: \rfoot{\thepage\ of \pageref{LastPage}}
 #+LATEX_HEADER: \lfoot{\href{https://github.com/dennyzhang/cheatsheet-emacs-A4}{GitHub: https://github.com/dennyzhang/cheatsheet-emacs-A4}}
-#+LATEX_HEADER: \lhead{\href{https://cheatsheet.dennyzhang.com/cheatsheet-slack-A4}{Blog URL: https://cheatsheet.dennyzhang.com/cheatsheet-emacs-A4}}
+#+LATEX_HEADER: \lhead{\href{https://cheatsheet.dennyzhang.com/cheatsheet-emacs-A4}{Blog URL: https://cheatsheet.dennyzhang.com/cheatsheet-emacs-A4}}
 #+AUTHOR: Denny Zhang
 #+EMAIL:  denny@dennyzhang.com
 #+TAGS: noexport(n)
@@ -261,129 +261,6 @@ License: Code is licensed under [[https://www.dennyzhang.com/wp-content/mit_lice
 #+LINK_UP:
 #+LINK_HOME:
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
-* DONE Org-mode                                                    :noexport:
-  CLOSED: [2018-11-17 Sat 12:31]
-#+BEGIN_HTML
- <a href="https://www.dennyzhang.com"><img align="right" width="201" height="268" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/denny_201706.png"></a>
- <a href="https://www.dennyzhang.com"><img align="right" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/dns_small.png"></a>
-#+END_HTML
-** org-mode export
-| Name                             | Comment                                   |
-|----------------------------------+-------------------------------------------|
-| Export org-mode to markdown      | =org-md-export-to-markdown= =C-c C-e m m= |
-| Return entry's heading           | =(org-get-heading)=                       |
-| Get the entry text               | =(org-get-entry)=                         |
-|                                  | =(org-current-level)=                     |
-|                                  | =(org-end-of-subtree t)=                  |
-| Return the position              | =(point-at-bol)=                          |
-|                                  | =(org-on-heading-p)=                      |
-|                                  | =(org-in-item-p)=                         |
-|                                  | =(org-get-tags)=                          |
-| Get tags from title. e.g :XX:XX: | =(org-get-tags-string)=                   |
-|                                  | =(org-get-todo-state)=                    |
-|                                  | =(outline-next-heading)=                  |
-| Remove properties from text      | =(org-no-properties (org-get-heading))=   |
-|                                  | =(org-set-property "name" name)=          |
-|                                  | =(org-entry-get nil "name")=              |
-** Different Annotations                                           :noexport:
-- Add comment
-#+BEGIN_QUOTE
- #+BEGIN_COMMENT
-
- /Foo/
-
- #+BEGIN_SRC c++
- int main() { }
- #+END_SRC
-
- #+END_COMMENT
-#+END_QUOTE
-- Add Quote
-#+BEGIN_QUOTE
- #+BEGIN_QUOTE
-
- /Example:/
-
- This is blockquote text.
-
- #+END_QUOTE
-#+END_QUOTE
-
-- Center Text
-#+BEGIN_QUOTE
- not center
- #+BEGIN_CENTER
- center
- #+END_CENTER
- not center, again
-
-#+END_QUOTE
-** Emphasis                                                        :noexport:
-| *bold* *bold*                                                        | [[http://www.google.com]] *bold*                                                        | [[http://www.xkcd.com][helpful text link]] *bold*                                                        | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] *bold*                                                        | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] *bold*                                                        |
-| *bold* /italic/                                                      | [[http://www.google.com]] /italic/                                                      | [[http://www.xkcd.com][helpful text link]] /italic/                                                      | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] /italic/                                                      | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] /italic/                                                      |
-| *bold* =code=                                                        | [[http://www.google.com]] =code=                                                        | [[http://www.xkcd.com][helpful text link]] =code=                                                        | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] =code=                                                        | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] =code=                                                        |
-| *bold* ~verbatim~                                                    | [[http://www.google.com]] ~verbatim~                                                    | [[http://www.xkcd.com][helpful text link]] ~verbatim~                                                    | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] ~verbatim~                                                    | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] ~verbatim~                                                    |
-| *bold* _underline_                                                   | [[http://www.google.com]] _underline_                                                   | [[http://www.xkcd.com][helpful text link]] _underline_                                                   | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] _underline_                                                   | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] _underline_                                                   |
-| *bold* +strikethrough+                                               | [[http://www.google.com]] +strikethrough+                                               | [[http://www.xkcd.com][helpful text link]] +strikethrough+                                               | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] +strikethrough+                                               | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] +strikethrough+                                               |
-| *bold* [[http://www.bing.com]]                                           | [[http://www.google.com]] [[http://www.bing.com]]                                           | [[http://www.xkcd.com][helpful text link]] [[http://www.bing.com]]                                           | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] [[http://www.bing.com]]                                           | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] [[http://www.bing.com]]                                           |
-| *bold* [[http://www.google.com]]                                         | [[http://www.google.com]] [[http://www.google.com]]                                         | [[http://www.xkcd.com][helpful text link]] [[http://www.google.com]]                                         | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] [[http://www.google.com]]                                         | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] [[http://www.google.com]]                                         |
-| *bold* [[http://www.xkcd.com][helpful text link]]                                             | [[http://www.google.com]] [[http://www.xkcd.com][helpful text link]]                                             | [[http://www.xkcd.com][helpful text link]] [[http://www.xkcd.com][helpful text link]]                                             | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] [[http://www.xkcd.com][helpful text link]]                                             | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] [[http://www.xkcd.com][helpful text link]]                                             |
-| *bold* [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] | [[http://www.google.com]] [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] | [[http://www.xkcd.com][helpful text link]] [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] |
-| *bold* [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]]                       | [[http://www.google.com]] [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]]                       | [[http://www.xkcd.com][helpful text link]] [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]]                       | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]]                       | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]]                       |
-| *bold* <http://www.google.com>                                       | [[http://www.google.com]] <http://www.google.com>                                       | [[http://www.xkcd.com][helpful text link]] <http://www.google.com>                                       | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] <http://www.google.com>                                       | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] <http://www.google.com>                                       |
-
-* DONE Common Scripts                                              :noexport:
-  CLOSED: [2018-11-17 Sat 12:28]
-- emacs multiline regexp
-#+BEGIN_SRC elisp
-;; http://stackoverflow.com/questions/1309050/emacs-query-replace-regexp-multiline
-(setq content-str "hello
-this
-----
-Denny
-Sophia")
-
-(message (replace-regexp-in-string
-          "\n----\\(.\\|\n\\)*" "" content-str))
-#+END_SRC
-
-- cond: like switch or case
-[[https://www.emacswiki.org/emacs/WhenToUseIf][Link: WhenToUseIf]]
-#+BEGIN_SRC elisp
-(let ((x 1))
-  (cond ((eq x 0) "It's zero")
-        ((eq x 1) "It's one")
-        :else "It's something else")
-)
-#+END_SRC
-* DONE list                                                        :noexport:
-  CLOSED: [2018-11-17 Sat 12:30]
-| 删除第n个元素,返回删除后的list.                                                                       | (nbutlast mylist n)                                          |
-| Return a copy of LIST with the last N elements removed.                                               | (butlast mylist n)                                           |
-| 在多维数组中,按第一维来查找                                                                           | (assoc KEY LIST)                                             |
-| 与assoc不同在于,可以指定匹配的算法,而不是默认的equal                                                  | (assoc-default file-name shell-history-alist 'string-match)  |
-| Find the first occurrence of item in seq                                                              | (position '(0 3 6) '((0 1 2) (0 3 6) (1 3 7)) :test #'equal) |
-| Get the length of a list                                                                              | (length mylist)                                              |
-| 连接两个List                                                                                          | (append mylist1 mylist2)                                     |
-| 删除第一个元素并返回                                                                                  | (pop mylist)                                                 |
-| 替换第一个元素,并返回                                                                                 | (setcar mylist x)                                            |
-| 替换除第一个之外的所有元素                                                                            | (setcdr mylist x)                                            |
-| Set intersection.                                                                                     | (intersection '(a b c) '(a c e)) = (C A)                     |
-| 注意: 它比较时是使用eq函数而不是equal函数                                                             | set-difference                                               |
-|                                                                                                       | union                                                        |
-| (subst 'sugar 'cream '(peaches and cream)) = (PEACHES AND SUGAR)                                      | (subst x y z)                                                |
-| Reverse LIST by modifying cdr pointers.                                                               | nreverse                                                     |
-| Reverse list                                                                                          | (apply 'string (reverse (string-to-list "foo")))             |
-| 向list尾部追回一个list, 原值变修改                                                                    | (nconc some-list (list "ef"))                                |
-| 将list串成string,并按指定分隔符分隔                                                                   | (mapconcat 'identity '("one" "two" "three") "-")             |
-| Apply FUNCTION to each element of SEQUENCE, and make a list of the results.                           | (mapcar #'(lambda (x) (+ x 2)) '(1 2 3)) = (3 4 5)           |
-| 如果 elt 不等于 list 中的任何元素,返回 nil .使用 eq 比较反之返回值为从第一匹配的元素到结尾元素的列表. | (memq 'three '(two one three four three five))               |
-| Delete by side effect any occurrences of ELT as a member of SEQ.                                      | (delete ELT SEQ)                                             |
-| 删除原list中, 包含的满足条件的元素                                                                    | (delq 'c sample-list)                                        |
-| 与delq相比, 它没有副作用, 不改变原数据                                                                | (remq 'a sample-list)                                        |
-| Return non-nil if ELT is an element of LIST.                                                          | (member "abd" '("ab" "cd" "ed"))                             |
-| Return a copy of SEQ with all occurrences of ELT removed.                                             | (remove ELT SEQ)                                             |
-| Remove all items not satisfying PREDICATE in SEQ.                                                     | (remove-if-not 'buffer-live-p keep-end-buffer-list)          |
 * [#A] emacs on mac                                                :noexport:
 ** [#A] mac的光标移动是匀速的,相比ubuntu的加速模式而言太慢       :IMPORTANT:
 http://stackoverflow.com/questions/14290200/emacs24-on-mac-cursor-movement-is-quite-slow
@@ -417,7 +294,6 @@ you") (info-album . "The Ultimate Love Songs Collec")
 . 55))
 
 #+end_example
-* #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * [#A] Org-mode in emacs                                      :noexport:HARD:
 ** org-mode数据组织的注意事项                           :noexport:HARD:EMACS:
 *** Attach unique id to the task: like attach bug number, for upgrade support
@@ -1625,24 +1501,6 @@ http://s.taobao.com/search?q=%D2%C2%B7%FE\\
  Wed Dec 12 14:48:59 CST 2012
  /sshx:root@192.168.75.111: #$
 #+end_example
-* DONE [#A] 将bbdb导出成有头像的vcard                    :noexport:IMPORTANT:
-  CLOSED: [2011-09-17 Sat 16:48]
-- 将bbdb的每条记录导出成一个vcard文件
- (bbdb-vcard-export "~/exported-vcards/" t t)
-
-- 删除不必要的vcard文件(奇怪:bbdb-vcard-export会生成多余的vcard文件)
-cd ~/exported-vcards/; rm -rf *-1.vcf
-
-- 针对每个vcard文件, 添加相应的PHOTO字段的二进制图片值
- (update-bbdb-picture-to-vcard)
-
-- 将vcard合并成一个, 因为google只支持导入一个vcard
- cd ~/exported-vcards/; cat * > /tmp/vcard.vcf
-
-- 通过google contact与手机同步
-  https://www.google.com/contacts_v2/#contacts
-** useful link
-https://github.com/trebb/bbdb-vcard
 * [#A] Mail in emacs -- gnus                         :noexport:Personal:
 :PROPERTIES:
 :type:   Emacs
@@ -2492,6 +2350,159 @@ Possible options are...
 https://www.gnu.org/software/emacs/manual/html_node/emacs/Remote-Files.html
 
 kubo /sshx:kubo@10.193.19.29:/home/kubo/
+* #  --8<-------------------------- separator ------------------------>8-- :noexport:
+* DONE Org-mode                                                    :noexport:
+  CLOSED: [2018-11-17 Sat 12:31]
+#+BEGIN_HTML
+ <a href="https://cheatsheet.dennyzhang.com"><img align="right" width="201" height="268" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/denny_201706.png"></a>
+ <a href="https://cheatsheet.dennyzhang.com"><img align="right" src="https://raw.githubusercontent.com/dennyzhang/cheatsheet.dennyzhang.com/master/images/cheatsheet_dns.png"></a>
+#+END_HTML
+** org-mode export
+| Name                             | Comment                                   |
+|----------------------------------+-------------------------------------------|
+| Export org-mode to markdown      | =org-md-export-to-markdown= =C-c C-e m m= |
+| Return entry's heading           | =(org-get-heading)=                       |
+| Get the entry text               | =(org-get-entry)=                         |
+|                                  | =(org-current-level)=                     |
+|                                  | =(org-end-of-subtree t)=                  |
+| Return the position              | =(point-at-bol)=                          |
+|                                  | =(org-on-heading-p)=                      |
+|                                  | =(org-in-item-p)=                         |
+|                                  | =(org-get-tags)=                          |
+| Get tags from title. e.g :XX:XX: | =(org-get-tags-string)=                   |
+|                                  | =(org-get-todo-state)=                    |
+|                                  | =(outline-next-heading)=                  |
+| Remove properties from text      | =(org-no-properties (org-get-heading))=   |
+|                                  | =(org-set-property "name" name)=          |
+|                                  | =(org-entry-get nil "name")=              |
+** Different Annotations                                           :noexport:
+- Add comment
+#+BEGIN_QUOTE
+ #+BEGIN_COMMENT
+
+ /Foo/
+
+ #+BEGIN_SRC c++
+ int main() { }
+ #+END_SRC
+
+ #+END_COMMENT
+#+END_QUOTE
+- Add Quote
+#+BEGIN_QUOTE
+ #+BEGIN_QUOTE
+
+ /Example:/
+
+ This is blockquote text.
+
+ #+END_QUOTE
+#+END_QUOTE
+
+- Center Text
+#+BEGIN_QUOTE
+ not center
+ #+BEGIN_CENTER
+ center
+ #+END_CENTER
+ not center, again
+
+#+END_QUOTE
+** Emphasis                                                        :noexport:
+| *bold* *bold*                                                        | [[http://www.google.com]] *bold*                                                        | [[http://www.xkcd.com][helpful text link]] *bold*                                                        | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] *bold*                                                        | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] *bold*                                                        |
+| *bold* /italic/                                                      | [[http://www.google.com]] /italic/                                                      | [[http://www.xkcd.com][helpful text link]] /italic/                                                      | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] /italic/                                                      | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] /italic/                                                      |
+| *bold* =code=                                                        | [[http://www.google.com]] =code=                                                        | [[http://www.xkcd.com][helpful text link]] =code=                                                        | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] =code=                                                        | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] =code=                                                        |
+| *bold* ~verbatim~                                                    | [[http://www.google.com]] ~verbatim~                                                    | [[http://www.xkcd.com][helpful text link]] ~verbatim~                                                    | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] ~verbatim~                                                    | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] ~verbatim~                                                    |
+| *bold* _underline_                                                   | [[http://www.google.com]] _underline_                                                   | [[http://www.xkcd.com][helpful text link]] _underline_                                                   | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] _underline_                                                   | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] _underline_                                                   |
+| *bold* +strikethrough+                                               | [[http://www.google.com]] +strikethrough+                                               | [[http://www.xkcd.com][helpful text link]] +strikethrough+                                               | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] +strikethrough+                                               | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] +strikethrough+                                               |
+| *bold* [[http://www.bing.com]]                                           | [[http://www.google.com]] [[http://www.bing.com]]                                           | [[http://www.xkcd.com][helpful text link]] [[http://www.bing.com]]                                           | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] [[http://www.bing.com]]                                           | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] [[http://www.bing.com]]                                           |
+| *bold* [[http://www.google.com]]                                         | [[http://www.google.com]] [[http://www.google.com]]                                         | [[http://www.xkcd.com][helpful text link]] [[http://www.google.com]]                                         | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] [[http://www.google.com]]                                         | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] [[http://www.google.com]]                                         |
+| *bold* [[http://www.xkcd.com][helpful text link]]                                             | [[http://www.google.com]] [[http://www.xkcd.com][helpful text link]]                                             | [[http://www.xkcd.com][helpful text link]] [[http://www.xkcd.com][helpful text link]]                                             | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] [[http://www.xkcd.com][helpful text link]]                                             | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] [[http://www.xkcd.com][helpful text link]]                                             |
+| *bold* [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] | [[http://www.google.com]] [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] | [[http://www.xkcd.com][helpful text link]] [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] |
+| *bold* [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]]                       | [[http://www.google.com]] [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]]                       | [[http://www.xkcd.com][helpful text link]] [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]]                       | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]]                       | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]]                       |
+| *bold* <http://www.google.com>                                       | [[http://www.google.com]] <http://www.google.com>                                       | [[http://www.xkcd.com][helpful text link]] <http://www.google.com>                                       | [[http://farm7.static.flickr.com/6078/6084185195_552aa270b2.jpg]] <http://www.google.com>                                       | [[http://www.xkcd.com][http://imgs.xkcd.com/comics/t_cells.png]] <http://www.google.com>                                       |
+* DONE Common Scripts                                              :noexport:
+  CLOSED: [2018-11-17 Sat 12:28]
+- emacs multiline regexp
+#+BEGIN_SRC elisp
+;; http://stackoverflow.com/questions/1309050/emacs-query-replace-regexp-multiline
+(setq content-str "hello
+this
+----
+Denny
+Sophia")
+
+(message (replace-regexp-in-string
+          "\n----\\(.\\|\n\\)*" "" content-str))
+#+END_SRC
+
+- cond: like switch or case
+[[https://www.emacswiki.org/emacs/WhenToUseIf][Link: WhenToUseIf]]
+#+BEGIN_SRC elisp
+(let ((x 1))
+  (cond ((eq x 0) "It's zero")
+        ((eq x 1) "It's one")
+        :else "It's something else")
+)
+#+END_SRC
+* DONE list                                                        :noexport:
+  CLOSED: [2018-11-17 Sat 12:30]
+| 删除第n个元素,返回删除后的list.                                                                       | (nbutlast mylist n)                                          |
+| Return a copy of LIST with the last N elements removed.                                               | (butlast mylist n)                                           |
+| 在多维数组中,按第一维来查找                                                                           | (assoc KEY LIST)                                             |
+| 与assoc不同在于,可以指定匹配的算法,而不是默认的equal                                                  | (assoc-default file-name shell-history-alist 'string-match)  |
+| Find the first occurrence of item in seq                                                              | (position '(0 3 6) '((0 1 2) (0 3 6) (1 3 7)) :test #'equal) |
+| Get the length of a list                                                                              | (length mylist)                                              |
+| 连接两个List                                                                                          | (append mylist1 mylist2)                                     |
+| 删除第一个元素并返回                                                                                  | (pop mylist)                                                 |
+| 替换第一个元素,并返回                                                                                 | (setcar mylist x)                                            |
+| 替换除第一个之外的所有元素                                                                            | (setcdr mylist x)                                            |
+| Set intersection.                                                                                     | (intersection '(a b c) '(a c e)) = (C A)                     |
+| 注意: 它比较时是使用eq函数而不是equal函数                                                             | set-difference                                               |
+|                                                                                                       | union                                                        |
+| (subst 'sugar 'cream '(peaches and cream)) = (PEACHES AND SUGAR)                                      | (subst x y z)                                                |
+| Reverse LIST by modifying cdr pointers.                                                               | nreverse                                                     |
+| Reverse list                                                                                          | (apply 'string (reverse (string-to-list "foo")))             |
+| 向list尾部追回一个list, 原值变修改                                                                    | (nconc some-list (list "ef"))                                |
+| 将list串成string,并按指定分隔符分隔                                                                   | (mapconcat 'identity '("one" "two" "three") "-")             |
+| Apply FUNCTION to each element of SEQUENCE, and make a list of the results.                           | (mapcar #'(lambda (x) (+ x 2)) '(1 2 3)) = (3 4 5)           |
+| 如果 elt 不等于 list 中的任何元素,返回 nil .使用 eq 比较反之返回值为从第一匹配的元素到结尾元素的列表. | (memq 'three '(two one three four three five))               |
+| Delete by side effect any occurrences of ELT as a member of SEQ.                                      | (delete ELT SEQ)                                             |
+| 删除原list中, 包含的满足条件的元素                                                                    | (delq 'c sample-list)                                        |
+| 与delq相比, 它没有副作用, 不改变原数据                                                                | (remq 'a sample-list)                                        |
+| Return non-nil if ELT is an element of LIST.                                                          | (member "abd" '("ab" "cd" "ed"))                             |
+| Return a copy of SEQ with all occurrences of ELT removed.                                             | (remove ELT SEQ)                                             |
+| Remove all items not satisfying PREDICATE in SEQ.                                                     | (remove-if-not 'buffer-live-p keep-end-buffer-list)          |
+* DONE M-x org-display-inline-images                               :noexport:
+  CLOSED: [2019-02-12 Tue 14:52]
+https://stackoverflow.com/questions/17621495/emacs-org-display-inline-images
+* DONE [#A] 将bbdb导出成有头像的vcard                    :noexport:IMPORTANT:
+  CLOSED: [2011-09-17 Sat 16:48]
+- 将bbdb的每条记录导出成一个vcard文件
+ (bbdb-vcard-export "~/exported-vcards/" t t)
+
+- 删除不必要的vcard文件(奇怪:bbdb-vcard-export会生成多余的vcard文件)
+cd ~/exported-vcards/; rm -rf *-1.vcf
+
+- 针对每个vcard文件, 添加相应的PHOTO字段的二进制图片值
+ (update-bbdb-picture-to-vcard)
+
+- 将vcard合并成一个, 因为google只支持导入一个vcard
+ cd ~/exported-vcards/; cat * > /tmp/vcard.vcf
+
+- 通过google contact与手机同步
+  https://www.google.com/contacts_v2/#contacts
+** useful link
+https://github.com/trebb/bbdb-vcard
+* DONE [#A] when export markdown remove: <colgroup><col class="org-left" /><col class="org-left" /></colgroup> :noexport:
+  CLOSED: [2020-06-01 Mon 08:01]
+
+<colgroup><col class="org-left" /><col class="org-left" /></colgroup>
+* DONE elisp trim trailing whitespace: string-trim                 :noexport:
+  CLOSED: [2020-06-08 Mon 00:29]
+* CANCELED emacs: /bin/sh: warning: setlocale: LC_ALL: cannot change locale (""): No such file or directory :noexport:
+  CLOSED: [2020-06-07 Sun 23:35]
+* #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * TODO [#B] emacs shell很好用,但网络卡住时tmux有不可抗拒的优势     :noexport:
 * flymake in emacs                                                 :noexport:
 ** TODO [#A] emacs delete flymake files: another folder
@@ -2549,14 +2560,13 @@ http://dominik.honnef.co/posts/2013/03/writing_go_in_emacs/
  http://tleyden.github.io/blog/2014/05/22/configure-emacs-as-a-go-editor-from-scratch/
 
  go get -u github.com/nsf/gocode
-* #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * TODO [#A] avoid TODO been exported in org-ruby(github)           :noexport:
 * TODO add sns to blog posts                                       :noexport:
 #+BEGIN_HTML
 <div id="the whole thing" style="overflow: hidden;">
 <div style="float: left; padding: 5px"> <a href="https://www.linkedin.com/in/dennyzhang001"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/linkedin.png" alt="linkedin" /></a></div>
 <div style="float: left; padding: 5px"><a href="https://github.com/dennyzhang"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a></div>
-<div style="float: left; padding: 5px"><a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a></div>
+<div style="float: left; padding: 5px"><a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/slack.png" alt="slack"/></a></div>
 </div>
 #+END_HTML
 
@@ -2564,7 +2574,7 @@ http://dominik.honnef.co/posts/2013/03/writing_go_in_emacs/
 <div style="overflow: hidden;">
 <div style="float: left; padding: 5px"> <a href="https://www.linkedin.com/in/dennyzhang001"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/linkedin.png" alt="linkedin" /></a></div>
 <div style="float: left; padding: 5px"><a href="https://github.com/dennyzhang"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a></div>
-<div style="float: left; padding: 5px"><a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a></div>
+<div style="float: left; padding: 5px"><a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/slack.png" alt="slack"/></a></div>
 </div>
 #+END_HTML
 
@@ -2714,3 +2724,13 @@ https://www.cheatography.com/jona5/cheat-sheets/emacs/
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * TODO [#A] emacs find go function definition                      :noexport:
 * TODO [#A] Export emacs bbdb to iphone contact                    :noexport:
+* HALF Emacs display inline images                                 :noexport:
+https://stackoverflow.com/questions/17621495/emacs-org-display-inline-images
+M-x org-toggle-inline-images
+* TODO org-mode show picture                                       :noexport:
+https://emacs.stackexchange.com/questions/30520/org-mode-c-c-c-c-to-display-inline-image
+C-c C-c
+(org-redisplay-inline-images)
+* TODO Integrate emacs bbdb with iPhone contact                    :noexport:
+* TODO emacsclient and X-Forwarding#                               :noexport:
+* TODO [#A] emacs export emacs calendar to iCalendar     :noexport:IMPORTANT:
